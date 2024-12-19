@@ -40,7 +40,7 @@ export default function Home() {
       <div className="fixed inset-0 z-0">
         <Image
           src="/IMG_2980.JPG"
-          alt="Harold's Chicken Background"
+          alt="Harold&apos;s Chicken Background"
           fill
           className="object-cover"
           priority
@@ -65,12 +65,12 @@ export default function Home() {
 
             {/* Heading */}
             <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
-              Harold's Chicken
+              Harold&apos;s Chicken
             </h1>
 
             {/* Description */}
             <p className="text-lg md:text-xl text-white font-light max-w-2xl mx-auto">
-              We're building a new website for Chicago's iconic Harold's Chicken. Known for their perfectly crispy chicken with mild sauce since 1950, we're making sure their online presence lives up to their South Side legacy.
+              We&apos;re building a new website for Chicago&apos;s iconic Harold&apos;s Chicken. Known for their perfectly crispy chicken with mild sauce since 1950, we&apos;re making sure their online presence lives up to their South Side legacy.
             </p>
 
             {/* Countdown */}
