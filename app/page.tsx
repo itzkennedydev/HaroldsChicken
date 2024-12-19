@@ -35,93 +35,103 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen relative">
+    <main className="min-h-screen relative bg-black">
       {/* Background Image */}
       <div className="fixed inset-0 z-0">
         <Image
           src="/IMG_2980.JPG"
-          alt="Harold&apos;s Chicken Background"
+          alt="Harold's Chicken Background"
           fill
-          className="object-cover"
+          className="object-cover opacity-50"
           priority
         />
-        <div className="absolute inset-0 bg-black/75" />
+        <div           className="absolute inset-0 bg-black/60" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col min-h-screen">
-        <header className="flex-1 flex items-center justify-center p-8 text-center">
-          <div className="max-w-3xl mx-auto space-y-12">
-            {/* Logo */}
-            <div className="transform transition-transform hover:scale-105">
-              <Image
-                src="/SCA.png"
-                alt="Sovereign Creative Agency Logo"
-                width={200}
-                height={100}
-                className="mx-auto"
-              />
-            </div>
-
-            {/* Heading */}
-            <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
-              Harold&apos;s Chicken
-            </h1>
-
-            {/* Description */}
-            <p className="text-lg md:text-xl text-white font-light max-w-2xl mx-auto">
-              We&apos;re building a new website for Chicago&apos;s iconic Harold&apos;s Chicken. Known for their perfectly crispy chicken with mild sauce since 1950, we&apos;re making sure their online presence lives up to their South Side legacy.
-            </p>
-
-            {/* Countdown */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-              {[
-                { label: "Days", value: timeLeft.days },
-                { label: "Hours", value: timeLeft.hours },
-                { label: "Minutes", value: timeLeft.minutes },
-                { label: "Seconds", value: timeLeft.seconds }
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg"
-                >
-                  <div className="font-playfair text-3xl md:text-4xl font-bold text-white mb-2">
-                    {item.value}
-                  </div>
-                  <div className="text-sm uppercase tracking-wider text-white font-medium">
-                    {item.label}
-                  </div>
+      {/* Content Container */}
+      <div className="relative z-10 min-h-screen flex flex-col">
+        {/* Main Content Section */}
+        <div className="flex-1 flex items-center justify-center px-6 py-12">
+          <div className="w-full max-w-5xl mx-auto">
+            <div className="space-y-20">
+              {/* Logo Section */}
+              <div className="flex justify-center">
+                <div className="relative">
+                  <Image
+                    src="/SCA.png"
+                    alt="Sovereign Creative Agency Logo"
+                    width={160}
+                    height={80}
+                    className="transition-transform duration-500 hover:scale-105"
+                  />
                 </div>
-              ))}
-            </div>
+              </div>
 
-            {/* Scroll indicator */}
-            <div className="animate-bounce text-white">
-              <svg
-                className="w-6 h-6 mx-auto"
-                fill="none"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-              </svg>
+              {/* Main Content */}
+              <div className="text-center space-y-16">
+                {/* Heading */}
+                <div className="space-y-6">
+                  <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl text-white font-bold tracking-tight">
+                    Harold's Chicken
+                  </h1>
+                  <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    Experience a taste of Chicago's soul, reimagined for the digital age. For over 70 years, Harold's Chicken has been more than a restaurant – it's been a South Side institution.
+                    <span className="block mt-4 text-white/80">
+                      Soon, the legendary crispy chicken, signature mild sauce, and the authentic Chicago experience will have a new online home worthy of its heritage.
+                    </span>
+                  </p>
+                </div>
+
+                {/* Countdown Section */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 px-4">
+                  {[
+                    { label: "Days", value: timeLeft.days },
+                    { label: "Hours", value: timeLeft.hours },
+                    { label: "Minutes", value: timeLeft.minutes },
+                    { label: "Seconds", value: timeLeft.seconds }
+                  ].map((item) => (
+                    <div
+                      key={item.label}
+                      className="relative group"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-2xl blur-xl transition-opacity duration-300 group-hover:opacity-70" />
+                      <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 transition-all duration-300">
+                        <div className="font-playfair text-4xl md:text-5xl text-white font-bold mb-2">
+                          {item.value}
+                        </div>
+                        <div className="text-sm text-gray-400 font-medium uppercase tracking-wider">
+                          {item.label}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Scroll Indicator */}
+              <div className="flex justify-center">
+                <div className="relative w-6 h-10 border border-white/20 rounded-full flex items-start justify-center p-2">
+                  <div className="w-1.5 h-2 bg-white/50 rounded-full animate-pulse" />
+                </div>
+              </div>
             </div>
           </div>
-        </header>
+        </div>
 
         {/* Footer */}
-        <footer className="relative z-10 p-8 text-center">
-          <a
-            href="http://sovereigncreative.agency"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white hover:text-indigo-400 transition-colors text-sm tracking-wide"
-          >
-            Sovereign Creative Agency © 2024. All rights reserved.
-          </a>
+        <footer className="relative py-8 px-6 text-center">
+          <div className="max-w-5xl mx-auto">
+            <a
+              href="http://sovereigncreative.agency"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-sm text-gray-500 hover:text-white transition-colors duration-300"
+            >
+              Sovereign Creative Agency © 2024. All rights reserved.
+            </a>
+          </div>
         </footer>
       </div>
-    </div>
+    </main>
   );
 }
