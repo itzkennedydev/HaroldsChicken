@@ -40,12 +40,12 @@ export default function Home() {
       <div className="fixed inset-0 z-0">
         <Image
           src="/IMG_2980.JPG"
-          alt="Harold&apos;s Chicken Background"
+          alt="Harold's Chicken Background"
           fill
           className="object-cover opacity-50"
           priority
         />
-        <div           className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
       {/* Content Container */}
@@ -58,8 +58,8 @@ export default function Home() {
               <div className="flex justify-center">
                 <div className="relative">
                   <Image
-                    src="https://apply.haroldschickensportsbar.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdnccw1hhh%2Fimage%2Fupload%2Fv1734649833%2FHaroldsLogoWhite_c6x72n.png&w=256&q=75"
-                    alt="Sovereign Creative Agency Logo"
+                    src="https://res.cloudinary.com/dnccw1hhh/image/upload/v1734649833/HaroldsLogoWhite_c6x72n.png"
+                    alt="Harold's Chicken Logo"
                     width={160}
                     height={80}
                     className="transition-transform duration-500 hover:scale-105"
