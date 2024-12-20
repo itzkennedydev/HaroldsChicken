@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-module.exports = {
+const nextConfig: NextConfig = {
   images: {
     domains: ['res.cloudinary.com', 'apply.haroldschickensportsbar.com'],
   },
