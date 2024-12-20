@@ -39,8 +39,8 @@ export default function Home() {
       {/* Background Image */}
       <div className="fixed inset-0 z-0">
         <Image
-          src="/IMG_2980.JPG"
-          alt="Harold's Chicken Background"
+          src="https://live.staticflickr.com/2566/5780029140_10f694c164_b.jpg"
+          alt="Chicago Cityscape"
           fill
           className="object-cover opacity-50"
           priority
@@ -75,7 +75,7 @@ export default function Home() {
                     Harold&apos;s Chicken
                   </h1>
                   <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                    Experience a taste of Chicago&apos;s soul, reimagined for the digital age. For over 70 years, Harold&apos;s Chicken has been more than a restaurant – it&apos;s been a South Side institution.
+                    Experience a taste of Chicago&apos;s soul, reimagined for the digital age. For over 70 years, Harold&apos;s Chicken has been more than a restaurant – it&apos;s been a South Side institution, where everything is made fresh daily and nothing is ever frozen.
                     <span className="block mt-4 text-white/80">
                       Soon, the legendary crispy chicken, signature mild sauce, and the authentic Chicago experience will have a new online home worthy of its heritage.
                     </span>
