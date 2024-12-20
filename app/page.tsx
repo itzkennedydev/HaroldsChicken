@@ -58,7 +58,7 @@ export default function Home() {
               <div className="flex justify-center">
                 <div className="relative">
                   <Image
-                    src="/SCA.png"
+                    src="https://apply.haroldschickensportsbar.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdnccw1hhh%2Fimage%2Fupload%2Fv1734649833%2FHaroldsLogoWhite_c6x72n.png&w=256&q=75"
                     alt="Sovereign Creative Agency Logo"
                     width={160}
                     height={80}
