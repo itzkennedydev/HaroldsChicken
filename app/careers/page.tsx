@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Button, buttonVariants } from '../components/ui/button';
+import { Button } from '../components/ui/button';
 import { Container } from '../components/ui/container';
 import { Badge } from '../components/ui/badge';
 import { Header } from '../components/Header';
