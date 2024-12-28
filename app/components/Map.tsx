@@ -55,8 +55,7 @@ export function Map() {
   }, []);
 
   const handleGetDirections = () => {
-    const address = encodeURIComponent("425 15th St, Moline, IL 61265");
-    window.open(`https://www.google.com/maps/dir/?api=1&destination=${address}`, '_blank');
+    window.open("https://www.google.com/maps/place/Harold's+Chicken+Sports+Bar/@41.5062359,-90.5166081,17z/data=!4m14!1m7!3m6!1s0x87e231469fa44355:0x54cb1c7446567d9e!2sHarold's+Chicken+Sports+Bar!8m2!3d41.5062359!4d-90.5166081!16s%2Fg%2F11wtvlptzn!3m5!1s0x87e231469fa44355:0x54cb1c7446567d9e!8m2!3d41.5062359!4d-90.5166081!16s%2Fg%2F11wtvlptzn?hl=en&entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D", '_blank');
   };
 
   return (
@@ -80,16 +79,16 @@ export function Map() {
         </div>
 
         <div className="w-full md:w-1/2 flex flex-col justify-center py-8 px-8 md:px-16">
-          <div className="space-y-8">
+          <div className="space-y-8 flex flex-col items-center md:items-start">
             <h2 
-              className="text-5xl md:text-7xl font-bold text-[#202124] leading-tight uppercase"
+              className="text-5xl md:text-7xl font-bold text-[#202124] leading-tight uppercase text-center md:text-left"
               tabIndex={0}
             >
               We&apos;re Right 
               <br />
               NEXT DOOR
             </h2>
-            <div className="flex">
+            <div className="flex justify-center md:justify-start w-full">
               <Button 
                 size="lg"
                 className="bg-[#407E57] hover:bg-[#407E57]/90 text-white font-bold px-8 py-6 uppercase text-base w-auto focus:ring-2 focus:ring-offset-2 focus:ring-[#407E57] focus:outline-none"
