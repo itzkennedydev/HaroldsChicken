@@ -176,7 +176,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
           aria-label="Harold's Chicken - Return to homepage"
         >
           <Image
-            src={isWhiteVariant && isAtTop ? "/Logos/WhiteLogo.svg" : "/Logos/HaroldsMainLogo.svg"}
+            src={isWhiteVariant && isAtTop ? "/logos/WhiteLogo.svg" : "/logos/HaroldsMainLogo.svg"}
             alt="Harold's Chicken Logo"
             width={176}
             height={48}
