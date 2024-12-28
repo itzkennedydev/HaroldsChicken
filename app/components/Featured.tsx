@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useInView } from 'react-intersection-observer';
@@ -15,7 +14,6 @@ interface FeaturedItem {
 }
 
 export function Featured() {
-  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
   const { ref, inView } = useInView({
     threshold: 0.2,
     triggerOnce: true
@@ -78,10 +76,6 @@ export function Featured() {
             role="listitem"
             aria-labelledby={`featured-title-${item.id}`}
             aria-describedby={`featured-desc-${item.id}`}
-            onMouseEnter={() => setHoveredItem(item.id)}
-            onMouseLeave={() => setHoveredItem(null)}
-            onFocus={() => setHoveredItem(item.id)}
-            onBlur={() => setHoveredItem(null)}
           >
             <div 
               className="relative w-[320px] h-[240px]"

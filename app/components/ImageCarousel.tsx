@@ -32,7 +32,6 @@ export function ImageCarousel() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const autoScrollRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -51,8 +50,6 @@ export function ImageCarousel() {
       if (containerRef.current.scrollLeft >= maxScroll) {
         containerRef.current.scrollLeft = 0;
       }
-      
-      setCurrentIndex(Math.floor(containerRef.current.scrollLeft / clientWidth));
     }, 50);
   }, [isDragging, isPaused]);
 

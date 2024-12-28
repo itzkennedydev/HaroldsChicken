@@ -1,9 +1,28 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Badge } from "./ui/badge";
+import { Badge } from "@/app/components/ui/badge";
+
+interface FooterLink {
+  href: string;
+  label: string;
+  badge?: {
+    text: string;
+    className: string;
+  };
+  external?: boolean;
+}
+
+interface FooterSection {
+  title: string;
+  links: FooterLink[];
+}
+
+interface FooterSections {
+  [key: string]: FooterSection;
+}
 
 export function Footer() {
-  const footerSections = {
+  const footerSections: FooterSections = {
     explore: {
       title: "EXPLORE",
       links: [

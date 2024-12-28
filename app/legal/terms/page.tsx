@@ -7,7 +7,11 @@ export const metadata = {
   description: "Comprehensive Terms of Service and legal information for Harold's Chicken & Sports Bar",
 };
 
-const LastUpdatedBanner = ({ date }) => (
+interface LastUpdatedBannerProps {
+  date: string;
+}
+
+const LastUpdatedBanner = ({ date }: LastUpdatedBannerProps) => (
   <div className="bg-muted p-4 rounded-lg mb-8">
     <p className="text-sm text-muted-foreground">
       Last updated: {date}
@@ -15,7 +19,13 @@ const LastUpdatedBanner = ({ date }) => (
   </div>
 );
 
-const Section = ({ title, children, important }) => (
+interface SectionProps {
+  title: string;
+  children: React.ReactNode;
+  important?: boolean;
+}
+
+const Section = ({ title, children, important = false }: SectionProps) => (
   <div className="mb-8">
     <h3 className="text-xl font-semibold mb-4">{title}</h3>
     {important ? (
@@ -45,13 +55,13 @@ export default function TermsPage() {
             Welcome to Harold&apos;s Chicken & Sports Bar. These Terms of Service (&quot;Terms&quot;) govern your use of our website, mobile applications, and services. Please read these terms carefully before using our services.
           </p>
 
-          <Section title="1. Acceptance of Terms">
+          <Section title="1. Acceptance of Terms" important={false}>
             <p>
               By accessing or using Harold&apos;s Chicken & Sports Bar&apos;s website, mobile applications, and services (collectively, the &quot;Services&quot;), you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing our Services.
             </p>
           </Section>
 
-          <Section title="2. Use License" important>
+          <Section title="2. Use License" important={true}>
             <p>
               Permission is granted to temporarily access and use our Services for personal, non-commercial purposes. This license does not include:
             </p>
@@ -63,7 +73,7 @@ export default function TermsPage() {
             </ul>
           </Section>
 
-          <Section title="3. Online Ordering and Payment" important>
+          <Section title="3. Online Ordering and Payment" important={true}>
             <p>
               When placing orders through our Services, you agree to provide current, complete, and accurate information. You are responsible for:
             </p>
@@ -77,7 +87,7 @@ export default function TermsPage() {
             </p>
           </Section>
 
-          <Section title="4. Alcohol Service and Age Verification" important>
+          <Section title="4. Alcohol Service and Age Verification" important={true}>
             <p>
               For alcohol purchases and sports bar services:
             </p>
@@ -88,19 +98,19 @@ export default function TermsPage() {
             </ul>
           </Section>
 
-          <Section title="5. Privacy and Data Protection">
+          <Section title="5. Privacy and Data Protection" important={false}>
             <p>
               Your privacy is important to us. Our Privacy Policy explains how we collect, use, and protect your personal information. By using our Services, you agree to our Privacy Policy, which is incorporated into these Terms by reference.
             </p>
           </Section>
 
-          <Section title="6. Intellectual Property" important>
+          <Section title="6. Intellectual Property" important={true}>
             <p>
               The Service and its original content, features, and functionality are owned by Harold&apos;s Chicken & Sports Bar and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.
             </p>
           </Section>
 
-          <Section title="7. User Responsibilities">
+          <Section title="7. User Responsibilities" important={false}>
             <p>
               You agree not to:
             </p>
@@ -113,13 +123,13 @@ export default function TermsPage() {
             </ul>
           </Section>
 
-          <Section title="8. Disclaimer of Warranties" important>
+          <Section title="8. Disclaimer of Warranties" important={true}>
             <p>
               Our Services are provided &quot;as is&quot; without warranties of any kind, either express or implied. We do not guarantee that our Services will be uninterrupted, secure, or error-free.
             </p>
           </Section>
 
-          <Section title="9. Limitation of Liability">
+          <Section title="9. Limitation of Liability" important={false}>
             <p>
               Harold&apos;s Chicken & Sports Bar shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from:
             </p>
@@ -131,25 +141,25 @@ export default function TermsPage() {
             </ul>
           </Section>
 
-          <Section title="10. Indemnification">
+          <Section title="10. Indemnification" important={false}>
             <p>
               You agree to indemnify and hold Harold&apos;s Chicken & Sports Bar harmless from any claims, losses, liability, damages, and expenses arising from your use of the Services or violation of these Terms.
             </p>
           </Section>
 
-          <Section title="11. Modifications to Terms">
+          <Section title="11. Modifications to Terms" important={false}>
             <p>
               We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting to our website. Your continued use of our Services constitutes acceptance of modified Terms.
             </p>
           </Section>
 
-          <Section title="12. Governing Law">
+          <Section title="12. Governing Law" important={false}>
             <p>
               These Terms shall be governed by and construed in accordance with the laws of the state where our primary business operations are located, without regard to its conflict of law provisions.
             </p>
           </Section>
 
-          <Section title="13. Contact Information">
+          <Section title="13. Contact Information" important={false}>
             <p>
               For questions about these Terms, please contact us at:
             </p>

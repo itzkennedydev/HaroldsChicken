@@ -26,7 +26,7 @@ function HeroSection() {
             Sports Bar
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed uppercase font-medium">
-            Bringing Chicago's Legendary Harold's Wings To Moline. Your Home For Authentic Chicago Flavor, Sports, And Good Times.
+            Bringing Chicago&apos;s Legendary Harold&apos;s Wings To Moline. Your Home For Authentic Chicago Flavor, Sports, And Good Times.
           </p>
           <Button 
             size="lg"

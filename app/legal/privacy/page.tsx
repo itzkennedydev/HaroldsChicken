@@ -1,5 +1,4 @@
 import React from 'react';
-import { AlertTriangle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/app/components/ui/alert';
 
 export const metadata = {
@@ -7,7 +6,11 @@ export const metadata = {
   description: "Comprehensive Privacy Policy and data handling information for Harold's Chicken & Sports Bar",
 };
 
-const LastUpdatedBanner = ({ date }) => (
+interface LastUpdatedBannerProps {
+  date: string;
+}
+
+const LastUpdatedBanner = ({ date }: LastUpdatedBannerProps) => (
   <div className="bg-slate-50 border border-slate-200 dark:bg-slate-900/10 dark:border-slate-800/50 dark:text-slate-400 rounded-lg p-4 mb-8">
     <p className="text-sm text-slate-600 dark:text-slate-400">
       Last updated: {date}
@@ -15,7 +18,13 @@ const LastUpdatedBanner = ({ date }) => (
   </div>
 );
 
-const Section = ({ title, children, important }) => (
+interface SectionProps {
+  title: string;
+  children: React.ReactNode;
+  important?: boolean;
+}
+
+const Section = ({ title, children, important }: SectionProps) => (
   <div className="mb-8">
     <h3 className="text-xl font-semibold mb-4">{title}</h3>
     {important ? (
@@ -63,7 +72,7 @@ export default function PrivacyPage() {
             </ul>
           </Section>
 
-          <Section title="2. How We Use Your Information" important={false}>
+          <Section title="2. How We Use Your Information">
             <p>We use your information for the following purposes:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Processing and fulfilling your orders</li>
@@ -87,7 +96,7 @@ export default function PrivacyPage() {
             </ul>
           </Section>
 
-          <Section title="4. Information Sharing and Disclosure" important={false}>
+          <Section title="4. Information Sharing and Disclosure">
             <p>We may share your information with:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Service providers (payment processors, delivery services)</li>
@@ -111,7 +120,7 @@ export default function PrivacyPage() {
             </p>
           </Section>
 
-          <Section title="6. Data Security" important={false}>
+          <Section title="6. Data Security">
             <p className="font-semibold mb-4">We protect your data using:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Encryption during transmission</li>
@@ -134,7 +143,7 @@ export default function PrivacyPage() {
             </ul>
           </Section>
 
-          <Section title="8. Data Retention" important={false}>
+          <Section title="8. Data Retention">
             <p>
               We retain your personal information for as long as necessary to:
             </p>
@@ -146,13 +155,13 @@ export default function PrivacyPage() {
             </ul>
           </Section>
 
-          <Section title="9. Children&apos;s Privacy" important={false}>
+          <Section title="9. Children&apos;s Privacy">
             <p>
               Our services are not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe we have collected information from a child under 13, please contact us immediately.
             </p>
           </Section>
 
-          <Section title="10. Changes to Privacy Policy" important={false}>
+          <Section title="10. Changes to Privacy Policy">
             <p>
               We may update this Privacy Policy periodically. We will notify you of any material changes by:
             </p>
@@ -163,7 +172,7 @@ export default function PrivacyPage() {
             </ul>
           </Section>
 
-          <Section title="11. Contact Information" important={false}>
+          <Section title="11. Contact Information">
             <p>
               For privacy-related inquiries, please contact us at:
             </p>
