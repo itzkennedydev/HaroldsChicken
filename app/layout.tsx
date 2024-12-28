@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import "./globals.css";
+import { PHProvider } from './providers/PostHogProvider'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -72,7 +73,9 @@ export default function RootLayout({
 }: RootLayoutProps) {
   return (
     <html lang="en" className={`${national.variable} ${inter.variable}`}>
-      <body className="antialiased">{children}</body>
+      <PHProvider>
+        <body className="antialiased">{children}</body>
+      </PHProvider>
     </html>
   );
 }
