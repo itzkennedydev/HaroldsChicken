@@ -137,7 +137,7 @@ export function MeetOwner() {
               </p>
               <blockquote className="border-l-4 border-[#407E57] pl-6 py-2 italic">
                 <p className="text-lg text-[#333536] leading-relaxed">
-                  "Our mission is to bring the authentic taste of Chicago to every plate we serve."
+                  &ldquo;Our mission is to bring the authentic taste of Chicago to every plate we serve.&rdquo;
                 </p>
               </blockquote>
               <p 

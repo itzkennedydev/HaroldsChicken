@@ -7,6 +7,9 @@ import { CustomButton } from "@/app/components/ui/custom-button";
 import { Badge } from "@/app/components/ui/badge";
 import { Container } from "@/app/components/ui/container";
 
+// Remove ButtonVariant import since we'll use string literal type
+type ButtonVariant = "default" | "outline" | "ghost";
+
 // Constants
 const SCROLL_THRESHOLD = 20;
 const MOBILE_MENU_FOCUS_DELAY = 100;
@@ -151,6 +154,13 @@ export function Header({ variant = 'default' }: HeaderProps) {
     return baseClasses;
   };
 
+  const getButtonVariant = (): ButtonVariant => {
+    if (isWhiteVariant && isAtTop) {
+      return "ghost";
+    }
+    return "outline";
+  };
+
   return (
     <header 
       ref={headerRef}
@@ -226,7 +236,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
           aria-label="Quick actions"
         >
           <CustomButton 
-            variant={isWhiteVariant && isAtTop ? "white" : "outline"}
+            variant={getButtonVariant()}
             className={`font-bold tracking-wider text-sm focus:ring-2 focus:ring-[#407E57] focus:outline-none ${
               isWhiteVariant && isAtTop ? 'text-white hover:text-gray-200' : 'hover:bg-[#407E57]/10'
             }`}
