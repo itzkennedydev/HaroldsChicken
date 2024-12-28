@@ -62,48 +62,88 @@ export function Featured() {
       role="region"
     >
       <div 
-        className={`flex flex-wrap justify-center gap-[140px] transition-all duration-700 transform ${
+        className={`grid grid-cols-1 md:flex md:flex-wrap justify-center gap-8 md:gap-[140px] transition-all duration-700 transform ${
           inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
         role="list"
       >
-        {featuredItems.map((item, index) => (
-          <Link
-            key={item.id}
-            href={item.href}
-            className="flex flex-col items-center group transition-transform duration-300 hover:-translate-y-1"
-            style={{ width: 320 }}
-            role="listitem"
-            aria-labelledby={`featured-title-${item.id}`}
-            aria-describedby={`featured-desc-${item.id}`}
-          >
-            <div 
-              className="relative w-[320px] h-[240px]"
+        <div className="grid grid-cols-2 gap-4 md:hidden w-full px-4">
+          {featuredItems.map((item, index) => (
+            <Link
+              key={item.id}
+              href={item.href}
+              className="flex flex-col items-center group transition-transform duration-300 hover:-translate-y-1"
+              role="listitem"
+              aria-labelledby={`featured-title-${item.id}`}
+              aria-describedby={`featured-desc-${item.id}`}
             >
-              <Image
-                src={item.image}
-                alt={item.imageAlt}
-                width={320}
-                height={240}
-                className="object-contain block transition-opacity duration-300 group-hover:opacity-90"
-                priority={index === 0}
-                sizes="320px"
-              />
-              <h3 
-                id={`featured-title-${item.id}`}
-                className="absolute bottom-0 left-0 right-0 text-lg font-bold text-[#202124] text-center uppercase bg-white/80 py-2"
+              <div 
+                className="relative w-full aspect-[4/3]"
               >
-                {item.name}
-              </h3>
-            </div>
-            <span 
-              id={`featured-desc-${item.id}`}
-              className="sr-only"
+                <Image
+                  src={item.image}
+                  alt={item.imageAlt}
+                  fill
+                  className="object-contain block transition-opacity duration-300 group-hover:opacity-90"
+                  priority={index === 0}
+                  sizes="(max-width: 768px) 50vw, 320px"
+                />
+                <h3 
+                  id={`featured-title-${item.id}`}
+                  className="absolute bottom-0 left-0 right-0 text-sm font-bold text-[#202124] text-center uppercase bg-white/80 py-2"
+                >
+                  {item.name}
+                </h3>
+              </div>
+              <span 
+                id={`featured-desc-${item.id}`}
+                className="sr-only"
+              >
+                {item.description}
+              </span>
+            </Link>
+          ))}
+        </div>
+
+        <div className="hidden md:flex md:flex-wrap md:justify-center md:gap-[140px]">
+          {featuredItems.map((item, index) => (
+            <Link
+              key={item.id}
+              href={item.href}
+              className="flex flex-col items-center group transition-transform duration-300 hover:-translate-y-1"
+              style={{ width: 320 }}
+              role="listitem"
+              aria-labelledby={`featured-title-desktop-${item.id}`}
+              aria-describedby={`featured-desc-desktop-${item.id}`}
             >
-              {item.description}
-            </span>
-          </Link>
-        ))}
+              <div 
+                className="relative w-[320px] h-[240px]"
+              >
+                <Image
+                  src={item.image}
+                  alt={item.imageAlt}
+                  width={320}
+                  height={240}
+                  className="object-contain block transition-opacity duration-300 group-hover:opacity-90"
+                  priority={index === 0}
+                  sizes="320px"
+                />
+                <h3 
+                  id={`featured-title-desktop-${item.id}`}
+                  className="absolute bottom-0 left-0 right-0 text-lg font-bold text-[#202124] text-center uppercase bg-white/80 py-2"
+                >
+                  {item.name}
+                </h3>
+              </div>
+              <span 
+                id={`featured-desc-desktop-${item.id}`}
+                className="sr-only"
+              >
+                {item.description}
+              </span>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );

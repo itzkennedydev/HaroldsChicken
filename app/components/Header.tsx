@@ -161,6 +161,10 @@ export function Header({ variant = 'default' }: HeaderProps) {
     return "outline";
   };
 
+  const handleGetDirections = () => {
+    window.open("https://www.google.com/maps/place/Harold's+Chicken+Sports+Bar/@41.5062359,-90.5166081,17z/data=!4m14!1m7!3m6!1s0x87e231469fa44355:0x54cb1c7446567d9e!2sHarold's+Chicken+Sports+Bar!8m2!3d41.5062359!4d-90.5166081!16s%2Fg%2F11wtvlptzn!3m5!1s0x87e231469fa44355:0x54cb1c7446567d9e!8m2!3d41.5062359!4d-90.5166081!16s%2Fg%2F11wtvlptzn?hl=en&entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D", '_blank');
+  };
+
   return (
     <header 
       ref={headerRef}
@@ -241,6 +245,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
               isWhiteVariant && isAtTop ? 'text-white hover:text-gray-200' : 'hover:bg-[#407E57]/10'
             }`}
             aria-label="Get directions to Harold's Chicken"
+            onClick={handleGetDirections}
           >
             GET DIRECTIONS
           </CustomButton>
@@ -340,6 +345,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
                 variant="outline"
                 className="font-bold tracking-wider text-sm w-full justify-center hover:bg-[#407E57]/10 focus:ring-2 focus:ring-[#407E57] focus:outline-none"
                 aria-label="Get directions to Harold's Chicken"
+                onClick={handleGetDirections}
               >
                 GET DIRECTIONS
               </CustomButton>
