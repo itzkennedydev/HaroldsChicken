@@ -24,7 +24,7 @@ const legalLinks = [
   }
 ];
 
-const LegalNav = () => {
+function LegalNav() {
   const pathname = usePathname();
 
   return (
@@ -55,7 +55,7 @@ const LegalNav = () => {
       })}
     </nav>
   );
-};
+}
 
 export default function LegalLayout({
   children,
@@ -127,5 +127,3 @@ export default function LegalLayout({
     </div>
   );
 }
-
-export { LegalNav };
