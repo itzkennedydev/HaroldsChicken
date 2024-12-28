@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import "./globals.css";
-import { PHProvider } from './providers/PostHogProvider'
+import { PHProvider } from '@/app/providers/PostHogProvider'
+import defaultSEO from './metadata'
+import Script from 'next/script'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -47,21 +49,14 @@ const national = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "Harold's Chicken | Website Coming Soon",
-  description: "A new digital experience for Chicago's iconic Harold's Chicken, coming soon. Crafted by Sovereign Creative Agency.",
-  keywords: ["Harold's Chicken", "Chicago restaurant", "website coming soon", "Sovereign Creative Agency"],
-  openGraph: {
-    title: "Harold's Chicken | Website Coming Soon",
-    description: "A new digital experience for Chicago's iconic Harold's Chicken, coming soon.",
-    type: "website",
-    locale: "en_US",
-    siteName: "Harold's Chicken",
+  ...defaultSEO,
+  alternates: {
+    canonical: 'https://haroldschicken.com',
+    languages: {
+      'en-US': '/en-US',
+    },
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Harold's Chicken | Website Coming Soon",
-    description: "A new digital experience for Chicago's iconic Harold's Chicken, coming soon.",
-  },
+  manifest: '/site.webmanifest',
 };
 
 interface RootLayoutProps {
@@ -73,6 +68,59 @@ export default function RootLayout({
 }: RootLayoutProps) {
   return (
     <html lang="en" className={`${national.variable} ${inter.variable}`}>
+      <head>
+        <Script id="schema-org" type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Restaurant",
+              "name": "Harold's Chicken & Sports Bar",
+              "image": "https://haroldschicken.com/images/og-image.jpg",
+              "description": "Experience Chicago's iconic Harold's Chicken & Sports Bar. Known for our signature fried chicken, full-service sports bar, and welcoming atmosphere since 1950.",
+              "@id": "https://haroldschicken.com",
+              "url": "https://haroldschicken.com",
+              "telephone": "+1-312-555-0123",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "123 Example Street",
+                "addressLocality": "Chicago",
+                "addressRegion": "IL",
+                "postalCode": "60601",
+                "addressCountry": "US"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 41.8781,
+                "longitude": -87.6298
+              },
+              "servesCuisine": [
+                "American",
+                "Soul Food",
+                "Chicken"
+              ],
+              "priceRange": "$$",
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday"
+                  ],
+                  "opens": "11:00",
+                  "closes": "23:00"
+                }
+              ],
+              "menu": "https://haroldschicken.com/menu",
+              "acceptsReservations": "true"
+            }
+          `}
+        </Script>
+      </head>
       <PHProvider>
         <body className="antialiased">{children}</body>
       </PHProvider>
