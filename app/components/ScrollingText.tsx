@@ -1,0 +1,116 @@
+"use client";
+
+import { useRef, useEffect, useCallback, useState } from "react";
+
+export function ScrollingText() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const scroll = useCallback(() => {
+    if (!containerRef.current || !contentRef.current || isPaused) return;
+    
+    containerRef.current.scrollLeft += 1;
+    
+    if (containerRef.current.scrollLeft >= contentRef.current.offsetWidth / 2) {
+      containerRef.current.scrollLeft = 0;
+    }
+  }, [isPaused]);
+
+  useEffect(() => {
+    const interval = setInterval(scroll, 30);
+    return () => clearInterval(interval);
+  }, [scroll]);
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    switch (e.key) {
+      case ' ':
+        e.preventDefault();
+        setIsPaused(prev => !prev);
+        break;
+      case 'ArrowLeft':
+        e.preventDefault();
+        if (containerRef.current) {
+          containerRef.current.scrollLeft -= 50;
+        }
+        break;
+      case 'ArrowRight':
+        e.preventDefault();
+        if (containerRef.current) {
+          containerRef.current.scrollLeft += 50;
+        }
+        break;
+    }
+  };
+
+  const content = (
+    <div 
+      className="flex items-center gap-16 whitespace-nowrap px-12"
+      role="group"
+    >
+      <span 
+        className="text-white text-4xl tracking-[0.5em]" 
+        aria-hidden="true"
+      >
+        ★ ★ ★
+      </span>
+      <span 
+        className="text-white uppercase font-bold tracking-wider text-4xl"
+        aria-label="Come see why they call us Chicago's finest"
+      >
+        COME SEE WHY THEY CALL US CHICAGO&apos;S FINEST
+      </span>
+      <span 
+        className="text-white text-4xl tracking-[0.5em]" 
+        aria-hidden="true"
+      >
+        ★ ★ ★
+      </span>
+      <span 
+        className="text-white uppercase font-bold tracking-wider text-4xl"
+        aria-label="Authentic Chicago flavors since 1950"
+      >
+        AUTHENTIC CHICAGO FLAVORS SINCE 1950
+      </span>
+    </div>
+  );
+
+  return (
+    <section 
+      className="w-full py-4 mb-8 overflow-hidden bg-[#407E57]"
+      role="region"
+      aria-label="Announcement Banner"
+    >
+      <div 
+        ref={containerRef}
+        className="overflow-x-hidden"
+        role="marquee"
+        aria-live="polite"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
+        aria-label="Scrolling announcement"
+        aria-controls="scroll-content"
+      >
+        <div 
+          ref={contentRef}
+          className="flex"
+          id="scroll-content"
+        >
+          {content}
+          {content}
+          {content}
+          {content}
+        </div>
+      </div>
+
+      {/* Screen reader information */}
+      <div className="sr-only" role="note">
+        <p>Press space to pause/resume scrolling</p>
+        <p>Use left and right arrow keys to navigate when paused</p>
+        <p>Hover to pause scrolling</p>
+      </div>
+    </section>
+  );
+}
