@@ -159,7 +159,7 @@ export function Footer() {
                 aria-label="Harold's Chicken - Home"
               >
                 <Image
-                  src="/Logos/HaroldsMainLogo.svg"
+                  src="/logos/HaroldsMainLogo.svg"
                   alt=""
                   width={150}
                   height={40}
