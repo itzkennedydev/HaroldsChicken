@@ -18,7 +18,7 @@ export function Hero() {
 
   const content: HeroContent = {
     title: "Chicago's Soul\nin Every Bite",
-    description: "Experience the Iconic Taste That Has Delighted Chicago for Generations. From Family Gatherings to Late-Night Cravings.",
+    description: "EXPERIENCE THE ICONIC TASTE OF HAROLDS CHICKEN THAT HAS DELIGHTED CHICAGO FOR GENERATIONS. FROM FAMILY GATHERINGS TO LATE-NIGHT CRAVINGS.",
     buttonText: "Order Now"
   };
 
