@@ -209,25 +209,23 @@ export function ScrollingText() {
         className="overflow-x-hidden cursor-grab active:cursor-grabbing scroll-smooth"
         role="marquee"
         aria-live="polite"
-        onMouseEnter={() => setIsPaused(true)}
+        onMouseEnter={() => !isMobile && setIsPaused(true)}
         onMouseLeave={() => {
-          setIsPaused(false);
-          setIsDragging(false);
-          scrollAnimationRef.current = requestAnimationFrame(animate);
+          if (!isMobile) {
+            setIsPaused(false);
+            setIsDragging(false);
+            scrollAnimationRef.current = requestAnimationFrame(animate);
+          }
         }}
         onMouseDown={(e) => handleInteractionStart(e.pageX)}
         onMouseUp={handleInteractionEnd}
         onMouseMove={(e) => handleInteractionMove(e.pageX)}
         onTouchStart={(e) => {
-          setIsPaused(true);
           handleInteractionStart(e.touches[0].pageX);
         }}
         onTouchEnd={() => {
           handleInteractionEnd();
-          setTimeout(() => {
-            setIsPaused(false);
-            scrollAnimationRef.current = requestAnimationFrame(animate);
-          }, 1000);
+          scrollAnimationRef.current = requestAnimationFrame(animate);
         }}
         onTouchMove={(e) => {
           e.preventDefault();
