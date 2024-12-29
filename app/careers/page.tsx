@@ -18,7 +18,7 @@ function HeroSection() {
       />
       
       <Container className="relative z-10 pt-32 pb-16">
-        <div className="max-w-2xl text-white md:text-left text-center md:pt-0 pt-12">
+        <div className="max-w-2xl text-white mx-auto text-center">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight uppercase">
             Join Our Family
           </h1>
