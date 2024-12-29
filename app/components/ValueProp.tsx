@@ -12,7 +12,7 @@ interface ValuePropItem {
   description: string;
   buttonText: string;
   buttonLink: string;
-  imagePosition: "left" | "right";
+  imagePosition: "left" | "right" | "bottom" | "top" | "center"; 
   imageAlt: string;
   imagePlaceholder: boolean;
   imageSrc: string;
@@ -36,10 +36,10 @@ export function ValueProp() {
       description: "AT HAROLD'S, WE TAKE PRIDE IN SERVING ONLY THE FRESHEST CHICKEN. OUR COMMITMENT TO QUALITY MEANS WE NEVER FREEZE OUR CHICKEN, ENSURING THAT EVERY BITE DELIVERS THAT PERFECT, JUICY TENDERNESS OUR CUSTOMERS LOVE. THIS DEDICATION TO FRESHNESS IS PART OF WHAT MAKES HAROLD'S CHICKEN A CHICAGO LEGEND.",
       buttonText: "LEARN MORE",
       buttonLink: "/about",
-      imagePosition: "right",
+      imagePosition: "bottom",
       imageAlt: "Fresh, never frozen chicken preparation at Harold's",
-      imagePlaceholder: true,
-      imageSrc: "/images/fresh-chicken.jpg"
+      imagePlaceholder: false,
+      imageSrc: "/images/ChickenImg.jpg"
     },
     {
       id: 2,
@@ -49,8 +49,8 @@ export function ValueProp() {
       buttonLink: "/menu",
       imagePosition: "left",
       imageAlt: "Array of Harold's menu items showcasing variety",
-      imagePlaceholder: true,
-      imageSrc: "/images/menu-items.jpg"
+      imagePlaceholder: false,
+      imageSrc: "/images/FullMenu.jpg"
     },
     {
       id: 3,
@@ -60,8 +60,8 @@ export function ValueProp() {
       buttonLink: "/sports-bar",
       imagePosition: "right",
       imageAlt: "Harold's sports bar environment showing TVs and seating area",
-      imagePlaceholder: true,
-      imageSrc: "/images/sports-bar.jpg"
+      imagePlaceholder: false,
+      imageSrc: "/images/BarImg.jpeg"
     }
   ];
 
