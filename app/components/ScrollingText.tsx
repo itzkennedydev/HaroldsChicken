@@ -45,29 +45,29 @@ export function ScrollingText() {
 
   const content = (
     <div 
-      className="flex items-center gap-16 whitespace-nowrap px-12"
+      className="flex items-center gap-4 sm:gap-16 whitespace-nowrap px-4 sm:px-12"
       role="group"
     >
       <span 
-        className="text-white text-4xl tracking-[0.5em]" 
+        className="text-white text-xl sm:text-4xl tracking-[0.5em]" 
         aria-hidden="true"
       >
         ★ ★ ★
       </span>
       <span 
-        className="text-white uppercase font-bold tracking-wider text-4xl"
+        className="text-white uppercase font-bold tracking-wider text-lg sm:text-4xl"
         aria-label="Come see why they call us Chicago's finest"
       >
         COME SEE WHY THEY CALL US CHICAGO&apos;S FINEST
       </span>
       <span 
-        className="text-white text-4xl tracking-[0.5em]" 
+        className="text-white text-xl sm:text-4xl tracking-[0.5em]" 
         aria-hidden="true"
       >
         ★ ★ ★
       </span>
       <span 
-        className="text-white uppercase font-bold tracking-wider text-4xl"
+        className="text-white uppercase font-bold tracking-wider text-lg sm:text-4xl"
         aria-label="Authentic Chicago flavors since 1950"
       >
         AUTHENTIC CHICAGO FLAVORS SINCE 1950
@@ -77,7 +77,7 @@ export function ScrollingText() {
 
   return (
     <section 
-      className="w-full py-4 mb-8 overflow-hidden bg-[#407E57]"
+      className="w-full py-2 sm:py-4 mb-4 sm:mb-8 overflow-hidden bg-[#407E57]"
       role="region"
       aria-label="Announcement Banner"
     >
