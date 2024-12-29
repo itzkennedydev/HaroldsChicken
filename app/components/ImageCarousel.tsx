@@ -45,7 +45,11 @@ export function ImageCarousel() {
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [momentum, setMomentum] = useState(0);
+  const lastMouseX = useRef(0);
+  const lastScrollTime = useRef(Date.now());
   const autoScrollRef = useRef<NodeJS.Timeout | null>(null);
+  const momentumRef = useRef<NodeJS.Timeout | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -55,6 +59,13 @@ export function ImageCarousel() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const stopAutoScroll = useCallback(() => {
+    if (autoScrollRef.current) {
+      clearInterval(autoScrollRef.current);
+      autoScrollRef.current = null;
+    }
   }, []);
 
   const startAutoScroll = useCallback(() => {
@@ -67,20 +78,50 @@ export function ImageCarousel() {
       const clientWidth = containerRef.current.clientWidth;
       const maxScroll = scrollWidth - clientWidth;
       
-      containerRef.current.scrollLeft += 1;
+      // Smooth auto-scroll with easing
+      const currentScroll = containerRef.current.scrollLeft;
+      const step = Math.min(2, (maxScroll - currentScroll) * 0.02);
       
-      if (containerRef.current.scrollLeft >= maxScroll) {
-        containerRef.current.scrollLeft = 0;
+      containerRef.current.scrollLeft += step;
+      
+      if (containerRef.current.scrollLeft >= maxScroll - 1) {
+        // Smooth reset to start
+        const resetScroll = () => {
+          if (containerRef.current) {
+            containerRef.current.style.scrollBehavior = 'auto';
+            containerRef.current.scrollLeft = 0;
+            containerRef.current.style.scrollBehavior = 'smooth';
+          }
+        };
+        setTimeout(resetScroll, 500);
       }
-    }, 50);
+    }, 16); // 60fps timing
   }, [isDragging, isPaused, isMobile]);
 
-  const stopAutoScroll = useCallback(() => {
-    if (autoScrollRef.current) {
-      clearInterval(autoScrollRef.current);
-      autoScrollRef.current = null;
+  const applyMomentum = useCallback(() => {
+    if (!containerRef.current || Math.abs(momentum) < 0.1) return;
+
+    const currentScroll = containerRef.current.scrollLeft;
+    const maxScroll = containerRef.current.scrollWidth - containerRef.current.clientWidth;
+    
+    // Apply momentum with bounds checking
+    const newScroll = Math.max(0, Math.min(maxScroll, currentScroll - momentum));
+    containerRef.current.scrollLeft = newScroll;
+    
+    // Decay momentum
+    setMomentum(prev => prev * 0.95);
+    
+    momentumRef.current = setTimeout(applyMomentum, 16);
+  }, [momentum]);
+
+  useEffect(() => {
+    if (momentum !== 0) {
+      applyMomentum();
     }
-  }, []);
+    return () => {
+      if (momentumRef.current) clearTimeout(momentumRef.current);
+    };
+  }, [momentum, applyMomentum]);
 
   useEffect(() => {
     startAutoScroll();
@@ -89,42 +130,77 @@ export function ImageCarousel() {
 
   const handleInteractionStart = (position: number) => {
     setIsDragging(true);
-    setStartX(position - (containerRef.current?.offsetLeft || 0));
+    setStartX(position);
     setScrollLeft(containerRef.current?.scrollLeft || 0);
+    lastMouseX.current = position;
+    lastScrollTime.current = Date.now();
+    setMomentum(0);
     stopAutoScroll();
+
+    // Add touch-action manipulation
+    if (containerRef.current) {
+      containerRef.current.style.touchAction = 'none';
+    }
   };
 
   const handleInteractionEnd = () => {
     setIsDragging(false);
-    if (!isPaused && !isMobile) startAutoScroll();
+    
+    // Calculate final momentum
+    const timeDelta = Date.now() - lastScrollTime.current;
+    if (timeDelta < 100) { // Only apply momentum for quick releases
+      const velocityX = (lastMouseX.current - startX) / timeDelta;
+      setMomentum(velocityX * (isMobile ? 15 : 25));
+    }
+    
+    // Reset touch-action
+    if (containerRef.current) {
+      containerRef.current.style.touchAction = 'pan-y pinch-zoom';
+    }
+
+    if (!isPaused && !isMobile) {
+      setTimeout(startAutoScroll, 1000); // Delay auto-scroll restart
+    }
   };
 
   const handleInteractionMove = (position: number) => {
     if (!isDragging) return;
     
-    const x = position - (containerRef.current?.offsetLeft || 0);
-    const walk = (x - startX) * (isMobile ? 1.2 : 2); // Reduced sensitivity for mobile
+    const x = position;
+    const delta = x - lastMouseX.current;
+    const sensitivity = isMobile ? 1.5 : 2.5;
+    
     if (containerRef.current) {
-      containerRef.current.scrollLeft = scrollLeft - walk;
+      const newScrollLeft = scrollLeft - (delta * sensitivity);
+      containerRef.current.scrollLeft = newScrollLeft;
     }
+    
+    lastMouseX.current = x;
+    lastScrollTime.current = Date.now();
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     const container = containerRef.current;
     if (!container) return;
 
+    const scrollDistance = isMobile ? 200 : 300;
+    
     switch (e.key) {
       case 'ArrowLeft':
         e.preventDefault();
-        container.scrollLeft -= isMobile ? 200 : 300; // Smaller scroll distance on mobile
+        container.scrollLeft -= scrollDistance;
+        stopAutoScroll();
+        setTimeout(startAutoScroll, 1000);
         break;
       case 'ArrowRight':
         e.preventDefault();
-        container.scrollLeft += isMobile ? 200 : 300;
+        container.scrollLeft += scrollDistance;
+        stopAutoScroll();
+        setTimeout(startAutoScroll, 1000);
         break;
       case ' ':
         e.preventDefault();
-        setIsPaused(!isPaused);
+        setIsPaused(prev => !prev);
         break;
       case 'Home':
         e.preventDefault();
@@ -159,20 +235,23 @@ export function ImageCarousel() {
           onMouseLeave={handleInteractionEnd}
           onMouseMove={(e) => handleInteractionMove(e.pageX)}
           onTouchStart={(e) => {
-            e.preventDefault(); // Prevent default touch behavior
             handleInteractionStart(e.touches[0].pageX);
           }}
           onTouchEnd={handleInteractionEnd}
           onTouchMove={(e) => {
-            e.preventDefault(); // Prevent default touch behavior
+            e.preventDefault(); // Prevent page scroll while dragging
             handleInteractionMove(e.touches[0].pageX);
           }}
           onKeyDown={handleKeyDown}
+          style={{
+            scrollBehavior: isDragging ? 'auto' : 'smooth',
+            touchAction: isDragging ? 'none' : 'pan-y pinch-zoom'
+          }}
         >
           {[...images, ...images].map((image, index) => (
             <div
               key={index}
-              className="relative w-[280px] sm:w-[400px] md:w-[600px] h-[184px] sm:w-[244px] md:h-[304px] flex-none rounded-lg overflow-hidden select-none"
+              className="relative w-[280px] sm:w-[400px] md:w-[600px] h-[184px] sm:h-[244px] md:h-[304px] flex-none rounded-lg overflow-hidden select-none"
               role="listitem"
               aria-label={`Slide ${index + 1} of ${images.length * 2}`}
             >
@@ -190,7 +269,6 @@ export function ImageCarousel() {
         </div>
       </div>
 
-      {/* Screen reader instructions */}
       <div className="sr-only" role="note">
         <p>Press left and right arrows to navigate through images</p>
         <p>Press space to pause/resume auto-scroll</p>
