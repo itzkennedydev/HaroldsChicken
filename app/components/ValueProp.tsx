@@ -77,7 +77,7 @@ export function ValueProp() {
             <div 
               key={prop.id}
               ref={refs[index]}
-              className={`flex flex-col ${prop.imagePosition === 'left' ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 md:gap-16 transition-all duration-700 ${
+              className={`flex flex-col-reverse md:flex-row ${prop.imagePosition === 'left' ? 'md:flex-row-reverse' : ''} items-center gap-8 md:gap-16 transition-all duration-700 ${
                 inViews[index] 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-10'
