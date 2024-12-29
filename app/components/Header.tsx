@@ -28,7 +28,6 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   { label: "HOME", href: "/", shortcut: 'h' },
   { label: "MENU", href: "/menu", shortcut: 'm' },
-  { label: "SPORTS BAR", href: "/sports-bar", shortcut: 's' },
   { 
     label: "CAREERS", 
     href: "/careers", 
@@ -364,7 +363,6 @@ export function Header({ variant = 'default' }: HeaderProps) {
       <div className="sr-only" role="note" aria-label="Keyboard Shortcuts">
         <p>Press Alt + H for Home</p>
         <p>Press Alt + M for Menu</p>
-        <p>Press Alt + S for Sports Bar</p>
         <p>Press Alt + C for Careers</p>
         <p>Press Alt + O for Our Founder</p>
         <p>Press Escape to close the mobile menu</p>
