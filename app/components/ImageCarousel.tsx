@@ -48,7 +48,7 @@ export function ImageCarousel() {
   const [momentum, setMomentum] = useState(0);
   const lastMouseX = useRef(0);
   const lastScrollTime = useRef(Date.now());
-  const autoScrollRef = useRef<NodeJS.Timeout | null>(null);
+  const scrollAnimationRef = useRef<number | null>(null);
   const momentumRef = useRef<NodeJS.Timeout | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -62,41 +62,37 @@ export function ImageCarousel() {
   }, []);
 
   const stopAutoScroll = useCallback(() => {
-    if (autoScrollRef.current) {
-      clearInterval(autoScrollRef.current);
-      autoScrollRef.current = null;
+    if (scrollAnimationRef.current) {
+      cancelAnimationFrame(scrollAnimationRef.current);
+      scrollAnimationRef.current = null;
     }
   }, []);
 
   const startAutoScroll = useCallback(() => {
-    if (autoScrollRef.current || isPaused || isMobile) return;
+    if (scrollAnimationRef.current || isPaused || isDragging) return;
 
-    autoScrollRef.current = setInterval(() => {
-      if (!containerRef.current || isDragging) return;
+    const animate = () => {
+      if (!containerRef.current || isPaused || isDragging) return;
 
-      const scrollWidth = containerRef.current.scrollWidth;
-      const clientWidth = containerRef.current.clientWidth;
+      const container = containerRef.current;
+      const scrollWidth = container.scrollWidth;
+      const clientWidth = container.clientWidth;
       const maxScroll = scrollWidth - clientWidth;
       
-      // Smooth auto-scroll with easing
-      const currentScroll = containerRef.current.scrollLeft;
-      const step = Math.min(2, (maxScroll - currentScroll) * 0.02);
+      const currentScroll = container.scrollLeft;
+      const step = 1; // Constant smooth scroll speed
       
-      containerRef.current.scrollLeft += step;
-      
-      if (containerRef.current.scrollLeft >= maxScroll - 1) {
-        // Smooth reset to start
-        const resetScroll = () => {
-          if (containerRef.current) {
-            containerRef.current.style.scrollBehavior = 'auto';
-            containerRef.current.scrollLeft = 0;
-            containerRef.current.style.scrollBehavior = 'smooth';
-          }
-        };
-        setTimeout(resetScroll, 500);
+      if (currentScroll >= maxScroll - 1) {
+        container.scrollLeft = 0; // Reset to start when reaching end
+      } else {
+        container.scrollLeft += step;
       }
-    }, 16); // 60fps timing
-  }, [isDragging, isPaused, isMobile]);
+
+      scrollAnimationRef.current = requestAnimationFrame(animate);
+    };
+
+    scrollAnimationRef.current = requestAnimationFrame(animate);
+  }, [isDragging, isPaused]);
 
   const applyMomentum = useCallback(() => {
     if (!containerRef.current || Math.abs(momentum) < 0.1) return;
@@ -104,11 +100,9 @@ export function ImageCarousel() {
     const currentScroll = containerRef.current.scrollLeft;
     const maxScroll = containerRef.current.scrollWidth - containerRef.current.clientWidth;
     
-    // Apply momentum with bounds checking
     const newScroll = Math.max(0, Math.min(maxScroll, currentScroll - momentum));
     containerRef.current.scrollLeft = newScroll;
     
-    // Decay momentum
     setMomentum(prev => prev * 0.95);
     
     momentumRef.current = setTimeout(applyMomentum, 16);
@@ -137,7 +131,6 @@ export function ImageCarousel() {
     setMomentum(0);
     stopAutoScroll();
 
-    // Add touch-action manipulation
     if (containerRef.current) {
       containerRef.current.style.touchAction = 'none';
     }
@@ -146,20 +139,18 @@ export function ImageCarousel() {
   const handleInteractionEnd = () => {
     setIsDragging(false);
     
-    // Calculate final momentum
     const timeDelta = Date.now() - lastScrollTime.current;
-    if (timeDelta < 100) { // Only apply momentum for quick releases
+    if (timeDelta < 100) {
       const velocityX = (lastMouseX.current - startX) / timeDelta;
       setMomentum(velocityX * (isMobile ? 15 : 25));
     }
     
-    // Reset touch-action
     if (containerRef.current) {
       containerRef.current.style.touchAction = 'pan-y pinch-zoom';
     }
 
     if (!isPaused && !isMobile) {
-      setTimeout(startAutoScroll, 1000); // Delay auto-scroll restart
+      setTimeout(startAutoScroll, 1000);
     }
   };
 
@@ -239,7 +230,7 @@ export function ImageCarousel() {
           }}
           onTouchEnd={handleInteractionEnd}
           onTouchMove={(e) => {
-            e.preventDefault(); // Prevent page scroll while dragging
+            e.preventDefault();
             handleInteractionMove(e.touches[0].pageX);
           }}
           onKeyDown={handleKeyDown}
