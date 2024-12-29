@@ -6,21 +6,34 @@ export function ScrollingText() {
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const scroll = useCallback(() => {
     if (!containerRef.current || !contentRef.current || isPaused) return;
     
-    containerRef.current.scrollLeft += 1;
+    // Slower scroll speed on mobile
+    const scrollSpeed = isMobile ? 0.5 : 1;
+    containerRef.current.scrollLeft += scrollSpeed;
     
     if (containerRef.current.scrollLeft >= contentRef.current.offsetWidth / 2) {
       containerRef.current.scrollLeft = 0;
     }
-  }, [isPaused]);
+  }, [isPaused, isMobile]);
 
   useEffect(() => {
-    const interval = setInterval(scroll, 30);
+    // Slower interval on mobile for smoother animation
+    const interval = setInterval(scroll, isMobile ? 40 : 30);
     return () => clearInterval(interval);
-  }, [scroll]);
+  }, [scroll, isMobile]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     switch (e.key) {
@@ -31,13 +44,15 @@ export function ScrollingText() {
       case 'ArrowLeft':
         e.preventDefault();
         if (containerRef.current) {
-          containerRef.current.scrollLeft -= 50;
+          // Smaller scroll distance on mobile
+          containerRef.current.scrollLeft -= isMobile ? 25 : 50;
         }
         break;
       case 'ArrowRight':
         e.preventDefault();
         if (containerRef.current) {
-          containerRef.current.scrollLeft += 50;
+          // Smaller scroll distance on mobile
+          containerRef.current.scrollLeft += isMobile ? 25 : 50;
         }
         break;
     }
@@ -83,11 +98,13 @@ export function ScrollingText() {
     >
       <div 
         ref={containerRef}
-        className="overflow-x-hidden"
+        className="overflow-x-hidden scroll-smooth"
         role="marquee"
         aria-live="polite"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setIsPaused(false)}
         tabIndex={0}
         onKeyDown={handleKeyDown}
         aria-label="Scrolling announcement"
@@ -109,7 +126,7 @@ export function ScrollingText() {
       <div className="sr-only" role="note">
         <p>Press space to pause/resume scrolling</p>
         <p>Use left and right arrow keys to navigate when paused</p>
-        <p>Hover to pause scrolling</p>
+        <p>Touch to pause scrolling</p>
       </div>
     </section>
   );
