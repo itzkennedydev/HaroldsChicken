@@ -110,14 +110,14 @@ export function MeetOwner() {
               </p>
               <blockquote className="border-l-4 border-[#407E57] pl-6 py-2 italic">
                 <p className="text-lg text-[#333536] leading-relaxed">
-                  &ldquo;Your mind must arrive at the destination before you do. Success is not just about skill—it's about the mindset to maintain, retain, and sustain everything you build.&rdquo;
+                  &ldquo;Your mind must arrive at the destination before you do. Success is not just about skill—it&apos;s about the mindset to maintain, retain, and sustain everything you build.&rdquo;
                 </p>
               </blockquote>
               <p 
                 className="text-base sm:text-lg text-[#333536] leading-relaxed font-medium uppercase"
                 tabIndex={0}
               >
-                GUIDED BY THE PRINCIPLES OF DISCIPLINE, DEDICATION, AND DETERMINATION, JOSIAH'S JOURNEY EXEMPLIFIES THE POWER OF POSITIVE MINDSET IN ACHIEVING BUSINESS EXCELLENCE AND COMMUNITY IMPACT.
+                GUIDED BY THE PRINCIPLES OF DISCIPLINE, DEDICATION, AND DETERMINATION, JOSIAH&apos;S JOURNEY EXEMPLIFIES THE POWER OF POSITIVE MINDSET IN ACHIEVING BUSINESS EXCELLENCE AND COMMUNITY IMPACT.
               </p>
             </div>
 
