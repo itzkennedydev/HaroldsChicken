@@ -25,6 +25,18 @@ const images: CarouselImage[] = [
     src: "/images/Celebs/Usher.png",
     alt: "Usher at Harold's Chicken",
   },
+  {
+    src: "/images/Celebs/Blanton.jpeg",
+    alt: "Blanton at Harold's Chicken",
+  },
+  {
+    src: "/images/Celebs/HaroldsCar.JPG",
+    alt: "Harold's Car",
+  },
+  {
+    src: "/images/Celebs/Owner.jpg",
+    alt: "Owner of Harold's Chicken",
+  },
 ];
 
 export function ImageCarousel() {
