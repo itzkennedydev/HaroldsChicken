@@ -159,7 +159,7 @@ export function Hero() {
         aria-hidden="false"
       >
         <div 
-          className="relative w-full h-[600px] overflow-hidden bg-[#F5F5F5]"
+          className="relative w-full h-[500px] overflow-hidden bg-[#F5F5F5]"
           role="presentation"
           aria-hidden="true"
         >
@@ -178,7 +178,7 @@ export function Hero() {
           
           <div 
             className="absolute w-full flex justify-center transform" 
-            style={{top: '10%'}} // Moved up to 10% from 15%
+            style={{top: '2%'}}
             role="presentation"
             aria-hidden="true"
           >
@@ -187,17 +187,17 @@ export function Hero() {
               alt="Signature Harold's Chicken bucket featuring fresh fried chicken"
               width={600}
               height={600}
-              className={`w-[350px] h-auto transition-all duration-700 transform ${
+              className={`w-[280px] h-auto transition-all duration-700 transform ${
                 isImageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               priority
-              sizes="350px"
+              sizes="280px"
               quality={90}
             />
           </div>
         </div>
 
-        <Container className="mt-4 pb-16">
+        <Container className="-mt-16 pb-12">
           <div 
             className={`transition-all duration-700 transform ${
               isContentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
