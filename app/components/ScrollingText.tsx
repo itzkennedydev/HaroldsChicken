@@ -40,10 +40,10 @@ export function ScrollingText() {
     const currentScroll = container.scrollLeft;
     const maxScroll = content.offsetWidth / 2;
     
-    container.scrollLeft += scrollSpeed;
-
     if (currentScroll >= maxScroll) {
       container.scrollLeft = 0;
+    } else {
+      container.scrollLeft += scrollSpeed;
     }
 
     scrollAnimationRef.current = requestAnimationFrame(animate);
@@ -51,15 +51,14 @@ export function ScrollingText() {
 
   // Start/stop animation
   useEffect(() => {
-    if (!isPaused && !isDragging) {
-      scrollAnimationRef.current = requestAnimationFrame(animate);
-    }
+    scrollAnimationRef.current = requestAnimationFrame(animate);
+    
     return () => {
       if (scrollAnimationRef.current) {
         cancelAnimationFrame(scrollAnimationRef.current);
       }
     };
-  }, [animate, isPaused, isDragging]);
+  }, [animate]);
 
   // Momentum scrolling
   const applyMomentum = useCallback(() => {
@@ -117,6 +116,9 @@ export function ScrollingText() {
       const velocityX = (lastMouseX.current - startX) / timeDelta;
       momentumRef.current = velocityX * (isMobile ? 15 : 25);
     }
+
+    // Resume animation after interaction
+    scrollAnimationRef.current = requestAnimationFrame(animate);
   };
 
   const handleInteractionMove = (position: number) => {
@@ -211,6 +213,7 @@ export function ScrollingText() {
         onMouseLeave={() => {
           setIsPaused(false);
           setIsDragging(false);
+          scrollAnimationRef.current = requestAnimationFrame(animate);
         }}
         onMouseDown={(e) => handleInteractionStart(e.pageX)}
         onMouseUp={handleInteractionEnd}
@@ -221,7 +224,10 @@ export function ScrollingText() {
         }}
         onTouchEnd={() => {
           handleInteractionEnd();
-          setTimeout(() => setIsPaused(false), 1000);
+          setTimeout(() => {
+            setIsPaused(false);
+            scrollAnimationRef.current = requestAnimationFrame(animate);
+          }, 1000);
         }}
         onTouchMove={(e) => {
           e.preventDefault();
