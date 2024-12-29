@@ -8,6 +8,8 @@ function HeroSection() {
   return (
     <section className="relative min-h-[600px] w-full bg-[#202124]">
       <div className="absolute inset-0 z-0">
+        {/* Black overlay */}
+        <div className="absolute inset-0 bg-black opacity-60 z-10" />
         <Image
           src="/images/History.jpeg"
           alt="Historic Harold's Chicken location"
@@ -18,8 +20,8 @@ function HeroSection() {
         />
       </div>
       
-      <Container className="relative z-10 pt-32 pb-16"> 
-        <div className="max-w-2xl text-white">
+      <Container className="relative z-20 flex items-center justify-center min-h-[600px]">
+        <div className="max-w-2xl text-white text-center">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight uppercase">
             A Chicago Legend
           </h1>

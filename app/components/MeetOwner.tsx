@@ -5,25 +5,18 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import { Container } from "./ui/container";
 import { useInView } from 'react-intersection-observer';
-
-interface Milestone {
-  year: string;
-  title: string;
-}
+import Link from 'next/link';
 
 export function MeetOwner() {
   const contentRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
-  const [hoveredMilestone, setHoveredMilestone] = useState<number | null>(null);
 
   const { ref: sectionRef, inView } = useInView({
     threshold: 0.2,
     triggerOnce: true,
     delay: 100
   });
-
-  const milestones: Milestone[] = [];
 
   const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (e.key === 'ArrowDown') {
@@ -71,13 +64,13 @@ export function MeetOwner() {
           <div 
             className="w-full md:w-1/2"
             role="img"
-            aria-label="Portrait of Harold's Chicken owner"
+            aria-label="Portrait of Josiah Blanton"
           >
             <div className="relative aspect-[5/3] w-full rounded-lg overflow-hidden group">
               <div className="absolute inset-0 bg-[#407E57] mix-blend-multiply opacity-20 group-hover:opacity-0 transition-opacity duration-500" />
               <Image
                 src="/images/Josiah.png"
-                alt="Portrait photograph of Harold's Chicken owner"
+                alt="Portrait photograph of Josiah Blanton"
                 fill
                 className={`object-cover object-top rounded-lg transition-all duration-700 transform ${
                   isImageLoaded ? 'scale-100 blur-0' : 'scale-105 blur-sm'
@@ -86,27 +79,7 @@ export function MeetOwner() {
                 priority
                 onLoadingComplete={() => setIsImageLoaded(true)}
               />
-              {/* Image Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
-
-            {/* Milestones */}
-            <div className="mt-6 grid grid-cols-3 gap-4">
-              {milestones.map((milestone, index) => (
-                <div
-                  key={index}
-                  className="text-center group/milestone"
-                  onMouseEnter={() => setHoveredMilestone(index)}
-                  onMouseLeave={() => setHoveredMilestone(null)}
-                >
-                  <div className={`text-2xl font-bold transition-colors duration-300 ${
-                    hoveredMilestone === index ? 'text-[#407E57]' : 'text-[#202124]'
-                  }`}>
-                    {milestone.year}
-                  </div>
-                  <div className="text-sm text-[#475467] mt-1">{milestone.title}</div>
-                </div>
-              ))}
             </div>
           </div>
 
@@ -133,18 +106,18 @@ export function MeetOwner() {
                 className="text-base sm:text-lg text-[#333536] leading-relaxed font-medium uppercase"
                 tabIndex={0}
               >
-                LOREM IPSUM DOLOR SIT AMET CONSECTETUR. LACUS VITAE FACILISI FELIS AMET EGET. VELIT RHONCUS MAURIS PROIN SCELERISQUE VULPUTATE AUGUE A. PHARETRA AT TURPIS FRINGILLA CRAS ODIO.
+                A VISIONARY ENTREPRENEUR FROM CHICAGO, JOSIAH BLANTON TRANSFORMS CHALLENGES INTO OPPORTUNITIES. THROUGH HIS DEDICATION TO EXCELLENCE AND STRONG BUSINESS MINDSET, HE NOW LEADS MULTIPLE SUCCESSFUL VENTURES WHILE STAYING TRUE TO HIS CHICAGO ROOTS.
               </p>
               <blockquote className="border-l-4 border-[#407E57] pl-6 py-2 italic">
                 <p className="text-lg text-[#333536] leading-relaxed">
-                  &ldquo;Our mission is to bring the authentic taste of Chicago to every plate we serve.&rdquo;
+                  &ldquo;Your mind must arrive at the destination before you do. Success is not just about skill—it's about the mindset to maintain, retain, and sustain everything you build.&rdquo;
                 </p>
               </blockquote>
               <p 
                 className="text-base sm:text-lg text-[#333536] leading-relaxed font-medium uppercase"
                 tabIndex={0}
               >
-                TURPIS FEUGIAT PHARETRA TINCIDUNT ORCI POSUERE VELIT. UT SODALES PARTURIENT VEL PULVINAR IN VITAE ID. PELLENTESQUE HENDRERIT HAC LACUS SIT.
+                GUIDED BY THE PRINCIPLES OF DISCIPLINE, DEDICATION, AND DETERMINATION, JOSIAH'S JOURNEY EXEMPLIFIES THE POWER OF POSITIVE MINDSET IN ACHIEVING BUSINESS EXCELLENCE AND COMMUNITY IMPACT.
               </p>
             </div>
 
@@ -155,29 +128,22 @@ export function MeetOwner() {
                 className="bg-[#407E57] hover:bg-[#407E57]/90 text-white font-bold px-8 py-4 uppercase text-sm sm:text-base 
                   transition-all duration-300 hover:scale-105 hover:shadow-lg
                   focus:ring-2 focus:ring-offset-2 focus:ring-[#407E57] focus:outline-none"
-                aria-label="Learn more about the owner's story"
+                aria-label="Learn more about Josiah&apos;s story"
+                asChild
               >
-                <span className="flex items-center gap-2">
-                  READ MORE
-                  <svg 
-                    className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
-              </Button>
-              <Button 
-                variant="outline"
-                size="lg"
-                className="border-[#407E57] text-[#407E57] hover:bg-[#407E57]/10 font-bold px-8 py-4 uppercase text-sm sm:text-base 
-                  transition-all duration-300 hover:scale-105
-                  focus:ring-2 focus:ring-offset-2 focus:ring-[#407E57] focus:outline-none"
-                aria-label="Contact the owner"
-              >
-                CONTACT
+                <Link href="/owner-story">
+                  <span className="flex items-center gap-2">
+                    READ MORE
+                    <svg 
+                      className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                </Link>
               </Button>
             </div>
           </div>
