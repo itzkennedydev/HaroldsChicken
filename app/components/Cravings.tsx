@@ -32,7 +32,7 @@ export function Cravings() {
       name: "CLASSIC DARK MEAT DEAL",
       calories: "520-740",
       price: "7.99",
-      image: "/images/Wings.jpg",
+      image: "/images/Wings.JPG",
       imageAlt: "Classic dark meat chicken meal with sides",
       tag: "BEST SELLER",
       description: "Tender dark meat chicken with your choice of two sides"
@@ -42,7 +42,7 @@ export function Cravings() {
       name: "FISH & FRIES COMBO",
       calories: "480-690",
       price: "8.99",
-      image: "/images/Catfish.jpg",
+      image: "/images/Catfish.JPG",
       imageAlt: "Fish and fries combo meal",
       tag: "NEW",
       description: "Crispy fish fillet served with our signature seasoned fries"
@@ -52,7 +52,7 @@ export function Cravings() {
       name: "FAMILY WING PACK",
       calories: "840-1200",
       price: "19.99",
-      image: "/images/FamilyDinner.jpg",
+      image: "/images/FamilyDinner.JPG",
       imageAlt: "Family size wing pack",
       tag: "VALUE",
       description: "24 wings with your choice of sauces, perfect for sharing"
