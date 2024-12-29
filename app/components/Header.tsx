@@ -38,7 +38,7 @@ const menuItems: MenuItem[] = [
       className: "bg-[#ECFDF3] hover:bg-[#D1F5E3] text-[#067647] border border-[#ABEFC6] hover:border-[#8BE3B0]"
     }
   },
-  { label: "OUR STORY", href: "/our-story", shortcut: 'o' },
+  { label: "OUR FOUNDER", href: "/our-founder", shortcut: 'o' },
 ];
 
 interface HeaderProps {
@@ -366,7 +366,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
         <p>Press Alt + M for Menu</p>
         <p>Press Alt + S for Sports Bar</p>
         <p>Press Alt + C for Careers</p>
-        <p>Press Alt + O for Our Story</p>
+        <p>Press Alt + O for Our Founder</p>
         <p>Press Escape to close the mobile menu</p>
         <p>Use Tab to navigate between interactive elements</p>
       </div>
