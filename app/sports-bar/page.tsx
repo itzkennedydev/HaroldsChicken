@@ -19,13 +19,13 @@ function HeroSection() {
       </div>
       
       <Container className="relative z-10 pt-32 pb-16">
-        <div className="max-w-2xl text-white">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight uppercase text-center md:text-left">
+        <div className="max-w-2xl text-white mx-auto text-center">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight uppercase">
             Moline&apos;s Premier
             <br />
             Sports Bar
           </h1>
-          <p className="text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed uppercase font-medium text-center md:text-left">
+          <p className="text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed uppercase font-medium">
             Bringing Chicago&apos;s Legendary Harold&apos;s Wings To Moline. Your Home For Authentic Chicago Flavor, Sports, And Good Times.
           </p>
           <Button 
