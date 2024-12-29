@@ -106,7 +106,7 @@ export function MeetOwner() {
                 className="text-base sm:text-lg text-[#333536] leading-relaxed font-medium uppercase"
                 tabIndex={0}
               >
-                A VISIONARY ENTREPRENEUR FROM CHICAGO, JOSIAH BLANTON TRANSFORMS CHALLENGES INTO OPPORTUNITIES. THROUGH HIS DEDICATION TO EXCELLENCE AND STRONG BUSINESS MINDSET, HE NOW LEADS MULTIPLE SUCCESSFUL VENTURES WHILE STAYING TRUE TO HIS CHICAGO ROOTS.
+                JOSIAH BLANTON, A VISIONARY ENTREPRENEUR FROM CHICAGO, ILLINOIS, TRANSFORMS CHALLENGES INTO OPPORTUNITIES THROUGH HIS DEDICATION TO EXCELLENCE AND A STRONG BUSINESS MINDSET.
               </p>
               <blockquote className="border-l-4 border-[#407E57] pl-6 py-2 italic">
                 <p className="text-lg text-[#333536] leading-relaxed">
@@ -117,7 +117,7 @@ export function MeetOwner() {
                 className="text-base sm:text-lg text-[#333536] leading-relaxed font-medium uppercase"
                 tabIndex={0}
               >
-                GUIDED BY THE PRINCIPLES OF DISCIPLINE, DEDICATION, AND DETERMINATION, JOSIAH&apos;S JOURNEY EXEMPLIFIES THE POWER OF POSITIVE MINDSET IN ACHIEVING BUSINESS EXCELLENCE AND COMMUNITY IMPACT.
+                GUIDED BY THE PRINCIPLES OF DISCIPLINE, DEDICATION, AND DETERMINATION, JOSIAH&apos;S JOURNEY EXEMPLIFIES THE POWER OF A POSITIVE MINDSET IN ACHIEVING BUSINESS EXCELLENCE AND COMMUNITY IMPACT.
               </p>
             </div>
 
