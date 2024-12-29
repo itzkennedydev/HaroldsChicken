@@ -17,7 +17,7 @@ function HeroSection() {
         sizes="100vw"
       />
       
-      <Container className="relative z-10 pt-32 pb-16">
+      <Container className="relative z-10 pt-48 pb-24">
         <div className="max-w-2xl text-white mx-auto text-center">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight uppercase">
             Join Our Family
@@ -177,7 +177,7 @@ function BenefitsSection() {
           <div className="w-full md:w-1/2">
             <div className="relative aspect-[4/3] w-full">
               <Image
-                src="/images/team-lunch.jpg"
+                src="/images/Promo.png"
                 alt="Harold's team members enjoying lunch together"
                 fill
                 className="object-cover rounded-lg"
