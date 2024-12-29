@@ -94,11 +94,11 @@ export function ImageCarousel() {
     switch (e.key) {
       case 'ArrowLeft':
         e.preventDefault();
-        container.scrollLeft -= 600;
+        container.scrollLeft -= 300;
         break;
       case 'ArrowRight':
         e.preventDefault();
-        container.scrollLeft += 600;
+        container.scrollLeft += 300;
         break;
       case ' ':
         e.preventDefault();
@@ -117,7 +117,7 @@ export function ImageCarousel() {
 
   return (
     <section 
-      className="relative w-full h-[320px] mt-32"
+      className="relative w-full h-[200px] sm:h-[260px] md:h-[320px] mt-16 sm:mt-24 md:mt-32"
       aria-label="Celebrity Visitors Gallery"
       role="region"
     >
@@ -128,7 +128,7 @@ export function ImageCarousel() {
       >
         <div 
           ref={containerRef}
-          className="flex gap-8 overflow-x-hidden overflow-y-hidden cursor-grab active:cursor-grabbing focus:outline-none focus:ring-2 focus:ring-[#407E57]"
+          className="flex gap-4 sm:gap-6 md:gap-8 overflow-x-hidden overflow-y-hidden cursor-grab active:cursor-grabbing focus:outline-none focus:ring-2 focus:ring-[#407E57]"
           role="list"
           aria-label="Celebrity images carousel"
           tabIndex={0}
@@ -144,7 +144,7 @@ export function ImageCarousel() {
           {[...images, ...images].map((image, index) => (
             <div
               key={index}
-              className="relative w-[600px] h-[304px] flex-none rounded-lg overflow-hidden select-none"
+              className="relative w-[280px] sm:w-[400px] md:w-[600px] h-[184px] sm:w-[244px] md:h-[304px] flex-none rounded-lg overflow-hidden select-none"
               role="listitem"
               aria-label={`Slide ${index + 1} of ${images.length * 2}`}
             >
@@ -153,7 +153,7 @@ export function ImageCarousel() {
                 alt={image.alt}
                 fill
                 className="object-cover pointer-events-none"
-                sizes="600px"
+                sizes="(max-width: 640px) 280px, (max-width: 768px) 400px, 600px"
                 priority={index === 0}
               />
             </div>
