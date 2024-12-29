@@ -7,35 +7,137 @@ export function ScrollingText() {
   const contentRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const momentumRef = useRef(0);
+  const lastMouseX = useRef(0);
+  const lastScrollTime = useRef(Date.now());
+  const scrollAnimationRef = useRef<number | null>(null);
+  const momentumTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Mobile detection
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    const resizeObserver = new ResizeObserver(checkMobile);
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
+    return () => resizeObserver.disconnect();
   }, []);
 
-  const scroll = useCallback(() => {
-    if (!containerRef.current || !contentRef.current || isPaused) return;
-    
-    // Slower scroll speed on mobile
+  // Smooth scrolling animation using requestAnimationFrame
+  const animate = useCallback(() => {
+    if (!containerRef.current || !contentRef.current || isPaused || isDragging) return;
+
+    const container = containerRef.current;
+    const content = contentRef.current;
     const scrollSpeed = isMobile ? 0.5 : 1;
-    containerRef.current.scrollLeft += scrollSpeed;
     
-    if (containerRef.current.scrollLeft >= contentRef.current.offsetWidth / 2) {
-      containerRef.current.scrollLeft = 0;
+    const currentScroll = container.scrollLeft;
+    const maxScroll = content.offsetWidth / 2;
+    
+    container.scrollLeft += scrollSpeed;
+
+    if (currentScroll >= maxScroll) {
+      container.scrollLeft = 0;
     }
-  }, [isPaused, isMobile]);
+
+    scrollAnimationRef.current = requestAnimationFrame(animate);
+  }, [isPaused, isMobile, isDragging]);
+
+  // Start/stop animation
+  useEffect(() => {
+    if (!isPaused && !isDragging) {
+      scrollAnimationRef.current = requestAnimationFrame(animate);
+    }
+    return () => {
+      if (scrollAnimationRef.current) {
+        cancelAnimationFrame(scrollAnimationRef.current);
+      }
+    };
+  }, [animate, isPaused, isDragging]);
+
+  // Momentum scrolling
+  const applyMomentum = useCallback(() => {
+    if (!containerRef.current || Math.abs(momentumRef.current) < 0.1) return;
+
+    const container = containerRef.current;
+    const currentScroll = container.scrollLeft;
+    const content = contentRef.current;
+    if (!content) return;
+
+    const maxScroll = content.offsetWidth / 2;
+    
+    let newScroll = currentScroll - momentumRef.current;
+    if (newScroll < 0) {
+      newScroll = maxScroll + newScroll;
+    } else if (newScroll > maxScroll) {
+      newScroll = newScroll - maxScroll;
+    }
+    
+    container.scrollLeft = newScroll;
+    momentumRef.current *= 0.95; // Decay momentum
+    
+    momentumTimeoutRef.current = setTimeout(applyMomentum, 16);
+  }, []);
 
   useEffect(() => {
-    // Slower interval on mobile for smoother animation
-    const interval = setInterval(scroll, isMobile ? 40 : 30);
-    return () => clearInterval(interval);
-  }, [scroll, isMobile]);
+    if (Math.abs(momentumRef.current) > 0.1) {
+      applyMomentum();
+    }
+    return () => {
+      if (momentumTimeoutRef.current) {
+        clearTimeout(momentumTimeoutRef.current);
+      }
+    };
+  }, [applyMomentum]);
+
+  // Interaction handlers
+  const handleInteractionStart = (position: number) => {
+    if (scrollAnimationRef.current) {
+      cancelAnimationFrame(scrollAnimationRef.current);
+    }
+    setIsDragging(true);
+    setStartX(position);
+    setScrollLeft(containerRef.current?.scrollLeft || 0);
+    lastMouseX.current = position;
+    lastScrollTime.current = Date.now();
+    momentumRef.current = 0;
+  };
+
+  const handleInteractionEnd = () => {
+    setIsDragging(false);
+    
+    const timeDelta = Date.now() - lastScrollTime.current;
+    if (timeDelta < 100) {
+      const velocityX = (lastMouseX.current - startX) / timeDelta;
+      momentumRef.current = velocityX * (isMobile ? 15 : 25);
+    }
+  };
+
+  const handleInteractionMove = (position: number) => {
+    if (!isDragging || !containerRef.current) return;
+    
+    const x = position;
+    const delta = x - lastMouseX.current;
+    const sensitivity = isMobile ? 1.5 : 2;
+    
+    const newScrollLeft = scrollLeft - (delta * sensitivity);
+    containerRef.current.scrollLeft = newScrollLeft;
+    
+    lastMouseX.current = x;
+    lastScrollTime.current = Date.now();
+  };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (!containerRef.current) return;
+
+    const scrollStep = isMobile ? 25 : 50;
+    
     switch (e.key) {
       case ' ':
         e.preventDefault();
@@ -43,16 +145,20 @@ export function ScrollingText() {
         break;
       case 'ArrowLeft':
         e.preventDefault();
-        if (containerRef.current) {
-          // Smaller scroll distance on mobile
-          containerRef.current.scrollLeft -= isMobile ? 25 : 50;
-        }
+        containerRef.current.scrollLeft -= scrollStep;
         break;
       case 'ArrowRight':
         e.preventDefault();
-        if (containerRef.current) {
-          // Smaller scroll distance on mobile
-          containerRef.current.scrollLeft += isMobile ? 25 : 50;
+        containerRef.current.scrollLeft += scrollStep;
+        break;
+      case 'Home':
+        e.preventDefault();
+        containerRef.current.scrollLeft = 0;
+        break;
+      case 'End':
+        e.preventDefault();
+        if (contentRef.current) {
+          containerRef.current.scrollLeft = contentRef.current.offsetWidth / 2;
         }
         break;
     }
@@ -98,17 +204,37 @@ export function ScrollingText() {
     >
       <div 
         ref={containerRef}
-        className="overflow-x-hidden scroll-smooth"
+        className="overflow-x-hidden cursor-grab active:cursor-grabbing scroll-smooth"
         role="marquee"
         aria-live="polite"
         onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onTouchStart={() => setIsPaused(true)}
-        onTouchEnd={() => setIsPaused(false)}
+        onMouseLeave={() => {
+          setIsPaused(false);
+          setIsDragging(false);
+        }}
+        onMouseDown={(e) => handleInteractionStart(e.pageX)}
+        onMouseUp={handleInteractionEnd}
+        onMouseMove={(e) => handleInteractionMove(e.pageX)}
+        onTouchStart={(e) => {
+          setIsPaused(true);
+          handleInteractionStart(e.touches[0].pageX);
+        }}
+        onTouchEnd={() => {
+          handleInteractionEnd();
+          setTimeout(() => setIsPaused(false), 1000);
+        }}
+        onTouchMove={(e) => {
+          e.preventDefault();
+          handleInteractionMove(e.touches[0].pageX);
+        }}
         tabIndex={0}
         onKeyDown={handleKeyDown}
         aria-label="Scrolling announcement"
         aria-controls="scroll-content"
+        style={{
+          scrollBehavior: isDragging ? 'auto' : 'smooth',
+          touchAction: isDragging ? 'none' : 'pan-y pinch-zoom'
+        }}
       >
         <div 
           ref={contentRef}
@@ -126,7 +252,9 @@ export function ScrollingText() {
       <div className="sr-only" role="note">
         <p>Press space to pause/resume scrolling</p>
         <p>Use left and right arrow keys to navigate when paused</p>
-        <p>Touch to pause scrolling</p>
+        <p>Press Home to go to start</p>
+        <p>Press End to go to end</p>
+        <p>Touch and drag to manually scroll</p>
       </div>
     </section>
   );
