@@ -6,7 +6,6 @@ import { Container } from "../components/ui/container";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
-import { ChevronRight } from "lucide-react";
 
 interface GalleryImage {
   id: number;
@@ -25,31 +24,67 @@ export default function Page() {
       id: 1,
       src: "/images/1B.jpeg",
       alt: "Lonnie Ray mentoring Josiah",
-      caption: "Lonnie Ray - Early Mentor and Guide"
+      caption: ""
     },
     {
       id: 2,
       src: "/images/2B.jpg",
       alt: "Thurgood Marshall Learning Center book donation",
-      caption: "Thurgood Marshall Learning Center"
+      caption: ""
     },
     {
       id: 3,
       src: "/images/3B.jpg",
       alt: "Greater Praise Temple donation event",
-      caption: "Community Support at Greater Praise Temple"
+      caption: ""
     },
     {
       id: 4,
       src: "/images/4B.jpg",
       alt: "Josiah giving TEDx talk",
-      caption: "Sharing Wisdom Through TEDx"
+      caption: ""
     },
     {
       id: 5,
       src: "/images/5B.jpg",
       alt: "Davenport Central event",
-      caption: "Making an Impact at Davenport Central"
+      caption: ""
+    },
+    {
+      id: 6,
+      src: "/images/7B.png",
+      alt: "Josiah with his team",
+      caption: ""
+    },
+    {
+      id: 7,
+      src: "/images/8B.png",
+      alt: "Josiah with his team",
+      caption: ""
+    },
+    {
+      id: 8,
+      src: "/images/9B.jpeg",
+      alt: "Josiah with his team",
+      caption: ""
+    },
+    {
+      id: 9,
+      src: "/images/10B.jpg",
+      alt: "Josiah with his team",
+      caption: ""
+    },
+    {
+      id: 10,
+      src: "/images/11B.png",
+      alt: "Josiah with his team",
+      caption: ""
+    },
+    {
+      id: 11,
+      src: "/images/12B.png",
+      alt: "Josiah with his team",
+      caption: ""
     }
   ];
 
@@ -101,23 +136,18 @@ export default function Page() {
               </div>
 
               {/* Content Column */}
-              <div className="space-y-16 pt-0">
+              <div className="space-y-8 pt-0">
                 {/* Header Section */}
-                <header className="space-y-4">
-                  <h1 className="text-5xl font-bold text-neutral-900 tracking-tight font-display uppercase">
-                    The Power of Mindset
-                  </h1>
-                  <p className="text-lg font-medium text-emerald-700">
-                    A Journey of Transformation and Impact
-                  </p>
-                </header>
+                <h1 className="text-5xl font-bold text-neutral-900 tracking-tight font-display uppercase">
+                  The Power of Mindset
+                </h1>
 
                 {/* Introduction */}
                 <section className="space-y-8">
                   <p className="text-xl text-neutral-700 leading-relaxed">
                     From the streets of Chicago emerged a story of resilience, determination, and unwavering focus. Josiah Blanton&apos;s journey is more than a tale of success—it&apos;s a testament to the power of mindset over circumstances.
                   </p>
-                  <blockquote className="pl-8 border-l-4 border-emerald-600">
+                  <blockquote className="pl-8 border-l-4 border-[#156D37]">
                     <p className="text-2xl text-neutral-800 font-light italic">
                       &ldquo;Your mind must arrive at the destination before you do. No matter how good your skill set is, if you don&apos;t have the mentality that you&apos;re going to win, you&apos;ve already lost before you started.&rdquo;
                     </p>
@@ -140,19 +170,19 @@ export default function Page() {
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div className="space-y-3 p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                      <h3 className="text-xl font-medium text-emerald-700 font-display uppercase">Dedication</h3>
+                      <h3 className="text-xl font-medium text-[#156D37] font-display uppercase">Dedication</h3>
                       <p className="text-neutral-600">
                         Commitment to excellence in every venture and initiative
                       </p>
                     </div>
                     <div className="space-y-3 p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                      <h3 className="text-xl font-medium text-emerald-700 font-display uppercase">Discipline</h3>
+                      <h3 className="text-xl font-medium text-[#156D37] font-display uppercase">Discipline</h3>
                       <p className="text-neutral-600">
                         Maintaining focus and drive even through challenging times
                       </p>
                     </div>
                     <div className="space-y-3 p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                      <h3 className="text-xl font-medium text-emerald-700 font-display uppercase">Determination</h3>
+                      <h3 className="text-xl font-medium text-[#156D37] font-display uppercase">Determination</h3>
                       <p className="text-neutral-600">
                         Unwavering resolve to achieve goals and create positive impact
                       </p>
@@ -197,7 +227,7 @@ export default function Page() {
                 className="group cursor-pointer"
                 onClick={() => setSelectedImage(image)}
               >
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-md">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-md ring-1 ring-neutral-200">
                   <Image
                     src={image.src}
                     alt={image.alt}
@@ -205,12 +235,6 @@ export default function Page() {
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-                <div className="mt-6 flex items-center justify-between group-hover:text-emerald-700 transition-colors">
-                  <p className="text-lg font-medium">
-                    {image.caption}
-                  </p>
-                  <ChevronRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                 </div>
               </div>
             ))}
@@ -231,9 +255,6 @@ export default function Page() {
                       className="object-cover object-top rounded-xl"
                     />
                   </div>
-                  <p className="mt-6 text-xl font-medium text-center text-neutral-900">
-                    {selectedImage.caption}
-                  </p>
                 </div>
               )}
             </DialogContent>
