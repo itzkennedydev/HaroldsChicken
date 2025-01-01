@@ -23,67 +23,67 @@ export default function Page() {
     {
       id: 1,
       src: "/images/1B.jpeg",
-      alt: "Lonnie Ray mentoring Josiah",
+      alt: "",
       caption: ""
     },
     {
       id: 2,
       src: "/images/2B.jpg",
-      alt: "Thurgood Marshall Learning Center book donation",
+      alt: "",
       caption: ""
     },
     {
       id: 3,
       src: "/images/3B.jpg",
-      alt: "Greater Praise Temple donation event",
+      alt: "",
       caption: ""
     },
     {
       id: 4,
       src: "/images/4B.jpg",
-      alt: "Josiah giving TEDx talk",
+      alt: "",
       caption: ""
     },
     {
       id: 5,
       src: "/images/5B.jpg",
-      alt: "Davenport Central event",
+      alt: "",
       caption: ""
     },
     {
       id: 6,
       src: "/images/7B.png",
-      alt: "Josiah with his team",
+      alt: "",
       caption: ""
     },
     {
       id: 7,
       src: "/images/8B.png",
-      alt: "Josiah with his team",
+      alt: "",
       caption: ""
     },
     {
       id: 8,
       src: "/images/9B.jpeg",
-      alt: "Josiah with his team",
+      alt: "",
       caption: ""
     },
     {
       id: 9,
-      src: "/images/10B.jpg",
-      alt: "Josiah with his team",
+      src: "/images/10B.JPG",
+      alt: "",
       caption: ""
     },
     {
       id: 10,
       src: "/images/11B.png",
-      alt: "Josiah with his team",
+      alt: "",
       caption: ""
     },
     {
       id: 11,
       src: "/images/12B.png",
-      alt: "Josiah with his team",
+      alt: "",
       caption: ""
     }
   ];
@@ -126,7 +126,7 @@ export default function Page() {
                   <div className="relative aspect-[3/4] shadow-2xl">
                     <Image
                       src="/images/Josiah.png"
-                      alt="Portrait of Josiah Blanton"
+                      alt=""
                       fill
                       className="object-cover rounded-2xl"
                       priority
