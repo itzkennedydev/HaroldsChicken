@@ -230,7 +230,7 @@ export default function Page() {
                 <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-md ring-1 ring-neutral-200">
                   <Image
                     src={image.src}
-                    alt={image.alt}
+                    alt=""
                     fill
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   />
@@ -250,7 +250,7 @@ export default function Page() {
                   <div className="relative aspect-[4/3]">
                     <Image
                       src={selectedImage.src}
-                      alt={selectedImage.alt}
+                      alt=""
                       fill
                       className="object-cover object-top rounded-xl"
                     />

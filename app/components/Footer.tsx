@@ -27,7 +27,6 @@ export function Footer() {
       title: "EXPLORE",
       links: [
         { href: "/menu", label: "MENU" },
-        { href: "/sports-bar", label: "SPORTS BAR" },
         { href: "/catering", label: "CATERING" },
         { href: "/locations", label: "LOCATIONS" },
       ]
