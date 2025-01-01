@@ -28,7 +28,7 @@ export default function NotFound() {
               mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}>
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-[#202124] mb-8 leading-tight uppercase text-center">
-                Page Not Found
+                Oh Cluck!
               </h1>
               <p className="text-lg md:text-xl lg:text-2xl text-[#333536] mb-10 leading-relaxed uppercase text-center font-medium">
                 Looks Like This Page Flew The Coop. Don&apos;t Worry Though – Our Chicken Isn&apos;t Going Anywhere.
