@@ -26,6 +26,10 @@ const images: CarouselImage[] = [
     alt: "Usher at Harold's Chicken",
   },
   {
+    src: "/images/Celebs/JB.jpg",
+    alt: "Blanton at Harold's Chicken",
+  },
+  {
     src: "/images/Celebs/Blanton.jpeg",
     alt: "Blanton at Harold's Chicken",
   },
@@ -95,7 +99,12 @@ export function ImageCarousel() {
   }, [isDragging, isPaused]);
 
   const applyMomentum = useCallback(() => {
-    if (!containerRef.current || Math.abs(momentum) < 0.1) return;
+    if (!containerRef.current || Math.abs(momentum) < 0.1) {
+      if (momentumRef.current) {
+        clearTimeout(momentumRef.current);
+      }
+      return;
+    }
 
     const currentScroll = containerRef.current.scrollLeft;
     const maxScroll = containerRef.current.scrollWidth - containerRef.current.clientWidth;
@@ -103,24 +112,33 @@ export function ImageCarousel() {
     const newScroll = Math.max(0, Math.min(maxScroll, currentScroll - momentum));
     containerRef.current.scrollLeft = newScroll;
     
-    setMomentum(prev => prev * 0.95);
+    const newMomentum = momentum * 0.95;
+    setMomentum(newMomentum);
     
-    momentumRef.current = setTimeout(applyMomentum, 16);
+    if (Math.abs(newMomentum) >= 0.1) {
+      momentumRef.current = setTimeout(applyMomentum, 16);
+    }
   }, [momentum]);
 
   useEffect(() => {
-    if (momentum !== 0) {
-      applyMomentum();
+    if (momentum !== 0 && Math.abs(momentum) >= 0.1) {
+      momentumRef.current = setTimeout(applyMomentum, 16);
     }
     return () => {
-      if (momentumRef.current) clearTimeout(momentumRef.current);
+      if (momentumRef.current) {
+        clearTimeout(momentumRef.current);
+      }
     };
   }, [momentum, applyMomentum]);
 
   useEffect(() => {
-    startAutoScroll();
+    if (!isPaused && !isDragging) {
+      startAutoScroll();
+    } else {
+      stopAutoScroll();
+    }
     return () => stopAutoScroll();
-  }, [startAutoScroll, stopAutoScroll]);
+  }, [startAutoScroll, stopAutoScroll, isPaused, isDragging]);
 
   const handleInteractionStart = (position: number) => {
     setIsDragging(true);
@@ -147,10 +165,6 @@ export function ImageCarousel() {
     
     if (containerRef.current) {
       containerRef.current.style.touchAction = 'pan-y pinch-zoom';
-    }
-
-    if (!isPaused && !isMobile) {
-      setTimeout(startAutoScroll, 1000);
     }
   };
 
@@ -181,13 +195,11 @@ export function ImageCarousel() {
         e.preventDefault();
         container.scrollLeft -= scrollDistance;
         stopAutoScroll();
-        setTimeout(startAutoScroll, 1000);
         break;
       case 'ArrowRight':
         e.preventDefault();
         container.scrollLeft += scrollDistance;
         stopAutoScroll();
-        setTimeout(startAutoScroll, 1000);
         break;
       case ' ':
         e.preventDefault();
