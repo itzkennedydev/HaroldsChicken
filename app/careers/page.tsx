@@ -1,7 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import { Button } from '../components/ui/button';
 import { Container } from '../components/ui/container';
-import { Badge } from '../components/ui/badge';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
@@ -16,20 +17,21 @@ function HeroSection() {
         priority
         sizes="100vw"
       />
-      
-      <Container className="relative z-10 pt-48 pb-24">
-        <div className="max-w-2xl text-white mx-auto text-center">
+      <div className="absolute inset-0 bg-black/40" />
+      <Container className="relative z-10 flex items-center min-h-[600px]">
+        <div className="max-w-2xl text-white mx-auto text-center py-24">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight uppercase">
-            Join Our Family
+            Future Opportunities
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed uppercase font-medium">
-            Be Part of Harold&apos;s Chicken in Moline. We&apos;re Looking for Passionate People to Join Our Growing Team.
+            While we&apos;re not currently hiring, we&apos;re always interested in meeting talented individuals who want to join the Harold&apos;s Chicken family.
           </p>
           <Button 
             size="lg"
             className="bg-[#407E57] hover:bg-[#407E57]/90 text-white text-xl font-bold px-12 py-6 uppercase w-full sm:w-auto"
+            onClick={() => window.open('https://apply.haroldschickensportsbar.com', '_blank')}
           >
-            View Open Positions
+            View Application Portal
           </Button>
         </div>
       </Container>
@@ -62,8 +64,8 @@ function ValuesSection() {
   ];
 
   return (
-    <section className="py-24 bg-white">
-      <Container>
+    <section className="bg-white">
+      <Container className="py-24">
         <h2 className="text-4xl md:text-5xl font-bold text-[#202124] mb-16 text-center uppercase">
           Why Choose Harold&apos;s
         </h2>
@@ -81,77 +83,52 @@ function ValuesSection() {
   );
 }
 
-function OpenPositions() {
-  const positions = [
+function TestimonialsSection() {
+  const testimonials = [
     {
-      title: "COOK",
-      location: "MOLINE LOCATION",
-      type: "FULL-TIME",
-      description: "JOIN OUR KITCHEN TEAM AND HELP CREATE OUR LEGENDARY DISHES. EXPERIENCE PREFERRED BUT NOT REQUIRED.",
-      badge: "URGENT"
+      quote: "Working at Harold's Chicken has been an incredible journey. The supportive environment and opportunities for growth have helped me develop both professionally and personally.",
+      name: "Sarah Johnson",
+      role: "Restaurant Manager",
+      image: "/images/testimonial-1.jpg"
     },
     {
-      title: "HOSTESS",
-      location: "MOLINE LOCATION",
-      type: "FULL-TIME / PART-TIME",
-      description: "GREET AND SEAT GUESTS WHILE MAINTAINING A WELCOMING ATMOSPHERE. EXCELLENT CUSTOMER SERVICE SKILLS REQUIRED.",
-      badge: "HIGH DEMAND"
+      quote: "The family-first culture here is not just talk - it's real. I've never worked somewhere that cares so much about their employees' wellbeing and success.",
+      name: "Michael Chen",
+      role: "Kitchen Team Lead",
+      image: "/images/testimonial-2.jpg"
     },
     {
-      title: "CUSTODIAL TECH",
-      location: "MOLINE LOCATION",
-      type: "FULL-TIME",
-      description: "MAINTAIN CLEANLINESS AND SANITATION OF OUR RESTAURANT TO ENSURE A GREAT DINING EXPERIENCE."
-    },
-    {
-      title: "SECURITY",
-      location: "MOLINE LOCATION",
-      type: "FULL-TIME",
-      description: "ENSURE THE SAFETY AND SECURITY OF OUR GUESTS AND TEAM MEMBERS. SECURITY EXPERIENCE REQUIRED.",
-      badge: "NEW"
+      quote: "Starting as a server and working my way up to management showed me that Harold's truly believes in promoting from within. They invest in their people.",
+      name: "David Rodriguez",
+      role: "Assistant Manager",
+      image: "/images/testimonial-3.jpg"
     }
   ];
 
   return (
-    <section className="py-24 bg-[#F9F9F9]">
-      <Container>
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#202124] mb-16 text-center uppercase">
-            Open Positions
-          </h2>
-          <div className="space-y-6">
-            {positions.map((position) => (
-              <div 
-                key={position.title}
-                className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
-              >
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-3">
-                      <h3 className="text-xl font-bold text-[#202124]">{position.title}</h3>
-                      {position.badge && (
-                        <Badge className="bg-[#ECFDF3] text-[#067647] border border-[#ABEFC6]">
-                          {position.badge}
-                        </Badge>
-                      )}
-                    </div>
-                    <div className="flex flex-wrap gap-4 text-sm text-[#475467]">
-                      <span>{position.location}</span>
-                      <span>•</span>
-                      <span>{position.type}</span>
-                    </div>
-                    <p className="text-[#333536] hidden md:block">{position.description}</p>
-                  </div>
-                  <Button 
-                    className="bg-[#407E57] hover:bg-[#407E57]/90 text-white font-bold uppercase w-full md:w-auto whitespace-nowrap"
-                  >
-                    Apply Now
-                  </Button>
-                </div>
-                <p className="text-[#333536] md:hidden mt-4">{position.description}</p>
+    <section className="bg-[#F8F9FA]">
+      <Container className="py-24">
+        <h2 className="text-4xl md:text-5xl font-bold text-[#202124] mb-16 text-center uppercase">
+          Our Team Stories
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.name} className="bg-white p-8 rounded-lg border border-gray-100">
+              <div className="relative w-24 h-24 mx-auto mb-6">
+                <Image
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  fill
+                  className="rounded-full object-cover"
+                />
               </div>
-            ))}
-          </div>
+              <p className="text-[#333536] italic mb-6">{testimonial.quote}</p>
+              <div className="text-center">
+                <h4 className="font-bold text-[#202124]">{testimonial.name}</h4>
+                <p className="text-[#407E57]">{testimonial.role}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </Container>
     </section>
@@ -160,59 +137,102 @@ function OpenPositions() {
 
 function BenefitsSection() {
   const benefits = [
-    "COMPETITIVE PAY",
-    "FLEXIBLE SCHEDULING", 
-    "HEALTH INSURANCE",
-    "401(K) PLAN",
-    "PAID TIME OFF",
-    "MEAL DISCOUNTS",
-    "CAREER ADVANCEMENT",
-    "TRAINING PROGRAMS"
+    {
+      icon: "💰",
+      title: "Competitive Pay",
+      description: "We offer above-industry wages and regular performance-based increases"
+    },
+    {
+      icon: "🏥",
+      title: "Health Benefits",
+      description: "Comprehensive medical, dental, and vision coverage for eligible employees"
+    },
+    {
+      icon: "📅",
+      title: "Flexible Scheduling",
+      description: "Work-life balance with flexible shifts and time-off options"
+    },
+    {
+      icon: "🎓",
+      title: "Training Programs",
+      description: "Continuous learning opportunities and skill development"
+    },
+    {
+      icon: "🎉",
+      title: "Employee Discounts",
+      description: "Generous food discounts and special employee perks"
+    },
+    {
+      icon: "🤝",
+      title: "Referral Bonuses",
+      description: "Rewards for helping us grow our team with great people"
+    }
   ];
 
   return (
-    <section className="py-24 bg-white">
-      <Container>
-        <div className="flex flex-col md:flex-row items-center gap-16">
-          <div className="w-full md:w-1/2">
-            <div className="relative aspect-[4/3] w-full">
-              <Image
-                src="/images/Promo.png"
-                alt="Harold's team members enjoying lunch together"
-                fill
-                className="object-cover rounded-lg"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+    <section className="bg-white">
+      <Container className="py-24">
+        <h2 className="text-4xl md:text-5xl font-bold text-[#202124] mb-16 text-center uppercase">
+          Benefits & Perks
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {benefits.map((benefit) => (
+            <div key={benefit.title} className="p-6 rounded-lg bg-[#F8F9FA] hover:bg-[#F0F1F2] transition-colors">
+              <span className="text-4xl block mb-4">{benefit.icon}</span>
+              <h3 className="text-xl font-bold text-[#202124] mb-2 uppercase">{benefit.title}</h3>
+              <p className="text-[#333536]">{benefit.description}</p>
             </div>
-          </div>
-          <div className="w-full md:w-1/2 space-y-8">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#202124] uppercase">
-              Benefits & Perks
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {benefits.map((benefit) => (
-                <div 
-                  key={benefit}
-                  className="flex items-center gap-3 text-[#333536] font-medium"
-                >
-                  <svg
-                    className="w-5 h-5 text-[#407E57] flex-shrink-0"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                  <span>{benefit}</span>
-                </div>
-              ))}
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function FAQSection() {
+  const faqs = [
+    {
+      question: "What positions do you typically hire for?",
+      answer: "We hire for various roles including servers, kitchen staff, hosts, bartenders, and management positions. Each role offers unique opportunities for growth and development."
+    },
+    {
+      question: "What experience do I need to apply?",
+      answer: "While experience is valued, we also welcome entry-level candidates with the right attitude and willingness to learn. Our comprehensive training program will help you succeed."
+    },
+    {
+      question: "What are the typical working hours?",
+      answer: "We offer flexible scheduling with various shifts available. Full-time and part-time positions are available to accommodate different needs and lifestyles."
+    },
+    {
+      question: "Is there room for advancement?",
+      answer: "Absolutely! We strongly believe in promoting from within. Many of our managers started in entry-level positions and worked their way up through dedication and hard work."
+    },
+    {
+      question: "What is the interview process like?",
+      answer: "Our interview process typically includes an initial application review, followed by a phone screening and an in-person interview. We focus on getting to know you as a person."
+    },
+    {
+      question: "Do you provide training?",
+      answer: "Yes, we provide comprehensive training for all positions. Our structured training program ensures you have the skills and knowledge needed to excel in your role."
+    }
+  ];
+
+  return (
+    <section className="bg-[#F8F9FA]">
+      <Container className="py-24">
+        <h2 className="text-4xl md:text-5xl font-bold text-[#202124] mb-16 text-center uppercase">
+          Frequently Asked Questions
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+          {faqs.map((faq) => (
+            <div 
+              key={faq.question} 
+              className="bg-white p-8 rounded-lg hover:bg-[#F0F1F2] transition-colors"
+            >
+              <h3 className="text-xl font-bold text-[#202124] mb-4 uppercase">{faq.question}</h3>
+              <p className="text-[#333536] leading-relaxed">{faq.answer}</p>
             </div>
-          </div>
+          ))}
         </div>
       </Container>
     </section>
@@ -221,21 +241,22 @@ function BenefitsSection() {
 
 function CTASection() {
   return (
-    <section className="py-24 bg-[#407E57]">
-      <Container>
+    <section className="bg-[#407E57]">
+      <Container className="py-24">
         <div className="max-w-3xl mx-auto text-center space-y-8">
           <h2 className="text-4xl md:text-5xl font-bold text-white uppercase">
-            Ready to Join Our Team?
+            Interested in Future Opportunities?
           </h2>
           <p className="text-lg text-white/90 leading-relaxed uppercase font-medium">
-            START YOUR JOURNEY WITH HAROLD&apos;S CHICKEN MOLINE TODAY. WE&apos;RE EXCITED TO MEET YOU!
+            WHILE WE&apos;RE NOT CURRENTLY HIRING, YOU CAN SUBMIT YOUR APPLICATION FOR FUTURE CONSIDERATION.
           </p>
           <div className="pt-4">
             <Button 
               size="lg"
               className="bg-white hover:bg-white/90 text-[#202124] text-xl font-bold px-12 py-6 uppercase"
+              onClick={() => window.open('https://apply.haroldschickensportsbar.com', '_blank')}
             >
-              Apply Now
+              Visit Application Portal
             </Button>
           </div>
         </div>
@@ -250,8 +271,9 @@ export default function Page() {
       <Header variant="white" />
       <HeroSection />
       <ValuesSection />
-      <OpenPositions />
+      <TestimonialsSection />
       <BenefitsSection />
+      <FAQSection />
       <CTASection />
       <Footer />
     </main>
