@@ -136,8 +136,8 @@ export function Hero() {
             <Button
               ref={orderButtonRef}
               size="lg"
-              className="bg-[#407E57] hover:bg-[#407E57]/90 text-white text-xl font-bold px-12 py-6 uppercase w-full 
-                focus:ring-2 focus:ring-offset-2 focus:ring-[#407E57] focus:outline-none 
+              className="bg-[#cd2f27] hover:bg-[#cd2f27]/90 text-white text-xl font-bold px-12 py-6 uppercase w-full 
+                focus:ring-2 focus:ring-offset-2 focus:ring-[#cd2f27] focus:outline-none 
                 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
               aria-label="Place your order now - Press forward slash or O key to focus"
               onClick={handleOrderClick}
@@ -224,8 +224,8 @@ export function Hero() {
             <Button
               ref={orderButtonRef}
               size="lg"
-              className="bg-[#407E57] hover:bg-[#407E57]/90 text-white text-lg font-bold px-8 py-4 uppercase w-full 
-                focus:ring-2 focus:ring-offset-2 focus:ring-[#407E57] focus:outline-none 
+              className="bg-[#cd2f27] hover:bg-[#cd2f27]/90 text-white text-lg font-bold px-8 py-4 uppercase w-full 
+                focus:ring-2 focus:ring-offset-2 focus:ring-[#cd2f27] focus:outline-none 
                 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
               aria-label="Place your order now - Press forward slash or O key to focus"
               onClick={handleOrderClick}
