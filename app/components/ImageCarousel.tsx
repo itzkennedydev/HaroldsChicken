@@ -9,225 +9,139 @@ interface CarouselImage {
 }
 
 const images: CarouselImage[] = [
-  {
-    src: "/images/Celebs/Chance.jpg",
-    alt: "Chance the Rapper at Harold's Chicken",
-  },
-  {
-    src: "/images/Celebs/Kanye.png", 
-    alt: "Kanye West at Harold's Chicken",
-  },
-  {
-    src: "/images/Celebs/Mark.png",
-    alt: "Mark Wahlberg at Harold's Chicken",
-  },
-  {
-    src: "/images/Celebs/Usher.png",
-    alt: "Usher at Harold's Chicken",
-  },
-  {
-    src: "/images/Celebs/JB.jpg",
-    alt: "Blanton at Harold's Chicken",
-  },
-  {
-    src: "/images/Celebs/Blanton.jpeg",
-    alt: "Blanton at Harold's Chicken",
-  },
-  {
-    src: "/images/Celebs/HaroldsCar.JPG",
-    alt: "Harold's Car",
-  },
-  {
-    src: "/images/Celebs/Owner.jpg",
-    alt: "Owner of Harold's Chicken",
-  },
+  { src: "/images/Celebs/Chance.jpg", alt: "Chance the Rapper at Harold's Chicken" },
+  { src: "/images/Celebs/Kanye.png", alt: "Kanye West at Harold's Chicken" },
+  { src: "/images/Celebs/Mark.png", alt: "Mark Wahlberg at Harold's Chicken" },
+  { src: "/images/Celebs/Usher.png", alt: "Usher at Harold's Chicken" },
+  { src: "/images/Celebs/JB.jpg", alt: "Blanton at Harold's Chicken" },
+  { src: "/images/Celebs/Blanton.jpeg", alt: "Blanton at Harold's Chicken" },
+  { src: "/images/Celebs/HaroldsCar.JPG", alt: "Harold's Car" },
+  { src: "/images/Celebs/Owner.jpg", alt: "Owner of Harold's Chicken" },
 ];
 
 export function ImageCarousel() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [momentum, setMomentum] = useState(0);
-  const lastMouseX = useRef(0);
-  const lastScrollTime = useRef(Date.now());
-  const scrollAnimationRef = useRef<number | null>(null);
-  const momentumRef = useRef<NodeJS.Timeout | null>(null);
+  const isAutoScrolling = useRef(false);
+  const animationFrameRef = useRef<number | null>(null);
+  const lastX = useRef(0);
+  const dragDistance = useRef(0);
+
+  // Check if device is mobile
   const [isMobile, setIsMobile] = useState(false);
-
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    const updateMobileStatus = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", updateMobileStatus);
+    updateMobileStatus();
+    return () => window.removeEventListener("resize", updateMobileStatus);
   }, []);
 
-  const stopAutoScroll = useCallback(() => {
-    if (scrollAnimationRef.current) {
-      cancelAnimationFrame(scrollAnimationRef.current);
-      scrollAnimationRef.current = null;
-    }
-  }, []);
-
+  // Start Auto-Scrolling
   const startAutoScroll = useCallback(() => {
-    if (scrollAnimationRef.current || isPaused || isDragging) return;
+    if (isPaused || isDragging || isAutoScrolling.current) return;
 
-    const animate = () => {
-      if (!containerRef.current || isPaused || isDragging) return;
+    isAutoScrolling.current = true;
+
+    const scroll = () => {
+      if (!containerRef.current || isPaused || isDragging) {
+        isAutoScrolling.current = false;
+        return;
+      }
 
       const container = containerRef.current;
-      const scrollWidth = container.scrollWidth;
-      const clientWidth = container.clientWidth;
-      const maxScroll = scrollWidth - clientWidth;
-      
-      const currentScroll = container.scrollLeft;
-      const step = 1; // Constant smooth scroll speed
-      
-      if (currentScroll >= maxScroll - 1) {
-        container.scrollLeft = 0; // Reset to start when reaching end
+      const maxScroll = container.scrollWidth - container.clientWidth;
+
+      if (container.scrollLeft >= maxScroll) {
+        container.scrollTo({ left: 0, behavior: "auto" });
       } else {
-        container.scrollLeft += step;
+        container.scrollLeft += 1.5;
       }
 
-      scrollAnimationRef.current = requestAnimationFrame(animate);
+      animationFrameRef.current = requestAnimationFrame(scroll);
     };
 
-    scrollAnimationRef.current = requestAnimationFrame(animate);
-  }, [isDragging, isPaused]);
+    animationFrameRef.current = requestAnimationFrame(scroll);
+  }, [isPaused, isDragging]);
 
-  const applyMomentum = useCallback(() => {
-    if (!containerRef.current || Math.abs(momentum) < 0.1) {
-      if (momentumRef.current) {
-        clearTimeout(momentumRef.current);
-      }
-      return;
+  // Stop Auto-Scrolling
+  const stopAutoScroll = useCallback(() => {
+    if (animationFrameRef.current) {
+      cancelAnimationFrame(animationFrameRef.current);
+      animationFrameRef.current = null;
+      isAutoScrolling.current = false;
     }
+  }, []);
 
-    const currentScroll = containerRef.current.scrollLeft;
-    const maxScroll = containerRef.current.scrollWidth - containerRef.current.clientWidth;
-    
-    const newScroll = Math.max(0, Math.min(maxScroll, currentScroll - momentum));
-    containerRef.current.scrollLeft = newScroll;
-    
-    const newMomentum = momentum * 0.95;
-    setMomentum(newMomentum);
-    
-    if (Math.abs(newMomentum) >= 0.1) {
-      momentumRef.current = setTimeout(applyMomentum, 16);
-    }
-  }, [momentum]);
+  // Snap to nearest slide
+  const snapToNearestSlide = useCallback(() => {
+    if (!containerRef.current) return;
 
-  useEffect(() => {
-    if (momentum !== 0 && Math.abs(momentum) >= 0.1) {
-      momentumRef.current = setTimeout(applyMomentum, 16);
-    }
-    return () => {
-      if (momentumRef.current) {
-        clearTimeout(momentumRef.current);
-      }
-    };
-  }, [momentum, applyMomentum]);
+    const container = containerRef.current;
+    const slideWidth = container.clientWidth + 32; // Add gap
+    const targetPosition = Math.round(container.scrollLeft / slideWidth) * slideWidth;
 
-  useEffect(() => {
-    if (!isPaused && !isDragging) {
-      startAutoScroll();
-    } else {
-      stopAutoScroll();
-    }
-    return () => stopAutoScroll();
-  }, [startAutoScroll, stopAutoScroll, isPaused, isDragging]);
+    container.scrollTo({
+      left: targetPosition,
+      behavior: "smooth",
+    });
+  }, []);
 
+  // Handle Interaction Start
   const handleInteractionStart = (position: number) => {
     setIsDragging(true);
-    setStartX(position);
-    setScrollLeft(containerRef.current?.scrollLeft || 0);
-    lastMouseX.current = position;
-    lastScrollTime.current = Date.now();
-    setMomentum(0);
+    lastX.current = position;
     stopAutoScroll();
-
-    if (containerRef.current) {
-      containerRef.current.style.touchAction = 'none';
-    }
   };
 
+  // Handle Interaction Move
+  const handleInteractionMove = (position: number) => {
+    if (!isDragging || !containerRef.current) return;
+
+    const delta = position - lastX.current;
+    containerRef.current.scrollLeft -= delta;
+    dragDistance.current += delta;
+    lastX.current = position;
+  };
+
+  // Handle Interaction End
   const handleInteractionEnd = () => {
     setIsDragging(false);
-    
-    const timeDelta = Date.now() - lastScrollTime.current;
-    if (timeDelta < 100) {
-      const velocityX = (lastMouseX.current - startX) / timeDelta;
-      setMomentum(velocityX * (isMobile ? 15 : 25));
+    if (Math.abs(dragDistance.current) > 10) {
+      snapToNearestSlide();
     }
-    
-    if (containerRef.current) {
-      containerRef.current.style.touchAction = 'pan-y pinch-zoom';
-    }
+    dragDistance.current = 0;
+    startAutoScroll();
   };
 
-  const handleInteractionMove = (position: number) => {
-    if (!isDragging) return;
-    
-    const x = position;
-    const delta = x - lastMouseX.current;
-    const sensitivity = isMobile ? 1.5 : 2.5;
-    
-    if (containerRef.current) {
-      const newScrollLeft = scrollLeft - (delta * sensitivity);
-      containerRef.current.scrollLeft = newScrollLeft;
-    }
-    
-    lastMouseX.current = x;
-    lastScrollTime.current = Date.now();
-  };
+  // Pause Auto-Scroll on Hover
+  const handleMouseEnter = () => !isMobile && setIsPaused(true);
+  const handleMouseLeave = () => !isMobile && setIsPaused(false);
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const scrollDistance = isMobile ? 200 : 300;
-    
-    switch (e.key) {
-      case 'ArrowLeft':
-        e.preventDefault();
-        container.scrollLeft -= scrollDistance;
-        stopAutoScroll();
-        break;
-      case 'ArrowRight':
-        e.preventDefault();
-        container.scrollLeft += scrollDistance;
-        stopAutoScroll();
-        break;
-      case ' ':
-        e.preventDefault();
-        setIsPaused(prev => !prev);
-        break;
-      case 'Home':
-        e.preventDefault();
-        container.scrollLeft = 0;
-        break;
-      case 'End':
-        e.preventDefault();
-        container.scrollLeft = container.scrollWidth;
-        break;
+  // Listen to Auto-Scroll State Changes
+  useEffect(() => {
+    if (isPaused || isDragging) {
+      stopAutoScroll();
+    } else {
+      startAutoScroll();
     }
-  };
+
+    return () => stopAutoScroll();
+  }, [isPaused, isDragging, startAutoScroll, stopAutoScroll]);
 
   return (
-    <section 
+    <section
       className="relative w-full h-[200px] sm:h-[260px] md:h-[320px] mt-16 sm:mt-24 md:mt-32"
       aria-label="Celebrity Visitors Gallery"
       role="region"
     >
-      <div 
+      <div
         className="relative flex w-full h-full overflow-x-hidden"
-        onMouseEnter={() => !isMobile && setIsPaused(true)}
-        onMouseLeave={() => !isMobile && setIsPaused(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
-        <div 
+        <div
           ref={containerRef}
           className="flex gap-4 sm:gap-6 md:gap-8 overflow-x-hidden overflow-y-hidden cursor-grab active:cursor-grabbing focus:outline-none focus:ring-2 focus:ring-[#407E57] scroll-smooth"
           role="list"
@@ -237,18 +151,12 @@ export function ImageCarousel() {
           onMouseUp={handleInteractionEnd}
           onMouseLeave={handleInteractionEnd}
           onMouseMove={(e) => handleInteractionMove(e.pageX)}
-          onTouchStart={(e) => {
-            handleInteractionStart(e.touches[0].pageX);
-          }}
+          onTouchStart={(e) => handleInteractionStart(e.touches[0].pageX)}
           onTouchEnd={handleInteractionEnd}
-          onTouchMove={(e) => {
-            e.preventDefault();
-            handleInteractionMove(e.touches[0].pageX);
-          }}
-          onKeyDown={handleKeyDown}
+          onTouchMove={(e) => handleInteractionMove(e.touches[0].pageX)}
           style={{
-            scrollBehavior: isDragging ? 'auto' : 'smooth',
-            touchAction: isDragging ? 'none' : 'pan-y pinch-zoom'
+            scrollBehavior: isDragging ? "auto" : "smooth",
+            scrollSnapType: isDragging ? "none" : "x mandatory",
           }}
         >
           {[...images, ...images].map((image, index) => (
@@ -257,6 +165,7 @@ export function ImageCarousel() {
               className="relative w-[280px] sm:w-[400px] md:w-[600px] h-[184px] sm:h-[244px] md:h-[304px] flex-none rounded-lg overflow-hidden select-none"
               role="listitem"
               aria-label={`Slide ${index + 1} of ${images.length * 2}`}
+              style={{ scrollSnapAlign: "center" }}
             >
               <Image
                 src={image.src}
@@ -270,14 +179,6 @@ export function ImageCarousel() {
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="sr-only" role="note">
-        <p>Press left and right arrows to navigate through images</p>
-        <p>Press space to pause/resume auto-scroll</p>
-        <p>Press Home to go to first image</p>
-        <p>Press End to go to last image</p>
-        <p>Swipe left or right to navigate on mobile devices</p>
       </div>
     </section>
   );
