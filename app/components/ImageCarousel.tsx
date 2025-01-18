@@ -23,7 +23,6 @@ export function ImageCarousel() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [momentum, setMomentum] = useState(0);
   const isAutoScrolling = useRef(false);
   const animationFrameRef = useRef<number | null>(null);
   const lastX = useRef(0);

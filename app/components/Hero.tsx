@@ -17,8 +17,9 @@ export function Hero() {
   const [isContentVisible, setIsContentVisible] = useState(false);
 
   const content: HeroContent = {
-    title: "Chicago's Soul\nin Every Bite",
-    description: "EXPERIENCE THE ICONIC TASTE OF HAROLDS CHICKEN THAT HAS DELIGHTED CHICAGO FOR GENERATIONS. FROM FAMILY GATHERINGS TO LATE-NIGHT CRAVINGS.",
+    title: "Chicago's Soul In\nEvery Bite",
+    description: "EXPERIENCE THE ICONIC TASTE OF HAROLDS CHICKEN THAT HAS DELIGHTED CHICAGO FOR\n" +
+                "GENERATIONS. FROM FAMILY GATHERINGS TO LATE-NIGHT CRAVINGS.",
     buttonText: "Order Now"
   };
 
@@ -100,55 +101,56 @@ export function Hero() {
             alt="Signature Harold's Chicken bucket featuring fresh fried chicken"
             width={1900}
             height={1900}
-            className={`absolute top-[62%] right-48 -translate-y-1/2 w-[600px] h-auto z-10 transition-all duration-700 transform ${
-              isImageLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+            className={`absolute top-[62%] -translate-y-1/2 w-[600px] 2xl:w-[600px] xl:w-[550px] lg:w-[480px] md:w-[450px] h-auto z-10 transition-all duration-700 transform 
+              2xl:right-48 xl:right-36 lg:right-24 md:right-16
+              ${isImageLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
             }`}
             priority
-            sizes="600px"
+            sizes="(min-width: 1536px) 600px, (min-width: 1280px) 550px, (min-width: 1024px) 480px, 450px"
             quality={90}
           />
         </div>
 
         <Container className="relative z-10 pt-80 pb-16">
           <div 
-            className={`max-w-2xl transition-all duration-700 transform ${
+            className={`max-w-4xl transition-all duration-700 transform ${
               isContentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+            } md:pr-24`}
             role="group"
             aria-labelledby="hero-title hero-description"
           >
             <h1 
               id="hero-title"
-              className="text-6xl md:text-7xl lg:text-8xl font-bold text-[#202124] mb-8 leading-tight uppercase text-center"
+              className="text-6xl lg:text-7xl 2xl:text-8xl font-bold text-[#202124] mb-8 leading-tight uppercase text-center whitespace-pre-line"
               tabIndex={0}
             >
-              Chicago&apos;s Soul
-              <br />
-              In Every Bite
+              {content.title}
             </h1>
             <p 
               id="hero-description"
-              className="text-lg md:text-xl lg:text-2xl text-[#333536] mb-10 leading-relaxed uppercase text-center font-medium"
+              className="text-lg lg:text-xl 2xl:text-2xl text-[#333536] mb-10 leading-normal uppercase text-center font-medium max-w-[600px] md:max-w-[700px] lg:max-w-[800px] xl:max-w-[900px] 2xl:max-w-[1000px] mx-auto whitespace-pre-line"
               tabIndex={0}
             >
               {content.description}
             </p>
-            <Button
-              ref={orderButtonRef}
-              size="lg"
-              className="bg-[#cd2f27] hover:bg-[#cd2f27]/90 text-white text-xl font-bold px-12 py-6 uppercase w-full 
-                focus:ring-2 focus:ring-offset-2 focus:ring-[#cd2f27] focus:outline-none 
-                transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
-              aria-label="Place your order now - Press forward slash or O key to focus"
-              onClick={handleOrderClick}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  handleOrderClick();
-                }
-              }}
-            >
-              {content.buttonText}
-            </Button>
+            <div className="flex justify-center">
+              <Button
+                ref={orderButtonRef}
+                size="lg"
+                className="bg-[#cd2f27] hover:bg-[#cd2f27]/90 text-white text-xl font-bold px-12 py-6 uppercase min-w-[500px] md:min-w-[600px] lg:min-w-[700px]
+                  focus:ring-2 focus:ring-offset-2 focus:ring-[#cd2f27] focus:outline-none 
+                  transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                aria-label="Place your order now - Press forward slash or O key to focus"
+                onClick={handleOrderClick}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    handleOrderClick();
+                  }
+                }}
+              >
+                {content.buttonText}
+              </Button>
+            </div>
           </div>
         </Container>
       </div>
@@ -178,7 +180,7 @@ export function Hero() {
           
           <div 
             className="absolute w-full flex justify-center transform" 
-            style={{top: '2%'}}
+            style={{top: '5%'}}
             role="presentation"
             aria-hidden="true"
           >
@@ -187,11 +189,11 @@ export function Hero() {
               alt="Signature Harold's Chicken bucket featuring fresh fried chicken"
               width={600}
               height={600}
-              className={`w-[280px] h-auto transition-all duration-700 transform ${
+              className={`w-[300px] sm:w-[320px] h-auto transition-all duration-700 transform ${
                 isImageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               priority
-              sizes="280px"
+              sizes="(min-width: 640px) 320px, 300px"
               quality={90}
             />
           </div>
@@ -207,36 +209,36 @@ export function Hero() {
           >
             <h1 
               id="hero-title-mobile"
-              className="text-5xl font-bold text-[#202124] mb-4 leading-tight uppercase text-center"
+              className="text-5xl font-bold text-[#202124] mb-4 leading-tight uppercase text-center whitespace-pre-line"
               tabIndex={0}
             >
-              Chicago&apos;s Soul
-              <br />
-              In Every Bite
+              {content.title}
             </h1>
             <p 
               id="hero-description-mobile"
-              className="text-lg text-[#333536] mb-6 leading-relaxed uppercase text-center font-medium"
+              className="text-lg text-[#333536] mb-6 leading-normal uppercase text-center font-medium whitespace-pre-line"
               tabIndex={0}
             >
               {content.description}
             </p>
-            <Button
-              ref={orderButtonRef}
-              size="lg"
-              className="bg-[#cd2f27] hover:bg-[#cd2f27]/90 text-white text-lg font-bold px-8 py-4 uppercase w-full 
-                focus:ring-2 focus:ring-offset-2 focus:ring-[#cd2f27] focus:outline-none 
-                transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
-              aria-label="Place your order now - Press forward slash or O key to focus"
-              onClick={handleOrderClick}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  handleOrderClick();
-                }
-              }}
-            >
-              {content.buttonText}
-            </Button>
+            <div className="flex justify-center">
+              <Button
+                ref={orderButtonRef}
+                size="lg"
+                className="bg-[#cd2f27] hover:bg-[#cd2f27]/90 text-white text-lg font-bold px-8 py-4 uppercase min-w-[350px] sm:min-w-[400px]
+                  focus:ring-2 focus:ring-offset-2 focus:ring-[#cd2f27] focus:outline-none 
+                  transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                aria-label="Place your order now - Press forward slash or O key to focus"
+                onClick={handleOrderClick}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    handleOrderClick();
+                  }
+                }}
+              >
+                {content.buttonText}
+              </Button>
+            </div>
           </div>
         </Container>
       </div>
