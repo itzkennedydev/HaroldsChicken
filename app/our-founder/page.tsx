@@ -101,10 +101,10 @@ function LegacySection() {
               Our Legacy Lives On
             </h2>
             <div className="space-y-4">
-              <p className="text-lg text-[#333536] leading-relaxed uppercase font-medium">
+              <p className="text-lg text-[#333536] leading-relaxed font-medium">
                 For over 70 years, Harold&apos;s has been more than just a restaurant - it&apos;s been a part of Chicago&apos;s culture and community. Our recipes and traditions have been passed down through generations.
               </p>
-              <p className="text-lg text-[#333536] leading-relaxed uppercase font-medium">
+              <p className="text-lg text-[#333536] leading-relaxed font-medium">
                 Today, we continue to honor Harold&apos;s legacy by maintaining the quality and service that made us famous, while bringing our legendary chicken to new communities.
               </p>
             </div>
