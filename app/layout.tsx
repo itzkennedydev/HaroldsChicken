@@ -67,7 +67,7 @@ export default function RootLayout({
   children,
 }: RootLayoutProps) {
   return (
-    <html lang="en" className={`${national.variable} ${inter.variable}`}>
+    <html lang="en" className={`${national.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
         <Script id="schema-org" type="application/ld+json">
           {`
