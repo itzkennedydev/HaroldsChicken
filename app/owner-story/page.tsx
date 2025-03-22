@@ -123,7 +123,7 @@ export default function Page() {
             <div className="grid lg:grid-cols-[1fr,2fr] gap-16 items-start">
               {/* Image Column */}
               <div className="relative h-full">
-                <div className="sticky top-32 w-full">
+                <div className="sticky top-32 w-full relative">
                   <div className="relative aspect-[3/4] shadow-2xl">
                     <Image
                       src="/images/Josiah.png"
@@ -131,6 +131,16 @@ export default function Page() {
                       fill
                       className="object-cover rounded-2xl"
                       priority
+                    />
+                  </div>
+                  {/* Birthday image overlay */}
+                  <div className="absolute bottom-[-40px] right-[-20px] w-2/5 h-2/5 z-20 rounded-lg overflow-hidden shadow-lg">
+                    <Image
+                      src="/images/Bday.jpg"
+                      alt="Birthday celebration"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 40vw, 20vw"
                     />
                   </div>
                 </div>

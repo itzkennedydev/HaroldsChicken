@@ -2,8 +2,8 @@ import React from 'react';
 import { Alert, AlertDescription } from '@/app/components/ui/alert';
 
 export const metadata = {
-  title: "Privacy Policy - Harold's Chicken & Sports Bar",
-  description: "Comprehensive Privacy Policy and data handling information for Harold's Chicken & Sports Bar",
+  title: "Privacy Policy - Harold&apos;s Chicken & Sports Bar",
+  description: "Comprehensive Privacy Policy and data handling information for Harold&apos;s Chicken & Sports Bar",
 };
 
 interface LastUpdatedBannerProps {
