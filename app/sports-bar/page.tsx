@@ -26,7 +26,7 @@ function HeroSection() {
             Sports Bar
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed uppercase font-medium">
-            Bringing Chicago&apos;s Legendary Harold&apos;s Wings To Moline. Your Home For Authentic Chicago Flavor, Sports, And Good Times.
+            Bringing Chicago&apos;s legendary Harold&apos;s wings to Moline. Your home for authentic Chicago flavor, sports, and good times.
           </p>
           <Button 
             size="lg"
@@ -44,17 +44,17 @@ function FeaturesSection() {
   const features = [
     {
       title: "HD SCREENS",
-      description: "30+ HIGH-DEFINITION TVS SHOWING ALL MAJOR SPORTS PACKAGES INCLUDING NFL SUNDAY TICKET, NBA LEAGUE PASS, AND MORE",
+      description: "30+ high-definition TVs showing all major sports packages including NFL Sunday Ticket, NBA League Pass, and more",
       icon: "📺"
     },
     {
       title: "GAME DAY SPECIALS",
-      description: "EXCLUSIVE FOOD AND DRINK SPECIALS DURING ALL MAJOR SPORTING EVENTS. PERFECT FOR NFL, NBA, MLB AND LOCAL SPORTS FANS",
+      description: "Exclusive food and drink specials during all major sporting events. Perfect for NFL, NBA, MLB and local sports fans",
       icon: "🏆"
     },
     {
       title: "PRIVATE EVENTS",
-      description: "BOOK OUR SPACE FOR YOUR NEXT SPORTS VIEWING PARTY OR CELEBRATION. CUSTOM PACKAGES AVAILABLE FOR GROUPS",
+      description: "Book our space for your next sports viewing party or celebration. Custom packages available for groups",
       icon: "🎉"
     }
   ];
@@ -81,19 +81,19 @@ function MenuHighlights() {
     {
       name: "WINGS PLATTER",
       price: "16.99",
-      description: "24 AUTHENTIC CHICAGO-STYLE HAROLD'S WINGS WITH YOUR CHOICE OF SAUCE",
+      description: "24 authentic Chicago-style Harold's wings with your choice of sauce",
       imagePlaceholder: true
     },
     {
       name: "LOADED NACHOS",
       price: "12.99",
-      description: "TOPPED WITH CHICKEN, CHEESE, AND ALL THE FIXINGS",
+      description: "Topped with chicken, cheese, and all the fixings",
       imagePlaceholder: true
     },
     {
       name: "SPORTS BAR SAMPLER",
       price: "24.99",
-      description: "HAROLD'S SIGNATURE WINGS, MOZZARELLA STICKS, ONION RINGS, AND CHICAGO-STYLE FRIES",
+      description: "Harold's signature wings, mozzarella sticks, onion rings, and Chicago-style fries",
       imagePlaceholder: true
     }
   ];
@@ -142,7 +142,7 @@ function EventsSection() {
               Host Your Event Here
             </h2>
             <p className="text-lg text-[#333536] leading-relaxed uppercase font-medium">
-              LOOKING FOR THE PERFECT VENUE FOR YOUR NEXT SPORTS VIEWING PARTY OR CELEBRATION? OUR SPORTS BAR OFFERS PRIVATE EVENT SPACES WITH CUSTOMIZABLE FOOD AND DRINK PACKAGES.
+              Looking for the perfect venue for your next sports viewing party or celebration? Our sports bar offers private event spaces with customizable food and drink packages.
             </p>
             <Button 
               size="lg"

@@ -181,7 +181,7 @@ export function ScrollingText() {
         className="text-white uppercase font-bold tracking-wider text-lg sm:text-4xl"
         aria-label="Come see why they call us Chicago's finest"
       >
-        COME SEE WHY THEY CALL US CHICAGO&apos;S FINEST
+        Come see why they call us Chicago&apos;s finest
       </span>
       <span 
         className="text-white text-xl sm:text-4xl tracking-[0.5em]" 
@@ -193,7 +193,7 @@ export function ScrollingText() {
         className="text-white uppercase font-bold tracking-wider text-lg sm:text-4xl"
         aria-label="Authentic Chicago flavors since 1950"
       >
-        AUTHENTIC CHICAGO FLAVORS SINCE 1950
+        Authentic Chicago flavors since 1950
       </span>
     </div>
   );

@@ -18,8 +18,8 @@ export function Hero() {
 
   const content: HeroContent = {
     title: "Chicago's Soul In\nEvery Bite",
-    description: "EXPERIENCE THE ICONIC TASTE OF HAROLDS CHICKEN THAT HAS DELIGHTED CHICAGO FOR\n" +
-                "GENERATIONS. FROM FAMILY GATHERINGS TO LATE-NIGHT CRAVINGS.",
+    description: "Experience the iconic taste of Harolds Chicken that has delighted Chicago for\n" +
+                "generations. From family gatherings to late-night cravings.",
     buttonText: "Order Now"
   };
 
