@@ -36,14 +36,7 @@ export function Footer() {
       links: [
         { href: "/about", label: "ABOUT US" },
         { href: "/our-story", label: "OUR STORY" },
-        { 
-          href: "/careers", 
-          label: "CAREERS",
-          badge: {
-            text: "HIRING",
-            className: "bg-[#ECFDF3] hover:bg-[#D1F5E3] text-[#067647] border border-[#ABEFC6] hover:border-[#8BE3B0]"
-          }
-        },
+        { href: "/careers", label: "CAREERS" },
         { href: "/press", label: "PRESS" },
       ]
     },
