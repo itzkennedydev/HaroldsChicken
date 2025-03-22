@@ -3,8 +3,8 @@ import { AlertTriangle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/app/components/ui/alert';
 
 export const metadata = {
-  title: "Terms of Service - Harold's Chicken & Sports Bar",
-  description: "Comprehensive Terms of Service and legal information for Harold's Chicken & Sports Bar",
+  title: "Terms of Service - Harold&apos;s Chicken & Sports Bar",
+  description: "Comprehensive Terms of Service and legal information for Harold&apos;s Chicken & Sports Bar",
 };
 
 interface LastUpdatedBannerProps {

@@ -69,7 +69,7 @@ export function Hero() {
   return (
     <section 
       className="w-full relative"
-      aria-label="Welcome to Harold's Chicken"
+      aria-label="Welcome to Harold&apos;s Chicken"
       role="region"
       aria-roledescription="hero"
     >
@@ -86,7 +86,7 @@ export function Hero() {
           <div className={`transform transition-transform duration-700 ${isImageLoaded ? 'scale-100' : 'scale-105'}`}>
             <Image
               src="/images/HaroldsBG.png"
-              alt="Restaurant ambiance showing Harold's Chicken interior"
+              alt="Restaurant ambiance showing Harold&apos;s Chicken interior"
               width={1800}
               height={2000}
               className="object-cover object-center w-full h-full transition-opacity duration-500"
@@ -98,7 +98,7 @@ export function Hero() {
           </div>
           <Image
             src="/images/ChickenBucket.png"
-            alt="Signature Harold's Chicken bucket featuring fresh fried chicken"
+            alt="Signature Harold&apos;s Chicken bucket featuring fresh fried chicken"
             width={1900}
             height={1900}
             className={`absolute top-[62%] -translate-y-1/2 w-[600px] 2xl:w-[600px] xl:w-[550px] lg:w-[480px] md:w-[450px] h-auto z-10 transition-all duration-700 transform 
@@ -168,7 +168,7 @@ export function Hero() {
           <div className={`transform transition-transform duration-700 absolute inset-0 ${isImageLoaded ? 'scale-100' : 'scale-105'}`}>
             <Image
               src="/images/HaroldsBG.png"
-              alt="Restaurant ambiance showing Harold's Chicken interior"
+              alt="Restaurant ambiance showing Harold&apos;s Chicken interior"
               fill
               className="object-cover object-center transition-opacity duration-500"
               priority
@@ -186,7 +186,7 @@ export function Hero() {
           >
             <Image
               src="/images/ChickenBucket.png"
-              alt="Signature Harold's Chicken bucket featuring fresh fried chicken"
+              alt="Signature Harold&apos;s Chicken bucket featuring fresh fried chicken"
               width={600}
               height={600}
               className={`w-[300px] sm:w-[320px] h-auto transition-all duration-700 transform ${
