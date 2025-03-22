@@ -26,7 +26,7 @@ export function Featured() {
       image: "/images/1P.png", 
       href: "/menu/chicken",
       description: "Explore our chicken menu items",
-      imageAlt: "Harold's signature chicken dishes"
+      imageAlt: "Harold&apos;s signature chicken dishes"
     },
     { 
       id: 2, 
@@ -34,7 +34,7 @@ export function Featured() {
       image: "/images/1P.png", 
       href: "/menu/fish",
       description: "Discover our fish selections",
-      imageAlt: "Harold's fish menu offerings"
+      imageAlt: "Harold&apos;s fish menu offerings"
     },
     { 
       id: 3, 
@@ -42,7 +42,7 @@ export function Featured() {
       image: "/images/1P.png", 
       href: "/menu/combos",
       description: "View our combo meal options",
-      imageAlt: "Harold's combo meal selections"
+      imageAlt: "Harold&apos;s combo meal selections"
     },
     { 
       id: 4, 
@@ -50,7 +50,7 @@ export function Featured() {
       image: "/images/1P.png", 
       href: "/menu/sides",
       description: "Check out our side dishes",
-      imageAlt: "Harold's side dish options"
+      imageAlt: "Harold&apos;s side dish options"
     },
   ];
 

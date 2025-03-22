@@ -12,7 +12,7 @@ function HeroSection() {
         <div className="absolute inset-0 bg-black opacity-60 z-10" />
         <Image
           src="/images/History.jpeg"
-          alt="Historic Harold's Chicken location"
+          alt="Historic Harold&apos;s Chicken location"
           fill
           className="object-cover opacity-40"
           priority
@@ -43,7 +43,7 @@ function FounderStory() {
             <div className="relative aspect-[4/5] w-full">
               <Image
                 src="/images/Harold.jpg"
-                alt="Harold's Chicken founder in the original kitchen"
+                alt="Harold&apos;s Chicken founder in the original kitchen"
                 fill
                 className="object-cover rounded-lg"
                 sizes="(max-width: 768px) 100vw, 33vw"
@@ -82,14 +82,14 @@ function LegacySection() {
             <div className="grid grid-cols-2 gap-4">
               <Image
                 src="/images/legacy-1.jpg"
-                alt="Customers enjoying Harold's Chicken"
+                alt="Customers enjoying Harold&apos;s Chicken"
                 width={300}
                 height={400}
                 className="rounded-lg"
               />
               <Image
                 src="/images/legacy-2.jpg"
-                alt="Classic Harold's storefront"
+                alt="Classic Harold&apos;s storefront"
                 width={300}
                 height={400}
                 className="rounded-lg mt-8"

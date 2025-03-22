@@ -10,7 +10,7 @@ function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/Bar.jpg"
-          alt="Harold's Sports Bar atmosphere"
+          alt="Harold&apos;s Sports Bar atmosphere"
           fill
           className="object-cover opacity-50"
           priority
@@ -81,7 +81,7 @@ function MenuHighlights() {
     {
       name: "WINGS PLATTER",
       price: "16.99",
-      description: "24 authentic Chicago-style Harold's wings with your choice of sauce",
+      description: "24 authentic Chicago-style Harold&apos;s wings with your choice of sauce",
       imagePlaceholder: true
     },
     {
@@ -93,7 +93,7 @@ function MenuHighlights() {
     {
       name: "SPORTS BAR SAMPLER",
       price: "24.99",
-      description: "Harold's signature wings, mozzarella sticks, onion rings, and Chicago-style fries",
+      description: "Harold&apos;s signature wings, mozzarella sticks, onion rings, and Chicago-style fries",
       imagePlaceholder: true
     }
   ];

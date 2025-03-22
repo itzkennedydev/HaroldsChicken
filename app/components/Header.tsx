@@ -172,11 +172,11 @@ export function Header({ variant = 'default' }: HeaderProps) {
         <Link 
           href="/" 
           className={getLinkClasses()}
-          aria-label="Harold's Chicken - Return to homepage"
+          aria-label="Harold&apos;s Chicken - Return to homepage"
         >
           <Image
             src={isWhiteVariant && isAtTop ? "/logos/WhiteLogo.svg" : "/logos/HaroldsMainLogo.svg"}
-            alt="Harold's Chicken Logo"
+            alt="Harold&apos;s Chicken Logo"
             width={176}
             height={48}
             className="h-16 w-auto"
@@ -239,7 +239,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
             className={`font-bold tracking-wider text-sm focus:ring-2 focus:ring-[#407E57] focus:outline-none ${
               isWhiteVariant && isAtTop ? 'text-white hover:text-gray-200' : 'hover:bg-[#407E57]/10'
             }`}
-            aria-label="Get directions to Harold's Chicken"
+            aria-label="Get directions to Harold&apos;s Chicken"
             onClick={handleGetDirections}
           >
             GET DIRECTIONS
@@ -339,7 +339,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
               <CustomButton
                 variant="outline"
                 className="font-bold tracking-wider text-sm w-full justify-center hover:bg-[#407E57]/10 focus:ring-2 focus:ring-[#407E57] focus:outline-none"
-                aria-label="Get directions to Harold's Chicken"
+                aria-label="Get directions to Harold&apos;s Chicken"
                 onClick={handleGetDirections}
               >
                 GET DIRECTIONS

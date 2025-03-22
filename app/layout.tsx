@@ -74,9 +74,9 @@ export default function RootLayout({
             {
               "@context": "https://schema.org",
               "@type": "Restaurant",
-              "name": "Harold's Chicken & Sports Bar",
+              "name": "Harold&apos;s Chicken & Sports Bar",
               "image": "https://haroldschicken.com/images/og-image.jpg",
-              "description": "Experience Chicago's iconic Harold's Chicken & Sports Bar. Known for our signature fried chicken, full-service sports bar, and welcoming atmosphere since 1950.",
+              "description": "Experience Chicago&apos;s iconic Harold&apos;s Chicken & Sports Bar. Known for our signature fried chicken, full-service sports bar, and welcoming atmosphere since 1950.",
               "@id": "https://haroldschicken.com",
               "url": "https://haroldschicken.com",
               "telephone": "+1-312-555-0123",

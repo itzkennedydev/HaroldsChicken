@@ -9,14 +9,14 @@ interface CarouselImage {
 }
 
 const images: CarouselImage[] = [
-  { src: "/images/Celebs/Chance.jpg", alt: "Chance the Rapper at Harold's Chicken" },
-  { src: "/images/Celebs/Kanye.png", alt: "Kanye West at Harold's Chicken" },
-  { src: "/images/Celebs/Mark.png", alt: "Mark Wahlberg at Harold's Chicken" },
-  { src: "/images/Celebs/Usher.png", alt: "Usher at Harold's Chicken" },
-  { src: "/images/Celebs/JB.jpg", alt: "Blanton at Harold's Chicken" },
-  { src: "/images/Celebs/Blanton.jpeg", alt: "Blanton at Harold's Chicken" },
-  { src: "/images/Celebs/HaroldsCar.JPG", alt: "Harold's Car" },
-  { src: "/images/Celebs/Owner.jpg", alt: "Owner of Harold's Chicken" },
+  { src: "/images/Celebs/Chance.jpg", alt: "Chance the Rapper at Harold&apos;s Chicken" },
+  { src: "/images/Celebs/Kanye.png", alt: "Kanye West at Harold&apos;s Chicken" },
+  { src: "/images/Celebs/Mark.png", alt: "Mark Wahlberg at Harold&apos;s Chicken" },
+  { src: "/images/Celebs/Usher.png", alt: "Usher at Harold&apos;s Chicken" },
+  { src: "/images/Celebs/JB.jpg", alt: "Blanton at Harold&apos;s Chicken" },
+  { src: "/images/Celebs/Blanton.jpeg", alt: "Blanton at Harold&apos;s Chicken" },
+  { src: "/images/Celebs/HaroldsCar.JPG", alt: "Harold&apos;s Car" },
+  { src: "/images/Celebs/Owner.jpg", alt: "Owner of Harold&apos;s Chicken" },
 ];
 
 export function ImageCarousel() {

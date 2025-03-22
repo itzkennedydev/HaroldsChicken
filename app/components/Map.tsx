@@ -31,7 +31,7 @@ export function Map() {
 
     const el = document.createElement('div');
     el.setAttribute('role', 'img');
-    el.setAttribute('aria-label', "Harold's Chicken location");
+    el.setAttribute('aria-label', "Harold&apos;s Chicken location");
     el.innerHTML = '★';
     el.style.color = '#407E57';
     el.style.fontSize = '32px';
@@ -67,7 +67,7 @@ export function Map() {
         <div 
           className="w-full md:w-1/2 relative"
           role="region"
-          aria-label="Map showing Harold's Chicken location"
+          aria-label="Map showing Harold&apos;s Chicken location"
         >
           <div 
             ref={mapContainer} 
@@ -93,7 +93,7 @@ export function Map() {
                 size="lg"
                 className="bg-[#407E57] hover:bg-[#407E57]/90 text-white font-bold px-8 py-6 uppercase text-base w-auto focus:ring-2 focus:ring-offset-2 focus:ring-[#407E57] focus:outline-none"
                 onClick={handleGetDirections}
-                aria-label="Get directions to Harold's Chicken"
+                aria-label="Get directions to Harold&apos;s Chicken"
               >
                 DIRECTIONS
               </Button>
