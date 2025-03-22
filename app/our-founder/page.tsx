@@ -56,19 +56,14 @@ function FounderStory() {
             </h2>
             <div className="space-y-4">
               <p className="text-lg text-[#333536] leading-relaxed font-medium">
-                In 1950, Harold Pierce had a dream and a secret recipe. Starting with just one small restaurant on the south side of Chicago, he created what would become a culinary institution.
+                Harold Pierce, was an African American entrepreneur, left an indelible mark on Chicago&apos;s culinary landscape as the founder of the iconic Harold&apos;s Chicken Shack. Born in 1917 in Midway, Alabama, Pierce migrated to Chicago during the Great Migration, a period when many African Americans moved north seeking better economic opportunities.
+                <br /><br />
+                Originally working as a chauffeur, he later pursued his passion for food, opening his first fried chicken restaurant on Chicago&apos;s South Side in 1950. What set Harold&apos;s Chicken Shack apart was its simple yet flavorful recipe—crispy fried chicken served with a signature mild or spicy sauce, often accompanied by white bread and fries.
               </p>
               <p className="text-lg text-[#333536] leading-relaxed font-medium">
-                Harold&apos;s dedication to quality and authenticity quickly made his restaurant a neighborhood favorite. He insisted on fresh, never frozen chicken and perfected the cooking process that still makes our chicken special today.
-              </p>
-              <p className="text-lg text-[#333536] leading-relaxed font-medium">
-                Born and raised in Chicago, Harold understood the city&apos;s unique tastes and cultural diversity. His famous mild sauce - a perfect blend of tangy, sweet, and spicy flavors - became his signature creation that customers still crave decades later.
-              </p>
-              <p className="text-lg text-[#333536] leading-relaxed font-medium">
-                As his reputation grew, Harold expanded across Chicago neighborhoods, always maintaining his commitment to serving the finest fried chicken with that distinctive Chicago flair. He developed relationships with local poultry suppliers to ensure his restaurants always served the freshest chicken possible.
-              </p>
-              <p className="text-lg text-[#333536] leading-relaxed font-medium">
-                Harold&apos;s business philosophy was simple: serve great food, treat customers like family, and be an active part of the community. This vision guides our restaurants to this day, and is why Harold&apos;s Chicken has remained a beloved Chicago institution for over seven decades.
+                Pierce&apos;s business model was revolutionary for its time. Instead of traditional franchising, he licensed his brand to friends and family, allowing African American entrepreneurs to own and operate their own locations, fostering economic empowerment within the Black community.
+                <br /><br />
+                Today, Harold&apos;s Chicken has become more than just a restaurant; it&apos;s a cultural institution, symbolizing the resilience, creativity, and entrepreneurial spirit of Chicago&apos;s Black community. Pierce&apos;s legacy lives on through countless Harold&apos;s locations across the U.S., serving as a flavorful testament to Black excellence in business and cuisine.
               </p>
             </div>
           </div>
