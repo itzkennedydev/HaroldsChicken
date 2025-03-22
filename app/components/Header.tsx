@@ -31,11 +31,7 @@ const menuItems: MenuItem[] = [
   { 
     label: "CAREERS", 
     href: "/careers", 
-    shortcut: 'c',
-    badge: {
-      text: "INTERVIEWING",
-      className: "bg-[#FFF4ED] hover:bg-[#FFE4D1] text-[#C4320A] border border-[#FFCDB0] hover:border-[#FFB88A]"
-    }
+    shortcut: 'c'
   },
   { label: "OUR FOUNDER", href: "/our-founder", shortcut: 'o' },
 ];

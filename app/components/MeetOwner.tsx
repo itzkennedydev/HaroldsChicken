@@ -97,7 +97,7 @@ export function MeetOwner() {
                 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#202124] leading-tight uppercase"
                 tabIndex={0}
               >
-                MEET THE OWNER
+                Meet the owner
               </h2>
             </div>
 
@@ -106,7 +106,7 @@ export function MeetOwner() {
                 className="text-base sm:text-lg text-[#333536] leading-relaxed font-medium uppercase"
                 tabIndex={0}
               >
-                JOSIAH BLANTON, A VISIONARY ENTREPRENEUR FROM CHICAGO, ILLINOIS, TRANSFORMS CHALLENGES INTO OPPORTUNITIES THROUGH HIS DEDICATION TO EXCELLENCE AND A STRONG BUSINESS MINDSET.
+                Josiah Blanton, a visionary entrepreneur from Chicago, Illinois, transforms challenges into opportunities through his dedication to excellence and a strong business mindset.
               </p>
               <blockquote className="border-l-4 border-[#407E57] pl-6 py-2 italic">
                 <p className="text-lg text-[#333536] leading-relaxed">
@@ -117,7 +117,7 @@ export function MeetOwner() {
                 className="text-base sm:text-lg text-[#333536] leading-relaxed font-medium uppercase"
                 tabIndex={0}
               >
-                GUIDED BY THE PRINCIPLES OF DISCIPLINE, DEDICATION, AND DETERMINATION, JOSIAH&apos;S JOURNEY EXEMPLIFIES THE POWER OF A POSITIVE MINDSET IN ACHIEVING BUSINESS EXCELLENCE AND COMMUNITY IMPACT.
+                Guided by the principles of discipline, dedication, and determination, Josiah&apos;s journey exemplifies the power of a positive mindset in achieving business excellence and community impact.
               </p>
             </div>
 

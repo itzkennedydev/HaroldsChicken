@@ -21,17 +21,17 @@ function HeroSection() {
       <Container className="relative z-10 flex items-center min-h-[600px]">
         <div className="max-w-2xl text-white mx-auto text-center py-24">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight uppercase">
-            Future Opportunities
+            Join Our Family
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed uppercase font-medium">
-            While we&apos;re not currently hiring, we&apos;re always interested in meeting talented individuals who want to join the Harold&apos;s Chicken family.
+            While we&apos;re not currently hiring, discover what makes a career at Harold&apos;s Chicken special and why our team members love being part of our family.
           </p>
           <Button 
             size="lg"
             className="bg-[#407E57] hover:bg-[#407E57]/90 text-white text-xl font-bold px-12 py-6 uppercase w-full sm:w-auto"
             onClick={() => window.open('https://apply.haroldschickensportsbar.com', '_blank')}
           >
-            View Application Portal
+            Join Our Talent Pool
           </Button>
         </div>
       </Container>
@@ -43,90 +43,41 @@ function ValuesSection() {
   const values = [
     {
       icon: "🤝",
-      title: "FAMILY FIRST",
-      description: "WE TREAT OUR TEAM MEMBERS LIKE FAMILY, FOSTERING A SUPPORTIVE AND INCLUSIVE WORKPLACE WHERE EVERYONE CAN THRIVE."
+      title: "FAMILY ATMOSPHERE",
+      description: "We foster a close-knit team where everyone feels valued, supported, and part of something special—just like family."
     },
     {
       icon: "📈",
-      title: "GROWTH OPPORTUNITIES", 
-      description: "WE BELIEVE IN PROMOTING FROM WITHIN AND PROVIDING CLEAR PATHS FOR CAREER ADVANCEMENT AND SKILL DEVELOPMENT."
+      title: "CAREER GROWTH", 
+      description: "Our team members experience real professional development with clear advancement paths from entry-level to management positions."
     },
     {
       icon: "💪",
-      title: "EMPOWERMENT",
-      description: "WE ENCOURAGE OUR TEAM MEMBERS TO TAKE INITIATIVE, SHARE IDEAS, AND CONTRIBUTE TO OUR CONTINUOUS IMPROVEMENT."
+      title: "OWNERSHIP MINDSET",
+      description: "We empower each team member to take pride in their work, contribute ideas, and make decisions that positively impact our business."
     },
     {
       icon: "🌟",
-      title: "EXCELLENCE",
-      description: "WE MAINTAIN HIGH STANDARDS IN EVERYTHING WE DO, FROM FOOD QUALITY TO CUSTOMER SERVICE AND TEAM SUPPORT."
+      title: "CUSTOMER CONNECTION",
+      description: "Our team enjoys meaningful interactions with regular customers who become part of our extended Harold's family."
     }
   ];
 
   return (
     <section className="bg-white">
       <Container className="py-24">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#202124] mb-16 text-center uppercase">
-          Why Choose Harold&apos;s
+        <h2 className="text-4xl md:text-5xl font-bold text-[#202124] mb-6 text-center uppercase">
+          Life at Harold&apos;s
         </h2>
+        <p className="text-xl text-center text-[#333536] mb-16 max-w-3xl mx-auto">
+          While we&apos;re not actively hiring, here&apos;s what makes working at Harold&apos;s a truly rewarding experience
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {values.map((value) => (
-            <div key={value.title} className="text-center space-y-4">
+            <div key={value.title} className="text-center space-y-4 p-6 hover:bg-[#F8F9FA] rounded-lg transition-all duration-300">
               <span className="text-5xl block mb-6">{value.icon}</span>
               <h3 className="text-2xl font-bold text-[#202124] uppercase">{value.title}</h3>
               <p className="text-[#333536] font-medium">{value.description}</p>
-            </div>
-          ))}
-        </div>
-      </Container>
-    </section>
-  );
-}
-
-function TestimonialsSection() {
-  const testimonials = [
-    {
-      quote: "Working at Harold's Chicken has been an incredible journey. The supportive environment and opportunities for growth have helped me develop both professionally and personally.",
-      name: "Sarah Johnson",
-      role: "Restaurant Manager",
-      image: "/images/testimonial-1.jpg"
-    },
-    {
-      quote: "The family-first culture here is not just talk - it's real. I've never worked somewhere that cares so much about their employees' wellbeing and success.",
-      name: "Michael Chen",
-      role: "Kitchen Team Lead",
-      image: "/images/testimonial-2.jpg"
-    },
-    {
-      quote: "Starting as a server and working my way up to management showed me that Harold's truly believes in promoting from within. They invest in their people.",
-      name: "David Rodriguez",
-      role: "Assistant Manager",
-      image: "/images/testimonial-3.jpg"
-    }
-  ];
-
-  return (
-    <section className="bg-[#F8F9FA]">
-      <Container className="py-24">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#202124] mb-16 text-center uppercase">
-          Our Team Stories
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.name} className="bg-white p-8 rounded-lg border border-gray-100">
-              <div className="relative w-24 h-24 mx-auto mb-6">
-                <Image
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  fill
-                  className="rounded-full object-cover"
-                />
-              </div>
-              <p className="text-[#333536] italic mb-6">{testimonial.quote}</p>
-              <div className="text-center">
-                <h4 className="font-bold text-[#202124]">{testimonial.name}</h4>
-                <p className="text-[#407E57]">{testimonial.role}</p>
-              </div>
             </div>
           ))}
         </div>
@@ -139,45 +90,48 @@ function BenefitsSection() {
   const benefits = [
     {
       icon: "💰",
-      title: "Competitive Pay",
-      description: "We offer above-industry wages and regular performance-based increases"
+      title: "Fair Compensation",
+      description: "Competitive pay that recognizes your contributions, with performance-based increases as you grow with us"
     },
     {
       icon: "🏥",
-      title: "Health Benefits",
-      description: "Comprehensive medical, dental, and vision coverage for eligible employees"
+      title: "Health & Wellness",
+      description: "Comprehensive benefits for eligible employees that support your physical and mental wellbeing"
     },
     {
       icon: "📅",
-      title: "Flexible Scheduling",
-      description: "Work-life balance with flexible shifts and time-off options"
+      title: "Work-Life Balance",
+      description: "Flexible scheduling options that respect your personal commitments and family time"
     },
     {
       icon: "🎓",
-      title: "Training Programs",
-      description: "Continuous learning opportunities and skill development"
+      title: "Skill Development",
+      description: "Hands-on training and mentorship that builds valuable restaurant and customer service skills"
     },
     {
-      icon: "🎉",
-      title: "Employee Discounts",
-      description: "Generous food discounts and special employee perks"
+      icon: "🏆",
+      title: "Recognition Program",
+      description: "Formal recognition system that rewards excellence, innovation, and dedication to our high standards"
     },
     {
-      icon: "🤝",
-      title: "Referral Bonuses",
-      description: "Rewards for helping us grow our team with great people"
+      icon: "👥",
+      title: "Team Events",
+      description: "Regular team celebrations, outings, and recognition events that strengthen our community"
     }
   ];
 
   return (
     <section className="bg-white">
       <Container className="py-24">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#202124] mb-16 text-center uppercase">
-          Benefits & Perks
+        <h2 className="text-4xl md:text-5xl font-bold text-[#202124] mb-6 text-center uppercase">
+          What We Offer
         </h2>
+        <p className="text-xl text-center text-[#333536] mb-16 max-w-3xl mx-auto">
+          When opportunities become available, here&apos;s what you can look forward to as part of the Harold&apos;s team
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit) => (
-            <div key={benefit.title} className="p-6 rounded-lg bg-[#F8F9FA] hover:bg-[#F0F1F2] transition-colors">
+            <div key={benefit.title} className="p-8 rounded-lg bg-[#F8F9FA] hover:translate-y-[-4px] transition-all duration-300">
               <span className="text-4xl block mb-4">{benefit.icon}</span>
               <h3 className="text-xl font-bold text-[#202124] mb-2 uppercase">{benefit.title}</h3>
               <p className="text-[#333536]">{benefit.description}</p>
@@ -192,44 +146,47 @@ function BenefitsSection() {
 function FAQSection() {
   const faqs = [
     {
-      question: "What positions do you typically hire for?",
-      answer: "We hire for various roles including servers, kitchen staff, hosts, bartenders, and management positions. Each role offers unique opportunities for growth and development."
+      question: "What kind of work culture does Harold&apos;s Chicken have?",
+      answer: "Our culture is built on family values, mutual respect, and a passion for excellent food and service. We create an environment where team members feel supported and valued while developing both personally and professionally."
     },
     {
-      question: "What experience do I need to apply?",
-      answer: "While experience is valued, we also welcome entry-level candidates with the right attitude and willingness to learn. Our comprehensive training program will help you succeed."
+      question: "What qualities do you look for in team members?",
+      answer: "We value individuals with a positive attitude, strong work ethic, excellent communication skills, and a genuine passion for hospitality. Experience is valuable, but character and willingness to learn are equally important to us."
     },
     {
-      question: "What are the typical working hours?",
-      answer: "We offer flexible scheduling with various shifts available. Full-time and part-time positions are available to accommodate different needs and lifestyles."
+      question: "How does career advancement work at Harold&apos;s?",
+      answer: "We proudly promote from within whenever possible. Many of our managers started in entry-level positions and advanced through dedicated training programs, mentorship, and demonstrating leadership potential."
     },
     {
-      question: "Is there room for advancement?",
-      answer: "Absolutely! We strongly believe in promoting from within. Many of our managers started in entry-level positions and worked their way up through dedication and hard work."
+      question: "What kind of training do team members receive?",
+      answer: "All team members receive comprehensive initial training plus ongoing development. This includes food safety, customer service, technical skills specific to their role, and leadership development for those interested in advancement."
     },
     {
-      question: "What is the interview process like?",
-      answer: "Our interview process typically includes an initial application review, followed by a phone screening and an in-person interview. We focus on getting to know you as a person."
+      question: "What makes working at Harold&apos;s different from other restaurants?",
+      answer: "Our deep-rooted legacy, community connection, and family atmosphere set us apart. Team members become part of a tradition of excellence while gaining valuable industry skills that benefit their long-term career goals."
     },
     {
-      question: "Do you provide training?",
-      answer: "Yes, we provide comprehensive training for all positions. Our structured training program ensures you have the skills and knowledge needed to excel in your role."
+      question: "How does Harold&apos;s support work-life balance?",
+      answer: "We understand the importance of life outside work. We offer flexible scheduling options, competitive time-off policies, and a supportive management team that listens to and accommodates personal needs whenever possible."
     }
   ];
 
   return (
     <section className="bg-[#F8F9FA]">
       <Container className="py-24">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#202124] mb-16 text-center uppercase">
-          Frequently Asked Questions
+        <h2 className="text-4xl md:text-5xl font-bold text-[#202124] mb-6 text-center uppercase">
+          Common Questions
         </h2>
+        <p className="text-xl text-center text-[#333536] mb-16 max-w-3xl mx-auto">
+          Everything you want to know about working at Harold&apos;s Chicken
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {faqs.map((faq) => (
             <div 
               key={faq.question} 
-              className="bg-white p-8 rounded-lg hover:bg-[#F0F1F2] transition-colors"
+              className="bg-white p-8 rounded-lg hover:bg-[#F8F9FA] transition-all duration-300"
             >
-              <h3 className="text-xl font-bold text-[#202124] mb-4 uppercase">{faq.question}</h3>
+              <h3 className="text-xl font-bold text-[#202124] mb-4">{faq.question}</h3>
               <p className="text-[#333536] leading-relaxed">{faq.answer}</p>
             </div>
           ))}
@@ -245,10 +202,10 @@ function CTASection() {
       <Container className="py-24">
         <div className="max-w-3xl mx-auto text-center space-y-8">
           <h2 className="text-4xl md:text-5xl font-bold text-white uppercase">
-            Interested in Future Opportunities?
+            Be Ready For Future Opportunities
           </h2>
-          <p className="text-lg text-white/90 leading-relaxed uppercase font-medium">
-            WHILE WE&apos;RE NOT CURRENTLY HIRING, YOU CAN SUBMIT YOUR APPLICATION FOR FUTURE CONSIDERATION.
+          <p className="text-xl text-white leading-relaxed font-medium mb-6">
+            Though we&apos;re not actively hiring, we&apos;re always looking to connect with passionate individuals who share our values and commitment to excellence.
           </p>
           <div className="pt-4">
             <Button 
@@ -256,7 +213,7 @@ function CTASection() {
               className="bg-white hover:bg-white/90 text-[#202124] text-xl font-bold px-12 py-6 uppercase"
               onClick={() => window.open('https://apply.haroldschickensportsbar.com', '_blank')}
             >
-              Visit Application Portal
+              Join Our Talent Pool
             </Button>
           </div>
         </div>
@@ -271,7 +228,6 @@ export default function Page() {
       <Header variant="white" />
       <HeroSection />
       <ValuesSection />
-      <TestimonialsSection />
       <BenefitsSection />
       <FAQSection />
       <CTASection />

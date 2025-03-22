@@ -33,7 +33,7 @@ export function ValueProp() {
     {
       id: 1,
       title: "FRESH, NEVER FROZEN CHICKEN",
-      description: "AT HAROLD'S, WE TAKE PRIDE IN SERVING ONLY THE FRESHEST CHICKEN. OUR COMMITMENT TO QUALITY MEANS WE NEVER FREEZE OUR CHICKEN, ENSURING THAT EVERY BITE DELIVERS THAT PERFECT, JUICY TENDERNESS OUR CUSTOMERS LOVE. THIS DEDICATION TO FRESHNESS IS PART OF WHAT MAKES HAROLD'S CHICKEN A CHICAGO LEGEND.",
+      description: "At Harold's, we take pride in serving only the freshest chicken. Our commitment to quality means we never freeze our chicken, ensuring that every bite delivers that perfect, juicy tenderness our customers love. This dedication to freshness is part of what makes Harold's Chicken a Chicago legend.",
       buttonText: "LEARN MORE",
       buttonLink: "/about",
       imagePosition: "bottom",
@@ -44,7 +44,7 @@ export function ValueProp() {
     {
       id: 2,
       title: "EXPLORE THE FULL MENU",
-      description: "DISCOVER OUR EXTENSIVE MENU FEATURING CHICAGO'S FAVORITE CHICKEN DISHES, FROM OUR SIGNATURE WINGS TO HEARTY FAMILY MEALS. WE OFFER A VARIETY OF SIDES, SAUCES, AND COMBINATIONS THAT HAVE BEEN PERFECTED OVER GENERATIONS. WHETHER YOU'RE CRAVING OUR CLASSIC FRIED CHICKEN OR WANT TO TRY SOMETHING NEW, OUR MENU HAS SOMETHING FOR EVERYONE.",
+      description: "Discover our extensive menu featuring Chicago's favorite chicken dishes, from our signature wings to hearty family meals. We offer a variety of sides, sauces, and combinations that have been perfected over generations. Whether you're craving our classic fried chicken or want to try something new, our menu has something for everyone.",
       buttonText: "VIEW MENU",
       buttonLink: "/menu",
       imagePosition: "left",
@@ -55,7 +55,7 @@ export function ValueProp() {
     {
       id: 3,
       title: "SPORTS BAR",
-      description: "JOIN US AT OUR SPORTS BAR WHERE GREAT FOOD MEETS THE EXCITEMENT OF THE GAME. WATCH YOUR FAVORITE CHICAGO TEAMS WHILE ENJOYING OUR FAMOUS CHICKEN AND COLD DRINKS. OUR SPORTS BAR OFFERS THE PERFECT ATMOSPHERE FOR GATHERING WITH FRIENDS, CATCHING THE BIG GAME, OR JUST UNWINDING AFTER WORK WITH SOME OF CHICAGO'S BEST COMFORT FOOD.",
+      description: "Join us at our sports bar where great food meets the excitement of the game. Watch your favorite Chicago teams while enjoying our famous chicken and cold drinks. Our sports bar offers the perfect atmosphere for gathering with friends, catching the big game, or just unwinding after work with some of Chicago's best comfort food.",
       buttonText: "VISIT BAR",
       buttonLink: "/sports-bar",
       imagePosition: "right",

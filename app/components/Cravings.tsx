@@ -154,13 +154,13 @@ export function Cravings() {
 
                     <div className="flex items-center justify-between pt-2">
                       <p 
-                        className="text-[#333536] text-sm"
+                        className="text-[#333536] text-sm sr-only"
                         aria-label={`Calorie range: ${item.calories}`}
                       >
                         Cal.: {item.calories}
                       </p>
                       <p 
-                        className="text-xl font-bold text-[#202124]"
+                        className="text-xl font-bold text-[#202124] sr-only"
                         aria-label={`Price: ${item.price} dollars`}
                       >
                         ${item.price}
@@ -212,11 +212,11 @@ export function Cravings() {
                 {/* Nutritional Info */}
                 <div className="mt-6 py-4 border-y border-gray-100">
                   <div className="grid grid-cols-2 gap-4">
-                    <div>
+                    <div className="sr-only">
                       <p className="text-sm text-[#475467] uppercase mb-1">Calories</p>
                       <p className="text-lg font-bold text-[#202124]">{selectedItem.calories}</p>
                     </div>
-                    <div>
+                    <div className="sr-only">
                       <p className="text-sm text-[#475467] uppercase mb-1">Price</p>
                       <p className="text-3xl font-bold text-[#202124]">${selectedItem.price}</p>
                     </div>

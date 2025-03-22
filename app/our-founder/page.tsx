@@ -26,7 +26,7 @@ function HeroSection() {
             A Chicago Legend
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed uppercase font-medium">
-            From Our First Location In 1950 To Today, Harold&apos;s Has Been Serving Up The Best Chicken In Chicago For Generations
+            From our first location in 1950 to today, Harold&apos;s has been serving up the best chicken in Chicago for generations
           </p>
         </div>
       </Container>
@@ -39,89 +39,38 @@ function FounderStory() {
     <section className="py-24 bg-white">
       <Container>
         <div className="flex flex-col md:flex-row items-center gap-16">
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/3">
             <div className="relative aspect-[4/5] w-full">
               <Image
                 src="/images/Harold.jpg"
                 alt="Harold's Chicken founder in the original kitchen"
                 fill
                 className="object-cover rounded-lg"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
           </div>
-          <div className="w-full md:w-1/2 space-y-6">
+          <div className="w-full md:w-2/3 space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold text-[#202124] uppercase">
               The Story Of Harold
             </h2>
             <div className="space-y-4">
-              <p className="text-lg text-[#333536] leading-relaxed uppercase font-medium">
-                IN 1950, HAROLD PIERCE HAD A DREAM AND A SECRET RECIPE. STARTING WITH JUST ONE SMALL RESTAURANT ON THE SOUTH SIDE OF CHICAGO, HE CREATED WHAT WOULD BECOME A CULINARY INSTITUTION.
+              <p className="text-lg text-[#333536] leading-relaxed font-medium">
+                In 1950, Harold Pierce had a dream and a secret recipe. Starting with just one small restaurant on the south side of Chicago, he created what would become a culinary institution.
               </p>
-              <p className="text-lg text-[#333536] leading-relaxed uppercase font-medium">
-                HAROLD&apos;S DEDICATION TO QUALITY AND AUTHENTICITY QUICKLY MADE HIS RESTAURANT A NEIGHBORHOOD FAVORITE. HE INSISTED ON FRESH, NEVER FROZEN CHICKEN AND PERFECTED THE COOKING PROCESS THAT STILL MAKES OUR CHICKEN SPECIAL TODAY.
+              <p className="text-lg text-[#333536] leading-relaxed font-medium">
+                Harold&apos;s dedication to quality and authenticity quickly made his restaurant a neighborhood favorite. He insisted on fresh, never frozen chicken and perfected the cooking process that still makes our chicken special today.
+              </p>
+              <p className="text-lg text-[#333536] leading-relaxed font-medium">
+                Born and raised in Chicago, Harold understood the city&apos;s unique tastes and cultural diversity. His famous mild sauce - a perfect blend of tangy, sweet, and spicy flavors - became his signature creation that customers still crave decades later.
+              </p>
+              <p className="text-lg text-[#333536] leading-relaxed font-medium">
+                As his reputation grew, Harold expanded across Chicago neighborhoods, always maintaining his commitment to serving the finest fried chicken with that distinctive Chicago flair. He developed relationships with local poultry suppliers to ensure his restaurants always served the freshest chicken possible.
+              </p>
+              <p className="text-lg text-[#333536] leading-relaxed font-medium">
+                Harold&apos;s business philosophy was simple: serve great food, treat customers like family, and be an active part of the community. This vision guides our restaurants to this day, and is why Harold&apos;s Chicken has remained a beloved Chicago institution for over seven decades.
               </p>
             </div>
-          </div>
-        </div>
-      </Container>
-    </section>
-  );
-}
-
-function Timeline() {
-  const timelineEvents = [
-    {
-      year: "1950",
-      title: "THE BEGINNING",
-      description: "FIRST HAROLD&apos;S CHICKEN SHACK OPENS ON SOUTH SIDE"
-    },
-    {
-      year: "1965",
-      title: "EXPANSION",
-      description: "MULTIPLE LOCATIONS ACROSS CHICAGO&apos;S SOUTH SIDE"
-    },
-    {
-      year: "1980",
-      title: "CITY-WIDE GROWTH",
-      description: "HAROLD&apos;S BECOMES A CHICAGO-WIDE PHENOMENON"
-    },
-    {
-      year: "2000",
-      title: "NEXT GENERATION",
-      description: "EXPANDING TO NEW CITIES WHILE KEEPING OUR TRADITIONS"
-    }
-  ];
-
-  return (
-    <section className="py-24 bg-[#F9F9F9]">
-      <Container>
-        <h2 className="text-4xl md:text-5xl font-bold text-[#202124] mb-16 text-center uppercase">
-          Our Journey
-        </h2>
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-[50%] top-0 bottom-0 w-0.5 bg-[#407E57]" />
-          
-          <div className="space-y-24">
-            {timelineEvents.map((event, index) => (
-              <div 
-                key={event.year} 
-                className={`flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} items-center gap-8`}
-              >
-                <div className="w-1/2 flex flex-col items-end">
-                  <div className={`space-y-4 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                    <span className="text-6xl font-bold text-[#407E57]">{event.year}</span>
-                    <h3 className="text-2xl font-bold text-[#202124] uppercase">{event.title}</h3>
-                    <p className="text-lg text-[#333536] uppercase font-medium">{event.description}</p>
-                  </div>
-                </div>
-                <div className="relative w-4 h-4 bg-[#407E57] rounded-full z-10">
-                  <div className="absolute w-8 h-8 bg-[#407E57] opacity-20 rounded-full -left-2 -top-2" />
-                </div>
-                <div className="w-1/2" />
-              </div>
-            ))}
           </div>
         </div>
       </Container>
@@ -158,10 +107,10 @@ function LegacySection() {
             </h2>
             <div className="space-y-4">
               <p className="text-lg text-[#333536] leading-relaxed uppercase font-medium">
-                FOR OVER 70 YEARS, HAROLD&apos;S HAS BEEN MORE THAN JUST A RESTAURANT - IT&apos;S BEEN A PART OF CHICAGO&apos;S CULTURE AND COMMUNITY. OUR RECIPES AND TRADITIONS HAVE BEEN PASSED DOWN THROUGH GENERATIONS.
+                For over 70 years, Harold&apos;s has been more than just a restaurant - it&apos;s been a part of Chicago&apos;s culture and community. Our recipes and traditions have been passed down through generations.
               </p>
               <p className="text-lg text-[#333536] leading-relaxed uppercase font-medium">
-                TODAY, WE CONTINUE TO HONOR HAROLD&apos;S LEGACY BY MAINTAINING THE QUALITY AND SERVICE THAT MADE US FAMOUS, WHILE BRINGING OUR LEGENDARY CHICKEN TO NEW COMMUNITIES.
+                Today, we continue to honor Harold&apos;s legacy by maintaining the quality and service that made us famous, while bringing our legendary chicken to new communities.
               </p>
             </div>
             <Button 
@@ -186,7 +135,7 @@ function CommunitySupportSection() {
             Supporting Our Community
           </h2>
           <p className="text-lg text-[#333536] leading-relaxed uppercase font-medium">
-            HAROLD&apos;S IS COMMITTED TO GIVING BACK TO THE COMMUNITIES THAT HAVE SUPPORTED US FOR GENERATIONS. FROM LOCAL YOUTH PROGRAMS TO COMMUNITY EVENTS, WE&apos;RE PROUD TO BE A POSITIVE FORCE IN CHICAGO AND BEYOND.
+            Harold&apos;s is committed to giving back to the communities that have supported us for generations. From local youth programs to community events, we&apos;re proud to be a positive force in Chicago and beyond.
           </p>
           <div className="pt-8">
             <Button 
@@ -209,7 +158,6 @@ export default function Page() {
       <main className="w-full">
         <HeroSection />
         <FounderStory />
-        <Timeline />
         <LegacySection />
         <CommunitySupportSection />
       </main>
