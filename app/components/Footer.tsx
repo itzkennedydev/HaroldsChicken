@@ -148,7 +148,7 @@ export function Footer() {
               <Link 
                 href="/" 
                 className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#407E57] rounded-lg"
-                aria-label="Harold's Chicken - Home"
+                aria-label="Harold&apos;s Chicken - Home"
               >
                 <Image
                   src="/logos/HaroldsMainLogo.svg"

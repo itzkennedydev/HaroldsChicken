@@ -11,7 +11,7 @@ function HeroSection() {
     <section className="relative min-h-[600px] w-full">
       <Image
         src="/images/CareersBG.png"
-        alt="Harold's Chicken team members working together"
+        alt="Harold&apos;s Chicken team members working together"
         fill
         className="object-cover"
         priority
@@ -59,7 +59,7 @@ function ValuesSection() {
     {
       icon: "🌟",
       title: "CUSTOMER CONNECTION",
-      description: "Our team enjoys meaningful interactions with regular customers who become part of our extended Harold's family."
+      description: "Our team enjoys meaningful interactions with regular customers who become part of our extended Harold&apos;s family."
     }
   ];
 
