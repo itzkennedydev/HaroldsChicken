@@ -156,11 +156,11 @@ export default function Page() {
                 {/* Introduction */}
                 <section className="space-y-8">
                   <p className="text-xl text-neutral-700 leading-relaxed">
-                    From the streets of Chicago emerged a story of resilience, determination, and unwavering focus. Josiah Blanton&apos;s journey is more than a tale of success—it&apos;s a testament to the power of mindset over circumstances.
+                    From the streets of Chicago emerged a story of resilience, determination, and unwavering focus. Josiah Blanton's journey is more than a tale of success—it's a testament to the power of mindset over circumstances.
                   </p>
                   <blockquote className="pl-8 border-l-4 border-[#156D37]">
                     <p className="text-2xl text-neutral-800 font-light italic">
-                      &ldquo;Your mind must arrive at the destination before you do. No matter how good your skill set is, if you don&apos;t have the mentality that you&apos;re going to win, you&apos;ve already lost before you started.&rdquo;
+                      &ldquo;Your mind must arrive at the destination before you do. No matter how good your skill set is, if you don't have the mentality that you're going to win, you've already lost before you started.&rdquo;
                     </p>
                   </blockquote>
                 </section>
@@ -169,7 +169,7 @@ export default function Page() {
                 <section className="space-y-6">
                   <h2 className="text-3xl font-semibold text-neutral-900 font-display uppercase">Early Challenges & Choices</h2>
                   <p className="text-lg text-neutral-700 leading-relaxed">
-                    Growing up in Chicago, Josiah faced the harsh realities of urban life head-on. Despite not having seen his father since age 10 and watching his mother struggle to make ends meet, he made a conscious decision to choose a different path. While many in his situation might have turned to less constructive alternatives, Josiah&apos;s mindset became his compass, guiding him toward positive choices and productive pursuits.
+                    Growing up in Chicago, Josiah faced the harsh realities of urban life head-on. Despite not having seen his father since age 10 and watching his mother struggle to make ends meet, he made a conscious decision to choose a different path. While many in his situation might have turned to less constructive alternatives, Josiah's mindset became his compass, guiding him toward positive choices and productive pursuits.
                   </p>
                 </section>
 
@@ -206,10 +206,10 @@ export default function Page() {
                   <h2 className="text-3xl font-semibold text-neutral-900 font-display uppercase">Philosophy & Community Impact</h2>
                   <div className="space-y-6">
                     <p className="text-lg text-neutral-700 leading-relaxed">
-                      Josiah&apos;s success philosophy emphasizes the critical importance of maintaining, retaining, and sustaining achievements through proper mindset. He believes that true success comes not just from acquiring skills or resources, but from developing the mental framework to properly utilize and grow them.
+                      Josiah's success philosophy emphasizes the critical importance of maintaining, retaining, and sustaining achievements through proper mindset. He believes that true success comes not just from acquiring skills or resources, but from developing the mental framework to properly utilize and grow them.
                     </p>
                     <p className="text-lg text-neutral-700 leading-relaxed">
-                      Through his businesses and speaking engagements, Josiah continues to share his message of empowerment and positive mindset, helping others recognize that their circumstances don&apos;t define their potential for success.
+                      Through his businesses and speaking engagements, Josiah continues to share his message of empowerment and positive mindset, helping others recognize that their circumstances don't define their potential for success.
                     </p>
                   </div>
                 </section>
@@ -227,7 +227,7 @@ export default function Page() {
               Rooted in Community
             </h2>
             <p className="text-lg text-neutral-600">
-              Josiah&apos;s journey is more than a tale of success—it&apos;s a testament to the power of mindset over circumstances.
+              Josiah's journey is more than a tale of success—it's a testament to the power of mindset over circumstances.
             </p>
           </div>
 
