@@ -15,6 +15,7 @@ const images: CarouselImage[] = [
   { src: "/images/Celebs/Usher.png", alt: "Usher at Harold&apos;s Chicken" },
   { src: "/images/Celebs/JB.jpg", alt: "Blanton at Harold&apos;s Chicken" },
   { src: "/images/Celebs/Blanton.jpeg", alt: "Blanton at Harold&apos;s Chicken" },
+  { src: "/images/Bday.jpg", alt: "Mr.J" },
   { src: "/images/Celebs/HaroldsCar.JPG", alt: "Harold&apos;s Car" },
   { src: "/images/Celebs/Owner.jpg", alt: "Owner of Harold&apos;s Chicken" },
 ];
@@ -27,14 +28,45 @@ export function ImageCarousel() {
   const animationFrameRef = useRef<number | null>(null);
   const lastX = useRef(0);
   const dragDistance = useRef(0);
+  const slideWidthRef = useRef(0);
+  const gapWidthRef = useRef(0);
 
-  // Check if device is mobile
+  // Check if device is mobile and update dimensions
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
-    const updateMobileStatus = () => setIsMobile(window.innerWidth <= 768);
-    window.addEventListener("resize", updateMobileStatus);
-    updateMobileStatus();
-    return () => window.removeEventListener("resize", updateMobileStatus);
+    const updateDimensions = () => {
+      const width = window.innerWidth;
+      setIsMobile(width <= 768);
+      
+      // Update gap width based on screen size
+      if (width < 640) {
+        gapWidthRef.current = 16; // gap-4 = 16px
+      } else if (width < 768) {
+        gapWidthRef.current = 24; // gap-6 = 24px
+      } else {
+        gapWidthRef.current = 32; // gap-8 = 32px
+      }
+      
+      // Update slide width based on screen size
+      if (width < 640) {
+        slideWidthRef.current = 280;
+      } else if (width < 768) {
+        slideWidthRef.current = 400;
+      } else {
+        slideWidthRef.current = 600;
+      }
+    };
+
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
+
+  // Calculate scroll speed based on screen size
+  const getScrollSpeed = useCallback(() => {
+    if (window.innerWidth < 640) return 0.8;
+    if (window.innerWidth < 768) return 1.2;
+    return 1.8;
   }, []);
 
   // Start Auto-Scrolling
@@ -51,18 +83,19 @@ export function ImageCarousel() {
 
       const container = containerRef.current;
       const maxScroll = container.scrollWidth - container.clientWidth;
-
-      if (container.scrollLeft >= maxScroll) {
+      
+      // Loop back to start when reaching 80% of max scroll to make it smoother
+      if (container.scrollLeft >= maxScroll * 0.8) {
         container.scrollTo({ left: 0, behavior: "auto" });
       } else {
-        container.scrollLeft += 1.5;
+        container.scrollLeft += getScrollSpeed();
       }
 
       animationFrameRef.current = requestAnimationFrame(scroll);
     };
 
     animationFrameRef.current = requestAnimationFrame(scroll);
-  }, [isPaused, isDragging]);
+  }, [isPaused, isDragging, getScrollSpeed]);
 
   // Stop Auto-Scrolling
   const stopAutoScroll = useCallback(() => {
@@ -78,8 +111,12 @@ export function ImageCarousel() {
     if (!containerRef.current) return;
 
     const container = containerRef.current;
-    const slideWidth = container.clientWidth + 32; // Add gap
-    const targetPosition = Math.round(container.scrollLeft / slideWidth) * slideWidth;
+    const totalSlideWidth = slideWidthRef.current + gapWidthRef.current;
+    const scrollPosition = container.scrollLeft;
+    
+    // Calculate the nearest slide index
+    const slideIndex = Math.round(scrollPosition / totalSlideWidth);
+    const targetPosition = slideIndex * totalSlideWidth;
 
     container.scrollTo({
       left: targetPosition,
@@ -100,18 +137,21 @@ export function ImageCarousel() {
 
     const delta = position - lastX.current;
     containerRef.current.scrollLeft -= delta;
-    dragDistance.current += delta;
+    dragDistance.current += Math.abs(delta); // Track absolute drag distance
     lastX.current = position;
   };
 
   // Handle Interaction End
   const handleInteractionEnd = () => {
     setIsDragging(false);
-    if (Math.abs(dragDistance.current) > 10) {
+    // Only snap if there was significant dragging
+    if (dragDistance.current > 5) {
       snapToNearestSlide();
     }
     dragDistance.current = 0;
-    startAutoScroll();
+    
+    // Small delay before restarting auto-scroll to prevent jumps
+    setTimeout(() => startAutoScroll(), 200);
   };
 
   // Pause Auto-Scroll on Hover
@@ -146,25 +186,25 @@ export function ImageCarousel() {
           role="list"
           aria-label="Celebrity images carousel"
           tabIndex={0}
-          onMouseDown={(e) => handleInteractionStart(e.pageX)}
+          onMouseDown={(e) => handleInteractionStart(e.clientX)}
           onMouseUp={handleInteractionEnd}
           onMouseLeave={handleInteractionEnd}
-          onMouseMove={(e) => handleInteractionMove(e.pageX)}
-          onTouchStart={(e) => handleInteractionStart(e.touches[0].pageX)}
+          onMouseMove={(e) => isDragging && handleInteractionMove(e.clientX)}
+          onTouchStart={(e) => handleInteractionStart(e.touches[0].clientX)}
           onTouchEnd={handleInteractionEnd}
-          onTouchMove={(e) => handleInteractionMove(e.touches[0].pageX)}
+          onTouchMove={(e) => isDragging && handleInteractionMove(e.touches[0].clientX)}
           style={{
             scrollBehavior: isDragging ? "auto" : "smooth",
-            scrollSnapType: isDragging ? "none" : "x mandatory",
           }}
         >
+          {/* Double the images for infinite scrolling effect */}
           {[...images, ...images].map((image, index) => (
             <div
               key={index}
               className="relative w-[280px] sm:w-[400px] md:w-[600px] h-[184px] sm:h-[244px] md:h-[304px] flex-none rounded-lg overflow-hidden select-none"
               role="listitem"
               aria-label={`Slide ${index + 1} of ${images.length * 2}`}
-              style={{ scrollSnapAlign: "center" }}
+              style={{ scrollSnapAlign: "start" }}
             >
               <Image
                 src={image.src}
