@@ -81,16 +81,6 @@ export function MeetOwner() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
-            {/* Birthday image overlay */}
-            <div className="absolute bottom-[-40px] right-[-20px] w-2/5 h-2/5 z-20 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/images/Bday.jpg"
-                alt="Birthday celebration"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 40vw, 20vw"
-              />
-            </div>
           </div>
 
           {/* Content Container */}
