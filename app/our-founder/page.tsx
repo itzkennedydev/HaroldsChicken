@@ -82,20 +82,22 @@ function LegacySection() {
             <div className="grid grid-cols-2 gap-6">
               <div className="relative aspect-square w-full">
                 <Image
-                  src="https://haroldschicken.com/images/Legacy/HaroldsSB.jpeg"
+                  src="/images/Legacy/HaroldsSB.jpeg"
                   alt="Customers enjoying Harold's Chicken"
                   fill
                   className="rounded-lg object-cover"
                   sizes="(max-width: 768px) 50vw, 25vw"
+                  priority
                 />
               </div>
               <div className="relative aspect-square w-full">
                 <Image
-                  src="https://haroldschicken.com/images/Legacy/Pierce.jpeg"
+                  src="/images/Legacy/Pierce.jpeg"
                   alt="Classic Harold's storefront"
                   fill
                   className="rounded-lg object-cover"
                   sizes="(max-width: 768px) 50vw, 25vw"
+                  priority
                 />
               </div>
             </div>
