@@ -39,7 +39,7 @@ export function ValueProp() {
       imagePosition: "bottom",
       imageAlt: "Fresh, never frozen chicken preparation at Harold's",
       imagePlaceholder: false,
-      imageSrc: "/images/ChickenImg.jpg"
+      imageSrc: "/images/ValueProp/ChickenImg.jpg"
     },
     {
       id: 2,
@@ -50,7 +50,7 @@ export function ValueProp() {
       imagePosition: "left",
       imageAlt: "Array of Harold's menu items showcasing variety",
       imagePlaceholder: false,
-      imageSrc: "/images/FullMenu.jpg"
+      imageSrc: "/images/ValueProp/FullMenu.jpg"
     },
     {
       id: 3,
@@ -61,7 +61,7 @@ export function ValueProp() {
       imagePosition: "right",
       imageAlt: "Harold's sports bar environment showing TVs and seating area",
       imagePlaceholder: false,
-      imageSrc: "/images/Bar.jpeg"
+      imageSrc: "/images/ValueProp/Bar.jpeg"
     }
   ];
 
