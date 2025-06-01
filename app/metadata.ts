@@ -3,12 +3,12 @@ import { Metadata } from "next";
 const defaultSEO: Metadata = {
   metadataBase: new URL('https://haroldschicken.com'),
   title: {
-    default: "Harold&apos;s Chicken & Sports Bar | Chicago&apos;s Finest Chicken",
-    template: "%s | Harold&apos;s Chicken & Sports Bar"
+    default: "Harold's Chicken & Sports Bar | Chicago's Finest Chicken",
+    template: "%s | Harold's Chicken & Sports Bar"
   },
-  description: "Experience Chicago&apos;s iconic Harold&apos;s Chicken & Sports Bar. Known for our signature fried chicken, full-service sports bar, and welcoming atmosphere since 1950.",
+  description: "Experience Chicago's iconic Harold's Chicken & Sports Bar. Known for our signature fried chicken, full-service sports bar, and welcoming atmosphere since 1950.",
   keywords: [
-    "Harold&apos;s Chicken",
+    "Harold's Chicken",
     "Chicago restaurant",
     "sports bar Chicago",
     "fried chicken Chicago",
@@ -17,9 +17,9 @@ const defaultSEO: Metadata = {
     "family restaurant Chicago",
     "soul food Chicago"
   ],
-  authors: [{ name: "Harold&apos;s Chicken" }],
-  creator: "Harold&apos;s Chicken",
-  publisher: "Harold&apos;s Chicken",
+  authors: [{ name: "Harold's Chicken" }],
+  creator: "Harold's Chicken",
+  publisher: "Harold's Chicken",
   formatDetection: {
     email: false,
     address: false,
@@ -28,22 +28,22 @@ const defaultSEO: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "Harold&apos;s Chicken & Sports Bar",
-    title: "Harold&apos;s Chicken & Sports Bar | Chicago&apos;s Finest Chicken",
-    description: "Experience Chicago&apos;s iconic Harold&apos;s Chicken & Sports Bar. Known for our signature fried chicken, full-service sports bar, and welcoming atmosphere since 1950.",
+    siteName: "Harold's Chicken & Sports Bar",
+    title: "Harold's Chicken & Sports Bar | Chicago's Finest Chicken",
+    description: "Experience Chicago's iconic Harold's Chicken & Sports Bar. Known for our signature fried chicken, full-service sports bar, and welcoming atmosphere since 1950.",
     images: [
       {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Harold&apos;s Chicken & Sports Bar"
+        alt: "Harold's Chicken & Sports Bar"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Harold&apos;s Chicken & Sports Bar",
-    description: "Chicago&apos;s iconic chicken restaurant and sports bar since 1950",
+    title: "Harold's Chicken & Sports Bar",
+    description: "Chicago's iconic chicken restaurant and sports bar since 1950",
     creator: "@haroldschicken",
     images: ["/images/twitter-image.jpg"]
   },
