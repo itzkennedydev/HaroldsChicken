@@ -33,42 +33,42 @@ export function ValueProp() {
     {
       id: 1,
       title: "FRESH, NEVER FROZEN CHICKEN",
-      description: "At Harold&apos;s, we take pride in serving only the freshest chicken. Our commitment to quality means we never freeze our chicken, ensuring that every bite delivers that perfect, juicy tenderness our customers love. This dedication to freshness is part of what makes Harold&apos;s Chicken a Chicago legend.",
+      description: "At Harold's, we take pride in serving only the freshest chicken. Our commitment to quality means we never freeze our chicken, ensuring that every bite delivers that perfect, juicy tenderness our customers love. This dedication to freshness is part of what makes Harold's Chicken a Chicago legend.",
       buttonText: "LEARN MORE",
       buttonLink: "/about",
       imagePosition: "bottom",
-      imageAlt: "Fresh, never frozen chicken preparation at Harold&apos;s",
+      imageAlt: "Fresh, never frozen chicken preparation at Harold's",
       imagePlaceholder: false,
       imageSrc: "/images/ChickenImg.jpg"
     },
     {
       id: 2,
       title: "EXPLORE THE FULL MENU",
-      description: "Discover our extensive menu featuring Chicago&apos;s favorite chicken dishes, from our signature wings to hearty family meals. We offer a variety of sides, sauces, and combinations that have been perfected over generations. Whether you&apos;re craving our classic fried chicken or want to try something new, our menu has something for everyone.",
+      description: "Discover our extensive menu featuring Chicago's favorite chicken dishes, from our signature wings to hearty family meals. We offer a variety of sides, sauces, and combinations that have been perfected over generations. Whether you're craving our classic fried chicken or want to try something new, our menu has something for everyone.",
       buttonText: "VIEW MENU",
       buttonLink: "/menu",
       imagePosition: "left",
-      imageAlt: "Array of Harold&apos;s menu items showcasing variety",
+      imageAlt: "Array of Harold's menu items showcasing variety",
       imagePlaceholder: false,
       imageSrc: "/images/FullMenu.jpg"
     },
     {
       id: 3,
       title: "SPORTS BAR",
-      description: "Join us at our sports bar where great food meets the excitement of the game. Watch your favorite Chicago teams while enjoying our famous chicken and cold drinks. Our sports bar offers the perfect atmosphere for gathering with friends, catching the big game, or just unwinding after work with some of Chicago&apos;s best comfort food.",
+      description: "Join us at our sports bar where great food meets the excitement of the game. Watch your favorite Chicago teams while enjoying our famous chicken and cold drinks. Our sports bar offers the perfect atmosphere for gathering with friends, catching the big game, or just unwinding after work with some of Chicago's best comfort food.",
       buttonText: "VISIT BAR",
       buttonLink: "/sports-bar",
       imagePosition: "right",
-      imageAlt: "Harold&apos;s sports bar environment showing TVs and seating area",
+      imageAlt: "Harold's sports bar environment showing TVs and seating area",
       imagePlaceholder: false,
-      imageSrc: "/images/BarImg.jpeg"
+      imageSrc: "/images/Bar.jpeg"
     }
   ];
 
   return (
     <section 
       className="w-full py-16 md:py-24 lg:py-32"
-      aria-label="Harold&apos;s Chicken Features"
+      aria-label="Harold's Chicken Features"
       role="region"
     >
       <Container>
