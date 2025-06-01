@@ -42,24 +42,20 @@ function HeroSection() {
 function ValuesSection() {
   const values = [
     {
-      icon: "🤝",
       title: "FAMILY ATMOSPHERE",
       description: "We foster a close-knit team where everyone feels valued, supported, and part of something special—just like family."
     },
     {
-      icon: "📈",
       title: "CAREER GROWTH", 
       description: "Our team members experience real professional development with clear advancement paths from entry-level to management positions."
     },
     {
-      icon: "💪",
       title: "OWNERSHIP MINDSET",
       description: "We empower each team member to take pride in their work, contribute ideas, and make decisions that positively impact our business."
     },
     {
-      icon: "🌟",
       title: "CUSTOMER CONNECTION",
-      description: "Our team enjoys meaningful interactions with regular customers who become part of our extended Harold&apos;s family."
+      description: "Our team enjoys meaningful interactions with regular customers who become part of our extended Harold's family."
     }
   ];
 
@@ -67,16 +63,15 @@ function ValuesSection() {
     <section className="bg-white">
       <Container className="py-24">
         <h2 className="text-4xl md:text-5xl font-bold text-[#202124] mb-6 text-center uppercase">
-          Life at Harold&apos;s
+          Life at Harold's
         </h2>
         <p className="text-xl text-center text-[#333536] mb-16 max-w-3xl mx-auto">
-          While we&apos;re not actively hiring, here&apos;s what makes working at Harold&apos;s a truly rewarding experience
+          While we're not actively hiring, here's what makes working at Harold's a truly rewarding experience
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {values.map((value) => (
-            <div key={value.title} className="text-center space-y-4 p-6 hover:bg-[#F8F9FA] rounded-lg transition-all duration-300">
-              <span className="text-5xl block mb-6">{value.icon}</span>
-              <h3 className="text-2xl font-bold text-[#202124] uppercase">{value.title}</h3>
+            <div key={value.title} className="text-center space-y-4 p-6 bg-[#F8F9FA] rounded-lg transition-all duration-300">
+              <h3 className="text-2xl font-bold text-[#202124] uppercase mb-2">{value.title}</h3>
               <p className="text-[#333536] font-medium">{value.description}</p>
             </div>
           ))}
@@ -89,32 +84,26 @@ function ValuesSection() {
 function BenefitsSection() {
   const benefits = [
     {
-      icon: "💰",
       title: "Fair Compensation",
       description: "Competitive pay that recognizes your contributions, with performance-based increases as you grow with us"
     },
     {
-      icon: "🏥",
       title: "Health & Wellness",
       description: "Comprehensive benefits for eligible employees that support your physical and mental wellbeing"
     },
     {
-      icon: "📅",
       title: "Work-Life Balance",
       description: "Flexible scheduling options that respect your personal commitments and family time"
     },
     {
-      icon: "🎓",
       title: "Skill Development",
       description: "Hands-on training and mentorship that builds valuable restaurant and customer service skills"
     },
     {
-      icon: "🏆",
       title: "Recognition Program",
       description: "Formal recognition system that rewards excellence, innovation, and dedication to our high standards"
     },
     {
-      icon: "👥",
       title: "Team Events",
       description: "Regular team celebrations, outings, and recognition events that strengthen our community"
     }
@@ -127,12 +116,11 @@ function BenefitsSection() {
           What We Offer
         </h2>
         <p className="text-xl text-center text-[#333536] mb-16 max-w-3xl mx-auto">
-          When opportunities become available, here&apos;s what you can look forward to as part of the Harold&apos;s team
+          When opportunities become available, here's what you can look forward to as part of the Harold's team
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit) => (
-            <div key={benefit.title} className="p-8 rounded-lg bg-[#F8F9FA] hover:translate-y-[-4px] transition-all duration-300">
-              <span className="text-4xl block mb-4">{benefit.icon}</span>
+            <div key={benefit.title} className="p-8 rounded-lg bg-[#F8F9FA] transition-all duration-300">
               <h3 className="text-xl font-bold text-[#202124] mb-2 uppercase">{benefit.title}</h3>
               <p className="text-[#333536]">{benefit.description}</p>
             </div>
