@@ -8,7 +8,7 @@ function MenuBanner() {
   return (
     <section className="relative min-h-[420px] md:min-h-[520px] w-full">
       <Image
-        src="/images/ChickenImg.jpg"
+        src="/images/ValueProp/ChickenImg.jpg"
         alt="Harold's Chicken and fries"
         fill
         className="object-cover"
