@@ -79,21 +79,25 @@ function LegacySection() {
       <Container>
         <div className="flex flex-col md:flex-row-reverse items-center gap-16">
           <div className="w-full md:w-1/2">
-            <div className="grid grid-cols-2 gap-4">
-              <Image
-                src="/images/legacy-1.jpg"
-                alt="Customers enjoying Harold&apos;s Chicken"
-                width={300}
-                height={400}
-                className="rounded-lg"
-              />
-              <Image
-                src="/images/legacy-2.jpg"
-                alt="Classic Harold&apos;s storefront"
-                width={300}
-                height={400}
-                className="rounded-lg mt-8"
-              />
+            <div className="grid grid-cols-2 gap-6">
+              <div className="relative aspect-square w-full">
+                <Image
+                  src="/images/Legacy/HaroldsSB.jpeg"
+                  alt="Customers enjoying Harold's Chicken"
+                  fill
+                  className="rounded-lg object-cover"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+              </div>
+              <div className="relative aspect-square w-full">
+                <Image
+                  src="/images/Legacy/Pierce.jpeg"
+                  alt="Classic Harold's storefront"
+                  fill
+                  className="rounded-lg object-cover"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+              </div>
             </div>
           </div>
           <div className="w-full md:w-1/2 space-y-6">
