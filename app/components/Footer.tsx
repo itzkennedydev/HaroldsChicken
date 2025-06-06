@@ -27,14 +27,12 @@ export function Footer() {
       title: "EXPLORE",
       links: [
         { href: "/menu", label: "MENU" },
-        { href: "/catering", label: "CATERING" },
-        { href: "/locations", label: "LOCATIONS" },
+        { href: "/sports-bar", label: "SPORTS BAR" },
       ]
     },
     company: {
       title: "COMPANY",
       links: [
-        { href: "/about", label: "ABOUT US" },
         { href: "/our-story", label: "OUR STORY" },
         { href: "/careers", label: "CAREERS" },
         { href: "/press", label: "PRESS" },
@@ -43,22 +41,19 @@ export function Footer() {
     support: {
       title: "SUPPORT",
       links: [
-        { href: "/contact", label: "CONTACT US" },
-        { href: "/faq", label: "FAQ" },
-        { href: "/gift-cards", label: "GIFT CARDS" },
-        { href: "/rewards", label: "REWARDS PROGRAM" },
+        { href: "/contact", label: "CONTACT" },
       ]
     },
     connect: {
       title: "CONNECT",
       links: [
-        { 
-          href: "https://instagram.com/haroldschicken", 
+        {
+          href: "https://www.instagram.com/haroldschickensportsbar/",
           label: "INSTAGRAM",
           external: true
         },
-        { 
-          href: "https://facebook.com/haroldschicken", 
+        {
+          href: "https://www.facebook.com/p/Harolds-Chicken-Sports-Bar-61571084314548/",
           label: "FACEBOOK",
           external: true
         },
