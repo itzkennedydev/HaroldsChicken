@@ -95,18 +95,18 @@ export default function Page() {
       },
       {
         threshold: 0.1,
-        rootMargin: "0px"
+        rootMargin: "0px",
       }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const section = sectionRef.current;
+    if (section) {
+      observer.observe(section);
     }
 
     return () => {
-      const currentSection = sectionRef.current;
-      if (currentSection) {
-        observer.unobserve(currentSection);
+      if (section) {
+        observer.unobserve(section);
       }
     };
   }, []);

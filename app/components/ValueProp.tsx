@@ -37,9 +37,9 @@ export function ValueProp() {
       buttonText: "LEARN MORE",
       buttonLink: "/about",
       imagePosition: "bottom",
-      imageAlt: "Fresh, never frozen chicken preparation at Harold's",
+      imageAlt: "Best Seller placeholder",
       imagePlaceholder: false,
-      imageSrc: "/images/ValueProp/ChickenImg.jpg"
+      imageSrc: "https://via.placeholder.com/400x300?text=Best+Seller"
     },
     {
       id: 2,
@@ -48,9 +48,9 @@ export function ValueProp() {
       buttonText: "VIEW MENU",
       buttonLink: "/menu",
       imagePosition: "left",
-      imageAlt: "Array of Harold's menu items showcasing variety",
+      imageAlt: "New Item placeholder",
       imagePlaceholder: false,
-      imageSrc: "/images/ValueProp/FullMenu.jpg"
+      imageSrc: "https://via.placeholder.com/400x300?text=New+Item"
     },
     {
       id: 3,
@@ -59,9 +59,9 @@ export function ValueProp() {
       buttonText: "VISIT BAR",
       buttonLink: "/sports-bar",
       imagePosition: "right",
-      imageAlt: "Harold's sports bar environment showing TVs and seating area",
+      imageAlt: "Value placeholder",
       imagePlaceholder: false,
-      imageSrc: "/images/ValueProp/Bar.jpeg"
+      imageSrc: "https://via.placeholder.com/400x300?text=Value"
     }
   ];
 
