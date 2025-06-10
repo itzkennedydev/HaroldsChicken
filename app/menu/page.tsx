@@ -62,15 +62,12 @@ export default function MenuPage() {
             <CardContent className="bg-white text-black p-6">
               {/* Wings */}
               <div className="border-b border-red-700 pb-6 mb-6">
-                <h3 className="text-2xl text-red-700 font-bold mb-3">Wings</h3>
+                <h3 className="text-2xl text-red-700 font-bold mb-3">Wing Dinners</h3>
                 <ul className="space-y-2">
                   <MenuItem name="4 Wings" price={16} />
                   <MenuItem name="6 Wings" price={19} />
                   <MenuItem name="8 Wings" price={23} />
                   <MenuItem name="10 Wings" price={24} />
-                  <MenuItem name="12 pc Wings" price={21} />
-                  <MenuItem name="18 pc Wings" price={34} />
-                  <MenuItem name="24 pc Wings" price={42} />
                   <MenuItem name="Extra Wing" price={6} />
                 </ul>
               </div>
@@ -230,14 +227,27 @@ export default function MenuPage() {
                 </ul>
               </div>
               {/* Condiments & Extras */}
-              <div>
-                <h3 className="text-2xl text-red-700 font-bold mb-3">Condiments & Extras</h3>
-                <ul className="space-y-2">
-                  <MenuItem name="Extra Bread" price={1} />
-                  <MenuItem name="2 oz Ranch" price={1} />
-                  <MenuItem name="Hot Peppers" price={1} />
-                </ul>
-              </div>
+                <div>
+                  <h3 className="text-2xl text-red-700 font-bold mb-3">Condiments & Extras</h3>
+                  <ul className="space-y-2">
+                    <MenuItem name="2oz Mild Sauce" price={2} />
+                    <MenuItem name="Hot Sauce" price={2} />
+                    <MenuItem name='Hot Pepper "3"' price={2} />
+                    <MenuItem name="Cole Slaw (Half Pint)" price={5} />
+                    <MenuItem name="Cole Slaw (Pint)" price={7} />
+                    <MenuItem name="Small Fry" price={4} />
+                    <MenuItem name="Large Fry" price={7} />
+                    <MenuItem name="Extra lemon pepper" price={0.75} />
+                    <MenuItem name="Extra leg" price={7} />
+                    <MenuItem name="Extra thigh" price={7} />
+                    <MenuItem name="Extra breast" price={7} />
+                    <MenuItem name="Extra wing" price={6} />
+                    <MenuItem name="Extra tender" price={5} />
+                    <MenuItem name="Extra catfish" price={7} />
+                    <MenuItem name="Extra perch" price={7} />
+                    <MenuItem name="Extra shrimp" price={11} />
+                  </ul>
+                </div>
             </CardContent>
           </Card>
           {/* BEVERAGES SECTION */}
@@ -267,6 +277,7 @@ export default function MenuPage() {
                   <MenuItem name="Bottled Water" price={4} />
                   <MenuItem name="Soft Drinks" price={6} />
                   <MenuItem name="Calypso" price={6} />
+                  <MenuItem name="Special Flavored Lemonades" price={4} note="no free refill" />
                   <MenuItem name="Can Soda" price={3} />
                 </ul>
               </div>
@@ -302,13 +313,81 @@ export default function MenuPage() {
             </div>
           </CardContent>
         </Card>
+
+        {/* FISH COMBOS SECTION */}
+        <Card className="mb-10 bg-white text-black border-red-700">
+          <CardHeader className="bg-red-700 rounded-t-xl p-6">
+            <CardTitle className="text-3xl text-white tracking-wider text-center">FISH COMBOS</CardTitle>
+          </CardHeader>
+          <CardContent className="bg-white text-black p-6">
+            <ul className="space-y-2">
+              <MenuItem name="Catfish & 1/4 Chicken (White)" price={27} />
+              <MenuItem name="Perch & 1/4 Chicken (Dark)" price={23} />
+              <MenuItem name="Perch & 1/4 Chicken (White)" price={24} />
+              <MenuItem name="2 Catfish & 3 Wings" price={23} />
+              <MenuItem name="2 Perch & 3 Wings" price={23} />
+              <MenuItem name="Liver & 3 Wings" price={19} />
+              <MenuItem name="Gizzard & 3 Wings" price={19} />
+              <MenuItem name="2 Catfish & 5 Shrimp" price={25.25} />
+              <MenuItem name="2 Perch & 5 Shrimp" price={22.25} />
+              <MenuItem name="5 Shrimp & 3 Wings" price={25.25} />
+              <MenuItem name="5 Shrimp & 1/4 Chicken (White)" price={28} />
+              <MenuItem name="5 Shrimp & 1/4 Chicken (Dark)" price={25} />
+            </ul>
+          </CardContent>
+        </Card>
+
+        {/* CHICKEN BUCKETS SECTION */}
+        <Card className="mb-10 bg-white text-black border-red-700">
+          <CardHeader className="bg-red-700 rounded-t-xl p-6">
+            <CardTitle className="text-3xl text-white tracking-wider text-center">CHICKEN BUCKETS</CardTitle>
+          </CardHeader>
+          <CardContent className="bg-white text-black p-6 space-y-6">
+            {/* Chicken Wing Buckets */}
+            <div>
+              <h3 className="text-2xl text-red-700 font-bold mb-3">Chicken Wing Buckets</h3>
+              <ul className="space-y-2">
+                <MenuItem name="12 pc Wings" price={21} />
+                <MenuItem name="18 pc Wings" price={34} />
+                <MenuItem name="24 pc Wings" price={42} />
+              </ul>
+            </div>
+            {/* Mixed Chicken Buckets */}
+            <div>
+              <h3 className="text-2xl text-red-700 font-bold mb-3">Mixed Chicken Buckets</h3>
+              <ul className="space-y-2">
+                <MenuItem name="8 Piece (Mixed)" price={20} />
+                <MenuItem name="16 Piece (Mixed)" price={30} />
+                <MenuItem name="24 Piece (Mixed)" price={45} />
+              </ul>
+            </div>
+            {/* Catfish Buckets */}
+            <div>
+              <h3 className="text-2xl text-red-700 font-bold mb-3">Catfish Buckets</h3>
+              <ul className="space-y-2">
+                <MenuItem name="12 pc Catfish" price={25} />
+                <MenuItem name="24 pc Catfish" price={45} />
+              </ul>
+            </div>
+            {/* Perch Buckets */}
+            <div>
+              <h3 className="text-2xl text-red-700 font-bold mb-3">Perch Buckets</h3>
+              <ul className="space-y-2">
+                <MenuItem name="12 pc Perch" price={25} />
+                <MenuItem name="24 pc Perch" price={45} />
+              </ul>
+            </div>
+          </CardContent>
+        </Card>
         {/* DESSERTS SECTION */}
         <Card className="mb-10 bg-white text-black border-red-700">
           <CardHeader className="bg-red-700 rounded-t-xl p-6">
             <CardTitle className="text-3xl text-white tracking-wider text-center">DESSERTS</CardTitle>
           </CardHeader>
-          <CardContent className="bg-white text-black p-6">
+          <CardContent className="bg-white text-black p-6 space-y-2">
             <MenuItem name="Cookie" price={7} />
+            <MenuItem name="Honey Biscuits (5)" price={10} />
+            <MenuItem name="Honey Biscuits (10)" price={15} />
           </CardContent>
         </Card>
         {/* NOTICES BANNER */}
@@ -319,11 +398,14 @@ export default function MenuPage() {
   );
 }
 
-function MenuItem({ name, price }: { name: string; price: number }) {
+function MenuItem({ name, price, note }: { name: string; price: number; note?: string }) {
   return (
-    <li className="flex justify-between items-center text-lg md:text-xl font-semibold text-black">
-      <span>{name}</span>
-      <span className="text-red-700 font-bold text-xl md:text-2xl">${price}</span>
+    <li className="flex flex-col gap-1 text-lg md:text-xl font-semibold text-black">
+      <div className="flex justify-between items-center">
+        <span>{name}</span>
+        <span className="text-red-700 font-bold text-xl md:text-2xl">${price}</span>
+      </div>
+      {note && <span className="text-sm italic text-gray-600">{note}</span>}
     </li>
   );
 }
