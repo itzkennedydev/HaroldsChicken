@@ -73,7 +73,7 @@ export function Footer() {
 
   return (
     <footer 
-      className="w-full bg-white border-t-4 border-[#407E57]" 
+      className="w-full bg-white border-t-4 border-red-700" 
       role="contentinfo"
       aria-label="Footer"
     >
@@ -97,7 +97,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="group flex items-center gap-2 text-sm text-[#475467] hover:text-[#407E57] font-display uppercase font-medium transition-colors duration-200"
+                      className="group flex items-center gap-2 text-sm text-[#475467] hover:text-red-700 font-display uppercase font-medium transition-colors duration-200"
                       {...(link.external && {
                         target: "_blank",
                         rel: "noopener noreferrer",
@@ -142,7 +142,7 @@ export function Footer() {
             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
               <Link 
                 href="/" 
-                className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#407E57] rounded-lg"
+                className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-700 rounded-lg"
                 aria-label="Harold&apos;s Chicken - Home"
               >
                 <Image
@@ -162,13 +162,13 @@ export function Footer() {
             <div className="flex items-center gap-6">
               <Link 
                 href="/legal/privacy" 
-                className="text-sm text-[#475467] hover:text-[#407E57] font-display uppercase font-medium transition-colors duration-200"
+                className="text-sm text-[#475467] hover:text-red-700 font-display uppercase font-medium transition-colors duration-200"
               >
                 PRIVACY POLICY
               </Link>
               <Link 
                 href="/legal/terms" 
-                className="text-sm text-[#475467] hover:text-[#407E57] font-display uppercase font-medium transition-colors duration-200"
+                className="text-sm text-[#475467] hover:text-red-700 font-display uppercase font-medium transition-colors duration-200"
               >
                 TERMS OF SERVICE
               </Link>

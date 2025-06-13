@@ -30,7 +30,7 @@ function HeroSection() {
           </p>
           <Button 
             size="lg"
-            className="bg-[#407E57] hover:bg-[#407E57]/90 text-white text-xl font-bold px-12 py-6 uppercase w-full sm:w-auto focus:ring-2 focus:ring-offset-2 focus:ring-[#407E57]"
+            className="bg-red-700 hover:bg-red-800 text-white text-xl font-bold px-12 py-6 uppercase w-full sm:w-auto focus:ring-2 focus:ring-offset-2 focus:ring-red-700"
           >
             View Menu
           </Button>
@@ -111,7 +111,7 @@ function MenuHighlights() {
               <div className="mt-4 space-y-2">
                 <h3 className="text-xl font-bold text-[#202124]">{item.name}</h3>
                 <p className="text-[#333536]">{item.description}</p>
-                <p className="text-lg font-bold text-[#407E57]">${item.price}</p>
+                <p className="text-lg font-bold text-red-700">${item.price}</p>
               </div>
             </div>
           ))}
@@ -119,7 +119,7 @@ function MenuHighlights() {
         <div className="mt-12 text-center">
           <Button 
             size="lg"
-            className="bg-[#407E57] hover:bg-[#407E57]/90 text-white font-bold px-8 py-4 uppercase"
+            className="bg-red-700 hover:bg-red-800 text-white font-bold px-8 py-4 uppercase"
           >
             View Full Menu
           </Button>
@@ -146,7 +146,7 @@ function EventsSection() {
             </p>
             <Button 
               size="lg"
-              className="bg-[#407E57] hover:bg-[#407E57]/90 text-white font-bold px-8 py-4 uppercase w-full sm:w-auto"
+              className="bg-red-700 hover:bg-red-800 text-white font-bold px-8 py-4 uppercase w-full sm:w-auto"
             >
               Book Now
             </Button>

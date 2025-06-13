@@ -116,7 +116,7 @@ function LegacySection() {
             </div>
             <Button 
               size="lg"
-              className="bg-[#407E57] hover:bg-[#407E57]/90 text-white font-bold px-8 py-4 uppercase w-full sm:w-auto"
+              className="bg-red-700 hover:bg-red-800 text-white font-bold px-8 py-4 uppercase w-full sm:w-auto"
             >
               Find a Location
             </Button>
@@ -141,7 +141,7 @@ function CommunitySupportSection() {
           <div className="pt-8">
             <Button 
               size="lg"
-              className="bg-[#407E57] hover:bg-[#407E57]/90 text-white font-bold px-12 py-6 uppercase"
+              className="bg-red-700 hover:bg-red-800 text-white font-bold px-12 py-6 uppercase"
             >
               Learn About Our Impact
             </Button>
