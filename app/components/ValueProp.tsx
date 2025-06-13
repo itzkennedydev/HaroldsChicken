@@ -102,9 +102,9 @@ export function ValueProp() {
 
                 <Button 
                   size="lg"
-                  className={`w-full sm:w-auto bg-[#407E57] text-white font-bold px-8 py-4 uppercase text-sm sm:text-base
+                  className={`w-full sm:w-auto bg-red-700 text-white font-bold px-8 py-4 uppercase text-sm sm:text-base
                     transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]
-                    hover:bg-[#407E57]/90 focus:ring-2 focus:ring-offset-2 focus:ring-[#407E57] focus:outline-none
+                    hover:bg-red-800 focus:ring-2 focus:ring-offset-2 focus:ring-red-700 focus:outline-none
                     ${hoveredButton === prop.id ? 'shadow-lg' : 'shadow'}`}
                   aria-label={`${prop.buttonText} about ${prop.title.toLowerCase()}`}
                   onMouseEnter={() => setHoveredButton(prop.id)}
