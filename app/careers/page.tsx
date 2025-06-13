@@ -28,7 +28,7 @@ function HeroSection() {
           </p>
           <Button 
             size="lg"
-            className="bg-[#407E57] hover:bg-[#407E57]/90 text-white text-xl font-bold px-12 py-6 uppercase w-full sm:w-auto"
+            className="bg-red-700 hover:bg-red-800 text-white text-xl font-bold px-12 py-6 uppercase w-full sm:w-auto"
             onClick={() => window.open('https://apply.haroldschickensportsbar.com', '_blank')}
           >
             Join Our Talent Pool
@@ -186,7 +186,7 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="bg-[#407E57]">
+    <section className="bg-red-700">
       <Container className="py-24">
         <div className="max-w-3xl mx-auto text-center space-y-8">
           <h2 className="text-4xl md:text-5xl font-bold text-white uppercase">

@@ -33,7 +33,7 @@ export function Map() {
     el.setAttribute('role', 'img');
     el.setAttribute('aria-label', "Harold&apos;s Chicken location");
     el.innerHTML = '★';
-    el.style.color = '#407E57';
+    el.style.color = 'rgb(185, 28, 28)';
     el.style.fontSize = '32px';
     el.style.lineHeight = '0';
     el.style.cursor = 'pointer';
@@ -91,7 +91,7 @@ export function Map() {
             <div className="flex justify-center md:justify-start w-full">
               <Button 
                 size="lg"
-                className="bg-[#407E57] hover:bg-[#407E57]/90 text-white font-bold px-8 py-6 uppercase text-base w-auto focus:ring-2 focus:ring-offset-2 focus:ring-[#407E57] focus:outline-none"
+                className="bg-red-700 hover:bg-red-800 text-white font-bold px-8 py-6 uppercase text-base w-auto focus:ring-2 focus:ring-offset-2 focus:ring-red-700 focus:outline-none"
                 onClick={handleGetDirections}
                 aria-label="Get directions to Harold&apos;s Chicken"
               >
