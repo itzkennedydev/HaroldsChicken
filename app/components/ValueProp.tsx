@@ -39,7 +39,7 @@ export function ValueProp() {
       imagePosition: "bottom",
       imageAlt: "Best Seller placeholder",
       imagePlaceholder: false,
-      imageSrc: "https://via.placeholder.com/400x300?text=Best+Seller"
+      imageSrc: "/images/ValueProp/ChickenImg.jpg"
     },
     {
       id: 2,
@@ -50,7 +50,7 @@ export function ValueProp() {
       imagePosition: "left",
       imageAlt: "New Item placeholder",
       imagePlaceholder: false,
-      imageSrc: "https://via.placeholder.com/400x300?text=New+Item"
+      imageSrc: "/images/ValueProp/FullMenu.jpg"
     },
     {
       id: 3,
@@ -61,7 +61,7 @@ export function ValueProp() {
       imagePosition: "right",
       imageAlt: "Value placeholder",
       imagePlaceholder: false,
-      imageSrc: "https://via.placeholder.com/400x300?text=Value"
+      imageSrc: "/images/ValueProp/Bar.jpeg"
     }
   ];
 
@@ -154,6 +154,8 @@ export function ValueProp() {
                       src={prop.imageSrc}
                       alt={prop.imageAlt}
                       fill
+                      quality={100}
+                      loading="eager"
                       className="object-cover transition-all duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 50vw"
                       priority={index === 0}
