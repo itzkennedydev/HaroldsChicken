@@ -64,54 +64,54 @@ export default function MenuPage() {
               <div className="border-b border-red-700 pb-6 mb-6">
                 <h3 className="text-2xl text-red-700 font-bold mb-3">Wing Dinners</h3>
                 <ul className="space-y-2">
-                  <MenuItem name="4 Wings" price={16} />
-                  <MenuItem name="6 Wings" price={19} />
-                  <MenuItem name="8 Wings" price={23} />
-                  <MenuItem name="10 Wings" price={24} />
-                  <MenuItem name="Extra Wing" price={6} />
+                  <MenuItem name="4 Wings" price={8} />
+                  <MenuItem name="6 Wings" price={9.5} />
+                  <MenuItem name="8 Wings" price={11.5} />
+                  <MenuItem name="10 Wings" price={12} />
+                  <MenuItem name="Extra Wing" price={3} />
                 </ul>
               </div>
               {/* Chicken Tenders */}
               <div className="border-b border-red-700 pb-6 mb-6">
                 <h3 className="text-2xl text-red-700 font-bold mb-3">Chicken Tenders</h3>
                 <ul className="space-y-2">
-                  <MenuItem name="Tenders 4 pcs" price={14} />
-                  <MenuItem name="Tenders 6 pcs" price={17} />
-                  <MenuItem name="Tenders 8 pcs" price={21} />
+                  <MenuItem name="Tenders 4 pcs" price={7} />
+                  <MenuItem name="Tenders 6 pcs" price={8.5} />
+                  <MenuItem name="Tenders 8 pcs" price={10.5} />
                 </ul>
               </div>
               {/* Chicken Pieces */}
               <div className="border-b border-red-700 pb-6 mb-6">
                 <h3 className="text-2xl text-red-700 font-bold mb-3">Chicken Pieces</h3>
                 <ul className="space-y-2">
-                  <MenuItem name="1/4 White" price={14} />
-                  <MenuItem name="1/4 Dark" price={11} />
-                  <MenuItem name="1/2 White" price={22} />
-                  <MenuItem name="1/2 Dark" price={19} />
-                  <MenuItem name="1/2 Mixed" price={18} />
-                  <MenuItem name="8 pc Mixed" price={28} />
-                  <MenuItem name="16 pc Mixed" price={40} />
-                  <MenuItem name="24 pc Mixed" price={53} />
-                  <MenuItem name="Extra Leg or Thigh" price={7} />
-                  <MenuItem name="Extra Breast" price={7} />
+                  <MenuItem name="1/4 White" price={7} />
+                  <MenuItem name="1/4 Dark" price={5.5} />
+                  <MenuItem name="1/2 White" price={11} />
+                  <MenuItem name="1/2 Dark" price={9.5} />
+                  <MenuItem name="1/2 Mixed" price={9} />
+                  <MenuItem name="8 pc Mixed" price={14} />
+                  <MenuItem name="16 pc Mixed" price={20} />
+                  <MenuItem name="24 pc Mixed" price={26.5} />
+                  <MenuItem name="Extra Leg or Thigh" price={3.5} />
+                  <MenuItem name="Extra Breast" price={3.5} />
                 </ul>
               </div>
               {/* Gizzards & Livers */}
               <div className="border-b border-red-700 pb-6 mb-6">
                 <h3 className="text-2xl text-red-700 font-bold mb-3">Gizzards & Livers</h3>
                 <ul className="space-y-2">
-                  <MenuItem name="Small Gizzard" price={11} />
-                  <MenuItem name="Large Gizzard" price={14} />
-                  <MenuItem name="Small Liver" price={10} />
-                  <MenuItem name="Large Liver" price={13} />
+                  <MenuItem name="Small Gizzard" price={5.5} />
+                  <MenuItem name="Large Gizzard" price={7} />
+                  <MenuItem name="Small Liver" price={5} />
+                  <MenuItem name="Large Liver" price={6.5} />
                 </ul>
               </div>
               {/* Specialty Chicken Items */}
               <div>
                 <h3 className="text-2xl text-red-700 font-bold mb-3">Specialty Chicken Items</h3>
                 <ul className="space-y-2">
-                  <MenuItem name="Chicken Sandwich" price={21} />
-                  <MenuItem name="Chicken & Waffles" price={19} />
+                  <MenuItem name="Chicken Sandwich" price={10.5} />
+                  <MenuItem name="Chicken & Waffles" price={9.5} />
                 </ul>
               </div>
             </CardContent>

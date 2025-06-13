@@ -8,7 +8,7 @@ const nextConfig = {
     styledComponents: true,
   },
   images: {
-    domains: ['images.unsplash.com'],
+    domains: ['images.unsplash.com', 'via.placeholder.com'],
   },
 }
 
