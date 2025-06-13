@@ -99,7 +99,7 @@ export function Cravings() {
                 {/* Tag */}
                 {item.tag && (
                   <div className="absolute top-4 left-4 z-10">
-                    <span className="bg-[#407E57] text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
+                    <span className="bg-red-700 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
                       {item.tag}
                     </span>
                   </div>
@@ -129,7 +129,7 @@ export function Cravings() {
                         e.preventDefault();
                         setSelectedItem(item);
                       }}
-                      className="bg-white/90 text-[#202124] px-6 py-2 rounded-full font-bold uppercase text-sm transform -translate-y-2 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#407E57] focus:ring-offset-2"
+                      className="bg-white/90 text-[#202124] px-6 py-2 rounded-full font-bold uppercase text-sm transform -translate-y-2 group-hover:translate-y-0 transition-transform duration-300 hover:bg-white focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-offset-2"
                     >
                       Quick View
                     </button>
@@ -190,7 +190,7 @@ export function Cravings() {
                   priority
                 />
                 {selectedItem.tag && (
-                  <span className="absolute top-4 left-4 bg-[#407E57] text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
+                  <span className="absolute top-4 left-4 bg-red-700 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
                     {selectedItem.tag}
                   </span>
                 )}
@@ -227,17 +227,17 @@ export function Cravings() {
                 <div className="mt-auto space-y-4 pt-6">
                   <Link
                     href="/order"
-                    className="w-full inline-flex justify-center items-center px-6 py-4 bg-[#407E57] text-white font-bold rounded-lg 
-                      hover:bg-[#407E57]/90 transition-all duration-300 transform hover:-translate-y-0.5
-                      focus:outline-none focus:ring-2 focus:ring-[#407E57] focus:ring-offset-2 uppercase text-lg"
+                    className="w-full inline-flex justify-center items-center px-6 py-4 bg-red-700 text-white font-bold rounded-lg 
+                      hover:bg-red-800 transition-all duration-300 transform hover:-translate-y-0.5
+                      focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-offset-2 uppercase text-lg"
                   >
                     Order Now
                   </Link>
                   <Link
                     href={`/menu/item-${selectedItem.id}`}
-                    className="w-full inline-flex justify-center items-center px-6 py-4 border-2 border-[#407E57] text-[#407E57] 
-                      font-bold rounded-lg hover:bg-[#407E57]/10 transition-all duration-300 uppercase
-                      focus:outline-none focus:ring-2 focus:ring-[#407E57] focus:ring-offset-2"
+                    className="w-full inline-flex justify-center items-center px-6 py-4 border-2 border-red-700 text-red-700 
+                      font-bold rounded-lg hover:bg-red-700/10 transition-all duration-300 uppercase
+                      focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-offset-2"
                   >
                     View Details
                     <svg

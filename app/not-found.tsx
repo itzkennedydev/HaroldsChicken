@@ -37,8 +37,8 @@ export default function NotFound() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-[#407E57] hover:bg-[#407E57]/90 text-white text-xl font-bold px-12 py-6 uppercase w-full sm:w-auto 
-                    focus:ring-2 focus:ring-offset-2 focus:ring-[#407E57] focus:outline-none transition-all duration-200"
+                  className="bg-red-700 hover:bg-red-800 text-white text-xl font-bold px-12 py-6 uppercase w-full sm:w-auto 
+                    focus:ring-2 focus:ring-offset-2 focus:ring-red-700 focus:outline-none transition-all duration-200"
                 >
                   <Link href="/">
                     Back to Home
@@ -48,8 +48,8 @@ export default function NotFound() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-2 border-[#407E57] text-[#407E57] hover:bg-[#407E57]/10 text-xl font-bold px-12 py-6 uppercase w-full sm:w-auto 
-                    focus:ring-2 focus:ring-offset-2 focus:ring-[#407E57] focus:outline-none transition-all duration-200"
+                  className="border-2 border-red-700 text-red-700 hover:bg-red-700/10 text-xl font-bold px-12 py-6 uppercase w-full sm:w-auto 
+                    focus:ring-2 focus:ring-offset-2 focus:ring-red-700 focus:outline-none transition-all duration-200"
                 >
                   <Link href="/menu">
                     View Menu
@@ -63,25 +63,25 @@ export default function NotFound() {
                 <div className="flex flex-wrap justify-center gap-6">
                   <Link 
                     href="/sports-bar" 
-                    className="text-[#475467] hover:text-[#407E57] font-bold uppercase text-sm transition-colors"
+                    className="text-[#475467] hover:text-red-700 font-bold uppercase text-sm transition-colors"
                   >
                     Sports Bar
                   </Link>
                   <Link 
                     href="/locations" 
-                    className="text-[#475467] hover:text-[#407E57] font-bold uppercase text-sm transition-colors"
+                    className="text-[#475467] hover:text-red-700 font-bold uppercase text-sm transition-colors"
                   >
                     Locations
                   </Link>
                   <Link 
                     href="/catering" 
-                    className="text-[#475467] hover:text-[#407E57] font-bold uppercase text-sm transition-colors"
+                    className="text-[#475467] hover:text-red-700 font-bold uppercase text-sm transition-colors"
                   >
                     Catering
                   </Link>
                   <Link 
                     href="/contact" 
-                    className="text-[#475467] hover:text-[#407E57] font-bold uppercase text-sm transition-colors"
+                    className="text-[#475467] hover:text-red-700 font-bold uppercase text-sm transition-colors"
                   >
                     Contact
                   </Link>

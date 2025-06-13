@@ -240,7 +240,7 @@ export function ScrollingText() {
 
   return (
     <section 
-      className="w-full py-2 sm:py-4 mb-4 sm:mb-8 overflow-hidden bg-[#407E57]"
+      className="w-full py-2 sm:py-4 mb-4 sm:mb-8 overflow-hidden bg-red-700"
       role="region"
       aria-label="Announcement Banner"
     >

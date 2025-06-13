@@ -67,7 +67,7 @@ export function MeetOwner() {
             aria-label="Portrait of Josiah Blanton"
           >
             <div className="relative aspect-[5/3] w-full rounded-lg overflow-hidden group">
-              <div className="absolute inset-0 bg-[#407E57] mix-blend-multiply opacity-20 group-hover:opacity-0 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-red-700 mix-blend-multiply opacity-20 group-hover:opacity-0 transition-opacity duration-500" />
               <Image
                 src="/images/Josiah.png"
                 alt="Portrait photograph of Josiah Blanton"
@@ -91,7 +91,7 @@ export function MeetOwner() {
             aria-labelledby="owner-title"
           >
             <div className="space-y-2">
-              <p className="text-[#407E57] font-bold uppercase tracking-wider">Our Story</p>
+              <p className="text-red-700 font-bold uppercase tracking-wider">Our Story</p>
               <h2 
                 id="owner-title"
                 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#202124] leading-tight uppercase"
@@ -108,7 +108,7 @@ export function MeetOwner() {
               >
                 Josiah Blanton, a visionary entrepreneur from Chicago, Illinois, transforms challenges into opportunities through his dedication to excellence and a strong business mindset.
               </p>
-              <blockquote className="border-l-4 border-[#407E57] pl-6 py-2 italic">
+              <blockquote className="border-l-4 border-red-700 pl-6 py-2 italic">
                 <p className="text-lg text-[#333536] leading-relaxed">
                   &ldquo;Your mind must arrive at the destination before you do. Success is not just about skill—it&apos;s about the mindset to maintain, retain, and sustain everything you build.&rdquo;
                 </p>
@@ -125,9 +125,9 @@ export function MeetOwner() {
               <Button 
                 ref={buttonRef}
                 size="lg"
-                className="bg-[#407E57] hover:bg-[#407E57]/90 text-white font-bold px-8 py-4 uppercase text-sm sm:text-base 
+                className="bg-red-700 hover:bg-red-800 text-white font-bold px-8 py-4 uppercase text-sm sm:text-base 
                   transition-all duration-300 hover:scale-105 hover:shadow-lg
-                  focus:ring-2 focus:ring-offset-2 focus:ring-[#407E57] focus:outline-none"
+                  focus:ring-2 focus:ring-offset-2 focus:ring-red-700 focus:outline-none"
                 aria-label="Learn more about Josiah&apos;s story"
                 asChild
               >

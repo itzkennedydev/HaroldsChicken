@@ -140,11 +140,11 @@ export function Header({ variant = 'default' }: HeaderProps) {
 
   // Get dynamic link classes
   const getLinkClasses = (isNavItem = false) => {
-    const baseClasses = "transition-colors font-bold text-base tracking-wider focus:outline-none focus:ring-2 focus:ring-[#407E57] rounded";
+    const baseClasses = "transition-colors font-bold text-base tracking-wider focus:outline-none focus:ring-2 focus:ring-red-700 rounded";
+    const textClasses = 
+      isWhiteVariant && isAtTop ? 'text-white hover:text-gray-200' : 'text-[#202124] hover:text-red-700'
     if (isNavItem) {
-      return `${baseClasses} px-2 py-1 flex items-center gap-4 ${
-        isWhiteVariant && isAtTop ? 'text-white hover:text-gray-200' : 'text-[#202124] hover:text-[#407E57]'
-      }`;
+      return `${baseClasses} px-2 py-1 flex items-center gap-4 ${textClasses}`;
     }
     return baseClasses;
   };
@@ -236,8 +236,8 @@ export function Header({ variant = 'default' }: HeaderProps) {
         >
           <CustomButton 
             variant={getButtonVariant()}
-            className={`font-bold tracking-wider text-sm focus:ring-2 focus:ring-[#407E57] focus:outline-none ${
-              isWhiteVariant && isAtTop ? 'text-white hover:text-gray-200' : 'hover:bg-[#407E57]/10'
+            className={`font-bold tracking-wider text-sm focus:ring-2 focus:ring-red-700 focus:outline-none ${
+              isWhiteVariant && isAtTop ? 'text-white hover:text-gray-200' : 'hover:bg-red-700/10'
             }`}
             aria-label="Get directions to Harold&apos;s Chicken"
             onClick={handleGetDirections}
@@ -246,8 +246,8 @@ export function Header({ variant = 'default' }: HeaderProps) {
           </CustomButton>
           <CustomButton 
             variant="default"
-            className={`font-bold tracking-wider text-sm focus:ring-2 focus:ring-[#407E57] focus:outline-none ${
-              isWhiteVariant && isAtTop ? 'bg-white text-[#202124] hover:bg-white/90' : 'bg-[#407E57] hover:bg-[#407E57]/90'
+            className={`font-bold tracking-wider text-sm focus:ring-2 focus:ring-red-700 focus:outline-none ${
+              isWhiteVariant && isAtTop ? 'bg-white text-[#202124] hover:bg-white/90' : 'bg-red-700 hover:bg-red-800'
             }`}
             aria-label="Order food now"
           >
@@ -258,7 +258,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
         {/* Mobile Menu Button */}
         <button
           ref={mobileMenuButtonRef}
-          className={`md:hidden ml-auto p-2 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#407E57] ${
+          className={`md:hidden ml-auto p-2 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-red-700 ${
             isWhiteVariant && isAtTop ? 'text-white hover:bg-white/10' : 'text-[#202124] hover:bg-gray-100'
           }`}
           onClick={toggleMobileNav}
@@ -299,7 +299,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsMobileNavOpen(false)}
-                className="block w-full text-[#202124] hover:text-[#407E57] transition-colors font-bold text-base py-2 hover:bg-gray-50 px-4 rounded focus:outline-none focus:ring-2 focus:ring-[#407E57] flex items-center gap-4"
+                className="block w-full text-[#202124] hover:text-red-700 transition-colors font-bold text-base py-2 hover:bg-gray-50 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-700 flex items-center gap-4"
                 aria-label={`${item.label} - Press Alt + ${item.shortcut} to access`}
                 {...(item.isExternal && {
                   target: "_blank",
@@ -338,14 +338,14 @@ export function Header({ variant = 'default' }: HeaderProps) {
             >
               <CustomButton
                 variant="outline"
-                className="font-bold tracking-wider text-sm w-full justify-center hover:bg-[#407E57]/10 focus:ring-2 focus:ring-[#407E57] focus:outline-none"
+                className="font-bold tracking-wider text-sm w-full justify-center hover:bg-red-700/10 focus:ring-2 focus:ring-red-700 focus:outline-none"
                 aria-label="Get directions to Harold&apos;s Chicken"
                 onClick={handleGetDirections}
               >
                 GET DIRECTIONS
               </CustomButton>
               <CustomButton
-                className="font-bold tracking-wider text-sm w-full justify-center bg-[#407E57] hover:bg-[#407E57]/90 focus:ring-2 focus:ring-[#407E57] focus:outline-none"
+                className="font-bold tracking-wider text-sm w-full justify-center bg-red-700 hover:bg-red-800 focus:ring-2 focus:ring-red-700 focus:outline-none"
                 aria-label="Order food now"
               >
                 ORDER NOW
