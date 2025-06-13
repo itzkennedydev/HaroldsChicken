@@ -15,9 +15,9 @@ import { cn } from "@/lib/utils";
 
 function MenuBanner() {
   return (
-    <section className="relative min-h-[420px] md:min-h-[520px] w-full">
+    <section className="relative min-h-[600px] w-full">
       <Image
-        src="/images/ValueProp/ChickenImg.jpg"
+        src="/images/MenuBG.jpeg"
         alt="Harold's Chicken and fries"
         fill
         className="object-cover"
@@ -25,13 +25,13 @@ function MenuBanner() {
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-black/60" />
-      <Container className="relative z-10 flex items-center justify-center min-h-[420px] md:min-h-[520px]">
-        <div className="w-full text-center py-16 md:py-28 max-w-2xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-8 leading-tight uppercase text-white drop-shadow-lg">
+      <Container className="relative z-10 flex items-center min-h-[600px]">
+        <div className="max-w-2xl text-white mx-auto text-center py-24">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight uppercase">
             Discover Our Menu
           </h1>
-          <p className="text-lg md:text-2xl font-medium mb-2 md:mb-6 leading-relaxed text-white drop-shadow-sm">
-            Explore our full selection of Harold's Chicken &amp; Sport Bar favorites, from classic wings to signature sides and more.
+          <p className="text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed uppercase font-medium">
+            Explore our full selection of Harold's Chicken & Sport Bar favorites, from classic wings to signature sides and more.
           </p>
         </div>
       </Container>
@@ -41,13 +41,13 @@ function MenuBanner() {
 
 function MenuNotices() {
   return (
-    <Card className="mt-8 mb-10 border-red-700">
-      <CardHeader className="bg-red-700 rounded-t-xl p-4">
-        <CardTitle className="text-xl text-white tracking-wider text-center">Important Notices</CardTitle>
+    <Card className="mt-16 mb-16 border border-gray-200">
+      <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
+        <CardTitle className="text-2xl text-[#202124] tracking-wider text-center font-bold">Important Notices</CardTitle>
       </CardHeader>
-      <CardContent className="p-6 space-y-4">
-        <div className="space-y-4">
-          <div className="flex items-start gap-3">
+      <CardContent className="p-8 space-y-6">
+        <div className="space-y-6">
+          <div className="flex items-start gap-4">
             <div className="mt-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -65,14 +65,14 @@ function MenuNotices() {
               </svg>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-900 mb-1">Food Safety Notice</h4>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <h4 className="text-lg font-semibold text-[#202124] mb-2">Food Safety Notice</h4>
+              <p className="text-[#333536] leading-relaxed">
                 Consuming raw or undercooked meats, poultry, seafood, shellfish or eggs may increase your risk of food borne illnesses, especially if you have certain medical conditions.
               </p>
             </div>
           </div>
 
-          <div className="flex items-start gap-3">
+          <div className="flex items-start gap-4">
             <div className="mt-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -90,14 +90,14 @@ function MenuNotices() {
               </svg>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-900 mb-1">Freshness Commitment</h4>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <h4 className="text-lg font-semibold text-[#202124] mb-2">Freshness Commitment</h4>
+              <p className="text-[#333536] leading-relaxed">
                 Because freshness is of the utmost importance to us here at Harold's Chicken & Sport Bar, all orders are prepared 'fresh to order'. Although this may at times involve longer than normal wait times, we promise you that our deliciously flavored Chicago style chicken and fish is well worth the wait!
               </p>
             </div>
           </div>
 
-          <div className="flex items-start gap-3">
+          <div className="flex items-start gap-4">
             <div className="mt-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -115,8 +115,8 @@ function MenuNotices() {
               </svg>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-900 mb-1">Service Charge</h4>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <h4 className="text-lg font-semibold text-[#202124] mb-2">Service Charge</h4>
+              <p className="text-[#333536] leading-relaxed">
                 18 percent gratuity will be added to all orders.
               </p>
             </div>
@@ -129,18 +129,18 @@ function MenuNotices() {
 
 function MenuItem({ name, price, note }: { name: string; price: number; note?: string }) {
   return (
-    <li className="group hover:bg-gray-50 transition-colors duration-200 rounded-lg p-3">
-      <div className="flex flex-col gap-1">
+    <li className="group relative hover:bg-[#F8F9FA]/50 transition-all duration-300 rounded-lg p-4 border-b border-gray-100 last:border-b-0">
+      <div className="flex flex-col gap-2">
         <div className="flex justify-between items-center">
-          <span className="text-lg md:text-xl font-semibold text-black group-hover:text-red-700 transition-colors duration-200">
+          <span className="text-lg font-bold text-[#202124] group-hover:text-red-700 transition-colors duration-300">
             {name}
           </span>
-          <span className="text-red-700 font-bold text-xl md:text-2xl">
+          <span className="text-red-700 font-bold text-xl">
             ${price}
           </span>
         </div>
         {note && (
-          <span className="text-sm italic text-gray-600">{note}</span>
+          <span className="text-[#333536] italic">{note}</span>
         )}
       </div>
     </li>
@@ -149,19 +149,19 @@ function MenuItem({ name, price, note }: { name: string; price: number; note?: s
 
 function Cocktail({ name, price, ingredients }: { name: string; price: number; ingredients: string[] }) {
   return (
-    <li className="group hover:bg-gray-50 transition-colors duration-200 rounded-lg p-3">
-      <div className="flex flex-col gap-2">
+    <li className="group relative hover:bg-[#F8F9FA]/50 transition-all duration-300 rounded-lg p-4 border-b border-gray-100 last:border-b-0">
+      <div className="flex flex-col gap-3">
         <div className="flex justify-between items-center">
-          <span className="text-lg md:text-xl font-semibold text-black group-hover:text-red-700 transition-colors duration-200">
+          <span className="text-lg font-bold text-[#202124] group-hover:text-red-700 transition-colors duration-300">
             {name}
           </span>
-          <span className="text-red-700 font-bold text-xl md:text-2xl">
+          <span className="text-red-700 font-bold text-xl">
             ${price}
           </span>
         </div>
-        <ul className="ml-2 text-base text-gray-700 list-disc list-inside space-y-1">
+        <ul className="ml-2 text-[#333536] list-disc list-inside space-y-1">
           {ingredients.map((ing, i) => (
-            <li key={i} className="text-gray-600">{ing}</li>
+            <li key={i}>{ing}</li>
           ))}
         </ul>
       </div>
@@ -235,7 +235,7 @@ function SearchBar({
       <div className="flex gap-4 items-center">
         <div className="relative flex-1">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#333536]" size={20} />
             <Input
               type="text"
               placeholder="Search for chicken, fish, sides, or beverages..."
@@ -243,14 +243,14 @@ function SearchBar({
               onChange={(e) => handleSearch(e.target.value)}
               onFocus={() => setShowSuggestions(true)}
               className={cn(
-                "pl-10 pr-10 py-6 text-lg rounded-xl border-2 transition-all duration-200",
-                "focus:border-red-500 focus:ring-2 focus:ring-red-200",
+                "pl-12 pr-12 py-6 text-lg rounded-xl border border-gray-200 transition-all duration-300",
+                "focus:border-red-700 focus:ring-2 focus:ring-red-100",
                 "hover:border-gray-300",
-                "placeholder:text-gray-400"
+                "placeholder:text-[#333536]"
               )}
             />
             {isSearching && (
-              <Loader2 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 animate-spin" size={20} />
+              <Loader2 className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#333536] animate-spin" size={20} />
             )}
             {searchQuery && !isSearching && (
               <button
@@ -258,7 +258,7 @@ function SearchBar({
                   setSearchQuery("");
                   setSuggestions(popularSearches);
                 }}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#333536] hover:text-[#202124]"
               >
                 <X size={20} />
               </button>
@@ -267,7 +267,7 @@ function SearchBar({
 
           {/* Search Suggestions Dropdown */}
           {showSuggestions && (searchQuery || suggestions.length > 0) && (
-            <div className="absolute z-50 w-full mt-2 bg-white rounded-lg shadow-lg border border-gray-200 max-h-60 overflow-y-auto">
+            <div className="absolute z-50 w-full mt-2 bg-white rounded-lg border-2 border-gray-200 max-h-60 overflow-y-auto">
               {suggestions.length > 0 ? (
                 <div className="py-2">
                   {suggestions.map((suggestion, index) => (
@@ -275,18 +275,18 @@ function SearchBar({
                       key={index}
                       onClick={() => handleSuggestionClick(suggestion)}
                       className={cn(
-                        "w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors",
-                        "flex items-center gap-2",
-                        "focus:outline-none focus:bg-gray-50"
+                        "w-full px-4 py-3 text-left hover:bg-[#F8F9FA] transition-colors",
+                        "flex items-center gap-3",
+                        "focus:outline-none focus:bg-[#F8F9FA]"
                       )}
                     >
-                      <Search size={16} className="text-gray-400" />
-                      <span>{suggestion}</span>
+                      <Search size={16} className="text-[#333536]" />
+                      <span className="text-[#202124]">{suggestion}</span>
                     </button>
                   ))}
                 </div>
               ) : (
-                <div className="px-4 py-3 text-gray-500 text-center">
+                <div className="px-4 py-3 text-[#333536] text-center">
                   No results found
                 </div>
               )}
@@ -300,7 +300,7 @@ function SearchBar({
           onClick={() => setShowFilters(!showFilters)}
           className={cn(
             "flex items-center gap-2 transition-colors h-[52px] px-6",
-            showFilters ? "bg-red-50 border-red-200 text-red-700" : ""
+            showFilters ? "bg-[#F8F9FA] border-gray-200 text-red-700" : ""
           )}
         >
           <Filter size={20} />
@@ -311,7 +311,7 @@ function SearchBar({
 
       {/* Search Tips */}
       {!searchQuery && (
-        <div className="mt-2 text-sm text-gray-500">
+        <div className="mt-3 text-[#333536]">
           Try searching for: chicken wings, catfish, party pans, or beverages
         </div>
       )}
@@ -377,9 +377,9 @@ export default function MenuPage() {
     <div className="bg-white min-h-screen pb-16">
       <Header variant="white" />
       <MenuBanner />
-      <Container as="main" className="pt-8">
+      <Container as="main" className="pt-16">
         {/* Enhanced Search and Filter Section */}
-        <div className="mb-8 space-y-4">
+        <div className="mb-12 space-y-6">
           <SearchBar
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
@@ -389,9 +389,9 @@ export default function MenuPage() {
 
           {/* Enhanced Filter Panel */}
           {showFilters && (
-            <div className="bg-gray-50 p-6 rounded-lg space-y-6 border border-gray-200">
+            <div className="bg-gradient-to-b from-[#F8F9FA] to-white p-8 rounded-lg space-y-8 border border-gray-200">
               <div className="flex justify-between items-center">
-                <h3 className="text-xl font-semibold">Filter Menu</h3>
+                <h3 className="text-2xl font-bold text-[#202124]">Filter Menu</h3>
                 <Button 
                   variant="ghost" 
                   size="sm" 
@@ -405,20 +405,20 @@ export default function MenuPage() {
 
               {/* Categories */}
               <div>
-                <h4 className="text-lg font-medium mb-3 flex items-center gap-2">
-                  <Tag size={18} />
+                <h4 className="text-lg font-semibold text-[#202124] mb-4 flex items-center gap-2">
+                  <Tag size={18} className="text-red-700" />
                   Categories
                 </h4>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                   {categories.map((category) => (
                     <Button
                       key={category.id}
                       variant={selectedCategories.includes(category.id) ? "default" : "outline"}
                       className={cn(
-                        "w-full justify-start gap-2 transition-colors",
+                        "w-full justify-start gap-2 transition-all duration-300",
                         selectedCategories.includes(category.id)
                           ? "bg-red-700 text-white hover:bg-red-800"
-                          : "hover:bg-gray-100"
+                          : "hover:bg-[#F8F9FA] border-gray-200"
                       )}
                       onClick={() => toggleCategory(category.id)}
                     >
@@ -431,8 +431,8 @@ export default function MenuPage() {
 
               {/* Price Range */}
               <div>
-                <h4 className="text-lg font-medium mb-3 flex items-center gap-2">
-                  <DollarSign size={18} />
+                <h4 className="text-lg font-semibold text-[#202124] mb-4 flex items-center gap-2">
+                  <DollarSign size={18} className="text-red-700" />
                   Price Range
                 </h4>
                 <div className="px-2">
@@ -443,7 +443,7 @@ export default function MenuPage() {
                     step={1}
                     className="mb-4"
                   />
-                  <div className="flex justify-between text-sm text-gray-600">
+                  <div className="flex justify-between text-[#333536]">
                     <span>${priceRange[0]}</span>
                     <span>${priceRange[1]}</span>
                   </div>
@@ -459,32 +459,32 @@ export default function MenuPage() {
                 <Badge
                   key={category}
                   variant="secondary"
-                  className="flex items-center gap-1 bg-red-100 text-red-700"
+                  className="flex items-center gap-1 bg-[#F8F9FA] text-[#202124] border border-gray-200"
                 >
                   {categories.find(c => c.id === category)?.icon} {categories.find(c => c.id === category)?.label}
                   <X
                     size={14}
-                    className="cursor-pointer hover:text-red-800"
+                    className="cursor-pointer hover:text-red-700"
                     onClick={() => toggleCategory(category)}
                   />
                 </Badge>
               ))}
               {searchQuery && (
-                <Badge variant="secondary" className="flex items-center gap-1 bg-red-100 text-red-700">
+                <Badge variant="secondary" className="flex items-center gap-1 bg-[#F8F9FA] text-[#202124] border border-gray-200">
                   Search: {searchQuery}
                   <X
                     size={14}
-                    className="cursor-pointer hover:text-red-800"
+                    className="cursor-pointer hover:text-red-700"
                     onClick={() => setSearchQuery("")}
                   />
                 </Badge>
               )}
               {(priceRange[0] > 0 || priceRange[1] < 50) && (
-                <Badge variant="secondary" className="flex items-center gap-1 bg-red-100 text-red-700">
+                <Badge variant="secondary" className="flex items-center gap-1 bg-[#F8F9FA] text-[#202124] border border-gray-200">
                   Price: ${priceRange[0]} - ${priceRange[1]}
                   <X
                     size={14}
-                    className="cursor-pointer hover:text-red-800"
+                    className="cursor-pointer hover:text-red-700"
                     onClick={() => setPriceRange([0, 50])}
                   />
                 </Badge>
@@ -494,17 +494,20 @@ export default function MenuPage() {
         </div>
 
         {/* MAIN MENU SECTIONS */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* CHICKEN SECTION - Long section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* CHICKEN SECTION */}
           {(!selectedCategories.length || selectedCategories.includes("CHICKEN")) && (
-            <Card className="bg-white text-black border-red-700 h-full">
-              <CardHeader className="bg-red-700 rounded-t-xl p-6">
-                <CardTitle className="text-3xl text-white tracking-wider text-center">CHICKEN</CardTitle>
+            <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
+              <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
+                <CardTitle className="text-2xl text-[#202124] font-bold text-center uppercase">CHICKEN</CardTitle>
               </CardHeader>
-              <CardContent className="p-6 space-y-8">
+              <CardContent className="p-8 space-y-8">
                 {/* Wing Dinners */}
                 <div>
-                  <h3 className="text-2xl text-red-700 font-bold mb-4">Wing Dinners</h3>
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
+                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
+                    Wing Dinners
+                  </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
                       { name: "4 Wings", price: 8 },
@@ -520,7 +523,10 @@ export default function MenuPage() {
 
                 {/* Chicken Tenders */}
                 <div>
-                  <h3 className="text-2xl text-red-700 font-bold mb-4">Chicken Tenders</h3>
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
+                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
+                    Chicken Tenders
+                  </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
                       { name: "Tenders 4 pcs", price: 7 },
@@ -534,7 +540,10 @@ export default function MenuPage() {
 
                 {/* Chicken Pieces */}
                 <div>
-                  <h3 className="text-2xl text-red-700 font-bold mb-4">Chicken Pieces</h3>
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
+                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
+                    Chicken Pieces
+                  </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
                       { name: "1/4 White", price: 7 },
@@ -555,7 +564,10 @@ export default function MenuPage() {
 
                 {/* Specialty Chicken Items */}
                 <div>
-                  <h3 className="text-2xl text-red-700 font-bold mb-4">Specialty Chicken Items</h3>
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
+                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
+                    Specialty Chicken Items
+                  </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
                       { name: "Chicken Sandwich", price: 10.5 },
@@ -569,16 +581,19 @@ export default function MenuPage() {
             </Card>
           )}
 
-          {/* FISH & SEAFOOD SECTION - Long section */}
+          {/* FISH & SEAFOOD SECTION */}
           {(!selectedCategories.length || selectedCategories.includes("FISH & SEAFOOD")) && (
-            <Card className="bg-white text-black border-red-700 h-full">
-              <CardHeader className="bg-red-700 rounded-t-xl p-6">
-                <CardTitle className="text-3xl text-white tracking-wider text-center">FISH & SEAFOOD</CardTitle>
+            <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
+              <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
+                <CardTitle className="text-2xl text-[#202124] font-bold text-center uppercase">FISH & SEAFOOD</CardTitle>
               </CardHeader>
-              <CardContent className="p-6 space-y-8">
+              <CardContent className="p-8 space-y-8">
                 {/* Catfish */}
                 <div>
-                  <h3 className="text-2xl text-red-700 font-bold mb-4">Catfish</h3>
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
+                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
+                    Catfish
+                  </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
                       { name: "Small Catfish", price: 14 },
@@ -595,7 +610,10 @@ export default function MenuPage() {
 
                 {/* Perch */}
                 <div>
-                  <h3 className="text-2xl text-red-700 font-bold mb-4">Perch</h3>
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
+                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
+                    Perch
+                  </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
                       { name: "Small Perch", price: 15 },
@@ -610,7 +628,10 @@ export default function MenuPage() {
 
                 {/* Whiting */}
                 <div>
-                  <h3 className="text-2xl text-red-700 font-bold mb-4">Whiting</h3>
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
+                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
+                    Whiting
+                  </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
                       { name: "Small Whiting", price: 15 },
@@ -623,7 +644,10 @@ export default function MenuPage() {
 
                 {/* Shrimp */}
                 <div>
-                  <h3 className="text-2xl text-red-700 font-bold mb-4">Shrimp</h3>
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
+                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
+                    Shrimp
+                  </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
                       { name: "8 pc Shrimp", price: 20 },
@@ -638,16 +662,19 @@ export default function MenuPage() {
             </Card>
           )}
 
-          {/* SAUCES & EXTRAS SECTION - Long section */}
+          {/* SAUCES & EXTRAS SECTION */}
           {(!selectedCategories.length || selectedCategories.includes("SAUCES & EXTRAS")) && (
-            <Card className="bg-white text-black border-red-700 h-full">
-              <CardHeader className="bg-red-700 rounded-t-xl p-6">
-                <CardTitle className="text-3xl text-white tracking-wider text-center">SAUCES & EXTRAS</CardTitle>
+            <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
+              <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
+                <CardTitle className="text-2xl text-[#202124] font-bold text-center uppercase">SAUCES & EXTRAS</CardTitle>
               </CardHeader>
-              <CardContent className="p-6 space-y-8">
+              <CardContent className="p-8 space-y-8">
                 {/* Harold's Signature Sauces */}
                 <div>
-                  <h3 className="text-2xl text-red-700 font-bold mb-4">Harold's Signature Sauces</h3>
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
+                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
+                    Harold's Signature Sauces
+                  </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
                       { name: "Harold's Signature Sauce Bottle", price: 19 },
@@ -662,7 +689,10 @@ export default function MenuPage() {
 
                 {/* Condiments & Extras */}
                 <div>
-                  <h3 className="text-2xl text-red-700 font-bold mb-4">Condiments & Extras</h3>
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
+                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
+                    Condiments & Extras
+                  </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
                       { name: "2oz Mild Sauce", price: 2 },
@@ -688,16 +718,19 @@ export default function MenuPage() {
             </Card>
           )}
 
-          {/* APPETIZERS & SIDES SECTION - Medium section */}
+          {/* APPETIZERS & SIDES SECTION */}
           {(!selectedCategories.length || selectedCategories.includes("APPETIZERS & SIDES")) && (
-            <Card className="bg-white text-black border-red-700 h-full">
-              <CardHeader className="bg-red-700 rounded-t-xl p-6">
-                <CardTitle className="text-3xl text-white tracking-wider text-center">APPETIZERS & SIDES</CardTitle>
+            <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
+              <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
+                <CardTitle className="text-2xl text-[#202124] font-bold text-center uppercase">APPETIZERS & SIDES</CardTitle>
               </CardHeader>
-              <CardContent className="p-6 space-y-8">
+              <CardContent className="p-8 space-y-8">
                 {/* Fried Appetizers */}
                 <div>
-                  <h3 className="text-2xl text-red-700 font-bold mb-4">Fried Appetizers</h3>
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
+                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
+                    Fried Appetizers
+                  </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
                       { name: "Jalapeno Poppers", price: 11 },
@@ -721,7 +754,10 @@ export default function MenuPage() {
 
                 {/* Sides */}
                 <div>
-                  <h3 className="text-2xl text-red-700 font-bold mb-4">Sides</h3>
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
+                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
+                    Sides
+                  </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
                       { name: "Okra 1/2 lb", price: 5 },
@@ -740,16 +776,19 @@ export default function MenuPage() {
             </Card>
           )}
 
-          {/* BEVERAGES SECTION - Medium section */}
+          {/* BEVERAGES SECTION */}
           {(!selectedCategories.length || selectedCategories.includes("BEVERAGES")) && (
-            <Card className="bg-white text-black border-red-700 h-full">
-              <CardHeader className="bg-red-700 rounded-t-xl p-6">
-                <CardTitle className="text-3xl text-white tracking-wider text-center">BEVERAGES</CardTitle>
+            <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
+              <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
+                <CardTitle className="text-2xl text-[#202124] font-bold text-center uppercase">BEVERAGES</CardTitle>
               </CardHeader>
-              <CardContent className="p-6 space-y-8">
+              <CardContent className="p-8 space-y-8">
                 {/* Specialty Cocktails */}
                 <div>
-                  <h3 className="text-2xl text-red-700 font-bold mb-4">Specialty Cocktails</h3>
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
+                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
+                    Specialty Cocktails
+                  </h3>
                   <ul className="space-y-3">
                     {filterCocktails([
                       { name: "K Sago Sunset", price: 9, ingredients: ["Don Julio Reposado","Orange Juice","Fresh Lime Juice","Splash Grenadine","Orange and Cherry"] },
@@ -768,7 +807,10 @@ export default function MenuPage() {
 
                 {/* Non-Alcoholic Beverages */}
                 <div>
-                  <h3 className="text-2xl text-red-700 font-bold mb-4">Non-Alcoholic Beverages</h3>
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
+                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
+                    Non-Alcoholic Beverages
+                  </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
                       { name: "Bottled Water", price: 4 },
@@ -785,13 +827,13 @@ export default function MenuPage() {
             </Card>
           )}
 
-          {/* FISH COMBOS SECTION - Medium section */}
+          {/* FISH COMBOS SECTION */}
           {(!selectedCategories.length || selectedCategories.includes("FISH COMBOS")) && (
-            <Card className="bg-white text-black border-red-700 h-full">
-              <CardHeader className="bg-red-700 rounded-t-xl p-6">
-                <CardTitle className="text-3xl text-white tracking-wider text-center">FISH COMBOS</CardTitle>
+            <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
+              <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
+                <CardTitle className="text-2xl text-[#202124] font-bold text-center uppercase">FISH COMBOS</CardTitle>
               </CardHeader>
-              <CardContent className="p-6">
+              <CardContent className="p-8">
                 <ul className="space-y-2">
                   {filterMenuItems([
                     { name: "Catfish & 1/4 Chicken (White)", price: 27 },
@@ -814,73 +856,76 @@ export default function MenuPage() {
             </Card>
           )}
 
-          {/* Full width row container */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* PARTY PANS SECTION */}
-            {(!selectedCategories.length || selectedCategories.includes("PARTY PANS")) && (
-              <Card className="bg-white text-black border-red-700 h-full">
-                <CardHeader className="bg-red-700 rounded-t-xl p-6">
-                  <CardTitle className="text-3xl text-white tracking-wider text-center">PARTY PANS</CardTitle>
-                </CardHeader>
-                <CardContent className="p-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {/* Wing Party Pans */}
-                    <div>
-                      <h3 className="text-2xl text-red-700 font-bold mb-4">Wing Party Pans</h3>
-                      <ul className="space-y-2">
-                        {filterMenuItems([
-                          { name: "Party Pan 50 Wings", price: 104 },
-                          { name: "Party Pan 75 Wings", price: 132 },
-                          { name: "Party Pan 100 Wings", price: 208 },
-                          { name: "Party Pan 150 Wings", price: 250 },
-                          { name: "Party Pan 200 Wings", price: 348 }
-                        ]).map((item, index) => (
-                          <MenuItem key={index} {...item} />
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Mixed Chicken Party Pans */}
-                    <div>
-                      <h3 className="text-2xl text-red-700 font-bold mb-4">Mixed Chicken Party Pans</h3>
-                      <ul className="space-y-2">
-                        {filterMenuItems([
-                          { name: "Party Pan 50 pcs Mixed", price: 97 },
-                          { name: "Party Pan 100 pcs Mixed", price: 181 },
-                          { name: "Party Pan 150 pcs Mixed", price: 243 },
-                          { name: "Party Pan 200 pcs Mixed", price: 313 }
-                        ]).map((item, index) => (
-                          <MenuItem key={index} {...item} />
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            )}
-
-            {/* DESSERTS SECTION */}
-            {(!selectedCategories.length || selectedCategories.includes("DESSERTS")) && (
-              <Card className="bg-white text-black border-red-700 h-full">
-                <CardHeader className="bg-red-700 rounded-t-xl p-6">
-                  <CardTitle className="text-3xl text-white tracking-wider text-center">DESSERTS</CardTitle>
-                </CardHeader>
-                <CardContent className="p-6">
-                  <div className="max-w-2xl mx-auto">
+          {/* PARTY PANS SECTION */}
+          {(!selectedCategories.length || selectedCategories.includes("PARTY PANS")) && (
+            <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
+              <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
+                <CardTitle className="text-2xl text-[#202124] font-bold text-center uppercase">PARTY PANS</CardTitle>
+              </CardHeader>
+              <CardContent className="p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Wing Party Pans */}
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
+                      <span className="w-1 h-6 bg-red-700 rounded-full"></span>
+                      Wing Party Pans
+                    </h3>
                     <ul className="space-y-2">
                       {filterMenuItems([
-                        { name: "Cookie", price: 7 },
-                        { name: "Honey Biscuits (5)", price: 10 },
-                        { name: "Honey Biscuits (10)", price: 15 }
+                        { name: "Party Pan 50 Wings", price: 104 },
+                        { name: "Party Pan 75 Wings", price: 132 },
+                        { name: "Party Pan 100 Wings", price: 208 },
+                        { name: "Party Pan 150 Wings", price: 250 },
+                        { name: "Party Pan 200 Wings", price: 348 }
                       ]).map((item, index) => (
                         <MenuItem key={index} {...item} />
                       ))}
                     </ul>
                   </div>
-                </CardContent>
-              </Card>
-            )}
-          </div>
+
+                  {/* Mixed Chicken Party Pans */}
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
+                      <span className="w-1 h-6 bg-red-700 rounded-full"></span>
+                      Mixed Chicken Party Pans
+                    </h3>
+                    <ul className="space-y-2">
+                      {filterMenuItems([
+                        { name: "Party Pan 50 pcs Mixed", price: 97 },
+                        { name: "Party Pan 100 pcs Mixed", price: 181 },
+                        { name: "Party Pan 150 pcs Mixed", price: 243 },
+                        { name: "Party Pan 200 pcs Mixed", price: 313 }
+                      ]).map((item, index) => (
+                        <MenuItem key={index} {...item} />
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* DESSERTS SECTION */}
+          {(!selectedCategories.length || selectedCategories.includes("DESSERTS")) && (
+            <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
+              <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
+                <CardTitle className="text-2xl text-[#202124] font-bold text-center uppercase">DESSERTS</CardTitle>
+              </CardHeader>
+              <CardContent className="p-8">
+                <div className="max-w-2xl mx-auto">
+                  <ul className="space-y-2">
+                    {filterMenuItems([
+                      { name: "Cookie", price: 7 },
+                      { name: "Honey Biscuits (5)", price: 10 },
+                      { name: "Honey Biscuits (10)", price: 15 }
+                    ]).map((item, index) => (
+                      <MenuItem key={index} {...item} />
+                    ))}
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+          )}
         </div>
 
         {/* Restaurant Notices */}
