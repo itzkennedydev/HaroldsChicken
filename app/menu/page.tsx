@@ -677,10 +677,9 @@ export default function MenuPage() {
                   </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
-                      { name: "Harold's Signature Sauce Bottle", price: 19 },
-                      { name: "Squirt Bottle", price: 13 },
-                      { name: "Gallon Mild Sauce", price: 35 },
-                      { name: "2 oz Mild", price: 1 }
+                      { name: "Harold's Signature Mild Sauce Bottle", price: 19 },
+                      { name: "Harold's Signature HOT Sauce Bottle", price: 15 },
+                      { name: "Gallon Mild Sauce", price: 35 }
                     ]).map((item, index) => (
                       <MenuItem key={index} {...item} />
                     ))}
@@ -735,7 +734,6 @@ export default function MenuPage() {
                     {filterMenuItems([
                       { name: "Jalapeno Poppers", price: 11 },
                       { name: "Mac & Cheese Bites", price: 11 },
-                      { name: "Mac & Cheese Bites (alternate)", price: 9 },
                       { name: "Mozz Sticks (3)", price: 6 },
                       { name: "Mozz Sticks (5)", price: 8 },
                       { name: "Mushrooms", price: 10 },
@@ -813,9 +811,9 @@ export default function MenuPage() {
                   </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
-                      { name: "Bottled Water", price: 4 },
-                      { name: "Soft Drinks", price: 6 },
-                      { name: "Calypso", price: 6 },
+                      { name: "Bottled Water", price: 3 },
+                      { name: "Soft Drinks", price: 6, note: "unlimited refills" },
+                      { name: "Calypso", price: 5 },
                       { name: "Special Flavored Lemonades", price: 4, note: "no free refill" },
                       { name: "Can Soda", price: 3 }
                     ]).map((item, index) => (
