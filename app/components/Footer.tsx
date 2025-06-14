@@ -1,65 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Badge } from "@/app/components/ui/badge";
-
-interface FooterLink {
-  href: string;
-  label: string;
-  badge?: {
-    text: string;
-    className: string;
-  };
-  external?: boolean;
-}
-
-interface FooterSection {
-  title: string;
-  links: FooterLink[];
-}
-
-interface FooterSections {
-  [key: string]: FooterSection;
-}
 
 export function Footer() {
-  const footerSections: FooterSections = {
-    explore: {
-      title: "EXPLORE",
-      links: [
-        { href: "/menu", label: "MENU" },
-        { href: "/sports-bar", label: "SPORTS BAR" },
-      ]
+  const footerLinks = [
+    { href: "/menu", label: "MENU" },
+    { href: "/careers", label: "CAREERS" },
+    { href: "/contact", label: "CONTACT" },
+    { 
+      href: "https://www.instagram.com/haroldschickensportsbar/", 
+      label: "INSTAGRAM", 
+      external: true 
     },
-    company: {
-      title: "COMPANY",
-      links: [
-        { href: "/our-story", label: "OUR STORY" },
-        { href: "/careers", label: "CAREERS" },
-        { href: "/press", label: "PRESS" },
-      ]
-    },
-    support: {
-      title: "SUPPORT",
-      links: [
-        { href: "/contact", label: "CONTACT" },
-      ]
-    },
-    connect: {
-      title: "CONNECT",
-      links: [
-        {
-          href: "https://www.instagram.com/haroldschickensportsbar/",
-          label: "INSTAGRAM",
-          external: true
-        },
-        {
-          href: "https://www.facebook.com/p/Harolds-Chicken-Sports-Bar-61571084314548/",
-          label: "FACEBOOK",
-          external: true
-        }
-      ]
-    },
-  };
+    { 
+      href: "https://www.facebook.com/p/Harolds-Chicken-Sports-Bar-61571084314548/", 
+      label: "FACEBOOK", 
+      external: true 
+    }
+  ];
 
   return (
     <footer 
@@ -67,110 +24,59 @@ export function Footer() {
       role="contentinfo"
       aria-label="Footer"
     >
-      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-32 py-8 w-full">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 lg:gap-20 w-full">
-          {Object.entries(footerSections).map(([key, section]) => (
-            <div key={key} className="space-y-8">
-              <h2 
-                className="text-base font-bold text-[#202124] uppercase font-display tracking-wider"
-                id={`footer-${key}-heading`}
+      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-32 pt-6 pb-2 w-full">
+        {/* Simplified Footer Content */}
+        <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-wrap justify-center gap-8 mb-8">
+            {footerLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-base text-[#475467] hover:text-red-700 font-display uppercase font-medium transition-colors duration-200 flex items-center gap-2"
+                {...(link.external && {
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                  'aria-label': `${link.label} (opens in new tab)`
+                })}
               >
-                {section.title}
-              </h2>
-              <ul 
-                className="space-y-5"
-                aria-labelledby={`footer-${key}-heading`}
-                role="list"
-              >
-                {section.links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="group flex items-center gap-2 text-sm text-[#475467] hover:text-red-700 font-display uppercase font-medium transition-colors duration-200"
-                      {...(link.external && {
-                        target: "_blank",
-                        rel: "noopener noreferrer",
-                        'aria-label': `${link.label} (opens in new tab)`
-                      })}
-                    >
-                      {link.label}
-                      {link.badge && (
-                        <Badge 
-                          className={`transition-colors duration-200 text-xs font-medium font-display uppercase ${link.badge.className}`}
-                        >
-                          {link.badge.text}
-                        </Badge>
-                      )}
-                      {link.external && (
-                        <svg 
-                          className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                          aria-hidden="true"
-                        >
-                          <path 
-                            strokeLinecap="round" 
-                            strokeLinejoin="round" 
-                            strokeWidth={2} 
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                          />
-                        </svg>
-                      )}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* Legal Links */}
-        <div className="mt-12 pt-6 border-t border-gray-200">
-          <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8">
-            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-              <Link 
-                href="/" 
-                className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-700 rounded-lg"
-                aria-label="Harold&apos;s Chicken - Home"
-              >
-                <Image
-                  src="/logos/HaroldsMainLogo.svg"
-                  alt=""
-                  width={150}
-                  height={40}
-                  className="h-10 w-auto"
-                  aria-hidden="true"
-                />
+                {link.label}
+                {link.external && (
+                  <svg 
+                    className="w-4 h-4"
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                )}
               </Link>
-              <div className="text-sm text-[#667085] font-display uppercase font-medium">
-                <p>© {new Date().getFullYear()} HAROLD&apos;S CHICKEN. ALL RIGHTS RESERVED.</p>
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-6">
-              <Link 
-                href="/legal/privacy" 
-                className="text-sm text-[#475467] hover:text-red-700 font-display uppercase font-medium transition-colors duration-200"
-              >
-                PRIVACY POLICY
-              </Link>
-              <Link 
-                href="/legal/terms" 
-                className="text-sm text-[#475467] hover:text-red-700 font-display uppercase font-medium transition-colors duration-200"
-              >
-                TERMS OF SERVICE
-              </Link>
-              <Link 
-                href="https://sovereigncreative.agency" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-[#475467] hover:text-red-700 font-display uppercase font-medium transition-colors duration-200"
-              >
-                POWERED BY SOVEREIGN CREATIVE AGENCY
-              </Link>
-            </div>
+            ))}
+          </div>
+          
+          <Link 
+            href="/" 
+            className="mb-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-700 rounded-lg"
+            aria-label="Harold&apos;s Chicken - Home"
+          >
+            <Image
+              src="/logos/HaroldsMainLogo.svg"
+              alt=""
+              width={150}
+              height={40}
+              className="h-12 w-auto"
+              aria-hidden="true"
+            />
+          </Link>
+          
+          <div className="text-sm text-[#667085] font-display uppercase font-medium text-center">
+            <p>© {new Date().getFullYear()} HAROLD&apos;S CHICKEN. ALL RIGHTS RESERVED.</p>
           </div>
         </div>
       </div>
