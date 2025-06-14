@@ -68,7 +68,6 @@ export function Hero() {
   return (
     <section 
       className="w-full relative bg-[#1a1a1a]"
-      style={{ paddingTop: 0, backgroundColor: '#1a1a1a', WebkitTouchCallout: 'none', WebkitTapHighlightColor: 'transparent' }}
       aria-label="Welcome to Harold&apos;s Chicken"
       role="region"
       aria-roledescription="hero"
