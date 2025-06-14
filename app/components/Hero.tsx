@@ -171,11 +171,12 @@ export function Hero() {
         aria-hidden="false"
       >
         <div 
-          className="relative w-full h-[900px] overflow-hidden bg-[#1a1a1a]"
+          className="relative w-full flex flex-col items-center justify-start bg-[#1a1a1a] pt-4 pb-0"
           role="presentation"
           aria-hidden="true"
         >
-          <div className={`transform transition-transform duration-700 absolute inset-0 ${isImageLoaded ? 'scale-100' : 'scale-105'}`}>
+          <div className={`transform transition-transform duration-700 absolute inset-0 pointer-events-none select-none ${isImageLoaded ? 'scale-100' : 'scale-105'}`}
+            aria-hidden="true">
             <Image
               src="/images/HeroBG.png"
               alt="Restaurant ambiance showing Harold&apos;s Chicken interior"
@@ -187,29 +188,21 @@ export function Hero() {
               onLoad={handleImageLoad}
             />
           </div>
-          
-          <div 
-            className="absolute w-full flex justify-center transform" 
-            style={{top: '15%'}}
-            role="presentation"
-            aria-hidden="true"
-          >
-            <Image
-              src="/images/ChickenBucket.png"
-              alt="Signature Harold&apos;s Chicken bucket featuring fresh fried chicken"
-              width={600}
-              height={600}
-              className={`w-[340px] sm:w-[360px] h-auto transition-all duration-700 transform ${
-                isImageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              priority
-              sizes="(min-width: 640px) 360px, 340px"
-              quality={90}
-            />
-          </div>
+          <Image
+            src="/images/ChickenBucket.png"
+            alt="Signature Harold&apos;s Chicken bucket featuring fresh fried chicken"
+            width={600}
+            height={600}
+            className={`relative z-10 w-[200px] sm:w-[240px] h-auto mt-24 mb-0 transition-all duration-700 transform ${
+              isImageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+            priority
+            sizes="(min-width: 640px) 240px, 200px"
+            quality={90}
+          />
         </div>
 
-        <Container className="relative z-10 -mt-48 pb-12">
+        <Container className="relative z-10 -mt-6 pt-0 pb-8">
           <div 
             className={`transition-all duration-700 transform ${
               isContentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -219,7 +212,7 @@ export function Hero() {
           >
             <h1 
               id="hero-title-mobile"
-              className="text-5xl font-bold text-white mb-8 leading-tight uppercase text-center whitespace-pre-line"
+              className="text-5xl font-bold text-white mb-4 leading-tight uppercase text-center whitespace-pre-line mt-0 pt-0"
               tabIndex={0}
             >
               {content.title}
