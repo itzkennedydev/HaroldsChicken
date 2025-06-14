@@ -255,9 +255,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
           </CustomButton>
           <CustomButton 
             variant="default"
-            className={`font-bold tracking-wider text-sm focus:ring-2 focus:ring-red-700 focus:outline-none ${
-              isWhiteVariant && isAtTop ? 'bg-white text-[#202124] hover:bg-white/90' : 'bg-red-700 hover:bg-red-800'
-            }`}
+            className="font-bold tracking-wider text-sm bg-red-700 hover:bg-red-800 text-white focus:ring-2 focus:ring-red-700 focus:outline-none"
             aria-label="Order food now"
           >
             ORDER NOW
