@@ -58,8 +58,7 @@ export function Hero() {
   }, [isImageLoaded]);
 
   const handleOrderClick = useCallback(() => {
-    // Add your order handling logic here
-    window.location.href = '/order';
+    window.location.href = '/coming-soon';
   }, []);
 
   const handleImageLoad = useCallback(() => {

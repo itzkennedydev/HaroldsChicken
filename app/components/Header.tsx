@@ -257,8 +257,11 @@ export function Header({ variant = 'default' }: HeaderProps) {
             variant="default"
             className="font-bold tracking-wider text-sm bg-red-700 hover:bg-red-800 text-white focus:ring-2 focus:ring-red-700 focus:outline-none"
             aria-label="Order food now"
+            asChild
           >
-            ORDER NOW
+            <Link href="/coming-soon">
+              ORDER NOW
+            </Link>
           </CustomButton>
         </div>
 
@@ -359,8 +362,11 @@ export function Header({ variant = 'default' }: HeaderProps) {
               <CustomButton
                 className="font-bold tracking-wider text-sm w-full justify-center bg-red-700 hover:bg-red-800 focus:ring-2 focus:ring-red-700 focus:outline-none"
                 aria-label="Order food now"
+                asChild
               >
-                ORDER NOW
+                <Link href="/coming-soon">
+                  ORDER NOW
+                </Link>
               </CustomButton>
             </div>
           </nav>

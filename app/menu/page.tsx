@@ -12,6 +12,7 @@ import { Badge } from "../components/ui/badge";
 import { Slider } from "../components/ui/slider";
 import { Search, Filter, X, ChevronDown, ChevronUp, Tag, DollarSign, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 function MenuBanner() {
   return (
@@ -36,8 +37,11 @@ function MenuBanner() {
           <Button 
             size="lg"
             className="bg-red-700 hover:bg-red-800 text-white text-xl font-bold px-12 py-6 uppercase w-full sm:w-auto"
+            asChild
           >
-            Order Now
+            <Link href="/coming-soon">
+              Order Now
+            </Link>
           </Button>
         </div>
       </Container>
