@@ -6,27 +6,23 @@ import { Footer } from '../components/Footer';
 
 function HeroSection() {
   return (
-    <section className="relative min-h-[600px] w-full bg-[#202124]">
-      <div className="absolute inset-0 z-0">
-        {/* Black overlay */}
-        <div className="absolute inset-0 bg-black opacity-60 z-10" />
-        <Image
-          src="/images/History.jpeg"
-          alt="Historic Harold&apos;s Chicken location"
-          fill
-          className="object-cover opacity-40"
-          priority
-          sizes="100vw"
-        />
-      </div>
-      
-      <Container className="relative z-20 flex items-center justify-center min-h-[600px]">
-        <div className="max-w-2xl text-white text-center">
+    <section className="relative min-h-[600px] w-full">
+      <Image
+        src="/images/History.jpeg"
+        alt="Historic Harold's Chicken location"
+        fill
+        className="object-cover"
+        priority
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-black/40" />
+      <Container className="relative z-10 flex items-center min-h-[600px]">
+        <div className="max-w-2xl text-white mx-auto text-center py-24">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight uppercase">
             A Chicago Legend
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed uppercase font-medium">
-            From our first location in 1950 to today, Harold&apos;s has been serving up the best chicken in Chicago for generations
+            From our first location in 1950 to today, Harold's has been serving up the best chicken in Chicago for generations
           </p>
         </div>
       </Container>
