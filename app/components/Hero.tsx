@@ -67,31 +67,42 @@ export function Hero() {
 
   return (
     <section 
-      className="w-full relative"
+      className="w-full relative bg-[#1a1a1a]"
       aria-label="Welcome to Harold&apos;s Chicken"
       role="region"
       aria-roledescription="hero"
     >
+      {/* Grain overlay - covers entire hero */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-10">
+        <Image
+          src="/images/grain.jpg"
+          alt="grain texture overlay"
+          fill
+          className="object-cover object-center opacity-[0.03]"
+          priority={false}
+        />
+      </div>
+
       {/* Desktop Hero */}
       <div 
         className="relative min-h-[1000px] w-full hidden md:block"
         aria-hidden="false"
       >
         <div 
-          className="absolute top-0 right-0 w-[936px] xl:w-[800px] lg:w-[700px] md:w-[600px] h-full overflow-hidden"
+          className="absolute top-0 right-0 w-[2200px] xl:w-[2000px] lg:w-[1800px] md:w-[1600px] h-full overflow-hidden bg-[#1a1a1a]"
           role="presentation"
           aria-hidden="true"
         >
           <div className={`transform transition-transform duration-700 ${isImageLoaded ? 'scale-100' : 'scale-105'}`}>
             <Image
-              src="/images/HaroldsBG.png"
+              src="/images/HeroBG.png"
               alt="Restaurant ambiance showing Harold&apos;s Chicken interior"
-              width={1800}
-              height={2000}
-              className="object-cover object-center w-full h-full transition-opacity duration-500"
+              width={3000}
+              height={3500}
+              className="object-cover object-center w-full h-full transition-opacity duration-500 opacity-20"
               priority
-              sizes="(max-width: 1280px) 800px, (max-width: 1024px) 700px, (max-width: 768px) 600px, 936px"
-              quality={90}
+              sizes="(max-width: 1280px) 2000px, (max-width: 1024px) 1800px, (max-width: 768px) 1600px, 2200px"
+              quality={100}
               onLoad={handleImageLoad}
             />
           </div>
@@ -120,14 +131,14 @@ export function Hero() {
           >
             <h1 
               id="hero-title"
-              className="text-6xl lg:text-7xl 2xl:text-8xl font-bold text-[#202124] mb-8 leading-tight uppercase text-center whitespace-pre-line"
+              className="text-6xl lg:text-7xl 2xl:text-8xl font-bold text-white mb-8 leading-tight uppercase text-center whitespace-pre-line"
               tabIndex={0}
             >
               {content.title}
             </h1>
             <p 
               id="hero-description"
-              className="text-lg lg:text-xl 2xl:text-2xl text-[#333536] mb-10 leading-normal uppercase text-center font-medium max-w-[600px] xl:max-w-[700px] lg:max-w-[600px] md:max-w-[500px] mx-auto whitespace-pre-line"
+              className="text-lg lg:text-xl 2xl:text-2xl text-white mb-10 leading-normal uppercase text-center font-medium max-w-[600px] xl:max-w-[700px] lg:max-w-[600px] md:max-w-[500px] mx-auto whitespace-pre-line"
               tabIndex={0}
             >
               {content.description}
@@ -160,26 +171,26 @@ export function Hero() {
         aria-hidden="false"
       >
         <div 
-          className="relative w-full h-[500px] overflow-hidden bg-[#F5F5F5]"
+          className="relative w-full h-[900px] overflow-hidden bg-[#1a1a1a]"
           role="presentation"
           aria-hidden="true"
         >
           <div className={`transform transition-transform duration-700 absolute inset-0 ${isImageLoaded ? 'scale-100' : 'scale-105'}`}>
             <Image
-              src="/images/HaroldsBG.png"
+              src="/images/HeroBG.png"
               alt="Restaurant ambiance showing Harold&apos;s Chicken interior"
               fill
-              className="object-cover object-center transition-opacity duration-500"
+              className="object-cover object-center transition-opacity duration-500 opacity-20"
               priority
               sizes="100vw"
-              quality={90}
+              quality={100}
               onLoad={handleImageLoad}
             />
           </div>
           
           <div 
             className="absolute w-full flex justify-center transform" 
-            style={{top: '5%'}}
+            style={{top: '15%'}}
             role="presentation"
             aria-hidden="true"
           >
@@ -188,17 +199,17 @@ export function Hero() {
               alt="Signature Harold&apos;s Chicken bucket featuring fresh fried chicken"
               width={600}
               height={600}
-              className={`w-[300px] sm:w-[320px] h-auto transition-all duration-700 transform ${
+              className={`w-[340px] sm:w-[360px] h-auto transition-all duration-700 transform ${
                 isImageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               priority
-              sizes="(min-width: 640px) 320px, 300px"
+              sizes="(min-width: 640px) 360px, 340px"
               quality={90}
             />
           </div>
         </div>
 
-        <Container className="-mt-16 pb-12">
+        <Container className="relative z-10 -mt-48 pb-12">
           <div 
             className={`transition-all duration-700 transform ${
               isContentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -208,14 +219,14 @@ export function Hero() {
           >
             <h1 
               id="hero-title-mobile"
-              className="text-5xl font-bold text-[#202124] mb-4 leading-tight uppercase text-center whitespace-pre-line"
+              className="text-5xl font-bold text-white mb-8 leading-tight uppercase text-center whitespace-pre-line"
               tabIndex={0}
             >
               {content.title}
             </h1>
             <p 
               id="hero-description-mobile"
-              className="text-lg text-[#333536] mb-6 leading-normal uppercase text-center font-medium whitespace-pre-line"
+              className="text-lg text-white mb-10 leading-normal uppercase text-center font-medium max-w-[340px] sm:max-w-[400px] mx-auto"
               tabIndex={0}
             >
               {content.description}
