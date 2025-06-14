@@ -51,7 +51,7 @@ export function ValueProp() {
       imagePosition: "left",
       imageAlt: "New Item placeholder",
       imagePlaceholder: false,
-      imageSrc: "/images/ValueProp/FullMenu.jpg"
+      imageSrc: "/images/ValueProp/FullMenu.jpeg"
     },
     {
       id: 3,
