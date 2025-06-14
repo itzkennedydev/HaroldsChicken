@@ -13,6 +13,7 @@ import { Slider } from "../components/ui/slider";
 import { Search, Filter, X, ChevronDown, ChevronUp, Tag, DollarSign, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import Fuse from 'fuse.js';
 
 function MenuBanner() {
   return (
@@ -380,6 +381,41 @@ function SearchBar({
   );
 }
 
+// Define MenuItemType for type safety
+interface MenuItemType {
+  name: string;
+  price: number;
+  note?: string;
+  category?: string;
+  subCategory?: string;
+  ingredients?: string[];
+}
+
+// Define friedAppetizers and sides arrays at the top
+const friedAppetizers: MenuItemType[] = [
+  { name: "Jalapeno Poppers", price: 11 },
+  { name: "Mac & Cheese Bites", price: 11 },
+  { name: "Mozz Sticks (3)", price: 6 },
+  { name: "Mozz Sticks (5)", price: 8 },
+  { name: "Mushrooms", price: 10 },
+  { name: "Pizza Puff", price: 7 },
+  { name: "Pizza Puff & Fries", price: 10 },
+  { name: "Zucchini Sticks", price: 11 },
+  { name: "Sweet Corn Bites", price: 9 },
+  { name: "Broccoli n Cheddar Bites", price: 9 },
+  { name: "Spicy Cheese Curds", price: 10 },
+  { name: "Black Bean & Cheese Firecrackers", price: 11 }
+];
+const sides: MenuItemType[] = [
+  { name: "Okra 1/2 lb", price: 5 },
+  { name: "Okra 1 lb", price: 10 },
+  { name: "Coleslaw 2 oz", price: 1 },
+  { name: "Coleslaw 8 oz", price: 5 },
+  { name: "Coleslaw 16 oz", price: 9 },
+  { name: "Small Fry", price: 4 },
+  { name: "Large Fry", price: 7 }
+];
+
 export default function MenuPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
@@ -520,14 +556,136 @@ export default function MenuPage() {
   const filteredFishShrimp = filterMenuItems(fishShrimp);
   const showFishSection = filteredFishCatfish.length > 0 || filteredFishPerch.length > 0 || filteredFishWhiting.length > 0 || filteredFishShrimp.length > 0;
 
-  const hasAnyResults =
-    filteredChickenItems.length > 0 ||
-    filteredChickenTenders.length > 0 ||
-    filteredChickenPieces.length > 0 ||
-    filteredSpecialtyChicken.length > 0 ||
-    filteredPartyWings.length > 0 ||
-    filteredPartyMixed.length > 0 ||
-    showFishSection;
+  // SAUCES & EXTRAS SECTION
+  const sauces = [
+    { name: "Harold's Signature Mild Sauce Bottle", price: 19 },
+    { name: "Harold's Signature HOT Sauce Bottle", price: 15 },
+    { name: "Gallon Mild Sauce", price: 35 }
+  ];
+  const condiments = [
+    { name: "2oz Mild Sauce", price: 2 },
+    { name: "Hot Sauce", price: 2 },
+    { name: 'Hot Pepper "3"', price: 2 },
+    { name: "Cole Slaw (Half Pint)", price: 5 },
+    { name: "Cole Slaw (Pint)", price: 7 },
+    { name: "Extra lemon pepper", price: 0.75 },
+    { name: "Extra leg", price: 7 },
+    { name: "Extra thigh", price: 7 },
+    { name: "Extra breast", price: 7 },
+    { name: "Extra wing", price: 6 },
+    { name: "Extra tender", price: 5 },
+    { name: "Extra catfish", price: 7 },
+    { name: "Extra perch", price: 7 },
+    { name: "Extra shrimp", price: 11 }
+  ];
+  const filteredSauces = filterMenuItems(sauces);
+  const filteredCondiments = filterMenuItems(condiments);
+  const showSaucesSection = filteredSauces.length > 0 || filteredCondiments.length > 0;
+
+  // BEVERAGES SECTION
+  const specialtyCocktails = [
+    { name: "K Sago Sunset", price: 9, ingredients: ["Don Julio Reposado","Orange Juice","Fresh Lime Juice","Splash Grenadine","Orange and Cherry"] },
+    { name: "Mayweather Margarita", price: 13.5, ingredients: ["Hennessy","Tequila","Triple Sec","Fresh Lime Juice","Splash of Orange Juice","Orange Slice"] },
+    { name: "Tasha's Tropical Twist", price: 8.5, ingredients: ["Malibu Rum","Curacao","Pineapple Juice","Fresh Lime Juice","Cherry"] },
+    { name: "Joni's Jumper", price: 7, ingredients: ["Vodka","Mix-berry Puree","Fresh Lemon Juice","Club Soda","Lime"] },
+    { name: "LaMello's LemonADE", price: 9, ingredients: ["Crown Royal Peach","Lemonade","Sprite","Grenadine","Peach"] },
+    { name: "A Shedeur Summer", price: 7.5, ingredients: ["Vodka","Peach Schnapps","Strawberry Puree","Orange Juice","Splash Sprite","Orange"] },
+    { name: "The MRJ", price: 12.5, ingredients: ["Patron Reposado","Triple Sec","Dragon Fruit","Pineapple Juice","Fresh Lime","Lime"] },
+    { name: "The Rosita", price: 11, ingredients: ["Vodka","Rum","Gin","Peach Schnapps","Strawberry","Sprite","Lemon"] }
+  ];
+  const nonAlcoholic = [
+    { name: "Bottled Water", price: 3 },
+    { name: "Soft Drinks", price: 6, note: "unlimited refills" },
+    { name: "Calypso", price: 5 },
+    { name: "Special Flavored Lemonades", price: 4, note: "no free refill" },
+    { name: "Can Soda", price: 3 }
+  ];
+  const filteredSpecialtyCocktails = filterCocktails(specialtyCocktails);
+  const filteredNonAlcoholic = filterMenuItems(nonAlcoholic);
+  const showBeveragesSection = filteredSpecialtyCocktails.length > 0 || filteredNonAlcoholic.length > 0;
+
+  // FISH COMBOS SECTION
+  const fishCombos = [
+    { name: "Catfish & 1/4 Chicken (White)", price: 27 },
+    { name: "Perch & 1/4 Chicken (Dark)", price: 23 },
+    { name: "Perch & 1/4 Chicken (White)", price: 24 },
+    { name: "2 Catfish & 3 Wings", price: 23 },
+    { name: "2 Perch & 3 Wings", price: 23 },
+    { name: "Liver & 3 Wings", price: 19 },
+    { name: "Gizzard & 3 Wings", price: 19 },
+    { name: "2 Catfish & 5 Shrimp", price: 25.25 },
+    { name: "2 Perch & 5 Shrimp", price: 22.25 },
+    { name: "5 Shrimp & 3 Wings", price: 25.25 },
+    { name: "5 Shrimp & 1/4 Chicken (White)", price: 28 },
+    { name: "5 Shrimp & 1/4 Chicken (Dark)", price: 25 }
+  ];
+  const filteredFishCombos = filterMenuItems(fishCombos);
+  const showFishCombosSection = filteredFishCombos.length > 0;
+
+  // DESSERTS SECTION
+  const desserts = [
+    { name: "Cookies", price: 7 },
+    { name: "Honey Biscuits (5)", price: 10 },
+    { name: "Honey Biscuits (10)", price: 15 }
+  ];
+  const filteredDesserts = filterMenuItems(desserts);
+  const showDessertsSection = filteredDesserts.length > 0;
+
+  // Build a flat array of all menu items with category and subCategory
+  const allMenuItems = [
+    // Chicken
+    ...chickenItems.map(item => ({ ...item, category: 'CHICKEN', subCategory: 'Wing Dinners' })),
+    ...chickenTenders.map(item => ({ ...item, category: 'CHICKEN', subCategory: 'Chicken Tenders' })),
+    ...chickenPieces.map(item => ({ ...item, category: 'CHICKEN', subCategory: 'Chicken Pieces' })),
+    ...specialtyChicken.map(item => ({ ...item, category: 'CHICKEN', subCategory: 'Specialty Chicken Items' })),
+    // Fish & Seafood
+    ...fishCatfish.map(item => ({ ...item, category: 'FISH & SEAFOOD', subCategory: 'Catfish' })),
+    ...fishPerch.map(item => ({ ...item, category: 'FISH & SEAFOOD', subCategory: 'Perch' })),
+    ...fishWhiting.map(item => ({ ...item, category: 'FISH & SEAFOOD', subCategory: 'Whiting' })),
+    ...fishShrimp.map(item => ({ ...item, category: 'FISH & SEAFOOD', subCategory: 'Shrimp' })),
+    // Sauces & Extras
+    ...sauces.map(item => ({ ...item, category: 'SAUCES & EXTRAS', subCategory: "Harold's Signature Sauces" })),
+    ...condiments.map(item => ({ ...item, category: 'SAUCES & EXTRAS', subCategory: 'Condiments & Extras' })),
+    // Appetizers & Sides
+    ...friedAppetizers.map(item => ({ ...item, category: 'APPETIZERS & SIDES', subCategory: 'Fried Appetizers' })),
+    ...sides.map(item => ({ ...item, category: 'APPETIZERS & SIDES', subCategory: 'Sides' })),
+    // Beverages
+    ...specialtyCocktails.map(item => ({ ...item, category: 'BEVERAGES', subCategory: 'Specialty Cocktails' })),
+    ...nonAlcoholic.map(item => ({ ...item, category: 'BEVERAGES', subCategory: 'Non-Alcoholic Beverages' })),
+    // Fish Combos
+    ...fishCombos.map(item => ({ ...item, category: 'FISH COMBOS', subCategory: 'Fish Combos' })),
+    // Party Pans
+    ...partyPanWings.map(item => ({ ...item, category: 'PARTY PANS', subCategory: 'Wing Party Pans' })),
+    ...partyPanMixed.map(item => ({ ...item, category: 'PARTY PANS', subCategory: 'Mixed Chicken Party Pans' })),
+    // Desserts
+    ...desserts.map(item => ({ ...item, category: 'DESSERTS', subCategory: 'Desserts' })),
+  ];
+
+  // Set up Fuse.js
+  const fuse = new Fuse(allMenuItems, {
+    keys: ['name', 'note', 'ingredients'],
+    threshold: 0.3,
+  });
+
+  // Get filtered results
+  const fuseResults = searchQuery
+    ? fuse.search(searchQuery).map(result => result.item)
+    : allMenuItems;
+
+  // Apply price and category filters
+  const filteredResults = fuseResults.filter(item => {
+    const matchesCategory = !selectedCategories.length || selectedCategories.includes(item.category!);
+    const matchesPrice = item.price >= priceRange[0] && item.price <= priceRange[1];
+    return matchesCategory && matchesPrice;
+  });
+
+  // Type groupedResults
+  const groupedResults: Record<string, Record<string, MenuItemType[]>> = {};
+  filteredResults.forEach((item: MenuItemType) => {
+    if (!groupedResults[item.category!]) groupedResults[item.category!] = {};
+    if (!groupedResults[item.category!][item.subCategory!]) groupedResults[item.category!][item.subCategory!] = [];
+    groupedResults[item.category!][item.subCategory!].push(item);
+  });
 
   return (
     <div className="bg-white min-h-screen pb-8 sm:pb-16">
@@ -649,7 +807,7 @@ export default function MenuPage() {
           )}
         </div>
 
-        {!hasAnyResults && (
+        {Object.entries(groupedResults).length === 0 && (
           <div className="w-full text-center text-gray-500 py-8 text-lg">No results found</div>
         )}
 
@@ -779,56 +937,38 @@ export default function MenuPage() {
           )}
 
           {/* SAUCES & EXTRAS SECTION */}
-          {(!selectedCategories.length || selectedCategories.includes("SAUCES & EXTRAS")) && (
+          {showSaucesSection && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
               <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
                 <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">SAUCES & EXTRAS</CardTitle>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
-                {/* Harold's Signature Sauces */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Harold's Signature Sauces</span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {filterMenuItems([
-                      { name: "Harold's Signature Mild Sauce Bottle", price: 19 },
-                      { name: "Harold's Signature HOT Sauce Bottle", price: 15 },
-                      { name: "Gallon Mild Sauce", price: 35 }
-                    ]).map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Condiments & Extras */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Condiments & Extras</span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {filterMenuItems([
-                      { name: "2oz Mild Sauce", price: 2 },
-                      { name: "Hot Sauce", price: 2 },
-                      { name: 'Hot Pepper "3"', price: 2 },
-                      { name: "Cole Slaw (Half Pint)", price: 5 },
-                      { name: "Cole Slaw (Pint)", price: 7 },
-                      { name: "Extra lemon pepper", price: 0.75 },
-                      { name: "Extra leg", price: 7 },
-                      { name: "Extra thigh", price: 7 },
-                      { name: "Extra breast", price: 7 },
-                      { name: "Extra wing", price: 6 },
-                      { name: "Extra tender", price: 5 },
-                      { name: "Extra catfish", price: 7 },
-                      { name: "Extra perch", price: 7 },
-                      { name: "Extra shrimp", price: 11 }
-                    ]).map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
+                {filteredSauces.length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                      <span className="w-1 h-6 bg-red-700"></span>
+                      <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Harold's Signature Sauces</span>
+                    </h3>
+                    <ul className="space-y-2">
+                      {filteredSauces.map((item, index) => (
+                        <MenuItem key={index} {...item} />
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {filteredCondiments.length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                      <span className="w-1 h-6 bg-red-700"></span>
+                      <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Condiments & Extras</span>
+                    </h3>
+                    <ul className="space-y-2">
+                      {filteredCondiments.map((item, index) => (
+                        <MenuItem key={index} {...item} />
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </CardContent>
             </Card>
           )}
@@ -847,20 +987,7 @@ export default function MenuPage() {
                     <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Fried Appetizers</span>
                   </h3>
                   <ul className="space-y-2">
-                    {filterMenuItems([
-                      { name: "Jalapeno Poppers", price: 11 },
-                      { name: "Mac & Cheese Bites", price: 11 },
-                      { name: "Mozz Sticks (3)", price: 6 },
-                      { name: "Mozz Sticks (5)", price: 8 },
-                      { name: "Mushrooms", price: 10 },
-                      { name: "Pizza Puff", price: 7 },
-                      { name: "Pizza Puff & Fries", price: 10 },
-                      { name: "Zucchini Sticks", price: 11 },
-                      { name: "Sweet Corn Bites", price: 9 },
-                      { name: "Broccoli n Cheddar Bites", price: 9 },
-                      { name: "Spicy Cheese Curds", price: 10 },
-                      { name: "Black Bean & Cheese Firecrackers", price: 11 }
-                    ]).map((item, index) => (
+                    {friedAppetizers.map((item, index) => (
                       <MenuItem key={index} {...item} />
                     ))}
                   </ul>
@@ -873,15 +1000,7 @@ export default function MenuPage() {
                     <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Sides</span>
                   </h3>
                   <ul className="space-y-2">
-                    {filterMenuItems([
-                      { name: "Okra 1/2 lb", price: 5 },
-                      { name: "Okra 1 lb", price: 10 },
-                      { name: "Coleslaw 2 oz", price: 1 },
-                      { name: "Coleslaw 8 oz", price: 5 },
-                      { name: "Coleslaw 16 oz", price: 9 },
-                      { name: "Small Fry", price: 4 },
-                      { name: "Large Fry", price: 7 }
-                    ]).map((item, index) => (
+                    {sides.map((item, index) => (
                       <MenuItem key={index} {...item} />
                     ))}
                   </ul>
@@ -891,7 +1010,7 @@ export default function MenuPage() {
           )}
 
           {/* BEVERAGES SECTION */}
-          {(!selectedCategories.length || selectedCategories.includes("BEVERAGES")) && (
+          {showBeveragesSection && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
               <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
                 <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">BEVERAGES</CardTitle>
@@ -904,16 +1023,7 @@ export default function MenuPage() {
                     <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Specialty Cocktails</span>
                   </h3>
                   <ul className="space-y-3">
-                    {filterCocktails([
-                      { name: "K Sago Sunset", price: 9, ingredients: ["Don Julio Reposado","Orange Juice","Fresh Lime Juice","Splash Grenadine","Orange and Cherry"] },
-                      { name: "Mayweather Margarita", price: 13.5, ingredients: ["Hennessy","Tequila","Triple Sec","Fresh Lime Juice","Splash of Orange Juice","Orange Slice"] },
-                      { name: "Tasha's Tropical Twist", price: 8.5, ingredients: ["Malibu Rum","Curacao","Pineapple Juice","Fresh Lime Juice","Cherry"] },
-                      { name: "Joni's Jumper", price: 7, ingredients: ["Vodka","Mix-berry Puree","Fresh Lemon Juice","Club Soda","Lime"] },
-                      { name: "LaMello's LemonADE", price: 9, ingredients: ["Crown Royal Peach","Lemonade","Sprite","Grenadine","Peach"] },
-                      { name: "A Shedeur Summer", price: 7.5, ingredients: ["Vodka","Peach Schnapps","Strawberry Puree","Orange Juice","Splash Sprite","Orange"] },
-                      { name: "The MRJ", price: 12.5, ingredients: ["Patron Reposado","Triple Sec","Dragon Fruit","Pineapple Juice","Fresh Lime","Lime"] },
-                      { name: "The Rosita", price: 11, ingredients: ["Vodka","Rum","Gin","Peach Schnapps","Strawberry","Sprite","Lemon"] }
-                    ]).map((cocktail, index) => (
+                    {filteredSpecialtyCocktails.map((cocktail, index) => (
                       <Cocktail key={index} {...cocktail} />
                     ))}
                   </ul>
@@ -926,13 +1036,7 @@ export default function MenuPage() {
                     <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Non-Alcoholic Beverages</span>
                   </h3>
                   <ul className="space-y-2">
-                    {filterMenuItems([
-                      { name: "Bottled Water", price: 3 },
-                      { name: "Soft Drinks", price: 6, note: "unlimited refills" },
-                      { name: "Calypso", price: 5 },
-                      { name: "Special Flavored Lemonades", price: 4, note: "no free refill" },
-                      { name: "Can Soda", price: 3 }
-                    ]).map((item, index) => (
+                    {filteredNonAlcoholic.map((item, index) => (
                       <MenuItem key={index} {...item} />
                     ))}
                   </ul>
@@ -942,27 +1046,14 @@ export default function MenuPage() {
           )}
 
           {/* FISH COMBOS SECTION */}
-          {(!selectedCategories.length || selectedCategories.includes("FISH COMBOS")) && (
+          {showFishCombosSection && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
               <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
                 <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">FISH COMBOS</CardTitle>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 md:p-8 bg-white">
                 <ul className="space-y-2">
-                  {filterMenuItems([
-                    { name: "Catfish & 1/4 Chicken (White)", price: 27 },
-                    { name: "Perch & 1/4 Chicken (Dark)", price: 23 },
-                    { name: "Perch & 1/4 Chicken (White)", price: 24 },
-                    { name: "2 Catfish & 3 Wings", price: 23 },
-                    { name: "2 Perch & 3 Wings", price: 23 },
-                    { name: "Liver & 3 Wings", price: 19 },
-                    { name: "Gizzard & 3 Wings", price: 19 },
-                    { name: "2 Catfish & 5 Shrimp", price: 25.25 },
-                    { name: "2 Perch & 5 Shrimp", price: 22.25 },
-                    { name: "5 Shrimp & 3 Wings", price: 25.25 },
-                    { name: "5 Shrimp & 1/4 Chicken (White)", price: 28 },
-                    { name: "5 Shrimp & 1/4 Chicken (Dark)", price: 25 }
-                  ]).map((item, index) => (
+                  {filteredFishCombos.map((item, index) => (
                     <MenuItem key={index} {...item} />
                   ))}
                 </ul>
@@ -1019,7 +1110,7 @@ export default function MenuPage() {
             )}
 
             {/* DESSERTS SECTION */}
-            {(!selectedCategories.length || selectedCategories.includes("DESSERTS")) && (
+            {showDessertsSection && (
               <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
                 <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
                   <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">DESSERTS</CardTitle>
@@ -1027,11 +1118,7 @@ export default function MenuPage() {
                 <CardContent className="p-4 sm:p-6 md:p-8 bg-white">
                   <div className="max-w-2xl mx-auto">
                     <ul className="space-y-2">
-                      {filterMenuItems([
-                        { name: "Cookies", price: 7 },
-                        { name: "Honey Biscuits (5)", price: 10 },
-                        { name: "Honey Biscuits (10)", price: 15 }
-                      ]).map((item, index) => (
+                      {filteredDesserts.map((item, index) => (
                         <MenuItem key={index} {...item} />
                       ))}
                     </ul>
