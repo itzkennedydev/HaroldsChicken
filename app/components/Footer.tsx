@@ -5,7 +5,6 @@ export function Footer() {
   const footerLinks = [
     { href: "/menu", label: "MENU" },
     { href: "/careers", label: "CAREERS" },
-    { href: "/contact", label: "CONTACT" },
     { 
       href: "https://www.instagram.com/haroldschickensportsbar/", 
       label: "INSTAGRAM", 
