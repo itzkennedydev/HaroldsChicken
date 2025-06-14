@@ -498,8 +498,8 @@ export default function MenuPage() {
           {/* CHICKEN SECTION */}
           {(!selectedCategories.length || selectedCategories.includes("CHICKEN")) && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
-                <CardTitle className="text-2xl text-[#202124] font-bold text-center uppercase">CHICKEN</CardTitle>
+              <CardHeader className="bg-red-700 rounded-t-xl p-8">
+                <CardTitle className="text-2xl text-white font-bold text-center uppercase">CHICKEN</CardTitle>
               </CardHeader>
               <CardContent className="p-8 space-y-8">
                 {/* Wing Dinners */}
@@ -584,8 +584,8 @@ export default function MenuPage() {
           {/* FISH & SEAFOOD SECTION */}
           {(!selectedCategories.length || selectedCategories.includes("FISH & SEAFOOD")) && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
-                <CardTitle className="text-2xl text-[#202124] font-bold text-center uppercase">FISH & SEAFOOD</CardTitle>
+              <CardHeader className="bg-red-700 rounded-t-xl p-8">
+                <CardTitle className="text-2xl text-white font-bold text-center uppercase">FISH & SEAFOOD</CardTitle>
               </CardHeader>
               <CardContent className="p-8 space-y-8">
                 {/* Catfish */}
@@ -665,8 +665,8 @@ export default function MenuPage() {
           {/* SAUCES & EXTRAS SECTION */}
           {(!selectedCategories.length || selectedCategories.includes("SAUCES & EXTRAS")) && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
-                <CardTitle className="text-2xl text-[#202124] font-bold text-center uppercase">SAUCES & EXTRAS</CardTitle>
+              <CardHeader className="bg-red-700 rounded-t-xl p-8">
+                <CardTitle className="text-2xl text-white font-bold text-center uppercase">SAUCES & EXTRAS</CardTitle>
               </CardHeader>
               <CardContent className="p-8 space-y-8">
                 {/* Harold's Signature Sauces */}
@@ -720,8 +720,8 @@ export default function MenuPage() {
           {/* APPETIZERS & SIDES SECTION */}
           {(!selectedCategories.length || selectedCategories.includes("APPETIZERS & SIDES")) && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
-                <CardTitle className="text-2xl text-[#202124] font-bold text-center uppercase">APPETIZERS & SIDES</CardTitle>
+              <CardHeader className="bg-red-700 rounded-t-xl p-8">
+                <CardTitle className="text-2xl text-white font-bold text-center uppercase">APPETIZERS & SIDES</CardTitle>
               </CardHeader>
               <CardContent className="p-8 space-y-8">
                 {/* Fried Appetizers */}
@@ -777,8 +777,8 @@ export default function MenuPage() {
           {/* BEVERAGES SECTION */}
           {(!selectedCategories.length || selectedCategories.includes("BEVERAGES")) && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
-                <CardTitle className="text-2xl text-[#202124] font-bold text-center uppercase">BEVERAGES</CardTitle>
+              <CardHeader className="bg-red-700 rounded-t-xl p-8">
+                <CardTitle className="text-2xl text-white font-bold text-center uppercase">BEVERAGES</CardTitle>
               </CardHeader>
               <CardContent className="p-8 space-y-8">
                 {/* Specialty Cocktails */}
@@ -828,8 +828,8 @@ export default function MenuPage() {
           {/* FISH COMBOS SECTION */}
           {(!selectedCategories.length || selectedCategories.includes("FISH COMBOS")) && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
-                <CardTitle className="text-2xl text-[#202124] font-bold text-center uppercase">FISH COMBOS</CardTitle>
+              <CardHeader className="bg-red-700 rounded-t-xl p-8">
+                <CardTitle className="text-2xl text-white font-bold text-center uppercase">FISH COMBOS</CardTitle>
               </CardHeader>
               <CardContent className="p-8">
                 <ul className="space-y-2">
@@ -854,76 +854,79 @@ export default function MenuPage() {
             </Card>
           )}
 
-          {/* PARTY PANS SECTION */}
-          {(!selectedCategories.length || selectedCategories.includes("PARTY PANS")) && (
-            <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
-                <CardTitle className="text-2xl text-[#202124] font-bold text-center uppercase">PARTY PANS</CardTitle>
-              </CardHeader>
-              <CardContent className="p-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {/* Wing Party Pans */}
-                  <div>
-                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
-                      <span className="w-1 h-6 bg-red-700 rounded-full"></span>
-                      Wing Party Pans
-                    </h3>
+          {/* PARTY PANS AND DESSERTS CONTAINER */}
+          <div className="col-span-3 grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* PARTY PANS SECTION */}
+            {(!selectedCategories.length || selectedCategories.includes("PARTY PANS")) && (
+              <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
+                <CardHeader className="bg-red-700 rounded-t-xl p-8">
+                  <CardTitle className="text-2xl text-white font-bold text-center uppercase">PARTY PANS</CardTitle>
+                </CardHeader>
+                <CardContent className="p-8">
+                  <div className="grid grid-cols-1 gap-8">
+                    {/* Wing Party Pans */}
+                    <div>
+                      <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
+                        <span className="w-1 h-6 bg-red-700 rounded-full"></span>
+                        Wing Party Pans
+                      </h3>
+                      <ul className="space-y-2">
+                        {filterMenuItems([
+                          { name: "Party Pan 50 Wings", price: 104 },
+                          { name: "Party Pan 75 Wings", price: 132 },
+                          { name: "Party Pan 100 Wings", price: 208 },
+                          { name: "Party Pan 150 Wings", price: 250 },
+                          { name: "Party Pan 200 Wings", price: 348 }
+                        ]).map((item, index) => (
+                          <MenuItem key={index} {...item} />
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Mixed Chicken Party Pans */}
+                    <div>
+                      <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
+                        <span className="w-1 h-6 bg-red-700 rounded-full"></span>
+                        Mixed Chicken Party Pans
+                      </h3>
+                      <ul className="space-y-2">
+                        {filterMenuItems([
+                          { name: "Party Pan 50 pcs Mixed", price: 97 },
+                          { name: "Party Pan 100 pcs Mixed", price: 181 },
+                          { name: "Party Pan 150 pcs Mixed", price: 243 },
+                          { name: "Party Pan 200 pcs Mixed", price: 313 }
+                        ]).map((item, index) => (
+                          <MenuItem key={index} {...item} />
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
+            {/* DESSERTS SECTION */}
+            {(!selectedCategories.length || selectedCategories.includes("DESSERTS")) && (
+              <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
+                <CardHeader className="bg-red-700 rounded-t-xl p-8">
+                  <CardTitle className="text-2xl text-white font-bold text-center uppercase">DESSERTS</CardTitle>
+                </CardHeader>
+                <CardContent className="p-8">
+                  <div className="max-w-2xl mx-auto">
                     <ul className="space-y-2">
                       {filterMenuItems([
-                        { name: "Party Pan 50 Wings", price: 104 },
-                        { name: "Party Pan 75 Wings", price: 132 },
-                        { name: "Party Pan 100 Wings", price: 208 },
-                        { name: "Party Pan 150 Wings", price: 250 },
-                        { name: "Party Pan 200 Wings", price: 348 }
+                        { name: "Cookie", price: 7 },
+                        { name: "Honey Biscuits (5)", price: 10 },
+                        { name: "Honey Biscuits (10)", price: 15 }
                       ]).map((item, index) => (
                         <MenuItem key={index} {...item} />
                       ))}
                     </ul>
                   </div>
-
-                  {/* Mixed Chicken Party Pans */}
-                  <div>
-                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
-                      <span className="w-1 h-6 bg-red-700 rounded-full"></span>
-                      Mixed Chicken Party Pans
-                    </h3>
-                    <ul className="space-y-2">
-                      {filterMenuItems([
-                        { name: "Party Pan 50 pcs Mixed", price: 97 },
-                        { name: "Party Pan 100 pcs Mixed", price: 181 },
-                        { name: "Party Pan 150 pcs Mixed", price: 243 },
-                        { name: "Party Pan 200 pcs Mixed", price: 313 }
-                      ]).map((item, index) => (
-                        <MenuItem key={index} {...item} />
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          )}
-
-          {/* DESSERTS SECTION */}
-          {(!selectedCategories.length || selectedCategories.includes("DESSERTS")) && (
-            <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
-                <CardTitle className="text-2xl text-[#202124] font-bold text-center uppercase">DESSERTS</CardTitle>
-              </CardHeader>
-              <CardContent className="p-8">
-                <div className="max-w-2xl mx-auto">
-                  <ul className="space-y-2">
-                    {filterMenuItems([
-                      { name: "Cookie", price: 7 },
-                      { name: "Honey Biscuits (5)", price: 10 },
-                      { name: "Honey Biscuits (10)", price: 15 }
-                    ]).map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-          )}
+                </CardContent>
+              </Card>
+            )}
+          </div>
         </div>
 
         {/* Restaurant Notices */}
