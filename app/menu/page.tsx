@@ -421,9 +421,9 @@ const sides: MenuItemType[] = [
 ];
 
 // Helper type guard for badge
-function hasBadge(item: { badge?: { text: string; className: string } }): item is { badge: { text: string; className: string } } {
-  return !!item.badge && typeof item.badge.text === 'string' && typeof item.badge.className === 'string';
-}
+// function hasBadge(item: { badge?: { text: string; className: string } }): item is { badge: { text: string; className: string } } {
+//   return !!item.badge && typeof item.badge.text === 'string' && typeof item.badge.className === 'string';
+// }
 
 export default function MenuPage() {
   const [searchQuery, setSearchQuery] = useState("");

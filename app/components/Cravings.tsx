@@ -25,16 +25,6 @@ export function Cravings() {
   const items: MenuItem[] = [
     {
       id: 1,
-      name: "HOT HEAVY HONEY GLAZE BISCUITS",
-      calories: "320-450",
-      price: "5.99",
-      image: "/images/HoneyBiscuits.png",
-      imageAlt: "Freshly baked honey glazed biscuits",
-      tag: "NEW",
-      description: "Warm, fluffy biscuits drizzled with our signature honey glaze"
-    },
-    {
-      id: 2,
       name: "FISH & FRIES COMBO",
       calories: "480-690",
       price: "8.99",
@@ -42,6 +32,16 @@ export function Cravings() {
       imageAlt: "Fish and fries combo meal",
       tag: "BEST SELLER",
       description: "Crispy fish fillet served with our signature seasoned fries"
+    },
+    {
+      id: 2,
+      name: "HOT HEAVY HONEY GLAZE BISCUITS",
+      calories: "320-450",
+      price: "5.99",
+      image: "/images/HoneyBiscuits.png",
+      imageAlt: "Freshly baked honey glazed biscuits",
+      tag: "NEW",
+      description: "Warm, fluffy biscuits drizzled with our signature honey glaze"
     },
     {
       id: 3,
