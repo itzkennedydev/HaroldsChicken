@@ -196,7 +196,7 @@ function MenuItem({ name, price, note, badge }: { name: string; price: number; n
           <span className="text-lg font-bold text-[#202124] group-hover:text-red-700 transition-colors duration-300 flex items-center gap-2">
             {name}
             {badge && (
-              <span className={`ml-2 px-3 py-1 rounded-full text-xs font-bold uppercase ${badge.className}`}>{badge.text}</span>
+              <span className="ml-2 px-3 py-1 rounded-full text-xs font-bold uppercase bg-red-700 text-white">{badge.text}</span>
             )}
           </span>
           <span className="text-red-700 font-bold text-xl">
@@ -432,14 +432,14 @@ export default function MenuPage() {
   const [showFilters, setShowFilters] = useState(false);
 
   const categories = [
-    { id: "CHICKEN", label: "Chicken", icon: "🍗" },
-    { id: "FISH & SEAFOOD", label: "Fish & Seafood", icon: "🐟" },
-    { id: "APPETIZERS & SIDES", label: "Appetizers & Sides", icon: "🥗" },
-    { id: "BEVERAGES", label: "Beverages", icon: "🥤" },
-    { id: "PARTY PANS", label: "Party Pans", icon: "🎉" },
-    { id: "FISH COMBOS", label: "Fish Combos", icon: "🍽️" },
-    { id: "DESSERTS", label: "Desserts", icon: "🍪" },
-    { id: "SAUCES & EXTRAS", label: "Sauces & Extras", icon: "🧂" }
+    { id: "CHICKEN", label: "Chicken" },
+    { id: "FISH & SEAFOOD", label: "Fish & Seafood" },
+    { id: "APPETIZERS & SIDES", label: "Appetizers & Sides" },
+    { id: "BEVERAGES", label: "Beverages" },
+    { id: "PARTY PANS", label: "Party Pans" },
+    { id: "FISH COMBOS", label: "Fish Combos" },
+    { id: "DESSERTS", label: "Desserts" },
+    { id: "SAUCES & EXTRAS", label: "Sauces & Extras" }
   ];
 
   const toggleCategory = (category: string) => {
@@ -769,7 +769,6 @@ export default function MenuPage() {
                       )}
                       onClick={() => toggleCategory(category.id)}
                     >
-                      <span className="text-base sm:text-lg">{category.icon}</span>
                       {category.label}
                     </Button>
                   ))}
@@ -808,7 +807,7 @@ export default function MenuPage() {
                   variant="secondary"
                   className="flex items-center gap-1 bg-[#F8F9FA] text-[#202124] border border-gray-200 text-sm"
                 >
-                  {categories.find(c => c.id === category)?.icon} {categories.find(c => c.id === category)?.label}
+                  {categories.find(c => c.id === category)?.label}
                   <X
                     size={12}
                     className="cursor-pointer hover:text-red-700"
