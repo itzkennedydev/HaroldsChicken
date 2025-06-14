@@ -188,20 +188,20 @@ export default function Page() {
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div className="space-y-4 p-8 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                      <h3 className="text-xl font-medium text-red-700 font-display uppercase">Dedication</h3>
-                      <p className="text-[#333536]">
+                      <h3 className="text-xl font-medium text-[#202124] font-display uppercase">Dedication</h3>
+                      <p className="text-[#202124]">
                         Commitment to excellence in every venture and initiative
                       </p>
                     </div>
                     <div className="space-y-4 p-8 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                      <h3 className="text-xl font-medium text-red-700 font-display uppercase">Discipline</h3>
-                      <p className="text-[#333536]">
+                      <h3 className="text-xl font-medium text-[#202124] font-display uppercase">Discipline</h3>
+                      <p className="text-[#202124]">
                         Maintaining focus and drive even through challenging times
                       </p>
                     </div>
                     <div className="space-y-4 p-8 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                      <h3 className="text-xl font-medium text-red-700 font-display uppercase">Determination</h3>
-                      <p className="text-[#333536]">
+                      <h3 className="text-xl font-medium text-[#202124] font-display uppercase">Determination</h3>
+                      <p className="text-[#202124]">
                         Unwavering resolve to achieve goals and create positive impact
                       </p>
                     </div>
