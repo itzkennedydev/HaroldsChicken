@@ -131,6 +131,56 @@ function MenuNotices() {
               </p>
             </div>
           </div>
+
+          <div className="flex items-start gap-4">
+            <div className="mt-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5 text-red-700"
+              >
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                <path d="M12 8v4" />
+                <path d="M12 16h.01" />
+              </svg>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold text-[#202124] mb-2">Substitution Policy</h4>
+              <p className="text-[#333536] leading-relaxed">
+                No substitutions are allowed.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <div className="mt-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5 text-red-700"
+              >
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                <path d="M12 8v4" />
+                <path d="M12 16h.01" />
+              </svg>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold text-[#202124] mb-2">Refund Policy</h4>
+              <p className="text-[#333536] leading-relaxed">
+                Only remakes or food exchanges are allowed. We do not offer exchange of cash refunds.
+              </p>
+            </div>
+          </div>
         </div>
       </CardContent>
     </Card>
