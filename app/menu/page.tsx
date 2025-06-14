@@ -398,7 +398,7 @@ interface MenuItemType {
 // Define friedAppetizers and sides arrays at the top
 const friedAppetizers: MenuItemType[] = [
   { name: "Jalapeno Poppers", price: 11 },
-  { name: "Mac & Cheese Bites", price: 11 },
+  { name: "Mac & Cheese Bites", price: 9 },
   { name: "Mozz Sticks (3)", price: 6 },
   { name: "Mozz Sticks (5)", price: 8 },
   { name: "Mushrooms", price: 10 },
@@ -413,7 +413,7 @@ const friedAppetizers: MenuItemType[] = [
 const sides: MenuItemType[] = [
   { name: "Okra 1/2 lb", price: 5 },
   { name: "Okra 1 lb", price: 10 },
-  { name: "Coleslaw 2 oz", price: 1 },
+  { name: "Coleslaw 2 oz", price: 2 },
   { name: "Coleslaw 8 oz", price: 5 },
   { name: "Coleslaw 16 oz", price: 9 },
   { name: "Small Fry", price: 4 },
@@ -481,54 +481,52 @@ export default function MenuPage() {
 
   // Add before the return in MenuPage
   const partyPanWings = [
-    { name: "Party Pan 50 Wings", price: 104 },
-    { name: "Party Pan 75 Wings", price: 132 },
+    { name: "Party Pan 50 Wings", price: 125 },
+    { name: "Party Pan 75 Wings", price: 160 },
     { name: "Party Pan 100 Wings", price: 208 },
-    { name: "Party Pan 150 Wings", price: 250 },
+    { name: "Party Pan 150 Wings", price: 249 },
     { name: "Party Pan 200 Wings", price: 348 }
   ];
   const partyPanMixed = [
     { name: "Party Pan 50 pcs Mixed", price: 97 },
     { name: "Party Pan 100 pcs Mixed", price: 181 },
     { name: "Party Pan 150 pcs Mixed", price: 243 },
-    { name: "Party Pan 200 pcs Mixed", price: 313 }
+    { name: "Party Pan 200 pcs Mixed", price: 312 }
   ];
   const filteredPartyWings = filterMenuItems(partyPanWings);
   const filteredPartyMixed = filterMenuItems(partyPanMixed);
 
   // CHICKEN SECTION
   const chickenItems = [
-    { name: "4 Wings", price: 8 },
-    { name: "6 Wings", price: 9.5 },
-    { name: "8 Wings", price: 11.5 },
-    { name: "10 Wings", price: 12 },
-    { name: "Extra Wing", price: 3 }
+    { name: "4 Wings", price: 14 },
+    { name: "6 Wings", price: 17 },
+    { name: "8 Wings", price: 21 },
+    { name: "10 Wings", price: 22 },
+    { name: "Extra Wing", price: 4 }
   ];
   const chickenTenders = [
-    { name: "Tenders 4 pcs", price: 7 },
-    { name: "Tenders 6 pcs", price: 8.5 },
-    { name: "Tenders 8 pcs", price: 10.5 }
+    { name: "Tenders 4 pcs", price: 14 },
+    { name: "Tenders 6 pcs", price: 17 },
+    { name: "Tenders 8 pcs", price: 21 }
   ];
   const chickenPieces = [
-    { name: "1/4 White", price: 7 },
-    { name: "1/4 Dark", price: 5.5 },
-    { name: "1/2 White", price: 11 },
-    { name: "1/2 Dark", price: 9.5 },
-    { name: "1/2 Mixed", price: 9 },
-    { name: "8 pc Mixed", price: 14 },
-    { name: "16 pc Mixed", price: 20 },
-    { name: "24 pc Mixed", price: 26.5 },
-    { name: "Extra Leg or Thigh", price: 3.5 },
-    { name: "Extra Breast", price: 3.5 }
+    { name: "1/4 White", price: 11 },
+    { name: "1/4 Dark", price: 9 },
+    { name: "1/2 White", price: 21 },
+    { name: "1/2 Dark", price: 15 },
+    { name: "1/2 Mixed", price: 18 },
+    { name: "2 Breasts", price: 16 },
+    { name: "Extra Leg or Thigh", price: 4 },
+    { name: "Extra Breast", price: 4 }
   ];
   const specialtyChicken = [
-    { name: "Chicken Sandwich", price: 10.5 },
-    { name: "Chicken & Waffles", price: 9.5 }
+    { name: "Chicken Sandwich", price: 19 },
+    { name: "Chicken & Waffles", price: 21 }
   ];
   const chickenWingBuckets = [
-    { name: "12 pc Wings", price: 21 },
-    { name: "18 pc Wings", price: 34, badge: { text: "Best Value", className: "bg-yellow-400 text-black" } },
-    { name: "24 pc Wings", price: 42 }
+    { name: "12 pc Wings", price: 24 },
+    { name: "18 pc Wings", price: 36, badge: { text: "Best Value", className: "bg-yellow-400 text-black" } },
+    { name: "24 pc Wings", price: 47 }
   ];
   const mixedChickenBuckets = [
     { name: "8 Piece (Mixed)", price: 20 },
@@ -551,22 +549,22 @@ export default function MenuPage() {
 
   // FISH & SEAFOOD SECTION
   const fishCatfish = [
-    { name: "Small Catfish", price: 14 },
+    { name: "Small Catfish", price: 15 },
     { name: "Large Catfish", price: 22 },
     { name: "12 pc Catfish", price: 42 },
     { name: "Small Cat Nugget", price: 14 },
     { name: "Large Cat Nugget", price: 19 },
-    { name: "Extra Catfish", price: 6 }
+    { name: "Extra Catfish", price: 4 }
   ];
   const catfishBuckets = [
     { name: "12 pc Catfish", price: 25 },
     { name: "24 pc Catfish", price: 45 }
   ];
   const fishPerch = [
-    { name: "Small Perch", price: 15 },
+    { name: "Small Perch", price: 14 },
     { name: "Large Perch", price: 22 },
     { name: "12 pc Perch", price: 47 },
-    { name: "Extra Perch", price: 6 }
+    { name: "Extra Perch", price: 4 }
   ];
   const perchBuckets = [
     { name: "12 pc Perch", price: 25 },
@@ -578,8 +576,8 @@ export default function MenuPage() {
   ];
   const fishShrimp = [
     { name: "8 pc Shrimp", price: 20 },
-    { name: "Buffalo Shrimp", price: 22 },
-    { name: "Extra Shrimp", price: 11 }
+    { name: "Buffalo Shrimp", price: 21 },
+    { name: "Extra Shrimp", price: 4 }
   ];
   const filteredFishCatfish = filterMenuItems(fishCatfish);
   const filteredCatfishBuckets = filterMenuItems(catfishBuckets);
@@ -593,23 +591,23 @@ export default function MenuPage() {
   const sauces = [
     { name: "Harold's Signature Mild Sauce Bottle", price: 19 },
     { name: "Harold's Signature HOT Sauce Bottle", price: 15 },
-    { name: "Gallon Mild Sauce", price: 35 }
+    { name: "Gallon Mild Sauce", price: 47 }
   ];
   const condiments = [
-    { name: "2oz Mild Sauce", price: 2 },
+    { name: "2oz Mild Sauce", price: 1 },
     { name: "Hot Sauce", price: 2 },
-    { name: 'Hot Pepper "3"', price: 2 },
+    { name: 'Hot Pepper "3"', price: 1 },
     { name: "Cole Slaw (Half Pint)", price: 5 },
     { name: "Cole Slaw (Pint)", price: 7 },
     { name: "Extra lemon pepper", price: 0.75 },
-    { name: "Extra leg", price: 7 },
-    { name: "Extra thigh", price: 7 },
-    { name: "Extra breast", price: 7 },
-    { name: "Extra wing", price: 6 },
+    { name: "Extra leg", price: 4 },
+    { name: "Extra thigh", price: 4 },
+    { name: "Extra breast", price: 4 },
+    { name: "Extra wing", price: 4 },
     { name: "Extra tender", price: 5 },
-    { name: "Extra catfish", price: 7 },
-    { name: "Extra perch", price: 7 },
-    { name: "Extra shrimp", price: 11 }
+    { name: "Extra catfish", price: 4 },
+    { name: "Extra perch", price: 4 },
+    { name: "Extra shrimp", price: 4 }
   ];
   const filteredSauces = filterMenuItems(sauces);
   const filteredCondiments = filterMenuItems(condiments);
@@ -643,14 +641,14 @@ export default function MenuPage() {
     { name: "Perch & 1/4 Chicken (Dark)", price: 23 },
     { name: "Perch & 1/4 Chicken (White)", price: 24 },
     { name: "2 Catfish & 3 Wings", price: 23 },
-    { name: "2 Perch & 3 Wings", price: 23 },
+    { name: "2 Perch & 3 Wings", price: 20 },
     { name: "Liver & 3 Wings", price: 19 },
     { name: "Gizzard & 3 Wings", price: 19 },
     { name: "2 Catfish & 5 Shrimp", price: 25.25 },
     { name: "2 Perch & 5 Shrimp", price: 22.25 },
     { name: "5 Shrimp & 3 Wings", price: 25.25 },
     { name: "5 Shrimp & 1/4 Chicken (White)", price: 28 },
-    { name: "5 Shrimp & 1/4 Chicken (Dark)", price: 25 }
+    { name: "5 Shrimp & 1/4 Chicken (Dark)", price: 23 }
   ];
   const filteredFishCombos = filterMenuItems(fishCombos);
   const showFishCombosSection = filteredFishCombos.length > 0;
