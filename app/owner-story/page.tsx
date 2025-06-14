@@ -112,7 +112,7 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="min-h-screen bg-[#F8F9FA]">
       <Header />
       
       <article ref={sectionRef} className="pt-32 pb-20">
@@ -120,21 +120,21 @@ export default function Page() {
           <div className={`transition-all duration-1000 ${
             isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <div className="grid lg:grid-cols-[1fr,2fr] gap-16 items-start">
+            <div className="grid lg:grid-cols-[1fr,2fr] gap-20 items-start">
               {/* Image Column */}
               <div className="relative h-full">
                 <div className="sticky top-32 w-full relative">
-                  <div className="relative aspect-[3/4] shadow-2xl">
+                  <div className="relative aspect-[3/4] shadow-2xl rounded-3xl overflow-hidden">
                     <Image
                       src="/images/Josiah.png"
-                      alt=""
+                      alt="Josiah Blanton"
                       fill
-                      className="object-cover rounded-2xl"
+                      className="object-cover"
                       priority
                     />
                   </div>
                   {/* Birthday image overlay */}
-                  <div className="absolute bottom-[-40px] right-[-20px] w-2/5 h-2/5 z-20 rounded-lg overflow-hidden shadow-lg">
+                  <div className="absolute bottom-[-40px] right-[-20px] w-2/5 h-2/5 z-20 rounded-2xl overflow-hidden shadow-xl ring-4 ring-white">
                     <Image
                       src="/images/Bday.jpg"
                       alt="Birthday celebration"
@@ -147,19 +147,22 @@ export default function Page() {
               </div>
 
               {/* Content Column */}
-              <div className="space-y-8 pt-0">
+              <div className="space-y-12 pt-0">
                 {/* Header Section */}
-                <h1 className="text-5xl font-bold text-neutral-900 tracking-tight font-display uppercase">
-                  The Power of Mindset
-                </h1>
+                <div className="space-y-6">
+                  <h1 className="text-6xl font-bold text-[#202124] tracking-tight font-display uppercase leading-tight">
+                    The Power of Mindset
+                  </h1>
+                  <div className="h-1 w-24 bg-red-700 rounded-full"></div>
+                </div>
 
                 {/* Introduction */}
                 <section className="space-y-8">
-                  <p className="text-xl text-neutral-700 leading-relaxed">
+                  <p className="text-xl text-[#333536] leading-relaxed">
                     From the streets of Chicago emerged a story of resilience, determination, and unwavering focus. Josiah Blanton's journey is more than a tale of success—it's a testament to the power of mindset over circumstances.
                   </p>
-                  <blockquote className="pl-8 border-l-4 border-[#156D37]">
-                    <p className="text-2xl text-neutral-800 font-light italic">
+                  <blockquote className="bg-white p-8 rounded-2xl shadow-sm">
+                    <p className="text-2xl text-[#202124] font-light italic leading-relaxed">
                       &ldquo;Your mind must arrive at the destination before you do. No matter how good your skill set is, if you don't have the mentality that you're going to win, you've already lost before you started.&rdquo;
                     </p>
                   </blockquote>
@@ -167,34 +170,38 @@ export default function Page() {
 
                 {/* Early Life */}
                 <section className="space-y-6">
-                  <h2 className="text-3xl font-semibold text-neutral-900 font-display uppercase">Early Challenges & Choices</h2>
-                  <p className="text-lg text-neutral-700 leading-relaxed">
+                  <h2 className="text-3xl font-semibold text-[#202124] font-display uppercase tracking-wide">Early Challenges & Choices</h2>
+                  <div className="h-1 w-16 bg-red-700 rounded-full"></div>
+                  <p className="text-lg text-[#333536] leading-relaxed">
                     Growing up in Chicago, Josiah faced the harsh realities of urban life head-on. Despite not having seen his father since age 10 and watching his mother struggle to make ends meet, he made a conscious decision to choose a different path. While many in his situation might have turned to less constructive alternatives, Josiah's mindset became his compass, guiding him toward positive choices and productive pursuits.
                   </p>
                 </section>
 
                 {/* Business Success */}
                 <section className="space-y-8">
-                  <h2 className="text-3xl font-semibold text-neutral-900 font-display uppercase">Building Success Through Mindset</h2>
-                  <p className="text-lg text-neutral-700 leading-relaxed">
+                  <div className="space-y-4">
+                    <h2 className="text-3xl font-semibold text-[#202124] font-display uppercase tracking-wide">Building Success Through Mindset</h2>
+                    <div className="h-1 w-16 bg-red-700 rounded-full"></div>
+                  </div>
+                  <p className="text-lg text-[#333536] leading-relaxed">
                     By age 20, Josiah had already built and managed four successful businesses. His enterprises focus on empowering, educating, and motivating individuals across all age groups.
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="space-y-3 p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                      <h3 className="text-xl font-medium text-[#156D37] font-display uppercase">Dedication</h3>
-                      <p className="text-neutral-600">
+                    <div className="space-y-4 p-8 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                      <h3 className="text-xl font-medium text-red-700 font-display uppercase">Dedication</h3>
+                      <p className="text-[#333536]">
                         Commitment to excellence in every venture and initiative
                       </p>
                     </div>
-                    <div className="space-y-3 p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                      <h3 className="text-xl font-medium text-[#156D37] font-display uppercase">Discipline</h3>
-                      <p className="text-neutral-600">
+                    <div className="space-y-4 p-8 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                      <h3 className="text-xl font-medium text-red-700 font-display uppercase">Discipline</h3>
+                      <p className="text-[#333536]">
                         Maintaining focus and drive even through challenging times
                       </p>
                     </div>
-                    <div className="space-y-3 p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                      <h3 className="text-xl font-medium text-[#156D37] font-display uppercase">Determination</h3>
-                      <p className="text-neutral-600">
+                    <div className="space-y-4 p-8 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                      <h3 className="text-xl font-medium text-red-700 font-display uppercase">Determination</h3>
+                      <p className="text-[#333536]">
                         Unwavering resolve to achieve goals and create positive impact
                       </p>
                     </div>
@@ -203,12 +210,15 @@ export default function Page() {
 
                 {/* Philosophy and Impact */}
                 <section className="space-y-6">
-                  <h2 className="text-3xl font-semibold text-neutral-900 font-display uppercase">Philosophy & Community Impact</h2>
-                  <div className="space-y-6">
-                    <p className="text-lg text-neutral-700 leading-relaxed">
+                  <div className="space-y-4">
+                    <h2 className="text-3xl font-semibold text-[#202124] font-display uppercase tracking-wide">Philosophy & Community Impact</h2>
+                    <div className="h-1 w-16 bg-red-700 rounded-full"></div>
+                  </div>
+                  <div className="space-y-6 bg-white p-8 rounded-2xl shadow-sm">
+                    <p className="text-lg text-[#333536] leading-relaxed">
                       Josiah's success philosophy emphasizes the critical importance of maintaining, retaining, and sustaining achievements through proper mindset. He believes that true success comes not just from acquiring skills or resources, but from developing the mental framework to properly utilize and grow them.
                     </p>
-                    <p className="text-lg text-neutral-700 leading-relaxed">
+                    <p className="text-lg text-[#333536] leading-relaxed">
                       Through his businesses and speaking engagements, Josiah continues to share his message of empowerment and positive mindset, helping others recognize that their circumstances don't define their potential for success.
                     </p>
                   </div>
@@ -223,10 +233,11 @@ export default function Page() {
       <section className="py-24 bg-white">
         <Container>
           <div className="max-w-2xl mx-auto text-center mb-20">
-            <h2 className="text-4xl font-semibold text-neutral-900 mb-6 font-display uppercase">
+            <h2 className="text-4xl font-semibold text-[#202124] mb-6 font-display uppercase tracking-wide">
               Rooted in Community
             </h2>
-            <p className="text-lg text-neutral-600">
+            <div className="h-1 w-16 bg-red-700 rounded-full mx-auto mb-8"></div>
+            <p className="text-lg text-[#333536]">
               Josiah's journey is more than a tale of success—it's a testament to the power of mindset over circumstances.
             </p>
           </div>

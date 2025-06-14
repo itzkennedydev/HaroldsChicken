@@ -6,8 +6,6 @@ import Image from "next/image";
 import { CustomButton } from "@/app/components/ui/custom-button";
 import { Badge } from "@/app/components/ui/badge";
 import { Container } from "@/app/components/ui/container";
-import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
 
 // Remove ButtonVariant import since we'll use string literal type
 type ButtonVariant = "default" | "outline" | "ghost";
@@ -49,7 +47,6 @@ export function Header({ variant = 'default' }: HeaderProps) {
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
   const firstNavItemRef = useRef<HTMLAnchorElement>(null);
   const headerRef = useRef<HTMLElement>(null);
-  const pathname = usePathname();
 
   const isWhiteVariant = variant === 'white';
 
@@ -170,7 +167,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
       role="banner"
       aria-label="Main navigation"
     >
-      <Container className="h-[88px] flex items-center py-6">
+      <Container className="h-[80px] flex items-center py-4">
         {/* Logo */}
         <Link 
           href="/" 
@@ -198,10 +195,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
               key={item.label}
               href={item.href}
               ref={index === 0 ? firstNavItemRef : null}
-              className={cn(
-                getLinkClasses(true),
-                pathname === item.href && "relative after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-[calc(100%-1rem)] after:h-0.5 after:bg-red-700 after:rounded-full"
-              )}
+              className={getLinkClasses(true)}
               aria-label={`${item.label} - Press Alt + ${item.shortcut} to access`}
               {...(item.isExternal && {
                 target: "_blank",
@@ -305,10 +299,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsMobileNavOpen(false)}
-                className={cn(
-                  "block w-full text-[#202124] hover:text-red-700 transition-colors font-bold text-base py-2 hover:bg-gray-50 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-700 flex items-center gap-4",
-                  pathname === item.href && "text-red-700 bg-red-50"
-                )}
+                className="block w-full text-[#202124] hover:text-red-700 transition-colors font-bold text-base py-2 hover:bg-gray-50 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-700 flex items-center gap-4"
                 aria-label={`${item.label} - Press Alt + ${item.shortcut} to access`}
                 {...(item.isExternal && {
                   target: "_blank",
