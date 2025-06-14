@@ -45,13 +45,13 @@ export function Cravings() {
     },
     {
       id: 3,
-      name: "FAMILY WING PACK",
+      name: "CHICKEN BUCKET",
       calories: "840-1200",
       price: "19.99",
       image: "/images/ValueBucket.jpg",
-      imageAlt: "Family size wing pack",
+      imageAlt: "Family size chicken bucket",
       tag: "VALUE",
-      description: "24 wings with your choice of sauces, perfect for sharing"
+      description: "18 wings with your choice of sauces, perfect for sharing"
     }
   ];
 
