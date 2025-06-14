@@ -38,7 +38,7 @@ export function Cravings() {
       name: "FISH & FRIES COMBO",
       calories: "480-690",
       price: "8.99",
-      image: "/images/Catfish.JPG",
+      image: "/images/ValueProp/FullMenu.jpeg",
       imageAlt: "Fish and fries combo meal",
       tag: "BEST SELLER",
       description: "Crispy fish fillet served with our signature seasoned fries"
@@ -48,7 +48,7 @@ export function Cravings() {
       name: "FAMILY WING PACK",
       calories: "840-1200",
       price: "19.99",
-      image: "/images/FamilyDinner.JPG",
+      image: "/images/ValueBucket.jpg",
       imageAlt: "Family size wing pack",
       tag: "VALUE",
       description: "24 wings with your choice of sauces, perfect for sharing"
