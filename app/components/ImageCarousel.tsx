@@ -15,6 +15,9 @@ const images: CarouselImage[] = [
   { src: "/images/Celebs/Usher.png", alt: "Usher at Harold&apos;s Chicken" },
   { src: "/images/Celebs/JB.jpg", alt: "Blanton at Harold&apos;s Chicken" },
   { src: "/images/Celebs/Blanton.jpeg", alt: "Blanton at Harold&apos;s Chicken" },
+  { src: "/images/Celebs/Blanton2.jpg", alt: "Blanton at Harold&apos;s Chicken" },
+  { src: "/images/Celebs/Blanton3.jpg", alt: "Blanton at Harold&apos;s Chicken" },
+  { src: "/images/Celebs/Blanton4.jpg", alt: "Blanton at Harold&apos;s Chicken" },
   { src: "/images/Bday.jpg", alt: "Mr.J" },
   { src: "/images/Celebs/HaroldsCar.JPG", alt: "Harold&apos;s Car" },
   { src: "/images/Celebs/Owner.jpg", alt: "Owner of Harold&apos;s Chicken" },
@@ -52,14 +55,15 @@ export function ImageCarousel() {
           aria-label="Celebrity images carousel"
           style={{
             animationPlayState: isPaused ? 'paused' : 'running',
-            animationDuration: isMobile ? '60s' : '45s',
-            transform: 'translateZ(0)'
+            animationDuration: isMobile ? '120s' : '90s',
+            transform: 'translateZ(0)',
+            width: 'fit-content'
           }}
         >
-          {/* Double the images for infinite scrolling effect */}
-          {[...images, ...images].map((image, index) => (
+          {/* First set of images */}
+          {images.map((image, index) => (
             <div
-              key={index}
+              key={`first-${index}`}
               className="relative w-[280px] sm:w-[400px] md:w-[600px] h-[184px] sm:h-[244px] md:h-[304px] flex-none rounded-lg overflow-hidden select-none"
               role="listitem"
               aria-label={`Slide ${index + 1} of ${images.length * 2}`}
@@ -72,6 +76,24 @@ export function ImageCarousel() {
                 sizes="(max-width: 640px) 280px, (max-width: 768px) 400px, 600px"
                 priority={index === 0}
                 loading={index === 0 ? "eager" : "lazy"}
+              />
+            </div>
+          ))}
+          {/* Second set of images for seamless loop */}
+          {images.map((image, index) => (
+            <div
+              key={`second-${index}`}
+              className="relative w-[280px] sm:w-[400px] md:w-[600px] h-[184px] sm:h-[244px] md:h-[304px] flex-none rounded-lg overflow-hidden select-none"
+              role="listitem"
+              aria-label={`Slide ${index + images.length + 1} of ${images.length * 2}`}
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                className="object-cover pointer-events-none"
+                sizes="(max-width: 640px) 280px, (max-width: 768px) 400px, 600px"
+                loading="lazy"
               />
             </div>
           ))}
