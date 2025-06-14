@@ -28,7 +28,7 @@ function MenuBanner() {
       <div className="absolute inset-0 bg-black/40" />
       <Container className="relative z-10 flex items-center min-h-[400px] sm:min-h-[500px] md:min-h-[600px]">
         <div className="max-w-2xl text-white mx-auto text-center py-12 sm:py-16 md:py-24 px-4">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 md:mb-8 leading-tight uppercase">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 md:mb-8 uppercase whitespace-nowrap">
             Discover Our Menu
           </h1>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 md:mb-10 leading-relaxed uppercase font-medium">
@@ -383,7 +383,7 @@ function SearchBar({
 export default function MenuPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [priceRange, setPriceRange] = useState([0, 50]);
+  const [priceRange, setPriceRange] = useState([0, 350]);
   const [showFilters, setShowFilters] = useState(false);
 
   const categories = [
@@ -408,7 +408,7 @@ export default function MenuPage() {
   const clearFilters = () => {
     setSearchQuery("");
     setSelectedCategories([]);
-    setPriceRange([0, 50]);
+    setPriceRange([0, 350]);
   };
 
   const filterMenuItems = (items: { name: string; price: number; note?: string }[]) => {
@@ -433,6 +433,101 @@ export default function MenuPage() {
       return matchesSearch && matchesPrice;
     });
   };
+
+  // Add before the return in MenuPage
+  const partyPanWings = [
+    { name: "Party Pan 50 Wings", price: 104 },
+    { name: "Party Pan 75 Wings", price: 132 },
+    { name: "Party Pan 100 Wings", price: 208 },
+    { name: "Party Pan 150 Wings", price: 250 },
+    { name: "Party Pan 200 Wings", price: 348 }
+  ];
+  const partyPanMixed = [
+    { name: "Party Pan 50 pcs Mixed", price: 97 },
+    { name: "Party Pan 100 pcs Mixed", price: 181 },
+    { name: "Party Pan 150 pcs Mixed", price: 243 },
+    { name: "Party Pan 200 pcs Mixed", price: 313 }
+  ];
+  const filteredPartyWings = filterMenuItems(partyPanWings);
+  const filteredPartyMixed = filterMenuItems(partyPanMixed);
+
+  // CHICKEN SECTION
+  const chickenItems = [
+    { name: "4 Wings", price: 8 },
+    { name: "6 Wings", price: 9.5 },
+    { name: "8 Wings", price: 11.5 },
+    { name: "10 Wings", price: 12 },
+    { name: "Extra Wing", price: 3 }
+  ];
+  const chickenTenders = [
+    { name: "Tenders 4 pcs", price: 7 },
+    { name: "Tenders 6 pcs", price: 8.5 },
+    { name: "Tenders 8 pcs", price: 10.5 }
+  ];
+  const chickenPieces = [
+    { name: "1/4 White", price: 7 },
+    { name: "1/4 Dark", price: 5.5 },
+    { name: "1/2 White", price: 11 },
+    { name: "1/2 Dark", price: 9.5 },
+    { name: "1/2 Mixed", price: 9 },
+    { name: "8 pc Mixed", price: 14 },
+    { name: "16 pc Mixed", price: 20 },
+    { name: "24 pc Mixed", price: 26.5 },
+    { name: "Extra Leg or Thigh", price: 3.5 },
+    { name: "Extra Breast", price: 3.5 }
+  ];
+  const specialtyChicken = [
+    { name: "Chicken Sandwich", price: 10.5 },
+    { name: "Chicken & Waffles", price: 9.5 }
+  ];
+  const filteredChickenItems = filterMenuItems(chickenItems);
+  const filteredChickenTenders = filterMenuItems(chickenTenders);
+  const filteredChickenPieces = filterMenuItems(chickenPieces);
+  const filteredSpecialtyChicken = filterMenuItems(specialtyChicken);
+  const showChickenSection =
+    filteredChickenItems.length > 0 ||
+    filteredChickenTenders.length > 0 ||
+    filteredChickenPieces.length > 0 ||
+    filteredSpecialtyChicken.length > 0;
+
+  // FISH & SEAFOOD SECTION
+  const fishCatfish = [
+    { name: "Small Catfish", price: 14 },
+    { name: "Large Catfish", price: 22 },
+    { name: "12 pc Catfish", price: 42 },
+    { name: "Small Cat Nugget", price: 14 },
+    { name: "Large Cat Nugget", price: 19 },
+    { name: "Extra Catfish", price: 6 }
+  ];
+  const fishPerch = [
+    { name: "Small Perch", price: 15 },
+    { name: "Large Perch", price: 22 },
+    { name: "12 pc Perch", price: 47 },
+    { name: "Extra Perch", price: 6 }
+  ];
+  const fishWhiting = [
+    { name: "Small Whiting", price: 15 },
+    { name: "Large Whiting", price: 21 }
+  ];
+  const fishShrimp = [
+    { name: "8 pc Shrimp", price: 20 },
+    { name: "Buffalo Shrimp", price: 22 },
+    { name: "Extra Shrimp", price: 11 }
+  ];
+  const filteredFishCatfish = filterMenuItems(fishCatfish);
+  const filteredFishPerch = filterMenuItems(fishPerch);
+  const filteredFishWhiting = filterMenuItems(fishWhiting);
+  const filteredFishShrimp = filterMenuItems(fishShrimp);
+  const showFishSection = filteredFishCatfish.length > 0 || filteredFishPerch.length > 0 || filteredFishWhiting.length > 0 || filteredFishShrimp.length > 0;
+
+  const hasAnyResults =
+    filteredChickenItems.length > 0 ||
+    filteredChickenTenders.length > 0 ||
+    filteredChickenPieces.length > 0 ||
+    filteredSpecialtyChicken.length > 0 ||
+    filteredPartyWings.length > 0 ||
+    filteredPartyMixed.length > 0 ||
+    showFishSection;
 
   return (
     <div className="bg-white min-h-screen pb-8 sm:pb-16">
@@ -500,7 +595,7 @@ export default function MenuPage() {
                   <Slider
                     value={priceRange}
                     onValueChange={setPriceRange}
-                    max={50}
+                    max={350}
                     step={1}
                     className="mb-3 sm:mb-4"
                   />
@@ -514,7 +609,7 @@ export default function MenuPage() {
           )}
 
           {/* Active Filters Display */}
-          {(selectedCategories.length > 0 || searchQuery || priceRange[0] > 0 || priceRange[1] < 50) && (
+          {(selectedCategories.length > 0 || searchQuery || priceRange[0] > 0 || priceRange[1] < 350) && (
             <div className="flex flex-wrap gap-2">
               {selectedCategories.map((category) => (
                 <Badge
@@ -540,13 +635,13 @@ export default function MenuPage() {
                   />
                 </Badge>
               )}
-              {(priceRange[0] > 0 || priceRange[1] < 50) && (
+              {(priceRange[0] > 0 || priceRange[1] < 350) && (
                 <Badge variant="secondary" className="flex items-center gap-1 bg-[#F8F9FA] text-[#202124] border border-gray-200 text-sm">
                   Price: ${priceRange[0]} - ${priceRange[1]}
                   <X
                     size={12}
                     className="cursor-pointer hover:text-red-700"
-                    onClick={() => setPriceRange([0, 50])}
+                    onClick={() => setPriceRange([0, 350])}
                   />
                 </Badge>
               )}
@@ -554,10 +649,13 @@ export default function MenuPage() {
           )}
         </div>
 
+        {!hasAnyResults && (
+          <div className="w-full text-center text-gray-500 py-8 text-lg">No results found</div>
+        )}
+
         {/* MAIN MENU SECTIONS */}
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-          {/* CHICKEN SECTION */}
-          {(!selectedCategories.length || selectedCategories.includes("CHICKEN")) && (
+          {showChickenSection && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
               <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
                 <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">CHICKEN</CardTitle>
@@ -565,18 +663,12 @@ export default function MenuPage() {
               <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
                 {/* Wing Dinners */}
                 <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
-                    Wing Dinners
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                    <span className="w-1 h-6 bg-red-700"></span>
+                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Wing Dinners</span>
                   </h3>
                   <ul className="space-y-2">
-                    {filterMenuItems([
-                      { name: "4 Wings", price: 8 },
-                      { name: "6 Wings", price: 9.5 },
-                      { name: "8 Wings", price: 11.5 },
-                      { name: "10 Wings", price: 12 },
-                      { name: "Extra Wing", price: 3 }
-                    ]).map((item, index) => (
+                    {filteredChickenItems.map((item, index) => (
                       <MenuItem key={index} {...item} />
                     ))}
                   </ul>
@@ -584,16 +676,12 @@ export default function MenuPage() {
 
                 {/* Chicken Tenders */}
                 <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
-                    Chicken Tenders
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                    <span className="w-1 h-6 bg-red-700"></span>
+                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Chicken Tenders</span>
                   </h3>
                   <ul className="space-y-2">
-                    {filterMenuItems([
-                      { name: "Tenders 4 pcs", price: 7 },
-                      { name: "Tenders 6 pcs", price: 8.5 },
-                      { name: "Tenders 8 pcs", price: 10.5 }
-                    ]).map((item, index) => (
+                    {filteredChickenTenders.map((item, index) => (
                       <MenuItem key={index} {...item} />
                     ))}
                   </ul>
@@ -601,23 +689,12 @@ export default function MenuPage() {
 
                 {/* Chicken Pieces */}
                 <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
-                    Chicken Pieces
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                    <span className="w-1 h-6 bg-red-700"></span>
+                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Chicken Pieces</span>
                   </h3>
                   <ul className="space-y-2">
-                    {filterMenuItems([
-                      { name: "1/4 White", price: 7 },
-                      { name: "1/4 Dark", price: 5.5 },
-                      { name: "1/2 White", price: 11 },
-                      { name: "1/2 Dark", price: 9.5 },
-                      { name: "1/2 Mixed", price: 9 },
-                      { name: "8 pc Mixed", price: 14 },
-                      { name: "16 pc Mixed", price: 20 },
-                      { name: "24 pc Mixed", price: 26.5 },
-                      { name: "Extra Leg or Thigh", price: 3.5 },
-                      { name: "Extra Breast", price: 3.5 }
-                    ]).map((item, index) => (
+                    {filteredChickenPieces.map((item, index) => (
                       <MenuItem key={index} {...item} />
                     ))}
                   </ul>
@@ -625,15 +702,12 @@ export default function MenuPage() {
 
                 {/* Specialty Chicken Items */}
                 <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
-                    Specialty Chicken Items
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                    <span className="w-1 h-6 bg-red-700"></span>
+                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Specialty Chicken Items</span>
                   </h3>
                   <ul className="space-y-2">
-                    {filterMenuItems([
-                      { name: "Chicken Sandwich", price: 10.5 },
-                      { name: "Chicken & Waffles", price: 9.5 }
-                    ]).map((item, index) => (
+                    {filteredSpecialtyChicken.map((item, index) => (
                       <MenuItem key={index} {...item} />
                     ))}
                   </ul>
@@ -643,7 +717,7 @@ export default function MenuPage() {
           )}
 
           {/* FISH & SEAFOOD SECTION */}
-          {(!selectedCategories.length || selectedCategories.includes("FISH & SEAFOOD")) && (
+          {showFishSection && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
               <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
                 <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">FISH & SEAFOOD</CardTitle>
@@ -651,19 +725,12 @@ export default function MenuPage() {
               <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
                 {/* Catfish */}
                 <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
-                    Catfish
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                    <span className="w-1 h-6 bg-red-700"></span>
+                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Catfish</span>
                   </h3>
                   <ul className="space-y-2">
-                    {filterMenuItems([
-                      { name: "Small Catfish", price: 14 },
-                      { name: "Large Catfish", price: 22 },
-                      { name: "12 pc Catfish", price: 42 },
-                      { name: "Small Cat Nugget", price: 14 },
-                      { name: "Large Cat Nugget", price: 19 },
-                      { name: "Extra Catfish", price: 6 }
-                    ]).map((item, index) => (
+                    {filteredFishCatfish.map((item, index) => (
                       <MenuItem key={index} {...item} />
                     ))}
                   </ul>
@@ -671,17 +738,12 @@ export default function MenuPage() {
 
                 {/* Perch */}
                 <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
-                    Perch
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                    <span className="w-1 h-6 bg-red-700"></span>
+                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Perch</span>
                   </h3>
                   <ul className="space-y-2">
-                    {filterMenuItems([
-                      { name: "Small Perch", price: 15 },
-                      { name: "Large Perch", price: 22 },
-                      { name: "12 pc Perch", price: 47 },
-                      { name: "Extra Perch", price: 6 }
-                    ]).map((item, index) => (
+                    {filteredFishPerch.map((item, index) => (
                       <MenuItem key={index} {...item} />
                     ))}
                   </ul>
@@ -689,15 +751,12 @@ export default function MenuPage() {
 
                 {/* Whiting */}
                 <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
-                    Whiting
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                    <span className="w-1 h-6 bg-red-700"></span>
+                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Whiting</span>
                   </h3>
                   <ul className="space-y-2">
-                    {filterMenuItems([
-                      { name: "Small Whiting", price: 15 },
-                      { name: "Large Whiting", price: 21 }
-                    ]).map((item, index) => (
+                    {filteredFishWhiting.map((item, index) => (
                       <MenuItem key={index} {...item} />
                     ))}
                   </ul>
@@ -705,16 +764,12 @@ export default function MenuPage() {
 
                 {/* Shrimp */}
                 <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
-                    Shrimp
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                    <span className="w-1 h-6 bg-red-700"></span>
+                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Shrimp</span>
                   </h3>
                   <ul className="space-y-2">
-                    {filterMenuItems([
-                      { name: "8 pc Shrimp", price: 20 },
-                      { name: "Buffalo Shrimp", price: 22 },
-                      { name: "Extra Shrimp", price: 11 }
-                    ]).map((item, index) => (
+                    {filteredFishShrimp.map((item, index) => (
                       <MenuItem key={index} {...item} />
                     ))}
                   </ul>
@@ -732,9 +787,9 @@ export default function MenuPage() {
               <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
                 {/* Harold's Signature Sauces */}
                 <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
-                    Harold's Signature Sauces
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                    <span className="w-1 h-6 bg-red-700"></span>
+                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Harold's Signature Sauces</span>
                   </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
@@ -749,9 +804,9 @@ export default function MenuPage() {
 
                 {/* Condiments & Extras */}
                 <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
-                    Condiments & Extras
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                    <span className="w-1 h-6 bg-red-700"></span>
+                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Condiments & Extras</span>
                   </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
@@ -787,9 +842,9 @@ export default function MenuPage() {
               <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
                 {/* Fried Appetizers */}
                 <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
-                    Fried Appetizers
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                    <span className="w-1 h-6 bg-red-700"></span>
+                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Fried Appetizers</span>
                   </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
@@ -813,9 +868,9 @@ export default function MenuPage() {
 
                 {/* Sides */}
                 <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
-                    Sides
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                    <span className="w-1 h-6 bg-red-700"></span>
+                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Sides</span>
                   </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
@@ -844,9 +899,9 @@ export default function MenuPage() {
               <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
                 {/* Specialty Cocktails */}
                 <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
-                    Specialty Cocktails
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                    <span className="w-1 h-6 bg-red-700"></span>
+                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Specialty Cocktails</span>
                   </h3>
                   <ul className="space-y-3">
                     {filterCocktails([
@@ -866,9 +921,9 @@ export default function MenuPage() {
 
                 {/* Non-Alcoholic Beverages */}
                 <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
-                    <span className="w-1 h-6 bg-red-700 rounded-full"></span>
-                    Non-Alcoholic Beverages
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                    <span className="w-1 h-6 bg-red-700"></span>
+                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Non-Alcoholic Beverages</span>
                   </h3>
                   <ul className="space-y-2">
                     {filterMenuItems([
@@ -927,38 +982,35 @@ export default function MenuPage() {
                   <div className="grid grid-cols-1 gap-8">
                     {/* Wing Party Pans */}
                     <div>
-                      <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
-                        <span className="w-1 h-6 bg-red-700 rounded-full"></span>
-                        Wing Party Pans
+                      <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                        <span className="w-1 h-6 bg-red-700"></span>
+                        <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Wing Party Pans</span>
                       </h3>
                       <ul className="space-y-2">
-                        {filterMenuItems([
-                          { name: "Party Pan 50 Wings", price: 104 },
-                          { name: "Party Pan 75 Wings", price: 132 },
-                          { name: "Party Pan 100 Wings", price: 208 },
-                          { name: "Party Pan 150 Wings", price: 250 },
-                          { name: "Party Pan 200 Wings", price: 348 }
-                        ]).map((item, index) => (
-                          <MenuItem key={index} {...item} />
-                        ))}
+                        {filteredPartyWings.length === 0 ? (
+                          <li className="text-gray-500 italic">No items found for your search/filter.</li>
+                        ) : (
+                          filteredPartyWings.map((item, index) => (
+                            <MenuItem key={index} {...item} />
+                          ))
+                        )}
                       </ul>
                     </div>
 
                     {/* Mixed Chicken Party Pans */}
                     <div>
-                      <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
-                        <span className="w-1 h-6 bg-red-700 rounded-full"></span>
-                        Mixed Chicken Party Pans
+                      <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                        <span className="w-1 h-6 bg-red-700"></span>
+                        <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Mixed Chicken Party Pans</span>
                       </h3>
                       <ul className="space-y-2">
-                        {filterMenuItems([
-                          { name: "Party Pan 50 pcs Mixed", price: 97 },
-                          { name: "Party Pan 100 pcs Mixed", price: 181 },
-                          { name: "Party Pan 150 pcs Mixed", price: 243 },
-                          { name: "Party Pan 200 pcs Mixed", price: 313 }
-                        ]).map((item, index) => (
-                          <MenuItem key={index} {...item} />
-                        ))}
+                        {filteredPartyMixed.length === 0 ? (
+                          <li className="text-gray-500 italic">No items found for your search/filter.</li>
+                        ) : (
+                          filteredPartyMixed.map((item, index) => (
+                            <MenuItem key={index} {...item} />
+                          ))
+                        )}
                       </ul>
                     </div>
                   </div>
