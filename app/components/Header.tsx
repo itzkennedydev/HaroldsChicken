@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { CustomButton } from "@/app/components/ui/custom-button";
 import { Badge } from "@/app/components/ui/badge";
 import { Container } from "@/app/components/ui/container";
@@ -47,6 +48,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
   const firstNavItemRef = useRef<HTMLAnchorElement>(null);
   const headerRef = useRef<HTMLElement>(null);
+  const pathname = usePathname();
 
   const isWhiteVariant = variant === 'white';
 
@@ -139,12 +141,14 @@ export function Header({ variant = 'default' }: HeaderProps) {
   };
 
   // Get dynamic link classes
-  const getLinkClasses = (isNavItem = false) => {
+  const getLinkClasses = (isNavItem = false, href: string) => {
     const baseClasses = "transition-colors font-bold text-base tracking-wider focus:outline-none focus:ring-2 focus:ring-red-700 rounded";
     const textClasses = 
-      isWhiteVariant && isAtTop ? 'text-white hover:text-gray-200' : 'text-[#202124] hover:text-red-700'
+      isWhiteVariant && isAtTop ? 'text-white hover:text-gray-200' : 'text-[#202124] hover:text-red-700';
+    const activeClasses = pathname === href ? 'relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-red-700' : '';
+    
     if (isNavItem) {
-      return `${baseClasses} px-2 py-1 flex items-center gap-4 ${textClasses}`;
+      return `${baseClasses} px-2 py-1 flex items-center gap-4 ${textClasses} ${activeClasses}`;
     }
     return baseClasses;
   };
@@ -171,7 +175,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
         {/* Logo */}
         <Link 
           href="/" 
-          className={getLinkClasses()}
+          className={getLinkClasses(false, "/")}
           aria-label="Harold&apos;s Chicken - Return to homepage"
         >
           <Image
@@ -195,14 +199,19 @@ export function Header({ variant = 'default' }: HeaderProps) {
               key={item.label}
               href={item.href}
               ref={index === 0 ? firstNavItemRef : null}
-              className={getLinkClasses(true)}
+              className={getLinkClasses(true, item.href)}
               aria-label={`${item.label} - Press Alt + ${item.shortcut} to access`}
               {...(item.isExternal && {
                 target: "_blank",
                 rel: "noopener noreferrer"
               })}
             >
-              <span>{item.label}</span>
+              <span className="relative inline-block">
+                {item.label}
+                {pathname === item.href && (
+                  <span className="absolute bottom-[-4px] left-0 w-full h-0.5 bg-red-700" />
+                )}
+              </span>
               {item.badge && (
                 <Badge className={`transition-colors duration-200 text-xs font-medium font-display uppercase ${item.badge.className}`}>
                   {item.badge.text}
@@ -306,7 +315,12 @@ export function Header({ variant = 'default' }: HeaderProps) {
                   rel: "noopener noreferrer"
                 })}
               >
-                <span>{item.label}</span>
+                <span className="relative inline-block">
+                  {item.label}
+                  {pathname === item.href && (
+                    <span className="absolute bottom-[-4px] left-0 w-full h-0.5 bg-red-700" />
+                  )}
+                </span>
                 {item.badge && (
                   <Badge className={`transition-colors duration-200 text-xs font-medium font-display uppercase ${item.badge.className}`}>
                     {item.badge.text}
