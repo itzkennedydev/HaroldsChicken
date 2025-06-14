@@ -56,17 +56,7 @@ export function Footer() {
           href: "https://www.facebook.com/p/Harolds-Chicken-Sports-Bar-61571084314548/",
           label: "FACEBOOK",
           external: true
-        },
-        { 
-          href: "https://twitter.com/haroldschicken", 
-          label: "TWITTER",
-          external: true
-        },
-        { 
-          href: "https://tiktok.com/@haroldschicken", 
-          label: "TIKTOK",
-          external: true
-        },
+        }
       ]
     },
   };
@@ -77,19 +67,19 @@ export function Footer() {
       role="contentinfo"
       aria-label="Footer"
     >
-      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-32 py-16 w-full">
+      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-32 py-8 w-full">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-16 w-full">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 lg:gap-20 w-full">
           {Object.entries(footerSections).map(([key, section]) => (
             <div key={key} className="space-y-8">
               <h2 
-                className="text-base font-bold text-[#202124] uppercase font-display"
+                className="text-base font-bold text-[#202124] uppercase font-display tracking-wider"
                 id={`footer-${key}-heading`}
               >
                 {section.title}
               </h2>
               <ul 
-                className="space-y-4"
+                className="space-y-5"
                 aria-labelledby={`footer-${key}-heading`}
                 role="list"
               >
@@ -137,7 +127,7 @@ export function Footer() {
         </div>
 
         {/* Legal Links */}
-        <div className="mt-16 pt-8 border-t border-gray-200">
+        <div className="mt-12 pt-6 border-t border-gray-200">
           <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8">
             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
               <Link 
@@ -171,6 +161,14 @@ export function Footer() {
                 className="text-sm text-[#475467] hover:text-red-700 font-display uppercase font-medium transition-colors duration-200"
               >
                 TERMS OF SERVICE
+              </Link>
+              <Link 
+                href="https://sovereigncreative.agency" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-[#475467] hover:text-red-700 font-display uppercase font-medium transition-colors duration-200"
+              >
+                POWERED BY SOVEREIGN CREATIVE AGENCY
               </Link>
             </div>
           </div>
