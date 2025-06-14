@@ -34,7 +34,7 @@ export function Cravings() {
       price: "5.99",
       image: "/images/HoneyBiscuits.png",
       imageAlt: "Freshly baked honey glazed biscuits",
-      tag: "BEST SELLER",
+      tag: "NEW",
       description: "Warm, fluffy biscuits drizzled with our signature honey glaze"
     },
     {
@@ -44,7 +44,7 @@ export function Cravings() {
       price: "8.99",
       image: "/images/Catfish.jpg",
       imageAlt: "Fish and fries combo meal",
-      tag: "NEW",
+      tag: "BEST SELLER",
       description: "Crispy fish fillet served with our signature seasoned fries"
     },
     {
