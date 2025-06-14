@@ -178,7 +178,7 @@ function MenuNotices() {
             <div>
               <h4 className="text-lg font-semibold text-[#202124] mb-2">Refund Policy</h4>
               <p className="text-[#333536] leading-relaxed">
-                Only remakes or food exchanges are allowed. We do not offer exchange of cash refunds.
+                At our restaurant, we strive to ensure every guest is satisfied with their experience. While we do not offer cash refunds, we are happy to exchange your dish or remake it to ensure it meets your expectations.
               </p>
             </div>
           </div>
