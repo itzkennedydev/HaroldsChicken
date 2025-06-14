@@ -18,8 +18,8 @@ export function Hero() {
 
   const content: HeroContent = {
     title: "Chicago's Soul In\nEvery Bite",
-    description: "Experience the iconic taste of Harolds Chicken that has delighted Chicago for\n" +
-                "generations. From family gatherings to late-night cravings.",
+    description: "Experience the legendary Harold's Chicken that's obsessed with Chicago\n for 70+ years." +
+                "Hand-breaded fresh daily with our secret spice blend.",
     buttonText: "Order Now"
   };
 
@@ -138,7 +138,7 @@ export function Hero() {
             </h1>
             <p 
               id="hero-description"
-              className="text-lg lg:text-xl 2xl:text-2xl text-white mb-10 leading-normal uppercase text-center font-medium max-w-[600px] xl:max-w-[700px] lg:max-w-[600px] md:max-w-[500px] mx-auto whitespace-pre-line"
+              className="text-lg lg:text-xl 2xl:text-2xl text-white mb-10 leading-normal text-center font-medium max-w-[600px] xl:max-w-[700px] lg:max-w-[600px] md:max-w-[500px] mx-auto whitespace-pre-line"
               tabIndex={0}
             >
               {content.description}
@@ -219,7 +219,7 @@ export function Hero() {
             </h1>
             <p 
               id="hero-description-mobile"
-              className="text-lg text-white mb-10 leading-normal uppercase text-center font-medium max-w-[340px] sm:max-w-[400px] mx-auto"
+              className="text-lg text-white mb-10 leading-normal text-center font-medium max-w-[340px] sm:max-w-[400px] mx-auto"
               tabIndex={0}
             >
               {content.description}
