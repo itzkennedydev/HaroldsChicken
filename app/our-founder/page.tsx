@@ -110,12 +110,6 @@ function LegacySection() {
                 Today, we continue to honor Harold&apos;s legacy by maintaining the quality and service that made us famous, while bringing our legendary chicken to new communities.
               </p>
             </div>
-            <Button 
-              size="lg"
-              className="bg-red-700 hover:bg-red-800 text-white font-bold px-8 py-4 uppercase w-full sm:w-auto"
-            >
-              Find a Location
-            </Button>
           </div>
         </div>
       </Container>
