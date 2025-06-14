@@ -35,6 +35,7 @@ const menuItems: MenuItem[] = [
     shortcut: 'c'
   },
   { label: "OUR FOUNDER", href: "/our-founder", shortcut: 'o' },
+  { label: "CONTACT", href: "/contact", shortcut: 't' },
 ];
 
 interface HeaderProps {
