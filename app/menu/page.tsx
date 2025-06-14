@@ -17,17 +17,17 @@ function MenuBanner() {
   return (
     <section className="relative min-h-[600px] w-full">
       <Image
-        src="/images/MenuBG.jpeg"
-        alt="Harold's Chicken and fries"
+        src="/images/CareersBG.png"
+        alt="Harold's Chicken team members working together"
         fill
         className="object-cover"
         priority
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-black/40" />
       <Container className="relative z-10 flex items-center min-h-[600px]">
         <div className="max-w-2xl text-white mx-auto text-center py-24">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight uppercase">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight uppercase whitespace-nowrap">
             Discover Our Menu
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed uppercase font-medium">
@@ -498,10 +498,10 @@ export default function MenuPage() {
           {/* CHICKEN SECTION */}
           {(!selectedCategories.length || selectedCategories.includes("CHICKEN")) && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-red-700 rounded-t-xl p-8">
+              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-8">
                 <CardTitle className="text-2xl text-white font-bold text-center uppercase">CHICKEN</CardTitle>
               </CardHeader>
-              <CardContent className="p-8 space-y-8">
+              <CardContent className="p-8 space-y-8 bg-white">
                 {/* Wing Dinners */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
@@ -584,10 +584,10 @@ export default function MenuPage() {
           {/* FISH & SEAFOOD SECTION */}
           {(!selectedCategories.length || selectedCategories.includes("FISH & SEAFOOD")) && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-red-700 rounded-t-xl p-8">
+              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-8">
                 <CardTitle className="text-2xl text-white font-bold text-center uppercase">FISH & SEAFOOD</CardTitle>
               </CardHeader>
-              <CardContent className="p-8 space-y-8">
+              <CardContent className="p-8 space-y-8 bg-white">
                 {/* Catfish */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
@@ -665,10 +665,10 @@ export default function MenuPage() {
           {/* SAUCES & EXTRAS SECTION */}
           {(!selectedCategories.length || selectedCategories.includes("SAUCES & EXTRAS")) && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-red-700 rounded-t-xl p-8">
+              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-8">
                 <CardTitle className="text-2xl text-white font-bold text-center uppercase">SAUCES & EXTRAS</CardTitle>
               </CardHeader>
-              <CardContent className="p-8 space-y-8">
+              <CardContent className="p-8 space-y-8 bg-white">
                 {/* Harold's Signature Sauces */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
@@ -720,10 +720,10 @@ export default function MenuPage() {
           {/* APPETIZERS & SIDES SECTION */}
           {(!selectedCategories.length || selectedCategories.includes("APPETIZERS & SIDES")) && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-red-700 rounded-t-xl p-8">
+              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-8">
                 <CardTitle className="text-2xl text-white font-bold text-center uppercase">APPETIZERS & SIDES</CardTitle>
               </CardHeader>
-              <CardContent className="p-8 space-y-8">
+              <CardContent className="p-8 space-y-8 bg-white">
                 {/* Fried Appetizers */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
@@ -777,10 +777,10 @@ export default function MenuPage() {
           {/* BEVERAGES SECTION */}
           {(!selectedCategories.length || selectedCategories.includes("BEVERAGES")) && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-red-700 rounded-t-xl p-8">
+              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-8">
                 <CardTitle className="text-2xl text-white font-bold text-center uppercase">BEVERAGES</CardTitle>
               </CardHeader>
-              <CardContent className="p-8 space-y-8">
+              <CardContent className="p-8 space-y-8 bg-white">
                 {/* Specialty Cocktails */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center gap-2">
@@ -828,10 +828,10 @@ export default function MenuPage() {
           {/* FISH COMBOS SECTION */}
           {(!selectedCategories.length || selectedCategories.includes("FISH COMBOS")) && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-red-700 rounded-t-xl p-8">
+              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-8">
                 <CardTitle className="text-2xl text-white font-bold text-center uppercase">FISH COMBOS</CardTitle>
               </CardHeader>
-              <CardContent className="p-8">
+              <CardContent className="p-8 bg-white">
                 <ul className="space-y-2">
                   {filterMenuItems([
                     { name: "Catfish & 1/4 Chicken (White)", price: 27 },
@@ -859,10 +859,10 @@ export default function MenuPage() {
             {/* PARTY PANS SECTION */}
             {(!selectedCategories.length || selectedCategories.includes("PARTY PANS")) && (
               <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-                <CardHeader className="bg-red-700 rounded-t-xl p-8">
+                <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-8">
                   <CardTitle className="text-2xl text-white font-bold text-center uppercase">PARTY PANS</CardTitle>
                 </CardHeader>
-                <CardContent className="p-8">
+                <CardContent className="p-8 bg-white">
                   <div className="grid grid-cols-1 gap-8">
                     {/* Wing Party Pans */}
                     <div>
@@ -908,10 +908,10 @@ export default function MenuPage() {
             {/* DESSERTS SECTION */}
             {(!selectedCategories.length || selectedCategories.includes("DESSERTS")) && (
               <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-                <CardHeader className="bg-red-700 rounded-t-xl p-8">
+                <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-8">
                   <CardTitle className="text-2xl text-white font-bold text-center uppercase">DESSERTS</CardTitle>
                 </CardHeader>
-                <CardContent className="p-8">
+                <CardContent className="p-8 bg-white">
                   <div className="max-w-2xl mx-auto">
                     <ul className="space-y-2">
                       {filterMenuItems([

@@ -171,7 +171,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
       role="banner"
       aria-label="Main navigation"
     >
-      <Container className="h-[80px] flex items-center py-4">
+      <Container className="h-[100px] flex items-center py-6">
         {/* Logo */}
         <Link 
           href="/" 
