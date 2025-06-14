@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
+import Link from "next/link";
 import { useInView } from 'react-intersection-observer';
 import { Container } from "./ui/container";
 
@@ -35,7 +36,7 @@ export function ValueProp() {
       title: "FRESH, NEVER FROZEN CHICKEN",
       description: "At Harold's, we take pride in serving only the freshest chicken. Our commitment to quality means we never freeze our chicken, ensuring that every bite delivers that perfect, juicy tenderness our customers love. This dedication to freshness is part of what makes Harold's Chicken a Chicago legend.",
       buttonText: "LEARN MORE",
-      buttonLink: "/about",
+      buttonLink: "/our-founder",
       imagePosition: "bottom",
       imageAlt: "Best Seller placeholder",
       imagePlaceholder: false,
@@ -86,7 +87,7 @@ export function ValueProp() {
               aria-labelledby={`heading-${prop.id}`}
             >
               <div 
-                className="flex-1 space-y-6 md:space-y-8"
+                className="flex-1 space-y-6"
                 role="group"
                 aria-labelledby={`heading-${prop.id}`}
               >
@@ -96,41 +97,43 @@ export function ValueProp() {
                 >
                   {prop.title}
                 </h2>
-                <p className="text-base sm:text-lg text-[#333536] leading-relaxed font-medium">
+                <p className="text-base sm:text-lg text-[#333536] leading-relaxed font-medium mb-4">
                   {prop.description}
                 </p>
 
-                <Button 
-                  size="lg"
-                  className={`w-full sm:w-auto bg-red-700 text-white font-bold px-8 py-4 uppercase text-sm sm:text-base
-                    transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]
-                    hover:bg-red-800 focus:ring-2 focus:ring-offset-2 focus:ring-red-700 focus:outline-none
-                    ${hoveredButton === prop.id ? 'shadow-lg' : 'shadow'}`}
-                  aria-label={`${prop.buttonText} about ${prop.title.toLowerCase()}`}
-                  onMouseEnter={() => setHoveredButton(prop.id)}
-                  onMouseLeave={() => setHoveredButton(null)}
-                  onFocus={() => setHoveredButton(prop.id)}
-                  onBlur={() => setHoveredButton(null)}
-                >
-                  <span className="flex items-center gap-2">
-                    {prop.buttonText}
-                    <svg
-                      className={`w-4 h-4 transition-transform duration-300 ${
-                        hoveredButton === prop.id ? 'translate-x-1' : ''
-                      }`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </span>
-                </Button>
+                <Link href={prop.buttonLink} className="block mt-4">
+                  <Button 
+                    size="lg"
+                    className={`w-full sm:w-auto bg-red-700 text-white font-bold px-8 py-4 uppercase text-sm sm:text-base
+                      transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]
+                      hover:bg-red-800 focus:ring-2 focus:ring-offset-2 focus:ring-red-700 focus:outline-none
+                      ${hoveredButton === prop.id ? 'shadow-lg' : 'shadow'}`}
+                    aria-label={`${prop.buttonText} about ${prop.title.toLowerCase()}`}
+                    onMouseEnter={() => setHoveredButton(prop.id)}
+                    onMouseLeave={() => setHoveredButton(null)}
+                    onFocus={() => setHoveredButton(prop.id)}
+                    onBlur={() => setHoveredButton(null)}
+                  >
+                    <span className="flex items-center gap-2">
+                      {prop.buttonText}
+                      <svg
+                        className={`w-4 h-4 transition-transform duration-300 ${
+                          hoveredButton === prop.id ? 'translate-x-1' : ''
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </span>
+                  </Button>
+                </Link>
               </div>
 
               <div className="flex-1 w-full mt-8 md:mt-0">
