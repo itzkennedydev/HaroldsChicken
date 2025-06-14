@@ -88,7 +88,7 @@ function LegacySection() {
               </div>
               <div className="relative aspect-square w-full">
                 <Image
-                  src="/images/Legacy/Pierce.jpeg"
+                  src="/images/Legacy/NewBar.jpeg"
                   alt="Classic Harold's storefront"
                   fill
                   className="rounded-lg object-cover"

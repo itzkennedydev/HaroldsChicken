@@ -107,11 +107,11 @@
 }
 
 @keyframes carousel {
-  0% {
-    transform: translate3d(0, 0, 0);
+  from {
+    transform: translateX(0);
   }
-  100% {
-    transform: translate3d(-50%, 0, 0);
+  to {
+    transform: translateX(calc(-50% - 1rem));
   }
 }
 

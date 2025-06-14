@@ -29,7 +29,7 @@ export function Cravings() {
   const items: MenuItem[] = [
     {
       id: 1,
-      name: "HONEY GLAZED BISCUITS",
+      name: "HOT HEAVY HONEY GLAZE BISCUITS",
       calories: "320-450",
       price: "5.99",
       image: "/images/HoneyBiscuits.png",
