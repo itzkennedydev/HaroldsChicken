@@ -68,6 +68,7 @@ export function Hero() {
   return (
     <section 
       className="w-full relative bg-[#1a1a1a]"
+      style={{ paddingTop: 0, backgroundColor: '#1a1a1a', WebkitTouchCallout: 'none', WebkitTapHighlightColor: 'transparent' }}
       aria-label="Welcome to Harold&apos;s Chicken"
       role="region"
       aria-roledescription="hero"
@@ -193,7 +194,7 @@ export function Hero() {
             alt="Signature Harold&apos;s Chicken bucket featuring fresh fried chicken"
             width={600}
             height={600}
-            className={`relative z-10 w-[280px] sm:w-[280px] h-auto mt-24 mb-0 transition-all duration-700 transform ${
+            className={`relative z-10 w-[200px] sm:w-[240px] h-auto mt-24 mb-0 transition-all duration-700 transform ${
               isImageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
             priority
