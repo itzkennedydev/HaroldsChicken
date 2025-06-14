@@ -70,7 +70,7 @@ function ValuesSection() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {values.map((value) => (
-            <div key={value.title} className="text-center space-y-4 p-6 bg-[#F8F9FA] rounded-lg transition-all duration-300">
+            <div key={value.title} className="text-center space-y-4 p-8 bg-[#F9F9F9] rounded-lg transition-all duration-300 hover:shadow-md">
               <h3 className="text-2xl font-bold text-[#202124] uppercase mb-2">{value.title}</h3>
               <p className="text-[#333536] font-medium">{value.description}</p>
             </div>
@@ -110,7 +110,7 @@ function BenefitsSection() {
   ];
 
   return (
-    <section className="bg-white">
+    <section className="bg-[#F9F9F9]">
       <Container className="py-24">
         <h2 className="text-4xl md:text-5xl font-bold text-[#202124] mb-6 text-center uppercase">
           What We Offer
@@ -120,7 +120,7 @@ function BenefitsSection() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit) => (
-            <div key={benefit.title} className="p-8 rounded-lg bg-[#F8F9FA] transition-all duration-300">
+            <div key={benefit.title} className="p-8 rounded-lg bg-white transition-all duration-300 hover:shadow-md">
               <h3 className="text-xl font-bold text-[#202124] mb-2 uppercase">{benefit.title}</h3>
               <p className="text-[#333536]">{benefit.description}</p>
             </div>
@@ -134,7 +134,7 @@ function BenefitsSection() {
 function FAQSection() {
   const faqs = [
     {
-      question: "What kind of work culture does Harold&apos;s Chicken have?",
+      question: "What kind of work culture does Harold's Chicken have?",
       answer: "Our culture is built on family values, mutual respect, and a passion for excellent food and service. We create an environment where team members feel supported and valued while developing both personally and professionally."
     },
     {
@@ -142,7 +142,7 @@ function FAQSection() {
       answer: "We value individuals with a positive attitude, strong work ethic, excellent communication skills, and a genuine passion for hospitality. Experience is valuable, but character and willingness to learn are equally important to us."
     },
     {
-      question: "How does career advancement work at Harold&apos;s?",
+      question: "How does career advancement work at Harold's?",
       answer: "We proudly promote from within whenever possible. Many of our managers started in entry-level positions and advanced through dedicated training programs, mentorship, and demonstrating leadership potential."
     },
     {
@@ -150,32 +150,31 @@ function FAQSection() {
       answer: "All team members receive comprehensive initial training plus ongoing development. This includes food safety, customer service, technical skills specific to their role, and leadership development for those interested in advancement."
     },
     {
-      question: "What makes working at Harold&apos;s different from other restaurants?",
+      question: "What makes working at Harold's different from other restaurants?",
       answer: "Our deep-rooted legacy, community connection, and family atmosphere set us apart. Team members become part of a tradition of excellence while gaining valuable industry skills that benefit their long-term career goals."
     },
     {
-      question: "How does Harold&apos;s support work-life balance?",
+      question: "How does Harold's support work-life balance?",
       answer: "We understand the importance of life outside work. We offer flexible scheduling options, competitive time-off policies, and a supportive management team that listens to and accommodates personal needs whenever possible."
     }
   ];
 
   return (
-    <section className="bg-[#F8F9FA]">
+    <section className="bg-white">
       <Container className="py-24">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#202124] mb-6 text-center uppercase">
-          Common Questions
-        </h2>
-        <p className="text-xl text-center text-[#333536] mb-16 max-w-3xl mx-auto">
-          Everything you want to know about working at Harold&apos;s Chicken
-        </p>
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#202124] mb-6 uppercase">
+            Common Questions
+          </h2>
+          <p className="text-xl text-[#333536]">
+            Everything you want to know about working at Harold's Chicken
+          </p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
-          {faqs.map((faq) => (
-            <div 
-              key={faq.question} 
-              className="bg-white p-8 rounded-lg hover:bg-[#F8F9FA] transition-all duration-300"
-            >
+          {faqs.map((faq, index) => (
+            <div key={index} className="p-8 bg-[#F9F9F9] rounded-lg">
               <h3 className="text-xl font-bold text-[#202124] mb-4">{faq.question}</h3>
-              <p className="text-[#333536] leading-relaxed">{faq.answer}</p>
+              <p className="text-[#333536]">{faq.answer}</p>
             </div>
           ))}
         </div>
@@ -186,19 +185,19 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="bg-red-700">
-      <Container className="py-24">
+    <section className="py-24 bg-[#F9F9F9]">
+      <Container>
         <div className="max-w-3xl mx-auto text-center space-y-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-white uppercase">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#202124] uppercase">
             Be Ready For Future Opportunities
           </h2>
-          <p className="text-xl text-white leading-relaxed font-medium mb-6">
+          <p className="text-lg text-[#333536] leading-relaxed uppercase font-medium">
             Though we&apos;re not actively hiring, we&apos;re always looking to connect with passionate individuals who share our values and commitment to excellence.
           </p>
-          <div className="pt-4">
+          <div className="pt-8">
             <Button 
               size="lg"
-              className="bg-white hover:bg-white/90 text-[#202124] text-xl font-bold px-12 py-6 uppercase"
+              className="bg-red-700 hover:bg-red-800 text-white font-bold px-12 py-6 uppercase"
               onClick={() => window.open('https://apply.haroldschickensportsbar.com', '_blank')}
             >
               Join Our Talent Pool
