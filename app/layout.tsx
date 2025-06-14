@@ -122,7 +122,10 @@ export default function RootLayout({
         </Script>
       </head>
       <PHProvider>
-        <body className="antialiased">{children}</body>
+        <body className="antialiased">
+          <div className="fixed inset-0 -z-10 bg-[#1a1a1a] w-screen h-screen pointer-events-none" aria-hidden="true" />
+          {children}
+        </body>
       </PHProvider>
     </html>
   );
