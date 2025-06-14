@@ -103,7 +103,7 @@ function MenuNotices() {
             <div>
               <h4 className="text-lg font-semibold text-[#202124] mb-2">Freshness Commitment</h4>
               <p className="text-[#333536] leading-relaxed">
-                Because freshness is of the utmost importance to us here at Harold's Chicken & Sport Bar, all orders are prepared 'fresh to order'. Although this may at times involve longer than normal wait times, we promise you that our deliciously flavored Chicago style chicken and fish is well worth the wait!
+                Because freshness is of the utmost importance to us here at Harold's Chicken & Sport Bar, all orders are prepared 'fresh to order'. As a result, this will involve longer than normal wait times, we promise you that our deliciously flavored Chicago style chicken and fish is well worth the wait!
               </p>
             </div>
           </div>
@@ -178,7 +178,7 @@ function MenuNotices() {
             <div>
               <h4 className="text-lg font-semibold text-[#202124] mb-2">Refund Policy</h4>
               <p className="text-[#333536] leading-relaxed">
-                At our restaurant, we strive to ensure every guest is satisfied with their experience. While we do not offer cash refunds, we are happy to exchange your dish or remake it to ensure it meets your expectations.
+                Only remakes or food exchanges are allowed. We do not offer exchange of cash refunds.
               </p>
             </div>
           </div>
@@ -420,6 +420,11 @@ const sides: MenuItemType[] = [
   { name: "Large Fry", price: 7 }
 ];
 
+// Helper type guard for badge
+function hasBadge(item: { badge?: { text: string; className: string } }): item is { badge: { text: string; className: string } } {
+  return !!item.badge && typeof item.badge.text === 'string' && typeof item.badge.className === 'string';
+}
+
 export default function MenuPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
@@ -522,7 +527,7 @@ export default function MenuPage() {
   ];
   const chickenWingBuckets = [
     { name: "12 pc Wings", price: 21 },
-    { name: "18 pc Wings", price: 34, badge: { text: "Best Value", className: "bg-red-700 text-white" } },
+    { name: "18 pc Wings", price: 34, badge: { text: "Best Value", className: "bg-yellow-400 text-black" } },
     { name: "24 pc Wings", price: 42 }
   ];
   const mixedChickenBuckets = [
