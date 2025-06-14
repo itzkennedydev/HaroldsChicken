@@ -75,11 +75,11 @@ export function Hero() {
     >
       {/* Desktop Hero */}
       <div 
-        className="relative min-h-[900px] w-full hidden md:block"
+        className="relative min-h-[1000px] w-full hidden md:block"
         aria-hidden="false"
       >
         <div 
-          className="absolute top-0 right-0 w-[936px] h-full overflow-hidden"
+          className="absolute top-0 right-0 w-[936px] xl:w-[800px] lg:w-[700px] md:w-[600px] h-full overflow-hidden"
           role="presentation"
           aria-hidden="true"
         >
@@ -91,7 +91,7 @@ export function Hero() {
               height={2000}
               className="object-cover object-center w-full h-full transition-opacity duration-500"
               priority
-              sizes="(max-width: 936px) 100vw, 936px"
+              sizes="(max-width: 1280px) 800px, (max-width: 1024px) 700px, (max-width: 768px) 600px, 936px"
               quality={90}
               onLoad={handleImageLoad}
             />
@@ -101,21 +101,21 @@ export function Hero() {
             alt="Signature Harold&apos;s Chicken bucket featuring fresh fried chicken"
             width={1900}
             height={1900}
-            className={`absolute top-[62%] -translate-y-1/2 w-[600px] 2xl:w-[600px] xl:w-[550px] lg:w-[480px] md:w-[450px] h-auto z-10 transition-all duration-700 transform 
-              2xl:right-48 xl:right-36 lg:right-24 md:right-16
+            className={`absolute top-[62%] -translate-y-1/2 w-[650px] 2xl:w-[650px] xl:w-[530px] lg:w-[500px] md:w-[450px] h-auto z-10 transition-all duration-700 transform 
+              2xl:right-4 xl:right-4 lg:right-4 md:right-4
               ${isImageLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
             }`}
             priority
-            sizes="(min-width: 1536px) 600px, (min-width: 1280px) 550px, (min-width: 1024px) 480px, 450px"
+            sizes="(min-width: 1536px) 650px, (min-width: 1280px) 530px, (min-width: 1024px) 500px, 450px"
             quality={90}
           />
         </div>
 
-        <Container className="relative z-10 pt-80 pb-16">
+        <Container className="relative z-10 pt-80 xl:pt-88 lg:pt-96 md:pt-84 pb-28">
           <div 
             className={`max-w-4xl transition-all duration-700 transform ${
               isContentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            } md:pr-24`}
+            } md:pr-32 xl:pr-44 lg:pr-36 md:pr-28`}
             role="group"
             aria-labelledby="hero-title hero-description"
           >
@@ -128,7 +128,7 @@ export function Hero() {
             </h1>
             <p 
               id="hero-description"
-              className="text-lg lg:text-xl 2xl:text-2xl text-[#333536] mb-10 leading-normal uppercase text-center font-medium max-w-[600px] md:max-w-[700px] lg:max-w-[800px] xl:max-w-[900px] 2xl:max-w-[1000px] mx-auto whitespace-pre-line"
+              className="text-lg lg:text-xl 2xl:text-2xl text-[#333536] mb-10 leading-normal uppercase text-center font-medium max-w-[600px] xl:max-w-[700px] lg:max-w-[600px] md:max-w-[500px] mx-auto whitespace-pre-line"
               tabIndex={0}
             >
               {content.description}
@@ -137,7 +137,7 @@ export function Hero() {
               <Button
                 ref={orderButtonRef}
                 size="lg"
-                className="bg-[#cd2f27] hover:bg-[#cd2f27]/90 text-white text-xl font-bold px-12 py-6 uppercase min-w-[500px] md:min-w-[600px] lg:min-w-[700px]
+                className="bg-[#cd2f27] hover:bg-[#cd2f27]/90 text-white text-xl font-bold px-12 xl:px-12 lg:px-10 md:px-8 py-6 xl:py-6 lg:py-5 md:py-4 uppercase min-w-[500px] xl:min-w-[500px] lg:min-w-[450px] md:min-w-[400px]
                   focus:ring-2 focus:ring-offset-2 focus:ring-[#cd2f27] focus:outline-none 
                   transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
                 aria-label="Place your order now - Press forward slash or O key to focus"
