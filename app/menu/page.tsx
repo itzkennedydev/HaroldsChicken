@@ -33,6 +33,12 @@ function MenuBanner() {
           <p className="text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed uppercase font-medium">
             Explore our full selection of Harold's Chicken & Sport Bar favorites, from classic wings to signature sides and more.
           </p>
+          <Button 
+            size="lg"
+            className="bg-red-700 hover:bg-red-800 text-white text-xl font-bold px-12 py-6 uppercase w-full sm:w-auto"
+          >
+            Order Now
+          </Button>
         </div>
       </Container>
     </section>
