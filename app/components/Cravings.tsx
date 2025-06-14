@@ -29,20 +29,20 @@ export function Cravings() {
   const items: MenuItem[] = [
     {
       id: 1,
-      name: "CLASSIC DARK MEAT DEAL",
-      calories: "520-740",
-      price: "7.99",
-      image: "/images/Wings.JPG",
-      imageAlt: "Classic dark meat chicken meal with sides",
+      name: "HONEY GLAZED BISCUITS",
+      calories: "320-450",
+      price: "5.99",
+      image: "/images/HoneyBiscuits.png",
+      imageAlt: "Freshly baked honey glazed biscuits",
       tag: "BEST SELLER",
-      description: "Tender dark meat chicken with your choice of two sides"
+      description: "Warm, fluffy biscuits drizzled with our signature honey glaze"
     },
     {
       id: 2,
       name: "FISH & FRIES COMBO",
       calories: "480-690",
       price: "8.99",
-      image: "/images/Catfish.JPG",
+      image: "/images/Catfish.jpg",
       imageAlt: "Fish and fries combo meal",
       tag: "NEW",
       description: "Crispy fish fillet served with our signature seasoned fries"
@@ -52,7 +52,7 @@ export function Cravings() {
       name: "FAMILY WING PACK",
       calories: "840-1200",
       price: "19.99",
-      image: "/images/FamilyDinner.JPG",
+      image: "/images/FamilyDinner.jpg",
       imageAlt: "Family size wing pack",
       tag: "VALUE",
       description: "24 wings with your choice of sauces, perfect for sharing"
