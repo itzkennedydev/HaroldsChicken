@@ -39,7 +39,7 @@ export function ValueProp() {
       imagePosition: "bottom",
       imageAlt: "Best Seller placeholder",
       imagePlaceholder: false,
-      imageSrc: "/images/ValueProp/ChickenImg.jpg"
+      imageSrc: "/images/ValueProp/FreshChicken.jpeg"
     },
     {
       id: 2,
@@ -50,7 +50,7 @@ export function ValueProp() {
       imagePosition: "left",
       imageAlt: "New Item placeholder",
       imagePlaceholder: false,
-      imageSrc: "/images/ValueProp/FullMenu.jpg"
+      imageSrc: "/images/ValueProp/FullMenu.jpeg"
     },
     {
       id: 3,
