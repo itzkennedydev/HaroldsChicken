@@ -91,7 +91,7 @@ export function Map() {
             <div className="flex justify-center md:justify-start w-full">
               <Button 
                 size="lg"
-                className="bg-red-700 hover:bg-red-800 text-white font-bold px-8 py-6 uppercase text-base w-auto focus:ring-2 focus:ring-offset-2 focus:ring-red-700 focus:outline-none"
+                className="bg-red-700 hover:bg-red-800 text-white font-bold px-8 py-4 uppercase text-base w-auto focus:ring-2 focus:ring-offset-2 focus:ring-red-700 focus:outline-none"
                 onClick={handleGetDirections}
                 aria-label="Get directions to Harold&apos;s Chicken"
               >

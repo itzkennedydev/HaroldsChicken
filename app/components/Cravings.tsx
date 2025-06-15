@@ -58,7 +58,7 @@ export function Cravings() {
   return (
     <section 
       ref={ref}
-      className="w-full bg-[#F9F9F9] py-16 md:py-24"
+      className="w-full bg-[#F9F9F9] py-8 md:py-12"
       aria-label="Featured Menu Items"
       role="region"
     >
@@ -70,13 +70,13 @@ export function Cravings() {
         >
           <h2 
             id="featured-cravings-title"
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#202124] mb-12 leading-tight uppercase text-center"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#202124] mb-8 leading-tight uppercase text-center"
           >
             Featured Cravings
           </h2>
           
           <div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
             role="list"
             aria-labelledby="featured-cravings-title"
           >

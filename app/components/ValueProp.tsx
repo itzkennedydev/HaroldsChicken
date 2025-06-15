@@ -68,12 +68,12 @@ export function ValueProp() {
 
   return (
     <section 
-      className="w-full py-16 md:py-24 lg:py-32"
+      className="w-full py-16 md:py-24"
       aria-label="Harold's Chicken Features"
       role="region"
     >
       <Container>
-        <div className="space-y-24 md:space-y-32">
+        <div className="space-y-16 md:space-y-24">
           {valueProps.map((prop, index) => (
             <div 
               key={prop.id}
@@ -87,7 +87,7 @@ export function ValueProp() {
               aria-labelledby={`heading-${prop.id}`}
             >
               <div 
-                className="flex-1 space-y-6"
+                className="flex-1 space-y-4"
                 role="group"
                 aria-labelledby={`heading-${prop.id}`}
               >

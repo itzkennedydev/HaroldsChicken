@@ -172,7 +172,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
       role="banner"
       aria-label="Main navigation"
     >
-      <Container className="h-[100px] flex items-center py-6">
+      <Container className="h-[100px] flex items-center py-4">
         {/* Logo */}
         <Link 
           href="/" 
@@ -191,7 +191,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
 
         {/* Desktop Navigation */}
         <nav 
-          className="hidden md:flex items-center gap-8 ml-12"
+          className="hidden md:flex items-center gap-8 ml-8"
           role="navigation"
           aria-label="Main menu"
         >

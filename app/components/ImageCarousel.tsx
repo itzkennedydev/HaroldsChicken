@@ -40,7 +40,7 @@ export function ImageCarousel() {
 
   return (
     <section
-      className="relative w-full h-[200px] sm:h-[260px] md:h-[320px] mt-16 sm:mt-24 md:mt-32 overflow-hidden"
+      className="relative w-full h-[200px] sm:h-[256px] md:h-[320px] mt-16 sm:mt-24 md:mt-32 overflow-hidden"
       aria-label="Celebrity Visitors Gallery"
       role="region"
     >
@@ -50,7 +50,7 @@ export function ImageCarousel() {
         onMouseLeave={() => !isMobile && setIsPaused(false)}
       >
         <div
-          className="flex gap-4 sm:gap-6 md:gap-8 animate-carousel"
+          className="flex gap-8 sm:gap-8 md:gap-8 animate-carousel"
           role="list"
           aria-label="Celebrity images carousel"
           style={{
@@ -64,7 +64,7 @@ export function ImageCarousel() {
           {images.map((image, index) => (
             <div
               key={`first-${index}`}
-              className="relative w-[280px] sm:w-[400px] md:w-[600px] h-[184px] sm:h-[244px] md:h-[304px] flex-none rounded-lg overflow-hidden select-none"
+              className="relative w-[280px] sm:w-[400px] md:w-[600px] h-[184px] sm:h-[240px] md:h-[304px] flex-none rounded-lg overflow-hidden select-none"
               role="listitem"
               aria-label={`Slide ${index + 1} of ${images.length * 2}`}
             >
@@ -83,7 +83,7 @@ export function ImageCarousel() {
           {images.map((image, index) => (
             <div
               key={`second-${index}`}
-              className="relative w-[280px] sm:w-[400px] md:w-[600px] h-[184px] sm:h-[244px] md:h-[304px] flex-none rounded-lg overflow-hidden select-none"
+              className="relative w-[280px] sm:w-[400px] md:w-[600px] h-[184px] sm:h-[240px] md:h-[304px] flex-none rounded-lg overflow-hidden select-none"
               role="listitem"
               aria-label={`Slide ${index + images.length + 1} of ${images.length * 2}`}
             >
