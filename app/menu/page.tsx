@@ -17,7 +17,7 @@ import Fuse from 'fuse.js';
 
 function MenuBanner() {
   return (
-    <section className="relative min-h-[400px] sm:min-h-[512px] md:min-h-[608px] w-full">
+    <section className="relative min-h-[600px] w-full">
       <Image
         src="/images/CareersBG.png"
         alt="Harold's Chicken team members working together"
@@ -27,17 +27,17 @@ function MenuBanner() {
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-black/40" />
-      <Container className="relative z-10 flex items-center min-h-[400px] sm:min-h-[512px] md:min-h-[608px]">
-        <div className="max-w-2xl text-white mx-auto text-center py-16 sm:py-16 md:py-24 px-4">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 sm:mb-8 md:mb-8 uppercase whitespace-nowrap">
+      <Container className="relative z-10 flex items-center min-h-[600px]">
+        <div className="max-w-2xl text-white mx-auto text-center py-24">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight uppercase whitespace-nowrap">
             Discover Our Menu
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-8 md:mb-8 leading-relaxed uppercase font-medium">
+          <p className="text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed uppercase font-medium">
             Explore our full selection of Harold's Chicken & Sport Bar favorites, from classic wings to signature sides and more.
           </p>
           <Button 
             size="lg"
-            className="bg-red-700 hover:bg-red-800 text-white text-lg sm:text-xl font-bold px-8 sm:px-12 py-4 sm:py-6 uppercase w-full sm:w-auto"
+            className="bg-red-700 hover:bg-red-800 text-white text-xl font-bold px-12 py-6 uppercase w-full sm:w-auto"
             asChild
           >
             <Link href="/coming-soon">
