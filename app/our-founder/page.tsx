@@ -3,6 +3,7 @@ import { Button } from '../components/ui/button';
 import { Container } from '../components/ui/container';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import Link from 'next/link';
 
 function HeroSection() {
   return (
@@ -132,8 +133,11 @@ function CommunitySupportSection() {
             <Button 
               size="lg"
               className="bg-red-700 hover:bg-red-800 text-white font-bold px-12 py-6 uppercase"
+              asChild
             >
-              Learn About Our Impact
+              <Link href="/owner-story#rooted-in-community">
+                Learn About Our Impact
+              </Link>
             </Button>
           </div>
         </div>
