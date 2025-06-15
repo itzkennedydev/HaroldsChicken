@@ -230,7 +230,7 @@ export default function Page() {
       </article>
 
       {/* Gallery Section */}
-      <section className="py-24 bg-white">
+      <section id="rooted-in-community" className="py-24 bg-white">
         <Container>
           <div className="max-w-2xl mx-auto text-center mb-20">
             <h2 className="text-4xl font-semibold text-[#202124] mb-6 font-display uppercase tracking-wide">
