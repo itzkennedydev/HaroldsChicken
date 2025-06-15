@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import { Button } from './components/ui/button'
 import { Container } from './components/ui/container'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
