@@ -25,13 +25,13 @@ export function Cravings() {
   const items: MenuItem[] = [
     {
       id: 1,
-      name: "FISH & FRIES COMBO",
+      name: "PARTY PLATTER",
       calories: "480-690",
       price: "8.99",
       image: "/images/ValueProp/FullMenu.jpeg",
       imageAlt: "Fish and fries combo meal",
       tag: "BEST SELLER",
-      description: "Crispy fish fillet served with our signature seasoned fries"
+      description: "A mix of our golden-fried fish, chicken tenders, and signature seasoned fries"
     },
     {
       id: 2,
@@ -45,7 +45,7 @@ export function Cravings() {
     },
     {
       id: 3,
-      name: "CHICKEN BUCKET",
+      name: "CRISPY CHICKEN BUCKET",
       calories: "840-1200",
       price: "19.99",
       image: "/images/ValueBucket.jpg",
