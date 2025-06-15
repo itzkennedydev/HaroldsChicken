@@ -32,7 +32,7 @@ export function MeetOwner() {
   return (
     <section 
       ref={sectionRef}
-      className="w-full relative py-16 md:py-24 lg:py-32 overflow-hidden"
+      className="w-full relative py-16 md:py-24 overflow-hidden"
       aria-label="Meet the Owner Section"
       role="region"
     >
@@ -90,7 +90,7 @@ export function MeetOwner() {
             role="article"
             aria-labelledby="owner-title"
           >
-            <div className="space-y-2">
+            <div className="space-y-4">
               <p className="text-red-700 font-bold uppercase tracking-wider">Our Story</p>
               <h2 
                 id="owner-title"
@@ -101,14 +101,14 @@ export function MeetOwner() {
               </h2>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-8">
               <p 
                 className="text-base sm:text-lg text-[#333536] leading-relaxed font-medium uppercase"
                 tabIndex={0}
               >
                 Josiah Blanton, a visionary entrepreneur from Chicago, Illinois, transforms challenges into opportunities through his dedication to excellence and a strong business mindset.
               </p>
-              <blockquote className="border-l-4 border-red-700 pl-6 py-2 italic">
+              <blockquote className="border-l-4 border-red-700 pl-8 py-4 italic">
                 <p className="text-lg text-[#333536] leading-relaxed">
                   &ldquo;Your mind must arrive at the destination before you do. Success is not just about skill—it&apos;s about the mindset to maintain, retain, and sustain everything you build.&rdquo;
                 </p>
@@ -121,7 +121,7 @@ export function MeetOwner() {
               </p>
             </div>
 
-            <div className="flex gap-4 pt-4">
+            <div className="flex gap-4 pt-8">
               <Button 
                 ref={buttonRef}
                 size="lg"

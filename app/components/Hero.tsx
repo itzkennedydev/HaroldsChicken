@@ -142,7 +142,7 @@ export function Hero() {
             </div>
             <p 
               id="hero-description"
-              className="text-lg lg:text-xl 2xl:text-2xl text-white mb-10 leading-normal text-center font-medium max-w-[600px] xl:max-w-[700px] lg:max-w-[600px] md:max-w-[500px] mx-auto whitespace-pre-line"
+              className="text-lg lg:text-xl 2xl:text-2xl text-white mb-8 leading-normal text-center font-medium max-w-[600px] xl:max-w-[700px] lg:max-w-[600px] md:max-w-[500px] mx-auto whitespace-pre-line"
               tabIndex={0}
             >
               {content.description}
@@ -199,7 +199,7 @@ export function Hero() {
             alt="Signature Harold&apos;s Chicken bucket featuring fresh fried chicken"
             width={600}
             height={600}
-            className={`relative z-10 w-[200px] sm:w-[240px] h-auto mt-24 mb-0 transition-all duration-700 transform scale-[1.15] origin-center ${
+            className={`relative z-10 w-[200px] sm:w-[240px] h-auto mt-16 mb-0 transition-all duration-700 transform scale-[1.15] origin-center ${
               isImageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
             priority
@@ -208,7 +208,7 @@ export function Hero() {
           />
         </div>
 
-        <Container className="relative z-10 -mt-6 pt-0 pb-8">
+        <Container className="relative z-10 -mt-8 pt-0 pb-8">
           <div 
             className={`transition-all duration-700 transform ${
               isContentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -228,7 +228,7 @@ export function Hero() {
             </div>
             <p 
               id="hero-description-mobile"
-              className="text-lg text-white mb-10 leading-normal text-center font-medium max-w-[340px] sm:max-w-[400px] mx-auto"
+              className="text-lg text-white mb-8 leading-normal text-center font-medium max-w-[340px] sm:max-w-[400px] mx-auto"
               tabIndex={0}
             >
               {content.description}
