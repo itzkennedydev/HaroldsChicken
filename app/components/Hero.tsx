@@ -9,6 +9,7 @@ interface HeroContent {
   title: string;
   description: string;
   buttonText: string;
+  videoSrc?: string;
 }
 
 export function Hero() {
@@ -67,7 +68,7 @@ export function Hero() {
 
   return (
     <section 
-      className="w-full relative bg-[#1a1a1a]"
+      className="w-full relative bg-[#1a1a1a] overflow-hidden"
       aria-label="Welcome to Harold&apos;s Chicken"
       role="region"
       aria-roledescription="hero"
@@ -129,13 +130,16 @@ export function Hero() {
             role="group"
             aria-labelledby="hero-title hero-description"
           >
-            <h1 
-              id="hero-title"
-              className="text-6xl lg:text-7xl 2xl:text-8xl font-bold text-white mb-8 leading-tight uppercase text-center whitespace-pre-line"
-              tabIndex={0}
-            >
-              {content.title}
-            </h1>
+            <div className="relative">
+              <h1 
+                id="hero-title"
+                className="text-6xl lg:text-7xl 2xl:text-8xl font-bold text-white mb-8 leading-tight uppercase text-center whitespace-pre-line relative z-10"
+                tabIndex={0}
+              >
+                {content.title}
+                <span className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-[#cd2f27]"></span>
+              </h1>
+            </div>
             <p 
               id="hero-description"
               className="text-lg lg:text-xl 2xl:text-2xl text-white mb-10 leading-normal text-center font-medium max-w-[600px] xl:max-w-[700px] lg:max-w-[600px] md:max-w-[500px] mx-auto whitespace-pre-line"
@@ -149,7 +153,8 @@ export function Hero() {
                 size="lg"
                 className="bg-[#cd2f27] hover:bg-[#cd2f27]/90 text-white text-xl font-bold px-12 xl:px-12 lg:px-10 md:px-8 py-6 xl:py-6 lg:py-5 md:py-4 uppercase min-w-[500px] xl:min-w-[500px] lg:min-w-[450px] md:min-w-[400px]
                   focus:ring-2 focus:ring-offset-2 focus:ring-[#cd2f27] focus:outline-none 
-                  transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                  transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]
+                  relative overflow-hidden group"
                 aria-label="Place your order now - Press forward slash or O key to focus"
                 onClick={handleOrderClick}
                 onKeyDown={(e) => {
@@ -158,7 +163,8 @@ export function Hero() {
                   }
                 }}
               >
-                {content.buttonText}
+                <span className="relative z-10">{content.buttonText}</span>
+                <span className="absolute inset-0 bg-white/10 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
               </Button>
             </div>
           </div>
@@ -210,13 +216,16 @@ export function Hero() {
             role="group"
             aria-labelledby="hero-title-mobile hero-description-mobile"
           >
-            <h1 
-              id="hero-title-mobile"
-              className="text-5xl font-bold text-white mb-4 leading-tight uppercase text-center whitespace-pre-line mt-0 pt-0"
-              tabIndex={0}
-            >
-              {content.title}
-            </h1>
+            <div className="relative">
+              <h1 
+                id="hero-title-mobile"
+                className="text-5xl font-bold text-white mb-4 leading-tight uppercase text-center whitespace-pre-line mt-0 pt-0 relative z-10"
+                tabIndex={0}
+              >
+                {content.title}
+                <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-[#cd2f27]"></span>
+              </h1>
+            </div>
             <p 
               id="hero-description-mobile"
               className="text-lg text-white mb-10 leading-normal text-center font-medium max-w-[340px] sm:max-w-[400px] mx-auto"
@@ -230,7 +239,8 @@ export function Hero() {
                 size="lg"
                 className="bg-[#cd2f27] hover:bg-[#cd2f27]/90 text-white text-lg font-bold px-8 py-4 uppercase min-w-[350px] sm:min-w-[400px]
                   focus:ring-2 focus:ring-offset-2 focus:ring-[#cd2f27] focus:outline-none 
-                  transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                  transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]
+                  relative overflow-hidden group"
                 aria-label="Place your order now - Press forward slash or O key to focus"
                 onClick={handleOrderClick}
                 onKeyDown={(e) => {
@@ -239,7 +249,8 @@ export function Hero() {
                   }
                 }}
               >
-                {content.buttonText}
+                <span className="relative z-10">{content.buttonText}</span>
+                <span className="absolute inset-0 bg-white/10 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
               </Button>
             </div>
           </div>
@@ -248,9 +259,7 @@ export function Hero() {
 
       {/* Screen reader and keyboard shortcuts information */}
       <div className="sr-only" role="note" aria-label="Keyboard Shortcuts">
-        <p>Press forward slash (/) or O key to focus the order button</p>
-        <p>Press Enter or Space to activate buttons</p>
-        <p>Use Tab to navigate between interactive elements</p>
+        Press forward slash (/) or O key to focus the order button
       </div>
     </section>
   );
