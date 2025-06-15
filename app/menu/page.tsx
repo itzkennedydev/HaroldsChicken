@@ -17,7 +17,7 @@ import Fuse from 'fuse.js';
 
 function MenuBanner() {
   return (
-    <section className="relative min-h-[400px] sm:min-h-[500px] md:min-h-[600px] w-full">
+    <section className="relative min-h-[400px] sm:min-h-[512px] md:min-h-[608px] w-full">
       <Image
         src="/images/CareersBG.png"
         alt="Harold's Chicken team members working together"
@@ -27,12 +27,12 @@ function MenuBanner() {
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-black/40" />
-      <Container className="relative z-10 flex items-center min-h-[400px] sm:min-h-[500px] md:min-h-[600px]">
-        <div className="max-w-2xl text-white mx-auto text-center py-12 sm:py-16 md:py-24 px-4">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 md:mb-8 uppercase whitespace-nowrap">
+      <Container className="relative z-10 flex items-center min-h-[400px] sm:min-h-[512px] md:min-h-[608px]">
+        <div className="max-w-2xl text-white mx-auto text-center py-16 sm:py-16 md:py-24 px-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 sm:mb-8 md:mb-8 uppercase whitespace-nowrap">
             Discover Our Menu
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 md:mb-10 leading-relaxed uppercase font-medium">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-8 md:mb-8 leading-relaxed uppercase font-medium">
             Explore our full selection of Harold's Chicken & Sport Bar favorites, from classic wings to signature sides and more.
           </p>
           <Button 
@@ -56,10 +56,10 @@ function MenuNotices() {
       <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
         <CardTitle className="text-2xl text-[#202124] tracking-wider text-center font-bold">Important Notices</CardTitle>
       </CardHeader>
-      <CardContent className="p-8 space-y-6">
-        <div className="space-y-6">
-          <div className="flex items-start gap-4">
-            <div className="mt-1">
+      <CardContent className="p-8 space-y-8">
+        <div className="space-y-8">
+          <div className="flex items-start gap-8">
+            <div className="mt-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -76,15 +76,15 @@ function MenuNotices() {
               </svg>
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-[#202124] mb-2">Food Safety Notice</h4>
+              <h4 className="text-lg font-semibold text-[#202124] mb-4">Food Safety Notice</h4>
               <p className="text-[#333536] leading-relaxed">
                 Consuming raw or undercooked meats, poultry, seafood, shellfish or eggs may increase your risk of food borne illnesses, especially if you have certain medical conditions.
               </p>
             </div>
           </div>
 
-          <div className="flex items-start gap-4">
-            <div className="mt-1">
+          <div className="flex items-start gap-8">
+            <div className="mt-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -101,15 +101,15 @@ function MenuNotices() {
               </svg>
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-[#202124] mb-2">Freshness Commitment</h4>
+              <h4 className="text-lg font-semibold text-[#202124] mb-4">Freshness Commitment</h4>
               <p className="text-[#333536] leading-relaxed">
                 Because freshness is of the utmost importance to us here at Harold's Chicken & Sport Bar, all orders are prepared 'fresh to order'. As a result, this will involve longer than normal wait times, we promise you that our deliciously flavored Chicago style chicken and fish is well worth the wait!
               </p>
             </div>
           </div>
 
-          <div className="flex items-start gap-4">
-            <div className="mt-1">
+          <div className="flex items-start gap-8">
+            <div className="mt-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -126,15 +126,15 @@ function MenuNotices() {
               </svg>
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-[#202124] mb-2">Service Charge</h4>
+              <h4 className="text-lg font-semibold text-[#202124] mb-4">Service Charge</h4>
               <p className="text-[#333536] leading-relaxed">
                 18 percent gratuity will be added to all orders.
               </p>
             </div>
           </div>
 
-          <div className="flex items-start gap-4">
-            <div className="mt-1">
+          <div className="flex items-start gap-8">
+            <div className="mt-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -151,15 +151,15 @@ function MenuNotices() {
               </svg>
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-[#202124] mb-2">Substitution Policy</h4>
+              <h4 className="text-lg font-semibold text-[#202124] mb-4">Substitution Policy</h4>
               <p className="text-[#333536] leading-relaxed">
                 No substitutions are allowed.
               </p>
             </div>
           </div>
 
-          <div className="flex items-start gap-4">
-            <div className="mt-1">
+          <div className="flex items-start gap-8">
+            <div className="mt-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -176,7 +176,7 @@ function MenuNotices() {
               </svg>
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-[#202124] mb-2">Refund Policy</h4>
+              <h4 className="text-lg font-semibold text-[#202124] mb-4">Refund Policy</h4>
               <p className="text-[#333536] leading-relaxed">
                 Only remakes or food exchanges are allowed. We do not offer exchange of cash refunds.
               </p>
@@ -191,12 +191,12 @@ function MenuNotices() {
 function MenuItem({ name, price, note, badge }: { name: string; price: number; note?: string; badge?: { text: string; className: string } }) {
   return (
     <li className="group relative hover:bg-[#F8F9FA]/50 transition-all duration-300 rounded-lg p-4 border-b border-gray-100 last:border-b-0">
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-4">
         <div className="flex justify-between items-center">
-          <span className="text-lg font-bold text-[#202124] group-hover:text-red-700 transition-colors duration-300 flex items-center gap-2">
+          <span className="text-lg font-bold text-[#202124] group-hover:text-red-700 transition-colors duration-300 flex items-center gap-4">
             {name}
             {badge && (
-              <span className="ml-2 px-3 py-1 rounded-full text-xs font-bold uppercase bg-red-700 text-white">{badge.text}</span>
+              <span className="ml-4 px-4 py-2 rounded-full text-xs font-bold uppercase bg-red-700 text-white">{badge.text}</span>
             )}
           </span>
           <span className="text-red-700 font-bold text-xl">

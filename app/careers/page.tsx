@@ -170,11 +170,11 @@ function FAQSection() {
             Everything you want to know about working at Harold's Chicken
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
           {faqs.map((faq, index) => (
-            <div key={index} className="p-8 bg-[#F9F9F9] rounded-lg">
+            <div key={index} className="p-8 bg-[#F9F9F9] rounded-lg flex flex-col h-full">
               <h3 className="text-xl font-bold text-[#202124] mb-4">{faq.question}</h3>
-              <p className="text-[#333536]">{faq.answer}</p>
+              <p className="text-[#333536] flex-grow">{faq.answer}</p>
             </div>
           ))}
         </div>

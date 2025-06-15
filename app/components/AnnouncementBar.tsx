@@ -2,7 +2,7 @@ import { Container } from "./ui/container";
 
 export function AnnouncementBar() {
   return (
-    <div className="w-full bg-[#cd2f27] text-white py-3 font-sans">
+    <div className="w-full bg-[#cd2f27] text-white py-4 font-sans">
       <Container>
         <div className="flex items-center justify-center gap-4">
           <span className="text-2xl -mt-1 animate-slide-in-and-twinkle" style={{ animationDelay: '0.1s' }}>★</span>

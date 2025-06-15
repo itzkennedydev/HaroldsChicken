@@ -23,7 +23,7 @@ export function Footer() {
       role="contentinfo"
       aria-label="Footer"
     >
-      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-32 pt-6 pb-2 w-full">
+      <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-32 pt-8 pb-4 w-full">
         {/* Simplified Footer Content */}
         <div className="flex flex-col items-center justify-center">
           <div className="flex flex-wrap justify-center gap-8 mb-8">
@@ -61,7 +61,7 @@ export function Footer() {
           
           <Link 
             href="/" 
-            className="mb-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-700 rounded-lg"
+            className="mb-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-700 rounded-lg"
             aria-label="Harold&apos;s Chicken - Home"
           >
             <Image
