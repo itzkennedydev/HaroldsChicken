@@ -6,20 +6,18 @@ import { Footer } from '../components/Footer';
 
 function HeroSection() {
   return (
-    <section className="relative min-h-[600px] w-full bg-black">
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/Bar.jpg"
-          alt="Harold&apos;s Sports Bar atmosphere"
-          fill
-          className="object-cover opacity-50"
-          priority
-          sizes="100vw"
-        />
-      </div>
-      
-      <Container className="relative z-10 pt-32 pb-16">
-        <div className="max-w-2xl text-white mx-auto text-center">
+    <section className="relative min-h-[600px] w-full">
+      <Image
+        src="/images/Bar.jpg"
+        alt="Harold&apos;s Sports Bar atmosphere"
+        fill
+        className="object-cover"
+        priority
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-black/40" />
+      <Container className="relative z-10 flex items-center min-h-[600px]">
+        <div className="max-w-2xl text-white mx-auto text-center py-24">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight uppercase">
             Moline&apos;s Premier
             <br />
@@ -30,12 +28,13 @@ function HeroSection() {
           </p>
           <Button 
             size="lg"
-            className="bg-red-700 hover:bg-red-800 text-white text-xl font-bold px-12 py-6 uppercase w-full sm:w-auto focus:ring-2 focus:ring-offset-2 focus:ring-red-700"
+            className="bg-red-700 hover:bg-red-800 text-white text-xl font-bold px-12 py-6 uppercase w-full sm:w-auto"
           >
             View Menu
           </Button>
         </div>
       </Container>
+      <div className="absolute bottom-0 left-0 right-0 h-2 bg-red-700" />
     </section>
   );
 }

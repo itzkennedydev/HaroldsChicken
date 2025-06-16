@@ -27,6 +27,7 @@ function HeroSection() {
           </p>
         </div>
       </Container>
+      <div className="absolute bottom-0 left-0 right-0 h-2 bg-red-700" />
     </section>
   );
 }
