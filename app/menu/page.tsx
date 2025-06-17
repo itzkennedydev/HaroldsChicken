@@ -60,7 +60,7 @@ function MenuNotices() {
       <CardContent className="p-8 space-y-8">
         <div className="space-y-8">
           <div className="flex items-start gap-8">
-            <div className="mt-0">
+            <div className="mt-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -77,7 +77,7 @@ function MenuNotices() {
               </svg>
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-[#202124] mb-4">Food Safety Notice</h4>
+              <h4 className="text-lg font-semibold text-[#202124] mb-2">Food Safety Notice</h4>
               <p className="text-[#333536] leading-relaxed">
                 Consuming raw or undercooked meats, poultry, seafood, shellfish or eggs may increase your risk of food borne illnesses, especially if you have certain medical conditions.
               </p>
@@ -85,7 +85,7 @@ function MenuNotices() {
           </div>
 
           <div className="flex items-start gap-8">
-            <div className="mt-0">
+            <div className="mt-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -102,7 +102,7 @@ function MenuNotices() {
               </svg>
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-[#202124] mb-4">Freshness Commitment</h4>
+              <h4 className="text-lg font-semibold text-[#202124] mb-2">Freshness Commitment</h4>
               <p className="text-[#333536] leading-relaxed">
                 Because freshness is of the utmost importance to us here at Harold's Chicken & Sport Bar, all orders are prepared 'fresh to order'. As a result, this will involve longer than normal wait times, we promise you that our deliciously flavored Chicago style chicken and fish is well worth the wait!
               </p>
@@ -110,7 +110,7 @@ function MenuNotices() {
           </div>
 
           <div className="flex items-start gap-8">
-            <div className="mt-0">
+            <div className="mt-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -127,7 +127,32 @@ function MenuNotices() {
               </svg>
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-[#202124] mb-4">Service Charge</h4>
+              <h4 className="text-lg font-semibold text-[#202124] mb-2">Pricing Notice</h4>
+              <p className="text-[#333536] leading-relaxed">
+                Prices subject to change without notice.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-8">
+            <div className="mt-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5 text-red-700"
+              >
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                <path d="M12 8v4" />
+                <path d="M12 16h.01" />
+              </svg>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold text-[#202124] mb-2">Service Charge</h4>
               <p className="text-[#333536] leading-relaxed">
                 18 percent gratuity will be added to all orders.
               </p>
@@ -135,7 +160,7 @@ function MenuNotices() {
           </div>
 
           <div className="flex items-start gap-8">
-            <div className="mt-0">
+            <div className="mt-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -152,7 +177,7 @@ function MenuNotices() {
               </svg>
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-[#202124] mb-4">Substitution Policy</h4>
+              <h4 className="text-lg font-semibold text-[#202124] mb-2">Substitution Policy</h4>
               <p className="text-[#333536] leading-relaxed">
                 No substitutions are allowed.
               </p>
@@ -160,7 +185,7 @@ function MenuNotices() {
           </div>
 
           <div className="flex items-start gap-8">
-            <div className="mt-0">
+            <div className="mt-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -177,7 +202,7 @@ function MenuNotices() {
               </svg>
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-[#202124] mb-4">Refund Policy</h4>
+              <h4 className="text-lg font-semibold text-[#202124] mb-2">Refund Policy</h4>
               <p className="text-[#333536] leading-relaxed">
                 Only remakes or food exchanges are allowed. We do not offer exchange of cash refunds.
               </p>

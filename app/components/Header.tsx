@@ -28,7 +28,6 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   { label: "HOME", href: "/", shortcut: 'h' },
-  { label: "SPORTS BAR", href: "/sports-bar", shortcut: 's' },
   { label: "MENU", href: "/menu", shortcut: 'm' },
   { 
     label: "CAREERS", 
