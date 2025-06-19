@@ -9,8 +9,7 @@ import { useState, useRef, useEffect } from "react";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
-import { Slider } from "../components/ui/slider";
-import { Search, Filter, X, ChevronDown, ChevronUp, Tag, DollarSign, Loader2 } from "lucide-react";
+import { Search, Filter, X, ChevronDown, ChevronUp, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Fuse from 'fuse.js';
@@ -27,17 +26,17 @@ function MenuBanner() {
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-black/40" />
-      <Container className="relative z-10 flex items-center min-h-[600px]">
+      <div className="relative z-10 flex items-center min-h-[600px] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl text-white mx-auto text-center py-24">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight uppercase whitespace-nowrap">
-            Discover Our Menu
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight uppercase">
+            Our Menu
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed uppercase font-medium">
             Explore our full selection of Harold's Chicken & Sport Bar favorites, from classic wings to signature sides and more.
           </p>
           <Button 
             size="lg"
-            className="bg-red-700 hover:bg-red-800 text-white text-xl font-bold px-12 py-6 uppercase w-full sm:w-auto"
+            className="bg-red-700 hover:bg-red-800 text-white text-xl font-bold px-8 sm:px-12 py-6 uppercase w-full sm:w-auto"
             asChild
           >
             <Link href="/coming-soon">
@@ -45,19 +44,38 @@ function MenuBanner() {
             </Link>
           </Button>
         </div>
-      </Container>
+      </div>
       <div className="absolute bottom-0 left-0 right-0 h-2 bg-red-700" />
     </section>
   );
 }
 
 function MenuIncluded() {
+  const [isVisible, setIsVisible] = useState(true);
+
+  if (!isVisible) return null;
+
   return (
     <Card className="col-span-1 lg:col-span-2 xl:col-span-3">
-      <div className="border-2 border-red-700 py-4 px-6 rounded-lg">
+      <div className="bg-white border-2 border-red-700 py-6 px-8 rounded-lg relative">
+        <button
+          onClick={() => setIsVisible(false)}
+          className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition-colors"
+          aria-label="Close notice"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
         <div className="text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2 text-red-700">ALL DINNERS & COMBOS INCLUDE:</h2>
-          <p className="text-xl md:text-2xl font-medium text-[#202124]">Fries, Bread & Cole Slaw*</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-red-700">ALL DINNERS & COMBOS INCLUDE</h2>
+          <div className="flex flex-wrap justify-center items-center gap-6 text-lg md:text-xl font-medium">
+            <span className="text-[#202124]">Fries</span>
+            <span className="text-red-700">•</span>
+            <span className="text-[#202124]">Bread</span>
+            <span className="text-red-700">•</span>
+            <span className="text-[#202124]">Cole Slaw*</span>
+          </div>
         </div>
       </div>
     </Card>
@@ -559,7 +577,7 @@ export default function MenuPage() {
     { name: "Extra Breast", price: 4 }
   ];
   const specialtyChicken = [
-    { name: "Chicken Sandwich", price: 19 },
+    { name: "Chicken Sandwich", price: 19, note: "Comes with drink & cookie" },
     { name: "Chicken & Waffles", price: 21 }
   ];
   const chickenWingBuckets = [
@@ -789,8 +807,7 @@ export default function MenuPage() {
 
               {/* Categories */}
               <div>
-                <h4 className="text-base sm:text-lg font-semibold text-[#202124] mb-3 sm:mb-4 flex items-center gap-2">
-                  <Tag size={16} className="text-red-700" />
+                <h4 className="text-base sm:text-lg font-semibold text-[#202124] mb-3 sm:mb-4">
                   Categories
                 </h4>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3">
@@ -814,19 +831,47 @@ export default function MenuPage() {
 
               {/* Price Range */}
               <div>
-                <h4 className="text-base sm:text-lg font-semibold text-[#202124] mb-3 sm:mb-4 flex items-center gap-2">
-                  <DollarSign size={16} className="text-red-700" />
+                <h4 className="text-base sm:text-lg font-semibold text-[#202124] mb-3 sm:mb-4">
                   Price Range
                 </h4>
-                <div className="px-2">
-                  <Slider
-                    value={priceRange}
-                    onValueChange={setPriceRange}
-                    max={350}
-                    step={1}
-                    className="mb-3 sm:mb-4"
-                  />
-                  <div className="flex justify-between text-sm sm:text-base text-[#333536]">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4">
+                    <div className="flex-1">
+                      <label className="block text-sm font-medium text-[#333536] mb-1">Min Price</label>
+                      <div className="relative">
+                        <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#333536]">$</span>
+                        <Input
+                          type="number"
+                          value={priceRange[0]}
+                          onChange={(e) => {
+                            const value = parseInt(e.target.value) || 0;
+                            setPriceRange([Math.max(0, Math.min(value, priceRange[1])), priceRange[1]]);
+                          }}
+                          className="pl-8 pr-3 py-2 text-sm"
+                          min={0}
+                          max={priceRange[1]}
+                        />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <label className="block text-sm font-medium text-[#333536] mb-1">Max Price</label>
+                      <div className="relative">
+                        <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#333536]">$</span>
+                        <Input
+                          type="number"
+                          value={priceRange[1]}
+                          onChange={(e) => {
+                            const value = parseInt(e.target.value) || 350;
+                            setPriceRange([priceRange[0], Math.max(priceRange[0], Math.min(value, 350))]);
+                          }}
+                          className="pl-8 pr-3 py-2 text-sm"
+                          min={priceRange[0]}
+                          max={350}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex justify-between text-sm text-[#333536]">
                     <span>${priceRange[0]}</span>
                     <span>${priceRange[1]}</span>
                   </div>
@@ -893,7 +938,7 @@ export default function MenuPage() {
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                     <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Wing Dinners</span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Wing Dinners</span>
                   </h3>
                   <ul className="space-y-2">
                     {filteredChickenItems.map((item, index) => (
@@ -906,7 +951,7 @@ export default function MenuPage() {
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                     <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Chicken Tenders</span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Chicken Tenders</span>
                   </h3>
                   <ul className="space-y-2">
                     {filteredChickenTenders.map((item, index) => (
@@ -919,7 +964,7 @@ export default function MenuPage() {
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                     <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Chicken Pieces</span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Chicken Pieces</span>
                   </h3>
                   <ul className="space-y-2">
                     {filteredChickenPieces.map((item, index) => (
@@ -932,7 +977,7 @@ export default function MenuPage() {
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                     <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Specialty Chicken Items</span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Specialty Chicken Items</span>
                   </h3>
                   <ul className="space-y-2">
                     {filteredSpecialtyChicken.map((item, index) => (
@@ -945,7 +990,7 @@ export default function MenuPage() {
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                     <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Chicken Wing Buckets</span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Chicken Wing Buckets</span>
                   </h3>
                   <ul className="space-y-2">
                     {filteredChickenWingBuckets.map((item, index) => (
@@ -958,7 +1003,7 @@ export default function MenuPage() {
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                     <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Mixed Chicken Buckets</span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Mixed Chicken Buckets</span>
                   </h3>
                   <ul className="space-y-2">
                     {filteredMixedChickenBuckets.map((item, index) => (
@@ -981,7 +1026,7 @@ export default function MenuPage() {
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                     <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Catfish</span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Catfish</span>
                   </h3>
                   <ul className="space-y-2">
                     {filteredFishCatfish.map((item, index) => (
@@ -994,7 +1039,7 @@ export default function MenuPage() {
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                     <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Catfish Buckets</span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Catfish Buckets</span>
                   </h3>
                   <ul className="space-y-2">
                     {filteredCatfishBuckets.map((item, index) => (
@@ -1007,7 +1052,7 @@ export default function MenuPage() {
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                     <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Perch</span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Perch</span>
                   </h3>
                   <ul className="space-y-2">
                     {filteredFishPerch.map((item, index) => (
@@ -1020,7 +1065,7 @@ export default function MenuPage() {
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                     <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Perch Buckets</span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Perch Buckets</span>
                   </h3>
                   <ul className="space-y-2">
                     {filteredPerchBuckets.map((item, index) => (
@@ -1033,7 +1078,7 @@ export default function MenuPage() {
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                     <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Whiting</span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Whiting</span>
                   </h3>
                   <ul className="space-y-2">
                     {filteredFishWhiting.map((item, index) => (
@@ -1046,7 +1091,7 @@ export default function MenuPage() {
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                     <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Shrimp</span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Shrimp</span>
                   </h3>
                   <ul className="space-y-2">
                     {filteredFishShrimp.map((item, index) => (
@@ -1069,7 +1114,7 @@ export default function MenuPage() {
                   <div>
                     <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                       <span className="w-1 h-6 bg-red-700"></span>
-                      <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Harold's Signature Sauces</span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Harold's Signature Sauces</span>
                     </h3>
                     <ul className="space-y-2">
                       {filteredSauces.map((item, index) => (
@@ -1082,7 +1127,7 @@ export default function MenuPage() {
                   <div>
                     <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                       <span className="w-1 h-6 bg-red-700"></span>
-                      <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Condiments & Extras</span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Condiments & Extras</span>
                     </h3>
                     <ul className="space-y-2">
                       {filteredCondiments.map((item, index) => (
@@ -1106,7 +1151,7 @@ export default function MenuPage() {
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                     <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Fried Appetizers</span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Fried Appetizers</span>
                   </h3>
                   <ul className="space-y-2">
                     {friedAppetizers.map((item, index) => (
@@ -1119,7 +1164,7 @@ export default function MenuPage() {
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                     <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Sides</span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Sides</span>
                   </h3>
                   <ul className="space-y-2">
                     {sides.map((item, index) => (
@@ -1142,7 +1187,7 @@ export default function MenuPage() {
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                     <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Specialty Cocktails</span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Specialty Cocktails</span>
                   </h3>
                   <ul className="space-y-3">
                     {filteredSpecialtyCocktails.map((cocktail, index) => (
@@ -1155,7 +1200,7 @@ export default function MenuPage() {
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                     <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Non-Alcoholic Beverages</span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Non-Alcoholic Beverages</span>
                   </h3>
                   <ul className="space-y-2">
                     {filteredNonAlcoholic.map((item, index) => (
@@ -1197,7 +1242,7 @@ export default function MenuPage() {
                     <div>
                       <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                         <span className="w-1 h-6 bg-red-700"></span>
-                        <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Wing Party Pans</span>
+                        <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Wing Party Pans</span>
                       </h3>
                       <ul className="space-y-2">
                         {filteredPartyWings.length === 0 ? (
@@ -1214,7 +1259,7 @@ export default function MenuPage() {
                     <div>
                       <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                         <span className="w-1 h-6 bg-red-700"></span>
-                        <span className="bg-gray-300 px-6 py-1 h-6 flex items-center">Mixed Chicken Party Pans</span>
+                        <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Mixed Chicken Party Pans</span>
                       </h3>
                       <ul className="space-y-2">
                         {filteredPartyMixed.length === 0 ? (
