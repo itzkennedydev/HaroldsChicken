@@ -51,6 +51,19 @@ function MenuBanner() {
   );
 }
 
+function MenuIncluded() {
+  return (
+    <Card className="col-span-1 lg:col-span-2 xl:col-span-3">
+      <div className="border-2 border-red-700 py-4 px-6 rounded-lg">
+        <div className="text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-2 text-red-700">ALL DINNERS & COMBOS INCLUDE:</h2>
+          <p className="text-xl md:text-2xl font-medium text-[#202124]">Fries, Bread & Cole Slaw*</p>
+        </div>
+      </div>
+    </Card>
+  );
+}
+
 function MenuNotices() {
   return (
     <Card className="mt-16 mb-16 border border-gray-200">
@@ -869,6 +882,7 @@ export default function MenuPage() {
 
         {/* MAIN MENU SECTIONS */}
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          <MenuIncluded />
           {showChickenSection && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
               <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
