@@ -652,7 +652,7 @@ export default function MenuPage() {
   ];
   const nonAlcoholic = [
     { name: "Bottled Water", price: 3 },
-    { name: "Soft Drinks", price: 6, note: "unlimited refills" },
+    { name: "Soft Drinks", price: 3, note: "unlimited refills" },
     { name: "Calypso", price: 5 },
     { name: "Special Flavored Lemonades", price: 4, note: "no free refill" },
     { name: "Can Soda", price: 3 }
