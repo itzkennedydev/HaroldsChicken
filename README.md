@@ -4,7 +4,7 @@ A modern, responsive website for Harold's Chicken built with Next.js, TypeScript
 
 ## Overview
 
-This project is a professional website for Harold's Chicken, developed by Sovereign Creative Agency. The website features a modern design, responsive layout, and optimized performance using the latest web technologies.
+This project is a professional website for Harold's Chicken. The website features a modern design, responsive layout, and optimized performance using the latest web technologies.
 
 ## Tech Stack
 
