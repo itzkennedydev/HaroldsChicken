@@ -73,9 +73,30 @@ export function Footer() {
               aria-hidden="true"
             />
           </Link>
-          
-          <div className="text-sm text-[#667085] font-display uppercase font-medium text-center">
-            <p>© {new Date().getFullYear()} HAROLD&apos;S CHICKEN. ALL RIGHTS RESERVED.</p>
+        </div>
+
+        {/* Bottom Section with Copyright and Agency Credit */}
+        <div className="border-t border-gray-200 pt-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-sm text-[#667085] font-display uppercase font-medium">
+              <p>© {new Date().getFullYear()} HAROLD&apos;S CHICKEN. ALL RIGHTS RESERVED.</p>
+            </div>
+            
+            <div className="text-sm font-display font-medium">
+              <p className="text-[#475467]">
+                Website by{" "}
+                <Link
+                  href="https://sovereigncreative.agency"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-red-700 hover:text-red-800 transition-colors duration-200 font-semibold relative group"
+                  aria-label="Sovereign Creative Agency (opens in new tab)"
+                >
+                  Sovereign Creative Agency
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-700 transition-all duration-200 group-hover:w-full"></span>
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>
