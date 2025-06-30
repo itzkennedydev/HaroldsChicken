@@ -8,9 +8,6 @@ import { CustomButton } from "@/app/components/ui/custom-button";
 import { Badge } from "@/app/components/ui/badge";
 import { Container } from "@/app/components/ui/container";
 
-// Remove ButtonVariant import since we'll use string literal type
-type ButtonVariant = "default" | "outline" | "ghost";
-
 // Constants
 const SCROLL_THRESHOLD = 20;
 const MOBILE_MENU_FOCUS_DELAY = 100;
@@ -153,13 +150,6 @@ export function Header({ variant = 'default' }: HeaderProps) {
     return baseClasses;
   };
 
-  const getButtonVariant = (): ButtonVariant => {
-    if (isWhiteVariant && isAtTop) {
-      return "ghost";
-    }
-    return "outline";
-  };
-
   const handleGetDirections = () => {
     window.open("https://www.google.com/maps/place/Harold's+Chicken+Sports+Bar/@41.5062359,-90.5166081,17z/data=!4m14!1m7!3m6!1s0x87e231469fa44355:0x54cb1c7446567d9e!2sHarold's+Chicken+Sports+Bar!8m2!3d41.5062359!4d-90.5166081!16s%2Fg%2F11wtvlptzn!3m5!1s0x87e231469fa44355:0x54cb1c7446567d9e!8m2!3d41.5062359!4d-90.5166081!16s%2Fg%2F11wtvlptzn?hl=en&entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D", '_blank');
   };
@@ -243,11 +233,21 @@ export function Header({ variant = 'default' }: HeaderProps) {
           role="group"
           aria-label="Quick actions"
         >
-          <CustomButton 
-            variant={getButtonVariant()}
-            className={`font-bold tracking-wider text-sm focus:ring-2 focus:ring-red-700 focus:outline-none ${
-              isWhiteVariant && isAtTop ? 'text-white hover:text-gray-200' : 'hover:bg-red-700/10'
+          {/* Phone Number */}
+          <a
+            href="tel:773-312-7535"
+            className={`font-bold tracking-wider text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-red-700 rounded px-3 py-2 ${
+              isWhiteVariant && isAtTop 
+                ? 'text-white hover:text-gray-200 hover:bg-white/10' 
+                : 'text-red-700 hover:text-red-800 hover:bg-red-50'
             }`}
+            aria-label="Call Harold's Chicken at 773-312-7535"
+          >
+            773-312-7535
+          </a>
+          <CustomButton 
+            variant="outline"
+            className="font-bold tracking-wider text-sm focus:ring-2 focus:ring-red-700 focus:outline-none hover:bg-red-700 hover:text-white hover:border-red-700"
             aria-label="Get directions to Harold&apos;s Chicken"
             onClick={handleGetDirections}
           >
@@ -351,6 +351,14 @@ export function Header({ variant = 'default' }: HeaderProps) {
               role="group"
               aria-label="Quick actions"
             >
+              {/* Phone Number - Mobile */}
+              <a
+                href="tel:773-312-7535"
+                className="block w-full text-red-700 hover:text-red-800 hover:bg-red-50 transition-colors font-bold text-base py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-700 text-center"
+                aria-label="Call Harold's Chicken at 773-312-7535"
+              >
+                773-312-7535
+              </a>
               <CustomButton
                 variant="outline"
                 className="font-bold tracking-wider text-sm w-full justify-center hover:bg-red-700/10 focus:ring-2 focus:ring-red-700 focus:outline-none"
