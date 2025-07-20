@@ -454,14 +454,10 @@ interface MenuItemType {
 
 // Define friedAppetizers and sides arrays at the top
 const friedAppetizers: MenuItemType[] = [
-  { name: "Jalapeno Poppers", price: 11 },
   { name: "Mac & Cheese Bites", price: 9 },
   { name: "Mozz Sticks (3)", price: 6 },
   { name: "Mozz Sticks (5)", price: 8 },
   { name: "Mushrooms", price: 10 },
-  { name: "Pizza Puff", price: 7 },
-  { name: "Pizza Puff & Fries", price: 10 },
-  { name: "Zucchini Sticks", price: 11 },
   { name: "Sweet Corn Bites", price: 9 },
   { name: "Broccoli n Cheddar Bites", price: 9 },
   { name: "Spicy Cheese Curds", price: 10 },
