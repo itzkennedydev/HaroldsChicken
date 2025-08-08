@@ -461,7 +461,12 @@ const friedAppetizers: MenuItemType[] = [
   { name: "Sweet Corn Bites", price: 9 },
   { name: "Broccoli n Cheddar Bites", price: 9 },
   { name: "Spicy Cheese Curds", price: 10 },
-  { name: "Black Bean & Cheese Firecrackers", price: 11 }
+  { name: "Black Bean Firecrackers", price: 13.5 },
+  { name: "Mac + Cheese", price: 11.5 },
+  { name: "Corn Nugget", price: 9 },
+  { name: "Spicy Curd", price: 13 },
+  { name: "Broccoli Bite", price: 13.5 },
+  { name: "Breaded Mushrooms", price: 9 }
 ];
 const sides: MenuItemType[] = [
   { name: "Okra 1/2 lb", price: 5 },
@@ -555,12 +560,19 @@ export default function MenuPage() {
     { name: "6 Wings", price: 17 },
     { name: "8 Wings", price: 21 },
     { name: "10 Wings", price: 22 },
+    { name: "4 Wings + Fries", price: 14 },
+    { name: "6 Wings + Fries", price: 17 },
+    { name: "8 Wings + Fries", price: 21 },
+    { name: "10 Wings + Fries", price: 25 },
     { name: "Extra Wing", price: 4 }
   ];
   const chickenTenders = [
     { name: "Tenders 4 pcs", price: 14 },
     { name: "Tenders 6 pcs", price: 17 },
-    { name: "Tenders 8 pcs", price: 21 }
+    { name: "Tenders 8 pcs", price: 21 },
+    { name: "4 Tenders + Fries", price: 14 },
+    { name: "6 Tenders + Fries", price: 18 },
+    { name: "8 Tenders + Fries", price: 21 }
   ];
   const chickenPieces = [
     { name: "1/4 White", price: 11 },
@@ -574,12 +586,13 @@ export default function MenuPage() {
   ];
   const specialtyChicken = [
     { name: "Chicken Sandwich", price: 19, note: "Comes with drink & cookie" },
-    { name: "Chicken & Waffles", price: 21 }
+    { name: "Chicken & Waffles", price: 21 },
+    { name: "Add Chicken Breast", price: 6.5 }
   ];
   const chickenWingBuckets = [
-    { name: "12 pc Wings", price: 24 },
-    { name: "18 pc Wings", price: 36, badge: { text: "Best Value", className: "bg-yellow-400 text-black" } },
-    { name: "24 pc Wings", price: 47 }
+    { name: "12 pc Wings", price: 36.5 },
+    { name: "18 pc Wings", price: 46.5, badge: { text: "Best Value", className: "bg-yellow-400 text-black" } },
+    { name: "24 pc Wings", price: 56.5 }
   ];
   const mixedChickenBuckets = [
     { name: "8 Piece (Mixed)", price: 20 },
@@ -607,11 +620,15 @@ export default function MenuPage() {
     { name: "12 pc Catfish", price: 42 },
     { name: "Small Cat Nugget", price: 14 },
     { name: "Large Cat Nugget", price: 19 },
+    { name: "Small Catfish (2 pc)", price: 15 },
+    { name: "Large Catfish (2 pc)", price: 22 },
+    { name: "Small Cat Nugget (6 pc)", price: 15 },
+    { name: "Large Cat Nugget (9 pc)", price: 20 },
     { name: "Extra Catfish", price: 4 }
   ];
   const catfishBuckets = [
-    { name: "12 pc Catfish", price: 25 },
-    { name: "24 pc Catfish", price: 45 }
+    { name: "12 pc Catfish", price: 60 },
+    { name: "24 pc Catfish", price: 84 }
   ];
   const fishPerch = [
     { name: "Small Perch", price: 14 },
@@ -632,13 +649,17 @@ export default function MenuPage() {
     { name: "Buffalo Shrimp", price: 21 },
     { name: "Extra Shrimp", price: 4 }
   ];
+  const fishLobster = [
+    { name: "Lobster with Fries", price: 35 }
+  ];
   const filteredFishCatfish = filterMenuItems(fishCatfish);
   const filteredCatfishBuckets = filterMenuItems(catfishBuckets);
   const filteredFishPerch = filterMenuItems(fishPerch);
   const filteredPerchBuckets = filterMenuItems(perchBuckets);
   const filteredFishWhiting = filterMenuItems(fishWhiting);
   const filteredFishShrimp = filterMenuItems(fishShrimp);
-  const showFishSection = filteredFishCatfish.length > 0 || filteredFishPerch.length > 0 || filteredFishWhiting.length > 0 || filteredFishShrimp.length > 0 || filteredCatfishBuckets.length > 0 || filteredPerchBuckets.length > 0;
+  const filteredFishLobster = filterMenuItems(fishLobster);
+  const showFishSection = filteredFishCatfish.length > 0 || filteredFishPerch.length > 0 || filteredFishWhiting.length > 0 || filteredFishShrimp.length > 0 || filteredCatfishBuckets.length > 0 || filteredPerchBuckets.length > 0 || filteredFishLobster.length > 0;
 
   // SAUCES & EXTRAS SECTION
   const sauces = [
@@ -690,6 +711,7 @@ export default function MenuPage() {
 
   // FISH COMBOS SECTION
   const fishCombos = [
+    { name: "Catfish Wing Combo (2-3 pc)", price: 23 },
     { name: "Catfish & 1/4 Chicken (White)", price: 27 },
     { name: "Perch & 1/4 Chicken (Dark)", price: 23 },
     { name: "Perch & 1/4 Chicken (White)", price: 24 },
@@ -1091,6 +1113,19 @@ export default function MenuPage() {
                   </h3>
                   <ul className="space-y-2">
                     {filteredFishShrimp.map((item, index) => (
+                      <MenuItem key={index} {...item} />
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Lobster */}
+                <div>
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                    <span className="w-1 h-6 bg-red-700"></span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Lobster</span>
+                  </h3>
+                  <ul className="space-y-2">
+                    {filteredFishLobster.map((item, index) => (
                       <MenuItem key={index} {...item} />
                     ))}
                   </ul>
