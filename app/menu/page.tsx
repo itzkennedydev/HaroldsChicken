@@ -585,19 +585,19 @@ export default function MenuPage() {
     { name: "Extra Breast", price: 4 }
   ];
   const specialtyChicken = [
-    { name: "Chicken Sandwich", price: 19, note: "Comes with drink & cookie" },
+    { name: "Chicken Sandwich", price: 19, note: "Comes with fries & cookie" },
     { name: "Chicken & Waffles", price: 21 },
     { name: "Add Chicken Breast", price: 6.5 }
   ];
   const chickenWingBuckets = [
-    { name: "12 pc Wings", price: 36.5 },
-    { name: "18 pc Wings", price: 46.5, badge: { text: "Best Value", className: "bg-yellow-400 text-black" } },
-    { name: "24 pc Wings", price: 56.5 }
+    { name: "12 pc Wings", price: 36.5, note: "Does not include fries" },
+    { name: "18 pc Wings", price: 46.5, note: "Does not include fries" },
+    { name: "24 pc Wings", price: 56.5, note: "Does not include fries" }
   ];
   const mixedChickenBuckets = [
-    { name: "8 Piece (Mixed)", price: 20 },
-    { name: "16 Piece (Mixed)", price: 30 },
-    { name: "24 Piece (Mixed)", price: 45 }
+    { name: "8 Piece (Mixed)", price: 20, note: "Does not include fries" },
+    { name: "16 Piece (Mixed)", price: 30, note: "Does not include fries" },
+    { name: "24 Piece (Mixed)", price: 45, note: "Does not include fries" }
   ];
   const filteredChickenItems = filterMenuItems(chickenItems);
   const filteredChickenTenders = filterMenuItems(chickenTenders);
@@ -627,8 +627,8 @@ export default function MenuPage() {
     { name: "Extra Catfish", price: 4 }
   ];
   const catfishBuckets = [
-    { name: "12 pc Catfish", price: 60 },
-    { name: "24 pc Catfish", price: 84 }
+    { name: "12 pc Catfish", price: 60, note: "Does not include fries" },
+    { name: "24 pc Catfish", price: 84, note: "Does not include fries" }
   ];
   const fishPerch = [
     { name: "Small Perch", price: 14 },
@@ -637,8 +637,8 @@ export default function MenuPage() {
     { name: "Extra Perch", price: 4 }
   ];
   const perchBuckets = [
-    { name: "12 pc Perch", price: 25 },
-    { name: "24 pc Perch", price: 45 }
+    { name: "12 pc Perch", price: 25, note: "Does not include fries" },
+    { name: "24 pc Perch", price: 45, note: "Does not include fries" }
   ];
   const fishWhiting = [
     { name: "Small Whiting", price: 15 },
