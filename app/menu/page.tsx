@@ -637,7 +637,6 @@ export default function MenuPage() {
   const sauces = [
     { name: "Harold's Signature Mild Sauce Bottle", price: 19 },
     { name: "Harold's Signature HOT Sauce Bottle", price: 15 },
-    { name: "Gallon Mild Sauce", price: 47 },
     { name: "Gallon of Sauce", price: 70 }
   ];
   const condiments = [
