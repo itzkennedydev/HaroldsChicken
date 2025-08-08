@@ -454,13 +454,8 @@ interface MenuItemType {
 
 // Define friedAppetizers and sides arrays at the top
 const friedAppetizers: MenuItemType[] = [
-  { name: "Mac & Cheese Bites", price: 9 },
   { name: "Mozz Sticks (3)", price: 6 },
   { name: "Mozz Sticks (5)", price: 8 },
-  { name: "Mushrooms", price: 10 },
-  { name: "Sweet Corn Bites", price: 9 },
-  { name: "Broccoli n Cheddar Bites", price: 9 },
-  { name: "Spicy Cheese Curds", price: 10 },
   { name: "Black Bean Firecrackers", price: 13.5 },
   { name: "Mac + Cheese", price: 11.5 },
   { name: "Corn Nugget", price: 9 },
@@ -556,10 +551,6 @@ export default function MenuPage() {
 
   // CHICKEN SECTION
   const chickenItems = [
-    { name: "4 Wings", price: 14 },
-    { name: "6 Wings", price: 17 },
-    { name: "8 Wings", price: 21 },
-    { name: "10 Wings", price: 22 },
     { name: "4 Wings + Fries", price: 14 },
     { name: "6 Wings + Fries", price: 17 },
     { name: "8 Wings + Fries", price: 21 },
@@ -567,9 +558,6 @@ export default function MenuPage() {
     { name: "Extra Wing", price: 4 }
   ];
   const chickenTenders = [
-    { name: "Tenders 4 pcs", price: 14 },
-    { name: "Tenders 6 pcs", price: 17 },
-    { name: "Tenders 8 pcs", price: 21 },
     { name: "4 Tenders + Fries", price: 14 },
     { name: "6 Tenders + Fries", price: 18 },
     { name: "8 Tenders + Fries", price: 21 }
@@ -615,11 +603,6 @@ export default function MenuPage() {
 
   // FISH & SEAFOOD SECTION
   const fishCatfish = [
-    { name: "Small Catfish", price: 15 },
-    { name: "Large Catfish", price: 22 },
-    { name: "12 pc Catfish", price: 42 },
-    { name: "Small Cat Nugget", price: 14 },
-    { name: "Large Cat Nugget", price: 19 },
     { name: "Small Catfish (2 pc)", price: 15 },
     { name: "Large Catfish (2 pc)", price: 22 },
     { name: "Small Cat Nugget (6 pc)", price: 15 },
@@ -630,16 +613,7 @@ export default function MenuPage() {
     { name: "12 pc Catfish", price: 60, note: "Does not include fries" },
     { name: "24 pc Catfish", price: 84, note: "Does not include fries" }
   ];
-  const fishPerch = [
-    { name: "Small Perch", price: 14 },
-    { name: "Large Perch", price: 22 },
-    { name: "12 pc Perch", price: 47 },
-    { name: "Extra Perch", price: 4 }
-  ];
-  const perchBuckets = [
-    { name: "12 pc Perch", price: 25, note: "Does not include fries" },
-    { name: "24 pc Perch", price: 45, note: "Does not include fries" }
-  ];
+
   const fishWhiting = [
     { name: "Small Whiting", price: 15 },
     { name: "Large Whiting", price: 21 }
@@ -654,18 +628,17 @@ export default function MenuPage() {
   ];
   const filteredFishCatfish = filterMenuItems(fishCatfish);
   const filteredCatfishBuckets = filterMenuItems(catfishBuckets);
-  const filteredFishPerch = filterMenuItems(fishPerch);
-  const filteredPerchBuckets = filterMenuItems(perchBuckets);
   const filteredFishWhiting = filterMenuItems(fishWhiting);
   const filteredFishShrimp = filterMenuItems(fishShrimp);
   const filteredFishLobster = filterMenuItems(fishLobster);
-  const showFishSection = filteredFishCatfish.length > 0 || filteredFishPerch.length > 0 || filteredFishWhiting.length > 0 || filteredFishShrimp.length > 0 || filteredCatfishBuckets.length > 0 || filteredPerchBuckets.length > 0 || filteredFishLobster.length > 0;
+  const showFishSection = filteredFishCatfish.length > 0 || filteredFishWhiting.length > 0 || filteredFishShrimp.length > 0 || filteredCatfishBuckets.length > 0 || filteredFishLobster.length > 0;
 
   // SAUCES & EXTRAS SECTION
   const sauces = [
     { name: "Harold's Signature Mild Sauce Bottle", price: 19 },
     { name: "Harold's Signature HOT Sauce Bottle", price: 15 },
-    { name: "Gallon Mild Sauce", price: 47 }
+    { name: "Gallon Mild Sauce", price: 47 },
+    { name: "Gallon of Sauce", price: 70 }
   ];
   const condiments = [
     { name: "2oz Mild Sauce", price: 1 },
@@ -680,7 +653,6 @@ export default function MenuPage() {
     { name: "Extra wing", price: 4 },
     { name: "Extra tender", price: 5 },
     { name: "Extra catfish", price: 4 },
-    { name: "Extra perch", price: 4 },
     { name: "Extra shrimp", price: 4 }
   ];
   const filteredSauces = filterMenuItems(sauces);
@@ -713,14 +685,10 @@ export default function MenuPage() {
   const fishCombos = [
     { name: "Catfish Wing Combo (2-3 pc)", price: 23 },
     { name: "Catfish & 1/4 Chicken (White)", price: 27 },
-    { name: "Perch & 1/4 Chicken (Dark)", price: 23 },
-    { name: "Perch & 1/4 Chicken (White)", price: 24 },
     { name: "2 Catfish & 3 Wings", price: 23 },
-    { name: "2 Perch & 3 Wings", price: 20 },
     { name: "Liver & 3 Wings", price: 19 },
     { name: "Gizzard & 3 Wings", price: 19 },
     { name: "2 Catfish & 5 Shrimp", price: 25.25 },
-    { name: "2 Perch & 5 Shrimp", price: 22.25 },
     { name: "5 Shrimp & 3 Wings", price: 25.25 },
     { name: "5 Shrimp & 1/4 Chicken (White)", price: 28 },
     { name: "5 Shrimp & 1/4 Chicken (Dark)", price: 23 }
@@ -746,7 +714,6 @@ export default function MenuPage() {
     ...specialtyChicken.map(item => ({ ...item, category: 'CHICKEN', subCategory: 'Specialty Chicken Items' })),
     // Fish & Seafood
     ...fishCatfish.map(item => ({ ...item, category: 'FISH & SEAFOOD', subCategory: 'Catfish' })),
-    ...fishPerch.map(item => ({ ...item, category: 'FISH & SEAFOOD', subCategory: 'Perch' })),
     ...fishWhiting.map(item => ({ ...item, category: 'FISH & SEAFOOD', subCategory: 'Whiting' })),
     ...fishShrimp.map(item => ({ ...item, category: 'FISH & SEAFOOD', subCategory: 'Shrimp' })),
     // Sauces & Extras
@@ -1066,31 +1033,7 @@ export default function MenuPage() {
                   </ul>
                 </div>
 
-                {/* Perch */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Perch</span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {filteredFishPerch.map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
 
-                {/* Perch Buckets */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Perch Buckets</span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {filteredPerchBuckets.map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
 
                 {/* Whiting */}
                 <div>
