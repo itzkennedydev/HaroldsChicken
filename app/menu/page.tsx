@@ -469,8 +469,8 @@ const sides: MenuItemType[] = [
   { name: "Coleslaw 2 oz", price: 2 },
   { name: "Coleslaw 8 oz", price: 5 },
   { name: "Coleslaw 16 oz", price: 9 },
-  { name: "Small Fry", price: 4 },
-  { name: "Large Fry", price: 7 }
+  { name: "Small Fries", price: 4 },
+  { name: "Large Fries", price: 7 }
 ];
 
 // Helper type guard for badge
@@ -574,8 +574,7 @@ export default function MenuPage() {
   ];
   const specialtyChicken = [
     { name: "Chicken Sandwich", price: 19, note: "Comes with fries & cookie" },
-    { name: "Chicken & Waffles", price: 21 },
-    { name: "Add Chicken Breast", price: 6.5 }
+    { name: "Chicken & Waffles", price: 22 }
   ];
   const chickenWingBuckets = [
     { name: "12 pc Wings", price: 36.5, note: "Does not include fries" },
@@ -697,7 +696,7 @@ export default function MenuPage() {
 
   // DESSERTS SECTION
   const desserts = [
-    { name: "Cookies", price: 7 },
+    { name: "Cookies", price: 3 },
     { name: "Honey Biscuits (5)", price: 10 },
     { name: "Honey Biscuits (10)", price: 15 }
   ];
