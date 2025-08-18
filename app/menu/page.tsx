@@ -607,7 +607,7 @@ export default function MenuPage() {
     { name: "Small Cat Nugget (6 pc)", price: 15 },
     { name: "Large Cat Nugget (9 pc)", price: 20 },
     { name: "Extra Catfish", price: 4 },
-    { name: "Catfish Day Special", price: 7, note: "Limited time offer", badge: { text: "SPECIAL", className: "bg-yellow-500 text-black" } }
+    { name: "Extra Catfish (Catfish Day)", price: 7 }
   ];
   const catfishBuckets = [
     { name: "12 pc Catfish", price: 60, note: "Does not include fries" },
