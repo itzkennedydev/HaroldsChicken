@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import "./globals.css";
 import { PHProvider } from '@/app/providers/PostHogProvider'
+import { MaintenanceOverlay } from '@/app/components/MaintenanceOverlay'
 import defaultSEO from './metadata'
 import Script from 'next/script'
 
@@ -124,6 +125,7 @@ export default function RootLayout({
       <PHProvider>
         <body className="antialiased">
           <div className="fixed inset-0 -z-10 bg-[#1a1a1a] w-screen h-screen pointer-events-none" aria-hidden="true" />
+          <MaintenanceOverlay />
           {children}
         </body>
       </PHProvider>
