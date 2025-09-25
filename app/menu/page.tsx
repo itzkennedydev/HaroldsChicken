@@ -457,7 +457,7 @@ const friedAppetizers: MenuItemType[] = [
   { name: "Mozz Sticks (3)", price: 6 },
   { name: "Mozz Sticks (5)", price: 8 },
   { name: "Black Bean Firecrackers", price: 13.5 },
-  { name: "Mac + Cheese", price: 11.5 },
+  { name: "Mac + Cheese Bites", price: 11.5 },
   { name: "Corn Nugget", price: 9 },
   { name: "Spicy Curd", price: 13 },
   { name: "Broccoli Bite", price: 13.5 },
@@ -466,9 +466,6 @@ const friedAppetizers: MenuItemType[] = [
 const sides: MenuItemType[] = [
   { name: "Okra 1/2 lb", price: 5 },
   { name: "Okra 1 lb", price: 10 },
-  { name: "Coleslaw 2 oz", price: 2 },
-  { name: "Coleslaw 8 oz", price: 5 },
-  { name: "Coleslaw 16 oz", price: 9 },
   { name: "Small Fries", price: 4 },
   { name: "Large Fries", price: 7 }
 ];
@@ -681,7 +678,6 @@ export default function MenuPage() {
 
   // FISH COMBOS SECTION
   const fishCombos = [
-    { name: "Catfish Wing Combo (2-3 pc)", price: 23 },
     { name: "Catfish & 1/4 Chicken (White)", price: 27 },
     { name: "2 Catfish & 3 Wings", price: 23 },
     { name: "Liver & 3 Wings", price: 19 },
