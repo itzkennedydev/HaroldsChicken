@@ -5,11 +5,12 @@ import { Card, CardHeader, CardTitle, CardContent } from "../components/ui/card"
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { Container } from "../components/ui/container";
+import { Tabs, TabsList, TabsTrigger } from "../components/ui/tabs";
 import { useState, useRef, useEffect } from "react";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
-import { Search, Filter, X, ChevronDown, ChevronUp, Loader2 } from "lucide-react";
+import { Search, X, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Fuse from 'fuse.js';
@@ -56,8 +57,8 @@ function MenuIncluded() {
   if (!isVisible) return null;
 
   return (
-    <Card className="col-span-1 lg:col-span-2 xl:col-span-3">
-      <div className="bg-white border-2 border-red-700 py-6 px-8 rounded-lg relative">
+    <Card>
+      <div className="bg-white border-2 border-red-700 py-8 px-8 rounded-lg relative">
         <button
           onClick={() => setIsVisible(false)}
           className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition-colors"
@@ -69,7 +70,7 @@ function MenuIncluded() {
         </button>
         <div className="text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-red-700">ALL DINNERS & COMBOS INCLUDE</h2>
-          <div className="flex flex-wrap justify-center items-center gap-6 text-lg md:text-xl font-medium">
+          <div className="flex flex-wrap justify-center items-center gap-8 text-lg md:text-xl font-medium">
             <span className="text-[#202124]">Fries</span>
             <span className="text-red-700">•</span>
             <span className="text-[#202124]">Bread</span>
@@ -88,155 +89,162 @@ function MenuNotices() {
       <CardHeader className="bg-[#F8F9FA] rounded-t-xl p-8">
         <CardTitle className="text-2xl text-[#202124] tracking-wider text-center font-bold">Important Notices</CardTitle>
       </CardHeader>
-      <CardContent className="p-8 space-y-8">
-        <div className="space-y-8">
-          <div className="flex items-start gap-8">
-            <div className="mt-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-5 h-5 text-red-700"
-              >
-                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-                <path d="M12 8v4" />
-                <path d="M12 16h.01" />
-              </svg>
+      <CardContent className="p-8">
+        {/* Two-column grid for all notices */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Left Column - Food Quality & Safety */}
+          <div className="space-y-8">
+            <div className="flex items-start gap-8">
+              <div className="mt-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-5 h-5 text-red-700"
+                >
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                  <path d="M12 8v4" />
+                  <path d="M12 16h.01" />
+                </svg>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-[#202124] mb-2">Food Safety Notice</h4>
+                <p className="text-[#333536] leading-relaxed">
+                  Consuming raw or undercooked meats, poultry, seafood, shellfish or eggs may increase your risk of food borne illnesses, especially if you have certain medical conditions.
+                </p>
+              </div>
             </div>
-            <div>
-              <h4 className="text-lg font-semibold text-[#202124] mb-2">Food Safety Notice</h4>
-              <p className="text-[#333536] leading-relaxed">
-                Consuming raw or undercooked meats, poultry, seafood, shellfish or eggs may increase your risk of food borne illnesses, especially if you have certain medical conditions.
-              </p>
+
+            <div className="flex items-start gap-8">
+              <div className="mt-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-5 h-5 text-red-700"
+                >
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                  <path d="M12 8v4" />
+                  <path d="M12 16h.01" />
+                </svg>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-[#202124] mb-2">Freshness Commitment</h4>
+                <p className="text-[#333536] leading-relaxed">
+                  Because freshness is of the utmost importance to us here at Harold's Chicken & Sport Bar, all orders are prepared 'fresh to order'. As a result, this will involve longer than normal wait times, we promise you that our deliciously flavored Chicago style chicken and fish is well worth the wait!
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-8">
+              <div className="mt-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-5 h-5 text-red-700"
+                >
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                  <path d="M12 8v4" />
+                  <path d="M12 16h.01" />
+                </svg>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-[#202124] mb-2">Pricing Notice</h4>
+                <p className="text-[#333536] leading-relaxed">
+                  Prices subject to change without notice.
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="flex items-start gap-8">
-            <div className="mt-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-5 h-5 text-red-700"
-              >
-                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-                <path d="M12 8v4" />
-                <path d="M12 16h.01" />
-              </svg>
+          {/* Right Column - Policies & Charges */}
+          <div className="space-y-8">
+            <div className="flex items-start gap-8">
+              <div className="mt-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-5 h-5 text-red-700"
+                >
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                  <path d="M12 8v4" />
+                  <path d="M12 16h.01" />
+                </svg>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-[#202124] mb-2">Service Charge</h4>
+                <p className="text-[#333536] leading-relaxed">
+                  18 percent gratuity will be added to all orders.
+                </p>
+              </div>
             </div>
-            <div>
-              <h4 className="text-lg font-semibold text-[#202124] mb-2">Freshness Commitment</h4>
-              <p className="text-[#333536] leading-relaxed">
-                Because freshness is of the utmost importance to us here at Harold's Chicken & Sport Bar, all orders are prepared 'fresh to order'. As a result, this will involve longer than normal wait times, we promise you that our deliciously flavored Chicago style chicken and fish is well worth the wait!
-              </p>
-            </div>
-          </div>
 
-          <div className="flex items-start gap-8">
-            <div className="mt-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-5 h-5 text-red-700"
-              >
-                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-                <path d="M12 8v4" />
-                <path d="M12 16h.01" />
-              </svg>
+            <div className="flex items-start gap-8">
+              <div className="mt-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-5 h-5 text-red-700"
+                >
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                  <path d="M12 8v4" />
+                  <path d="M12 16h.01" />
+                </svg>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-[#202124] mb-2">Substitution Policy</h4>
+                <p className="text-[#333536] leading-relaxed">
+                  No substitutions are allowed.
+                </p>
+              </div>
             </div>
-            <div>
-              <h4 className="text-lg font-semibold text-[#202124] mb-2">Pricing Notice</h4>
-              <p className="text-[#333536] leading-relaxed">
-                Prices subject to change without notice.
-              </p>
-            </div>
-          </div>
 
-          <div className="flex items-start gap-8">
-            <div className="mt-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-5 h-5 text-red-700"
-              >
-                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-                <path d="M12 8v4" />
-                <path d="M12 16h.01" />
-              </svg>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-[#202124] mb-2">Service Charge</h4>
-              <p className="text-[#333536] leading-relaxed">
-                18 percent gratuity will be added to all orders.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-8">
-            <div className="mt-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-5 h-5 text-red-700"
-              >
-                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-                <path d="M12 8v4" />
-                <path d="M12 16h.01" />
-              </svg>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-[#202124] mb-2">Substitution Policy</h4>
-              <p className="text-[#333536] leading-relaxed">
-                No substitutions are allowed.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-8">
-            <div className="mt-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-5 h-5 text-red-700"
-              >
-                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-                <path d="M12 8v4" />
-                <path d="M12 16h.01" />
-              </svg>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-[#202124] mb-2">Refund Policy</h4>
-              <p className="text-[#333536] leading-relaxed">
-                Only remakes or food exchanges are allowed. We do not offer exchange of cash refunds.
-              </p>
+            <div className="flex items-start gap-8">
+              <div className="mt-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-5 h-5 text-red-700"
+                >
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                  <path d="M12 8v4" />
+                  <path d="M12 16h.01" />
+                </svg>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-[#202124] mb-2">Refund Policy</h4>
+                <p className="text-[#333536] leading-relaxed">
+                  Only remakes or food exchanges are allowed. We do not offer exchange of cash refunds.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -292,14 +300,10 @@ function Cocktail({ name, price, ingredients }: { name: string; price: number; i
 
 function SearchBar({ 
   searchQuery, 
-  setSearchQuery, 
-  showFilters, 
-  setShowFilters 
+  setSearchQuery
 }: { 
   searchQuery: string; 
   setSearchQuery: (query: string) => void; 
-  showFilters: boolean;
-  setShowFilters: (show: boolean) => void;
 }) {
   const [isSearching, setIsSearching] = useState(false);
   const [suggestions, setSuggestions] = useState<string[]>([]);
@@ -353,88 +357,62 @@ function SearchBar({
 
   return (
     <div className="relative" ref={searchRef}>
-      <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
-        <div className="relative flex-1">
-          <div className="relative">
-            <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-[#333536]" size={18} />
-            <Input
-              type="text"
-              placeholder="Search for chicken, fish, sides, or beverages..."
-              value={searchQuery}
-              onChange={(e) => handleSearch(e.target.value)}
-              onFocus={() => setShowSuggestions(true)}
-              className={cn(
-                "pl-10 sm:pl-12 pr-10 sm:pr-12 py-4 sm:py-6 text-base sm:text-lg rounded-xl border border-gray-200 transition-all duration-300",
-                "focus:border-red-700 focus:ring-2 focus:ring-red-100",
-                "hover:border-gray-300",
-                "placeholder:text-[#333536]"
-              )}
-            />
-            {isSearching && (
-              <Loader2 className="absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 text-[#333536] animate-spin" size={18} />
-            )}
-            {searchQuery && !isSearching && (
-              <button
-                onClick={() => {
-                  setSearchQuery("");
-                  setSuggestions(popularSearches);
-                }}
-                className="absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 text-[#333536] hover:text-[#202124]"
-              >
-                <X size={18} />
-              </button>
-            )}
-          </div>
-
-          {/* Search Suggestions Dropdown */}
-          {showSuggestions && (searchQuery || suggestions.length > 0) && (
-            <div className="absolute z-50 w-full mt-2 bg-white rounded-lg border-2 border-gray-200 max-h-60 overflow-y-auto">
-              {suggestions.length > 0 ? (
-                <div className="py-2">
-                  {suggestions.map((suggestion, index) => (
-                    <button
-                      key={index}
-                      onClick={() => handleSuggestionClick(suggestion)}
-                      className={cn(
-                        "w-full px-4 py-3 text-left hover:bg-[#F8F9FA] transition-colors",
-                        "flex items-center gap-3",
-                        "focus:outline-none focus:bg-[#F8F9FA]"
-                      )}
-                    >
-                      <Search size={16} className="text-[#333536]" />
-                      <span className="text-[#202124]">{suggestion}</span>
-                    </button>
-                  ))}
-                </div>
-              ) : (
-                <div className="px-4 py-3 text-[#333536] text-center">
-                  No results found
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-
-        <Button
-          variant="outline"
-          size="lg"
-          onClick={() => setShowFilters(!showFilters)}
+      <div className="relative">
+        <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-[#333536]" size={18} />
+        <Input
+          type="text"
+          placeholder="Search for chicken, fish, sides, or beverages..."
+          value={searchQuery}
+          onChange={(e) => handleSearch(e.target.value)}
+          onFocus={() => setShowSuggestions(true)}
           className={cn(
-            "flex items-center justify-center gap-2 transition-colors h-[44px] sm:h-[52px] px-4 sm:px-6",
-            showFilters ? "bg-[#F8F9FA] border-gray-200 text-red-700" : ""
+            "pl-10 sm:pl-12 pr-10 sm:pr-12 py-4 sm:py-6 text-base sm:text-lg rounded-xl border border-gray-200 transition-all duration-300",
+            "focus:border-red-700 focus:ring-2 focus:ring-red-100",
+            "hover:border-gray-300",
+            "placeholder:text-[#333536]"
           )}
-        >
-          <Filter size={18} />
-          <span className="sm:hidden">Filter</span>
-          <span className="hidden sm:inline">Filters</span>
-          {showFilters ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-        </Button>
+        />
+        {isSearching && (
+          <Loader2 className="absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 text-[#333536] animate-spin" size={18} />
+        )}
+        {searchQuery && !isSearching && (
+          <button
+            onClick={() => {
+              setSearchQuery("");
+              setSuggestions(popularSearches);
+            }}
+            className="absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 text-[#333536] hover:text-[#202124]"
+          >
+            <X size={18} />
+          </button>
+        )}
       </div>
 
-      {/* Search Tips */}
-      {!searchQuery && (
-        <div className="mt-2 sm:mt-3 text-sm sm:text-base text-[#333536]">
-          Try searching for: chicken wings, catfish, party pans, or beverages
+      {/* Search Suggestions Dropdown */}
+      {showSuggestions && (searchQuery || suggestions.length > 0) && (
+        <div className="absolute z-50 w-full mt-2 bg-white rounded-lg border-2 border-gray-200 max-h-60 overflow-y-auto">
+          {suggestions.length > 0 ? (
+            <div className="py-2">
+              {suggestions.map((suggestion, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleSuggestionClick(suggestion)}
+                  className={cn(
+                    "w-full px-4 py-3 text-left hover:bg-[#F8F9FA] transition-colors",
+                    "flex items-center gap-3",
+                    "focus:outline-none focus:bg-[#F8F9FA]"
+                  )}
+                >
+                  <Search size={16} className="text-[#333536]" />
+                  <span className="text-[#202124]">{suggestion}</span>
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="px-4 py-3 text-[#333536] text-center">
+              No results found
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -479,7 +457,7 @@ export default function MenuPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [priceRange, setPriceRange] = useState([0, 350]);
-  const [showFilters, setShowFilters] = useState(false);
+  const [activeTab, setActiveTab] = useState("all");
 
   const categories = [
     { id: "CHICKEN WINGS", label: "Chicken Wings" },
@@ -493,17 +471,32 @@ export default function MenuPage() {
   ];
 
   const toggleCategory = (category: string) => {
-    setSelectedCategories(prev =>
-      prev.includes(category)
-        ? prev.filter(c => c !== category)
-        : [...prev, category]
-    );
+    const newCategories = selectedCategories.includes(category)
+      ? selectedCategories.filter(c => c !== category)
+      : [...selectedCategories, category];
+    
+    setSelectedCategories(newCategories);
+    
+    // Update active tab based on selected categories
+    if (newCategories.length === 0) {
+      setActiveTab("all");
+    } else if (newCategories.length === 1) {
+      setActiveTab(newCategories[0]);
+    } else {
+      setActiveTab("all"); // Multiple categories selected, show all
+    }
   };
 
-  const clearFilters = () => {
+
+  const handleTabChange = (tabValue: string) => {
+    setActiveTab(tabValue);
+    if (tabValue === "all") {
+      setSelectedCategories([]);
+    } else {
+      setSelectedCategories([tabValue]);
+    }
+    // Clear search when switching tabs for better UX
     setSearchQuery("");
-    setSelectedCategories([]);
-    setPriceRange([0, 350]);
   };
 
   const filterMenuItems = (items: { name: string; price: number; note?: string }[]) => {
@@ -590,13 +583,15 @@ export default function MenuPage() {
   const filteredChickenWingBuckets = filterMenuItems(chickenWingBuckets);
   const filteredMixedChickenBuckets = filterMenuItems(mixedChickenBuckets);
   const showChickenWingsSection =
-    filteredChickenItems.length > 0 ||
+    (selectedCategories.length === 0 || selectedCategories.includes("CHICKEN WINGS")) &&
+    (filteredChickenItems.length > 0 ||
     filteredChickenTenders.length > 0 ||
-    filteredSpecialtyChicken.length > 0;
+    filteredSpecialtyChicken.length > 0);
   const showChickenPiecesBucketsSection =
-    filteredChickenPieces.length > 0 ||
+    (selectedCategories.length === 0 || selectedCategories.includes("CHICKEN PIECES & BUCKETS")) &&
+    (filteredChickenPieces.length > 0 ||
     filteredChickenWingBuckets.length > 0 ||
-    filteredMixedChickenBuckets.length > 0;
+    filteredMixedChickenBuckets.length > 0);
 
   // FISH & SEAFOOD SECTION
   const fishCatfish = [
@@ -628,7 +623,9 @@ export default function MenuPage() {
   const filteredFishWhiting = filterMenuItems(fishWhiting);
   const filteredFishShrimp = filterMenuItems(fishShrimp);
   const filteredFishLobster = filterMenuItems(fishLobster);
-  const showFishSection = filteredFishCatfish.length > 0 || filteredFishWhiting.length > 0 || filteredFishShrimp.length > 0 || filteredCatfishBuckets.length > 0 || filteredFishLobster.length > 0;
+  const showFishSection = 
+    (selectedCategories.length === 0 || selectedCategories.includes("FISH & SEAFOOD")) &&
+    (filteredFishCatfish.length > 0 || filteredFishWhiting.length > 0 || filteredFishShrimp.length > 0 || filteredCatfishBuckets.length > 0 || filteredFishLobster.length > 0);
 
   // SAUCES & EXTRAS SECTION
   const sauces = [
@@ -653,7 +650,9 @@ export default function MenuPage() {
   ];
   const filteredSauces = filterMenuItems(sauces);
   const filteredCondiments = filterMenuItems(condiments);
-  const showSaucesSection = filteredSauces.length > 0 || filteredCondiments.length > 0;
+  const showSaucesSection = 
+    (selectedCategories.length === 0 || selectedCategories.includes("SAUCES & EXTRAS")) &&
+    (filteredSauces.length > 0 || filteredCondiments.length > 0);
 
   // BEVERAGES SECTION
   const specialtyCocktails = [
@@ -675,8 +674,12 @@ export default function MenuPage() {
   ];
   const filteredSpecialtyCocktails = filterCocktails(specialtyCocktails);
   const filteredNonAlcoholic = filterMenuItems(nonAlcoholic);
-  const showCocktailsSection = filteredSpecialtyCocktails.length > 0;
-  const showNonAlcoholicSection = filteredNonAlcoholic.length > 0;
+  const showCocktailsSection = 
+    (selectedCategories.length === 0 || selectedCategories.includes("COCKTAILS")) &&
+    filteredSpecialtyCocktails.length > 0;
+  const showNonAlcoholicSection = 
+    (selectedCategories.length === 0 || selectedCategories.includes("SAUCES & EXTRAS")) &&
+    filteredNonAlcoholic.length > 0;
 
   // FISH COMBOS SECTION
   const fishCombos = [
@@ -690,7 +693,9 @@ export default function MenuPage() {
     { name: "5 Shrimp & 1/4 Chicken (Dark)", price: 23 }
   ];
   const filteredFishCombos = filterMenuItems(fishCombos);
-  const showFishCombosSection = filteredFishCombos.length > 0;
+  const showFishCombosSection = 
+    (selectedCategories.length === 0 || selectedCategories.includes("APPETIZERS & SIDES")) &&
+    filteredFishCombos.length > 0;
 
   // DESSERTS SECTION
   const desserts = [
@@ -699,7 +704,9 @@ export default function MenuPage() {
     { name: "Honey Biscuits (10)", price: 15 }
   ];
   const filteredDesserts = filterMenuItems(desserts);
-  const showDessertsSection = filteredDesserts.length > 0;
+  const showDessertsSection = 
+    (selectedCategories.length === 0 || selectedCategories.includes("DESSERTS")) &&
+    filteredDesserts.length > 0;
 
   // Build a flat array of all menu items with category and subCategory
   const allMenuItems = [
@@ -763,154 +770,123 @@ export default function MenuPage() {
       <Header variant="white" />
       <MenuBanner />
       <Container as="main" className="pt-8 sm:pt-12 md:pt-16">
+        {/* Menu Included Notice */}
+        <div className="mb-8">
+          <MenuIncluded />
+        </div>
+
         {/* Enhanced Search and Filter Section */}
-        <div className="mb-8 sm:mb-12 space-y-4 sm:space-y-6">
+        <div className="mb-8 space-y-4">
           <SearchBar
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
-            showFilters={showFilters}
-            setShowFilters={setShowFilters}
           />
 
-          {/* Enhanced Filter Panel */}
-          {showFilters && (
-            <div className="bg-gradient-to-b from-[#F8F9FA] to-white p-4 sm:p-6 md:p-8 rounded-lg space-y-6 sm:space-y-8 border border-gray-200">
-              <div className="flex justify-between items-center">
-                <h3 className="text-xl sm:text-2xl font-bold text-[#202124]">Filter Menu</h3>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={clearFilters} 
-                  className="flex items-center gap-2 text-red-700 hover:text-red-800"
-                >
-                  <X size={16} />
-                  Clear All
-                </Button>
-              </div>
 
-              {/* Categories */}
-              <div>
-                <h4 className="text-base sm:text-lg font-semibold text-[#202124] mb-3 sm:mb-4">
-                  Categories
-                </h4>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3">
-                  {categories.map((category) => (
-                    <Button
-                      key={category.id}
-                      variant={selectedCategories.includes(category.id) ? "default" : "outline"}
-                      className={cn(
-                        "w-full justify-start gap-2 transition-all duration-300 text-sm sm:text-base",
-                        selectedCategories.includes(category.id)
-                          ? "bg-red-700 text-white hover:bg-red-800"
-                          : "hover:bg-[#F8F9FA] border-gray-200"
-                      )}
-                      onClick={() => toggleCategory(category.id)}
-                    >
-                      {category.label}
-                    </Button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Price Range */}
-              <div>
-                <h4 className="text-base sm:text-lg font-semibold text-[#202124] mb-3 sm:mb-4">
-                  Price Range
-                </h4>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <div className="flex-1">
-                      <label className="block text-sm font-medium text-[#333536] mb-1">Min Price</label>
-                      <div className="relative">
-                        <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#333536]">$</span>
-                        <Input
-                          type="number"
-                          value={priceRange[0]}
-                          onChange={(e) => {
-                            const value = parseInt(e.target.value) || 0;
-                            setPriceRange([Math.max(0, Math.min(value, priceRange[1])), priceRange[1]]);
-                          }}
-                          className="pl-8 pr-3 py-2 text-sm"
-                          min={0}
-                          max={priceRange[1]}
-                        />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <label className="block text-sm font-medium text-[#333536] mb-1">Max Price</label>
-                      <div className="relative">
-                        <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#333536]">$</span>
-                        <Input
-                          type="number"
-                          value={priceRange[1]}
-                          onChange={(e) => {
-                            const value = parseInt(e.target.value) || 350;
-                            setPriceRange([priceRange[0], Math.max(priceRange[0], Math.min(value, 350))]);
-                          }}
-                          className="pl-8 pr-3 py-2 text-sm"
-                          min={priceRange[0]}
-                          max={350}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex justify-between text-sm text-[#333536]">
-                    <span>${priceRange[0]}</span>
-                    <span>${priceRange[1]}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Active Filters Display */}
-          {(selectedCategories.length > 0 || searchQuery || priceRange[0] > 0 || priceRange[1] < 350) && (
-            <div className="flex flex-wrap gap-2">
-              {selectedCategories.map((category) => (
-                <Badge
-                  key={category}
-                  variant="secondary"
-                  className="flex items-center gap-1 bg-[#F8F9FA] text-[#202124] border border-gray-200 text-sm"
-                >
-                  {categories.find(c => c.id === category)?.label}
-                  <X
-                    size={12}
-                    className="cursor-pointer hover:text-red-700"
-                    onClick={() => toggleCategory(category)}
-                  />
-                </Badge>
-              ))}
-              {searchQuery && (
-                <Badge variant="secondary" className="flex items-center gap-1 bg-[#F8F9FA] text-[#202124] border border-gray-200 text-sm">
-                  Search: {searchQuery}
-                  <X
-                    size={12}
-                    className="cursor-pointer hover:text-red-700"
-                    onClick={() => setSearchQuery("")}
-                  />
-                </Badge>
-              )}
-              {(priceRange[0] > 0 || priceRange[1] < 350) && (
-                <Badge variant="secondary" className="flex items-center gap-1 bg-[#F8F9FA] text-[#202124] border border-gray-200 text-sm">
-                  Price: ${priceRange[0]} - ${priceRange[1]}
-                  <X
-                    size={12}
-                    className="cursor-pointer hover:text-red-700"
-                    onClick={() => setPriceRange([0, 350])}
-                  />
-                </Badge>
-              )}
-            </div>
-          )}
         </div>
 
         {Object.entries(groupedResults).length === 0 && (
           <div className="w-full text-center text-gray-500 py-8 text-lg">No results found</div>
         )}
 
+        {/* MENU TABS */}
+        <div className="mb-8">
+          <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
+            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 h-auto p-2 bg-gray-100 rounded-xl">
+              <TabsTrigger 
+                value="all" 
+                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
+              >
+                All Items
+              </TabsTrigger>
+              <TabsTrigger 
+                value="CHICKEN WINGS" 
+                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
+              >
+                Wings
+              </TabsTrigger>
+              <TabsTrigger 
+                value="CHICKEN PIECES & BUCKETS" 
+                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
+              >
+                Pieces
+              </TabsTrigger>
+              <TabsTrigger 
+                value="FISH & SEAFOOD" 
+                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
+              >
+                Fish
+              </TabsTrigger>
+              <TabsTrigger 
+                value="APPETIZERS & SIDES" 
+                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
+              >
+                Sides
+              </TabsTrigger>
+              <TabsTrigger 
+                value="COCKTAILS" 
+                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
+              >
+                Cocktails
+              </TabsTrigger>
+              <TabsTrigger 
+                value="PARTY PANS" 
+                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
+              >
+                Party Pans
+              </TabsTrigger>
+              <TabsTrigger 
+                value="SAUCES & EXTRAS" 
+                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
+              >
+                Extras
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
+        </div>
+
+        {/* Active Filters Display */}
+        {(selectedCategories.length > 0 || searchQuery || priceRange[0] > 0 || priceRange[1] < 350) && (
+          <div className="mb-8 flex flex-wrap gap-2">
+            {selectedCategories.map((category) => (
+              <Badge
+                key={category}
+                variant="secondary"
+                className="flex items-center gap-1 bg-[#F8F9FA] text-[#202124] border border-gray-200 text-sm"
+              >
+                {categories.find(c => c.id === category)?.label}
+                <X
+                  size={12}
+                  className="cursor-pointer hover:text-red-700"
+                  onClick={() => toggleCategory(category)}
+                />
+              </Badge>
+            ))}
+            {searchQuery && (
+              <Badge variant="secondary" className="flex items-center gap-1 bg-[#F8F9FA] text-[#202124] border border-gray-200 text-sm">
+                Search: {searchQuery}
+                <X
+                  size={12}
+                  className="cursor-pointer hover:text-red-700"
+                  onClick={() => setSearchQuery("")}
+                />
+              </Badge>
+            )}
+            {(priceRange[0] > 0 || priceRange[1] < 350) && (
+              <Badge variant="secondary" className="flex items-center gap-1 bg-[#F8F9FA] text-[#202124] border border-gray-200 text-sm">
+                Price: ${priceRange[0]} - ${priceRange[1]}
+                <X
+                  size={12}
+                  className="cursor-pointer hover:text-red-700"
+                  onClick={() => setPriceRange([0, 350])}
+                />
+              </Badge>
+            )}
+          </div>
+        )}
+
         {/* MAIN MENU SECTIONS */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-          <MenuIncluded />
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-12 md:gap-16">
           {/* CHICKEN WINGS SECTION */}
           {showChickenWingsSection && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
@@ -924,7 +900,7 @@ export default function MenuPage() {
                     <span className="w-1 h-6 bg-red-700"></span>
                     <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Wing Dinners</span>
                   </h3>
-                  <ul className="space-y-2">
+                  <ul className="space-y-1">
                     {filteredChickenItems.map((item, index) => (
                       <MenuItem key={index} {...item} />
                     ))}
@@ -1139,7 +1115,7 @@ export default function MenuPage() {
           )}
 
           {/* APPETIZERS & SIDES SECTION */}
-          {(!selectedCategories.length || selectedCategories.includes("APPETIZERS & SIDES")) && (
+          {(selectedCategories.length === 0 || selectedCategories.includes("APPETIZERS & SIDES")) && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
               <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
                 <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">APPETIZERS & SIDES</CardTitle>
