@@ -482,12 +482,12 @@ export default function MenuPage() {
   const [showFilters, setShowFilters] = useState(false);
 
   const categories = [
-    { id: "CHICKEN", label: "Chicken" },
+    { id: "CHICKEN WINGS", label: "Chicken Wings" },
+    { id: "CHICKEN PIECES & BUCKETS", label: "Chicken Pieces & Buckets" },
     { id: "FISH & SEAFOOD", label: "Fish & Seafood" },
     { id: "APPETIZERS & SIDES", label: "Appetizers & Sides" },
-    { id: "BEVERAGES", label: "Beverages" },
+    { id: "COCKTAILS", label: "Cocktails" },
     { id: "PARTY PANS", label: "Party Pans" },
-    { id: "FISH COMBOS", label: "Fish Combos" },
     { id: "DESSERTS", label: "Desserts" },
     { id: "SAUCES & EXTRAS", label: "Sauces & Extras" }
   ];
@@ -589,11 +589,12 @@ export default function MenuPage() {
   const filteredSpecialtyChicken = filterMenuItems(specialtyChicken);
   const filteredChickenWingBuckets = filterMenuItems(chickenWingBuckets);
   const filteredMixedChickenBuckets = filterMenuItems(mixedChickenBuckets);
-  const showChickenSection =
+  const showChickenWingsSection =
     filteredChickenItems.length > 0 ||
     filteredChickenTenders.length > 0 ||
+    filteredSpecialtyChicken.length > 0;
+  const showChickenPiecesBucketsSection =
     filteredChickenPieces.length > 0 ||
-    filteredSpecialtyChicken.length > 0 ||
     filteredChickenWingBuckets.length > 0 ||
     filteredMixedChickenBuckets.length > 0;
 
@@ -674,7 +675,8 @@ export default function MenuPage() {
   ];
   const filteredSpecialtyCocktails = filterCocktails(specialtyCocktails);
   const filteredNonAlcoholic = filterMenuItems(nonAlcoholic);
-  const showBeveragesSection = filteredSpecialtyCocktails.length > 0 || filteredNonAlcoholic.length > 0;
+  const showCocktailsSection = filteredSpecialtyCocktails.length > 0;
+  const showNonAlcoholicSection = filteredNonAlcoholic.length > 0;
 
   // FISH COMBOS SECTION
   const fishCombos = [
@@ -701,11 +703,14 @@ export default function MenuPage() {
 
   // Build a flat array of all menu items with category and subCategory
   const allMenuItems = [
-    // Chicken
-    ...chickenItems.map(item => ({ ...item, category: 'CHICKEN', subCategory: 'Wing Dinners' })),
-    ...chickenTenders.map(item => ({ ...item, category: 'CHICKEN', subCategory: 'Chicken Tenders' })),
-    ...chickenPieces.map(item => ({ ...item, category: 'CHICKEN', subCategory: 'Chicken Pieces' })),
-    ...specialtyChicken.map(item => ({ ...item, category: 'CHICKEN', subCategory: 'Specialty Chicken Items' })),
+    // Chicken Wings
+    ...chickenItems.map(item => ({ ...item, category: 'CHICKEN WINGS', subCategory: 'Wing Dinners' })),
+    ...chickenTenders.map(item => ({ ...item, category: 'CHICKEN WINGS', subCategory: 'Chicken Tenders' })),
+    ...specialtyChicken.map(item => ({ ...item, category: 'CHICKEN WINGS', subCategory: 'Specialty Chicken Items' })),
+    // Chicken Pieces & Buckets
+    ...chickenPieces.map(item => ({ ...item, category: 'CHICKEN PIECES & BUCKETS', subCategory: 'Chicken Pieces' })),
+    ...chickenWingBuckets.map(item => ({ ...item, category: 'CHICKEN PIECES & BUCKETS', subCategory: 'Chicken Wing Buckets' })),
+    ...mixedChickenBuckets.map(item => ({ ...item, category: 'CHICKEN PIECES & BUCKETS', subCategory: 'Mixed Chicken Buckets' })),
     // Fish & Seafood
     ...fishCatfish.map(item => ({ ...item, category: 'FISH & SEAFOOD', subCategory: 'Catfish' })),
     ...fishWhiting.map(item => ({ ...item, category: 'FISH & SEAFOOD', subCategory: 'Whiting' })),
@@ -713,14 +718,13 @@ export default function MenuPage() {
     // Sauces & Extras
     ...sauces.map(item => ({ ...item, category: 'SAUCES & EXTRAS', subCategory: "Harold's Signature Sauces" })),
     ...condiments.map(item => ({ ...item, category: 'SAUCES & EXTRAS', subCategory: 'Condiments & Extras' })),
+    ...nonAlcoholic.map(item => ({ ...item, category: 'SAUCES & EXTRAS', subCategory: 'Non-Alcoholic Beverages' })),
     // Appetizers & Sides
     ...friedAppetizers.map(item => ({ ...item, category: 'APPETIZERS & SIDES', subCategory: 'Fried Appetizers' })),
     ...sides.map(item => ({ ...item, category: 'APPETIZERS & SIDES', subCategory: 'Sides' })),
-    // Beverages
-    ...specialtyCocktails.map(item => ({ ...item, category: 'BEVERAGES', subCategory: 'Specialty Cocktails' })),
-    ...nonAlcoholic.map(item => ({ ...item, category: 'BEVERAGES', subCategory: 'Non-Alcoholic Beverages' })),
-    // Fish Combos
-    ...fishCombos.map(item => ({ ...item, category: 'FISH COMBOS', subCategory: 'Fish Combos' })),
+    ...fishCombos.map(item => ({ ...item, category: 'APPETIZERS & SIDES', subCategory: 'Fish Combos' })),
+    // Cocktails
+    ...specialtyCocktails.map(item => ({ ...item, category: 'COCKTAILS', subCategory: 'Specialty Cocktails' })),
     // Party Pans
     ...partyPanWings.map(item => ({ ...item, category: 'PARTY PANS', subCategory: 'Wing Party Pans' })),
     ...partyPanMixed.map(item => ({ ...item, category: 'PARTY PANS', subCategory: 'Mixed Chicken Party Pans' })),
@@ -907,10 +911,11 @@ export default function MenuPage() {
         {/* MAIN MENU SECTIONS */}
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           <MenuIncluded />
-          {showChickenSection && (
+          {/* CHICKEN WINGS SECTION */}
+          {showChickenWingsSection && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
               <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
-                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">CHICKEN</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">CHICKEN WINGS</CardTitle>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
                 {/* Wing Dinners */}
@@ -939,19 +944,6 @@ export default function MenuPage() {
                   </ul>
                 </div>
 
-                {/* Chicken Pieces */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Chicken Pieces</span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {filteredChickenPieces.map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
-
                 {/* Specialty Chicken Items */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
@@ -960,6 +952,29 @@ export default function MenuPage() {
                   </h3>
                   <ul className="space-y-2">
                     {filteredSpecialtyChicken.map((item, index) => (
+                      <MenuItem key={index} {...item} />
+                    ))}
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* CHICKEN PIECES & BUCKETS SECTION */}
+          {showChickenPiecesBucketsSection && (
+            <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
+              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
+                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">CHICKEN PIECES & BUCKETS</CardTitle>
+              </CardHeader>
+              <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
+                {/* Chicken Pieces */}
+                <div>
+                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                    <span className="w-1 h-6 bg-red-700"></span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Chicken Pieces</span>
+                  </h3>
+                  <ul className="space-y-2">
+                    {filteredChickenPieces.map((item, index) => (
                       <MenuItem key={index} {...item} />
                     ))}
                   </ul>
@@ -1104,6 +1119,21 @@ export default function MenuPage() {
                     </ul>
                   </div>
                 )}
+
+                {/* Non-Alcoholic Beverages */}
+                {showNonAlcoholicSection && (
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                      <span className="w-1 h-6 bg-red-700"></span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Non-Alcoholic Beverages</span>
+                    </h3>
+                    <ul className="space-y-2">
+                      {filteredNonAlcoholic.map((item, index) => (
+                        <MenuItem key={index} {...item} />
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </CardContent>
             </Card>
           )}
@@ -1140,15 +1170,30 @@ export default function MenuPage() {
                     ))}
                   </ul>
                 </div>
+
+                {/* Fish Combos */}
+                {showFishCombosSection && (
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                      <span className="w-1 h-6 bg-red-700"></span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Fish Combos</span>
+                    </h3>
+                    <ul className="space-y-2">
+                      {filteredFishCombos.map((item, index) => (
+                        <MenuItem key={index} {...item} />
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </CardContent>
             </Card>
           )}
 
-          {/* BEVERAGES SECTION */}
-          {showBeveragesSection && (
+          {/* COCKTAILS SECTION */}
+          {showCocktailsSection && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
               <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
-                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">BEVERAGES</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">COCKTAILS</CardTitle>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
                 {/* Specialty Cocktails */}
@@ -1163,38 +1208,10 @@ export default function MenuPage() {
                     ))}
                   </ul>
                 </div>
-
-                {/* Non-Alcoholic Beverages */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Non-Alcoholic Beverages</span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {filteredNonAlcoholic.map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
               </CardContent>
             </Card>
           )}
 
-          {/* FISH COMBOS SECTION */}
-          {showFishCombosSection && (
-            <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
-                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">FISH COMBOS</CardTitle>
-              </CardHeader>
-              <CardContent className="p-4 sm:p-6 md:p-8 bg-white">
-                <ul className="space-y-2">
-                  {filteredFishCombos.map((item, index) => (
-                    <MenuItem key={index} {...item} />
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          )}
 
           {/* PARTY PANS AND DESSERTS CONTAINER */}
           <div className="col-span-1 lg:col-span-2 xl:col-span-3 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
