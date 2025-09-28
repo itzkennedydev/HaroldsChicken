@@ -316,7 +316,10 @@ function SearchBar({
     "Catfish",
     "Fried Chicken",
     "Spicy",
-    "Party Pans"
+    "Party Pans",
+    "Buffalo Shrimp",
+    "Tenders",
+    "Appetizers"
   ];
 
   const handleSearch = (value: string) => {
@@ -461,7 +464,7 @@ const sides: MenuItemType[] = [
 export default function MenuPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [priceRange, setPriceRange] = useState([0, 350]);
+  const [priceRange, setPriceRange] = useState([0, 400]);
   const [activeTab, setActiveTab] = useState("all");
 
   const categories = [
@@ -853,7 +856,7 @@ export default function MenuPage() {
         </div>
 
         {/* Active Filters Display */}
-        {(selectedCategories.length > 0 || searchQuery || priceRange[0] > 0 || priceRange[1] < 350) && (
+        {(selectedCategories.length > 0 || searchQuery || priceRange[0] > 0 || priceRange[1] < 400) && (
           <div className="mb-8 flex flex-wrap gap-2">
             {selectedCategories.map((category) => (
               <Badge
@@ -879,13 +882,13 @@ export default function MenuPage() {
                 />
               </Badge>
             )}
-            {(priceRange[0] > 0 || priceRange[1] < 350) && (
+            {(priceRange[0] > 0 || priceRange[1] < 400) && (
               <Badge variant="secondary" className="flex items-center gap-1 bg-[#F8F9FA] text-[#202124] border border-gray-200 text-sm">
                 Price: ${priceRange[0]} - ${priceRange[1]}
                 <X
                   size={12}
                   className="cursor-pointer hover:text-red-700"
-                  onClick={() => setPriceRange([0, 350])}
+                  onClick={() => setPriceRange([0, 400])}
                 />
               </Badge>
             )}
