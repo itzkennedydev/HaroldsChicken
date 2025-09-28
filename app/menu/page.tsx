@@ -556,8 +556,7 @@ export default function MenuPage() {
   const chickenTenders = [
     { name: "4 pcs Tenders/Fries", price: 12 },
     { name: "6 pcs Tenders/Fries", price: 15 },
-    { name: "8 pcs Tenders/Fries", price: 17 },
-    { name: "Swamp & Gizzards Small", price: 12 }
+    { name: "8 pcs Tenders/Fries", price: 17 }
   ];
   const chickenPieces = [
     { name: "1/4 White", price: 11 },
@@ -619,7 +618,7 @@ export default function MenuPage() {
     { name: "Large Whiting", price: 21 }
   ];
   const fishShrimp = [
-    { name: "Buffalo Shrimp 8ct", price: 0 }
+    { name: "Buffalo Shrimp 8ct", price: 18 }
   ];
   const fishLobster = [
     { name: "Lobster with Fries", price: 30.6 }
