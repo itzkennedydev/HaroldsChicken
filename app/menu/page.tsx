@@ -442,8 +442,7 @@ const friedAppetizers: MenuItemType[] = [
   { name: "Corn Nugget", price: 8 },
   { name: "Spicy Curd", price: 13 },
   { name: "Broccoli Bite", price: 12 },
-  { name: "Breaded Mushrooms", price: 8 },
-  { name: "Buffalo Shrimp 8oz", price: 0 }
+  { name: "Breaded Mushrooms", price: 8 }
 ];
 const sides: MenuItemType[] = [
   { name: "Small Okra", price: 5 },
@@ -620,9 +619,6 @@ export default function MenuPage() {
     { name: "Large Whiting", price: 21 }
   ];
   const fishShrimp = [
-    { name: "Buffalo Shrimp 8ct App", price: 0 },
-    { name: "Buffalo Shrimp Dinner", price: 18 },
-    { name: "5 Shrimp Swing", price: 20 }
   ];
   const fishLobster = [
     { name: "Lobster with Fries", price: 30.6 }
@@ -679,6 +675,7 @@ export default function MenuPage() {
     { name: "Soft Drinks", price: 3, note: "unlimited refills" },
     { name: "Calypso", price: 5 },
     { name: "Special Flavored Lemonades", price: 4, note: "no free refill" },
+    { name: "Lemonade Jug", price: 7 },
     { name: "Can Soda", price: 3 }
   ];
   const filteredSpecialtyCocktails = filterCocktails(specialtyCocktails);
