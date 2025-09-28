@@ -547,10 +547,10 @@ export default function MenuPage() {
 
   // CHICKEN SECTION
   const chickenItems = [
-    { name: "4 Wing Bucket w/ Fries", price: 12 },
-    { name: "6 Wing Bucket w/ Fries", price: 14 },
-    { name: "8 Wing Bucket w/ Fries", price: 18 },
-    { name: "10 Wing Bucket w/ Fries", price: 22 },
+    { name: "4 Wings w/ Fries", price: 12 },
+    { name: "6 Wings w/ Fries", price: 14 },
+    { name: "8 Wings w/ Fries", price: 18 },
+    { name: "10 Wings w/ Fries", price: 22 },
     { name: "Extra Wing", price: 4 }
   ];
   const chickenTenders = [
@@ -569,7 +569,7 @@ export default function MenuPage() {
     { name: "Extra Breast", price: 4 }
   ];
   const specialtyChicken = [
-    { name: "Chicken Sandwich", price: 19, note: "Comes with fries & cookie" },
+    { name: "Chicken Sandwich", price: 19, note: "Comes with fries, cookie & drink" },
     { name: "Chicken & Waffles", price: 15, note: "3 wings - Comes with free orange juice" }
   ];
   const chickenWingBuckets = [
