@@ -1253,8 +1253,12 @@ export default function MenuPage() {
                 <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
                   <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">DESSERTS</CardTitle>
                 </CardHeader>
-                <CardContent className="p-4 sm:p-6 md:p-8 bg-white">
-                  <div className="max-w-2xl mx-auto">
+                <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                      <span className="w-1 h-6 bg-red-700"></span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Desserts</span>
+                    </h3>
                     <ul className="space-y-2">
                       {filteredDesserts.map((item, index) => (
                         <MenuItem key={index} {...item} />
