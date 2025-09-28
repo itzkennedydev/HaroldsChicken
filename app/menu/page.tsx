@@ -37,7 +37,7 @@ function MenuBanner() {
           </p>
           <Button 
             size="lg"
-            className="bg-[#1a1a1a] hover:bg-red-800 text-white text-xl font-bold px-8 sm:px-12 py-6 uppercase w-full sm:w-auto"
+            className="bg-red-700 hover:bg-red-800 text-white text-xl font-bold px-8 sm:px-12 py-6 uppercase w-full sm:w-auto"
             asChild
           >
             <Link href="/coming-soon">
@@ -46,7 +46,7 @@ function MenuBanner() {
           </Button>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#1a1a1a]" />
+      <div className="absolute bottom-0 left-0 right-0 h-2 bg-red-700" />
     </section>
   );
 }
@@ -261,7 +261,7 @@ function MenuItem({ name, price, note, badge }: { name: string; price: number; n
           <span className="text-lg font-bold text-[#202124] group-hover:text-red-700 transition-colors duration-300 flex items-center gap-4">
             {name}
             {badge && (
-              <span className="ml-4 px-4 py-2 rounded-full text-xs font-bold uppercase bg-[#1a1a1a] text-white">{badge.text}</span>
+              <span className="ml-4 px-4 py-2 rounded-full text-xs font-bold uppercase bg-red-700 text-white">{badge.text}</span>
             )}
           </span>
           <span className="text-red-700 font-bold text-xl">
@@ -805,49 +805,49 @@ export default function MenuPage() {
             <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 h-auto p-2 bg-gray-100 rounded-xl">
               <TabsTrigger 
                 value="all" 
-                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-[#1a1a1a] data-[state=active]:text-white rounded-lg transition-all"
+                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
               >
                 All Items
               </TabsTrigger>
               <TabsTrigger 
                 value="CHICKEN WINGS" 
-                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-[#1a1a1a] data-[state=active]:text-white rounded-lg transition-all"
+                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
               >
                 Wings
               </TabsTrigger>
               <TabsTrigger 
                 value="CHICKEN PIECES & BUCKETS" 
-                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-[#1a1a1a] data-[state=active]:text-white rounded-lg transition-all"
+                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
               >
-                Pieces
+                Chicken Pieces & Buckets
               </TabsTrigger>
               <TabsTrigger 
                 value="FISH & SEAFOOD" 
-                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-[#1a1a1a] data-[state=active]:text-white rounded-lg transition-all"
+                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
               >
                 Fish
               </TabsTrigger>
               <TabsTrigger 
                 value="APPETIZERS & SIDES" 
-                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-[#1a1a1a] data-[state=active]:text-white rounded-lg transition-all"
+                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
               >
                 Sides
               </TabsTrigger>
               <TabsTrigger 
                 value="COCKTAILS" 
-                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-[#1a1a1a] data-[state=active]:text-white rounded-lg transition-all"
+                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
               >
                 Cocktails
               </TabsTrigger>
               <TabsTrigger 
                 value="PARTY PANS" 
-                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-[#1a1a1a] data-[state=active]:text-white rounded-lg transition-all"
+                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
               >
                 Party Pans
               </TabsTrigger>
               <TabsTrigger 
                 value="SAUCES & EXTRAS" 
-                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-[#1a1a1a] data-[state=active]:text-white rounded-lg transition-all"
+                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
               >
                 Extras
               </TabsTrigger>
@@ -907,7 +907,7 @@ export default function MenuPage() {
                 {/* Wing Dinners */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                    <span className="w-1 h-6 bg-red-700"></span>
                     <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Wing Dinners</span>
                   </h3>
                   <ul className="space-y-1">
@@ -920,7 +920,7 @@ export default function MenuPage() {
                 {/* Chicken Tenders */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                    <span className="w-1 h-6 bg-red-700"></span>
                     <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Chicken Tenders</span>
                   </h3>
                   <ul className="space-y-2">
@@ -933,7 +933,7 @@ export default function MenuPage() {
                 {/* Specialty Chicken Items */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                    <span className="w-1 h-6 bg-red-700"></span>
                     <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Specialty Chicken Items</span>
                   </h3>
                   <ul className="space-y-2">
@@ -956,7 +956,7 @@ export default function MenuPage() {
                 {/* Chicken Pieces */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                    <span className="w-1 h-6 bg-red-700"></span>
                     <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Chicken Pieces</span>
                   </h3>
                   <ul className="space-y-2">
@@ -969,7 +969,7 @@ export default function MenuPage() {
                 {/* Chicken Wing Buckets */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                    <span className="w-1 h-6 bg-red-700"></span>
                     <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Chicken Wing Buckets</span>
                   </h3>
                   <ul className="space-y-2">
@@ -982,7 +982,7 @@ export default function MenuPage() {
                 {/* Mixed Chicken Buckets */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                    <span className="w-1 h-6 bg-red-700"></span>
                     <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Mixed Chicken Buckets</span>
                   </h3>
                   <ul className="space-y-2">
@@ -1005,7 +1005,7 @@ export default function MenuPage() {
                 {/* Catfish */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                    <span className="w-1 h-6 bg-red-700"></span>
                     <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Catfish</span>
                   </h3>
                   <ul className="space-y-2">
@@ -1018,7 +1018,7 @@ export default function MenuPage() {
                 {/* Catfish Buckets */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                    <span className="w-1 h-6 bg-red-700"></span>
                     <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Catfish Buckets</span>
                   </h3>
                   <ul className="space-y-2">
@@ -1033,7 +1033,7 @@ export default function MenuPage() {
                 {/* Whiting */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                    <span className="w-1 h-6 bg-red-700"></span>
                     <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Whiting</span>
                   </h3>
                   <ul className="space-y-2">
@@ -1046,7 +1046,7 @@ export default function MenuPage() {
                 {/* Shrimp */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                    <span className="w-1 h-6 bg-red-700"></span>
                     <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Shrimp</span>
                   </h3>
                   <ul className="space-y-2">
@@ -1059,7 +1059,7 @@ export default function MenuPage() {
                 {/* Lobster */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                    <span className="w-1 h-6 bg-red-700"></span>
                     <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Lobster</span>
                   </h3>
                   <ul className="space-y-2">
@@ -1082,7 +1082,7 @@ export default function MenuPage() {
                 {filteredSauces.length > 0 && (
                   <div>
                     <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                      <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                      <span className="w-1 h-6 bg-red-700"></span>
                       <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Harold's Signature Sauces</span>
                     </h3>
                     <ul className="space-y-2">
@@ -1095,7 +1095,7 @@ export default function MenuPage() {
                 {filteredCondiments.length > 0 && (
                   <div>
                     <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                      <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                      <span className="w-1 h-6 bg-red-700"></span>
                       <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Condiments & Extras</span>
                     </h3>
                     <ul className="space-y-2">
@@ -1110,7 +1110,7 @@ export default function MenuPage() {
                 {showNonAlcoholicSection && (
                   <div>
                     <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                      <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                      <span className="w-1 h-6 bg-red-700"></span>
                       <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Non-Alcoholic Beverages</span>
                     </h3>
                     <ul className="space-y-2">
@@ -1134,7 +1134,7 @@ export default function MenuPage() {
                 {/* Fried Appetizers */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                    <span className="w-1 h-6 bg-red-700"></span>
                     <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Fried Appetizers</span>
                   </h3>
                   <ul className="space-y-2">
@@ -1147,7 +1147,7 @@ export default function MenuPage() {
                 {/* Sides */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                    <span className="w-1 h-6 bg-red-700"></span>
                     <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Sides</span>
                   </h3>
                   <ul className="space-y-2">
@@ -1161,7 +1161,7 @@ export default function MenuPage() {
                 {showFishCombosSection && (
                   <div>
                     <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                      <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                      <span className="w-1 h-6 bg-red-700"></span>
                       <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Fish Combos</span>
                     </h3>
                     <ul className="space-y-2">
@@ -1185,7 +1185,7 @@ export default function MenuPage() {
                 {/* Specialty Cocktails */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                    <span className="w-1 h-6 bg-red-700"></span>
                     <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Specialty Cocktails</span>
                   </h3>
                   <ul className="space-y-3">
@@ -1212,7 +1212,7 @@ export default function MenuPage() {
                     {/* Wing Party Pans */}
                     <div>
                       <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                        <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                        <span className="w-1 h-6 bg-red-700"></span>
                         <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Wing Party Pans</span>
                       </h3>
                       <ul className="space-y-2">
@@ -1229,7 +1229,7 @@ export default function MenuPage() {
                     {/* Mixed Chicken Party Pans */}
                     <div>
                       <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                        <span className="w-1 h-6 bg-[#1a1a1a]"></span>
+                        <span className="w-1 h-6 bg-red-700"></span>
                         <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Mixed Chicken Party Pans</span>
                       </h3>
                       <ul className="space-y-2">
