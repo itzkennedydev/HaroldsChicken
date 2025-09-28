@@ -619,6 +619,7 @@ export default function MenuPage() {
     { name: "Large Whiting", price: 21 }
   ];
   const fishShrimp = [
+    { name: "Buffalo Shrimp 8ct", price: 0 }
   ];
   const fishLobster = [
     { name: "Lobster with Fries", price: 30.6 }
