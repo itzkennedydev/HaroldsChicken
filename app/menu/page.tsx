@@ -434,18 +434,23 @@ interface MenuItemType {
 const friedAppetizers: MenuItemType[] = [
   { name: "Mozz Sticks (3)", price: 6 },
   { name: "Mozz Sticks (5)", price: 8 },
-  { name: "Black Bean Firecrackers", price: 13.5 },
-  { name: "Mac + Cheese Bites", price: 11.5 },
-  { name: "Corn Nugget", price: 9 },
+  { name: "Black Bean Firecrackers", price: 12 },
+  { name: "Mac + Cheese Bites", price: 11 },
+  { name: "Corn Nugget", price: 8 },
   { name: "Spicy Curd", price: 13 },
-  { name: "Broccoli Bite", price: 13.5 },
-  { name: "Breaded Mushrooms", price: 9 }
+  { name: "Broccoli Bite", price: 12 },
+  { name: "Breaded Mushrooms", price: 8 },
+  { name: "Onzared", price: 18, note: "1 lb." },
+  { name: "Buffalo Shrimp 8oz", price: 0 }
 ];
 const sides: MenuItemType[] = [
   { name: "Okra 1/2 lb", price: 5 },
   { name: "Okra 1 lb", price: 10 },
+  { name: "Coleslaw 2 oz", price: 1.6 },
+  { name: "Coleslaw 4 oz", price: 2.6 },
   { name: "Small Fries", price: 4 },
-  { name: "Large Fries", price: 7 }
+  { name: "Large Fries", price: 7 },
+  { name: "Cheese Pizza 7.23 ea.", price: 20 }
 ];
 
 // Helper type guard for badge
@@ -541,16 +546,17 @@ export default function MenuPage() {
 
   // CHICKEN SECTION
   const chickenItems = [
-    { name: "4 Wings + Fries", price: 14 },
-    { name: "6 Wings + Fries", price: 17 },
-    { name: "8 Wings + Fries", price: 21 },
-    { name: "10 Wings + Fries", price: 25 },
+    { name: "4 Wing Bucket w/ Fries", price: 12 },
+    { name: "6 Wing Bucket w/ Fries", price: 14 },
+    { name: "8 Wing Bucket w/ Fries", price: 18 },
+    { name: "10 Wing Bucket w/ Fries", price: 22 },
     { name: "Extra Wing", price: 4 }
   ];
   const chickenTenders = [
-    { name: "4 Tenders + Fries", price: 14 },
-    { name: "6 Tenders + Fries", price: 18 },
-    { name: "8 Tenders + Fries", price: 21 }
+    { name: "4 pcs Tenders/Fries", price: 12 },
+    { name: "6 pcs Tenders/Fries", price: 15 },
+    { name: "8 pcs Tenders/Fries", price: 17 },
+    { name: "Swamp & Gizzards Small", price: 12 }
   ];
   const chickenPieces = [
     { name: "1/4 White", price: 11 },
@@ -567,9 +573,9 @@ export default function MenuPage() {
     { name: "Chicken & Waffles", price: 22 }
   ];
   const chickenWingBuckets = [
-    { name: "12 pc Wings", price: 36.5, note: "Does not include fries" },
-    { name: "18 pc Wings", price: 46.5, note: "Does not include fries" },
-    { name: "24 pc Wings", price: 56.5, note: "Does not include fries" }
+    { name: "12 Wing Bucket w/ Fries Large", price: 33 },
+    { name: "18 Wing Bucket w/ Large Fry", price: 43 },
+    { name: "24 Wing Bucket w/ 2 Large Fry", price: 53 }
   ];
   const mixedChickenBuckets = [
     { name: "8 Piece (Mixed)", price: 20, note: "Does not include fries" },
@@ -595,11 +601,12 @@ export default function MenuPage() {
 
   // FISH & SEAFOOD SECTION
   const fishCatfish = [
-    { name: "Small Catfish (2 pc)", price: 15 },
-    { name: "Large Catfish (2 pc)", price: 22 },
-    { name: "Small Cat Nugget (6 pc)", price: 15 },
-    { name: "Large Cat Nugget (9 pc)", price: 20 },
-    { name: "Extra Catfish (Catfish Day)", price: 7 }
+    { name: "Small Dry", price: 12 },
+    { name: "Large Dry", price: 15 },
+    { name: "Brushed 12 pc w/ Lemon", price: 4 },
+    { name: "Brushed 24 pc w/ 2 sides", price: 94 },
+    { name: "Nugget Small Left w/ Swell", price: 15 },
+    { name: "Nugget Large 9oz", price: 18 }
   ];
   const catfishBuckets = [
     { name: "12 pc Catfish", price: 60, note: "Does not include fries" },
@@ -611,12 +618,12 @@ export default function MenuPage() {
     { name: "Large Whiting", price: 21 }
   ];
   const fishShrimp = [
-    { name: "8 pc Shrimp", price: 20 },
-    { name: "Buffalo Shrimp", price: 21 },
-    { name: "Extra Shrimp", price: 4 }
+    { name: "Buffalo Shrimp 8ct App", price: 0 },
+    { name: "Buffalo Shrimp Dinner", price: 18 },
+    { name: "5 Shrimp Swing", price: 20 }
   ];
   const fishLobster = [
-    { name: "Lobster with Fries", price: 35 }
+    { name: "Lobster with Fries", price: 30.6 }
   ];
   const filteredFishCatfish = filterMenuItems(fishCatfish);
   const filteredCatfishBuckets = filterMenuItems(catfishBuckets);
