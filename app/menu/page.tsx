@@ -447,13 +447,13 @@ const friedAppetizers: MenuItemType[] = [
   { name: "Buffalo Shrimp 8oz", price: 0 }
 ];
 const sides: MenuItemType[] = [
-  { name: "Okra 1/2 lb", price: 5 },
-  { name: "Okra 1 lb", price: 10 },
+  { name: "Small Okra", price: 5 },
+  { name: "Large Okra", price: 10 },
   { name: "Coleslaw 2 oz", price: 1.6 },
   { name: "Coleslaw 4 oz", price: 2.6 },
   { name: "Small Fries", price: 4 },
   { name: "Large Fries", price: 7 },
-  { name: "Cheese Pizza 7.23 ea.", price: 20 }
+  { name: "8inch Cheese Pizza", price: 13, note: "Comes with a free fountain drink" }
 ];
 
 // Helper type guard for badge
