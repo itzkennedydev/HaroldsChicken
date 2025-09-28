@@ -570,7 +570,7 @@ export default function MenuPage() {
   ];
   const specialtyChicken = [
     { name: "Chicken Sandwich", price: 19, note: "Comes with fries & cookie" },
-    { name: "Chicken & Waffles", price: 15, note: "3 wings" }
+    { name: "Chicken & Waffles", price: 15, note: "3 wings - Comes with free orange juice" }
   ];
   const chickenWingBuckets = [
     { name: "12 Wing Bucket w/ Fries Large", price: 33 },
