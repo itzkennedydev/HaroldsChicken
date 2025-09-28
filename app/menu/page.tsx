@@ -443,7 +443,6 @@ const friedAppetizers: MenuItemType[] = [
   { name: "Spicy Curd", price: 13 },
   { name: "Broccoli Bite", price: 12 },
   { name: "Breaded Mushrooms", price: 8 },
-  { name: "Onion Rings", price: 18, note: "1 lb." },
   { name: "Buffalo Shrimp 8oz", price: 0 }
 ];
 const sides: MenuItemType[] = [
