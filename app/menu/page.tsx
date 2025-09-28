@@ -900,7 +900,7 @@ export default function MenuPage() {
           {/* CHICKEN WINGS SECTION */}
           {showChickenWingsSection && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
+              <CardHeader className="bg-red-700 rounded-t-xl p-4 sm:p-6 md:p-8">
                 <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">CHICKEN WINGS</CardTitle>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
@@ -949,7 +949,7 @@ export default function MenuPage() {
           {/* CHICKEN PIECES & BUCKETS SECTION */}
           {showChickenPiecesBucketsSection && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
+              <CardHeader className="bg-red-700 rounded-t-xl p-4 sm:p-6 md:p-8">
                 <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">CHICKEN PIECES & BUCKETS</CardTitle>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
@@ -998,7 +998,7 @@ export default function MenuPage() {
           {/* FISH & SEAFOOD SECTION */}
           {showFishSection && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
+              <CardHeader className="bg-red-700 rounded-t-xl p-4 sm:p-6 md:p-8">
                 <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">FISH & SEAFOOD</CardTitle>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
@@ -1075,7 +1075,7 @@ export default function MenuPage() {
           {/* SAUCES & EXTRAS SECTION */}
           {showSaucesSection && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
+              <CardHeader className="bg-red-700 rounded-t-xl p-4 sm:p-6 md:p-8">
                 <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">SAUCES & EXTRAS</CardTitle>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
@@ -1127,7 +1127,7 @@ export default function MenuPage() {
           {/* APPETIZERS & SIDES SECTION */}
           {(selectedCategories.length === 0 || selectedCategories.includes("APPETIZERS & SIDES")) && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
+              <CardHeader className="bg-red-700 rounded-t-xl p-4 sm:p-6 md:p-8">
                 <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">APPETIZERS & SIDES</CardTitle>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
@@ -1178,7 +1178,7 @@ export default function MenuPage() {
           {/* COCKTAILS SECTION */}
           {showCocktailsSection && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
+              <CardHeader className="bg-red-700 rounded-t-xl p-4 sm:p-6 md:p-8">
                 <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">COCKTAILS</CardTitle>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
@@ -1204,7 +1204,7 @@ export default function MenuPage() {
             {/* PARTY PANS SECTION */}
             {(!selectedCategories.length || selectedCategories.includes("PARTY PANS")) && (
               <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-                <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
+                <CardHeader className="bg-red-700 rounded-t-xl p-4 sm:p-6 md:p-8">
                   <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">PARTY PANS</CardTitle>
                 </CardHeader>
                 <CardContent className="p-4 sm:p-6 md:p-8 bg-white">
@@ -1250,7 +1250,7 @@ export default function MenuPage() {
             {/* DESSERTS SECTION */}
             {showDessertsSection && (
               <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-                <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
+                <CardHeader className="bg-red-700 rounded-t-xl p-4 sm:p-6 md:p-8">
                   <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">DESSERTS</CardTitle>
                 </CardHeader>
                 <CardContent className="p-4 sm:p-6 md:p-8 bg-white">
