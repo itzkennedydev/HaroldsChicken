@@ -619,7 +619,7 @@ export default function MenuPage() {
     { name: "Buffalo Shrimp 8ct", price: 18 }
   ];
   const fishLobster = [
-    { name: "Lobster with Fries", price: 30.6 }
+    { name: "Lobster with Fries", price: 30 }
   ];
   const filteredFishCatfish = filterMenuItems(fishCatfish);
   const filteredCatfishBuckets = filterMenuItems(catfishBuckets);
