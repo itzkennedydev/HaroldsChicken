@@ -564,7 +564,7 @@ export default function MenuPage() {
     { name: "1/2 White", price: 21 },
     { name: "1/2 Dark", price: 15 },
     { name: "1/2 Mixed", price: 18 },
-    { name: "2 Breasts", price: 16 },
+    { name: "2 Breasts", price: 10 },
     { name: "Extra Leg or Thigh", price: 4 },
     { name: "Extra Breast", price: 4 }
   ];
@@ -601,16 +601,12 @@ export default function MenuPage() {
 
   // FISH & SEAFOOD SECTION
   const fishCatfish = [
-    { name: "Small Dry", price: 12 },
-    { name: "Large Dry", price: 15 },
-    { name: "Brushed 12 pc w/ Lemon", price: 4 },
-    { name: "Brushed 24 pc w/ 2 sides", price: 94 },
-    { name: "Nugget Small Left w/ Swell", price: 15 },
-    { name: "Nugget Large 9oz", price: 18 }
+    { name: "Catfish Nugget 6pc", price: 15 },
+    { name: "Catfish Nugget 9pc", price: 18 }
   ];
   const catfishBuckets = [
-    { name: "12 pc Catfish", price: 60, note: "Does not include fries" },
-    { name: "24 pc Catfish", price: 84, note: "Does not include fries" }
+    { name: "12 pc Catfish", price: 48, note: "Does not include fries" },
+    { name: "24 pc Catfish", price: 78, note: "Does not include fries" }
   ];
 
   const fishWhiting = [
@@ -661,14 +657,14 @@ export default function MenuPage() {
 
   // BEVERAGES SECTION
   const specialtyCocktails = [
-    { name: "K Sago Sunset", price: 9, ingredients: ["Don Julio Reposado","Orange Juice","Fresh Lime Juice","Splash Grenadine","Orange and Cherry"] },
-    { name: "Mayweather Margarita", price: 13.5, ingredients: ["Hennessy","Tequila","Triple Sec","Fresh Lime Juice","Splash of Orange Juice","Orange Slice"] },
+    { name: "K Sago Sunset", price: 10, ingredients: ["Don Julio Reposado","Orange Juice","Fresh Lime Juice","Splash Grenadine","Orange and Cherry"] },
+    { name: "Mayweather Margarita", price: 15, ingredients: ["Hennessy","Tequila","Triple Sec","Fresh Lime Juice","Splash of Orange Juice","Orange Slice"] },
     { name: "Tasha's Tropical Twist", price: 8.5, ingredients: ["Malibu Rum","Curacao","Pineapple Juice","Fresh Lime Juice","Cherry"] },
-    { name: "Joni's Jumper", price: 7, ingredients: ["Vodka","Mix-berry Puree","Fresh Lemon Juice","Club Soda","Lime"] },
-    { name: "LaMello's LemonADE", price: 9, ingredients: ["Crown Royal Peach","Lemonade","Sprite","Grenadine","Peach"] },
-    { name: "A Shedeur Summer", price: 7.5, ingredients: ["Vodka","Peach Schnapps","Strawberry Puree","Orange Juice","Splash Sprite","Orange"] },
-    { name: "The MRJ", price: 12.5, ingredients: ["Patron Reposado","Triple Sec","Dragon Fruit","Pineapple Juice","Fresh Lime","Lime"] },
-    { name: "The Rosita", price: 11, ingredients: ["Vodka","Rum","Gin","Peach Schnapps","Strawberry","Sprite","Lemon"] }
+    { name: "Joni's Jumper", price: 8, ingredients: ["Vodka","Mix-berry Puree","Fresh Lemon Juice","Club Soda","Lime"] },
+    { name: "LaMello's LemonADE", price: 10, ingredients: ["Crown Royal Peach","Lemonade","Sprite","Grenadine","Peach"] },
+    { name: "A Shedeur Summer", price: 8.5, ingredients: ["Vodka","Peach Schnapps","Strawberry Puree","Orange Juice","Splash Sprite","Orange"] },
+    { name: "The MRJ", price: 15, ingredients: ["Patron Reposado","Triple Sec","Dragon Fruit","Pineapple Juice","Fresh Lime","Lime"] },
+    { name: "The Rosita", price: 12, ingredients: ["Vodka","Rum","Gin","Peach Schnapps","Strawberry","Sprite","Lemon"] }
   ];
   const nonAlcoholic = [
     { name: "Bottled Water", price: 3 },
@@ -705,7 +701,7 @@ export default function MenuPage() {
 
   // DESSERTS SECTION
   const desserts = [
-    { name: "Cookies", price: 3 },
+    { name: "Cookies", price: 7 },
     { name: "Honey Biscuits (5)", price: 10 },
     { name: "Honey Biscuits (10)", price: 15 }
   ];
