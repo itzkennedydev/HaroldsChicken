@@ -601,6 +601,8 @@ export default function MenuPage() {
 
   // FISH & SEAFOOD SECTION
   const fishCatfish = [
+    { name: "Small Catfish 1pc w/ Fries", price: 12 },
+    { name: "Large Catfish 2pc w/ Fries", price: 15 },
     { name: "Catfish Nugget 6pc", price: 15 },
     { name: "Catfish Nugget 9pc", price: 18 }
   ];
