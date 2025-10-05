@@ -257,11 +257,9 @@ export function Header({ variant = 'default' }: HeaderProps) {
             variant="default"
             className="font-bold tracking-wider text-sm bg-red-700 hover:bg-red-800 text-white focus:ring-2 focus:ring-red-700 focus:outline-none"
             aria-label="Order food now"
-            asChild
+            onClick={() => window.open('https://www.doordash.com/store/harold\'s-chicken-sports-bar-moline-35999947/80495166/', '_blank')}
           >
-            <Link href="/coming-soon">
-              ORDER NOW
-            </Link>
+            ORDER NOW
           </CustomButton>
         </div>
 
@@ -370,11 +368,9 @@ export function Header({ variant = 'default' }: HeaderProps) {
               <CustomButton
                 className="font-bold tracking-wider text-sm w-full justify-center bg-red-700 hover:bg-red-800 focus:ring-2 focus:ring-red-700 focus:outline-none"
                 aria-label="Order food now"
-                asChild
+                onClick={() => window.open('https://www.doordash.com/store/harold\'s-chicken-sports-bar-moline-35999947/80495166/', '_blank')}
               >
-                <Link href="/coming-soon">
-                  ORDER NOW
-                </Link>
+                ORDER NOW
               </CustomButton>
             </div>
           </nav>

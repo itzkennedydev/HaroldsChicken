@@ -59,7 +59,7 @@ export function Hero() {
   }, [isImageLoaded]);
 
   const handleOrderClick = useCallback(() => {
-    window.location.href = '/coming-soon';
+    window.open('https://www.doordash.com/store/harold\'s-chicken-sports-bar-moline-35999947/80495166/', '_blank');
   }, []);
 
   const handleImageLoad = useCallback(() => {
