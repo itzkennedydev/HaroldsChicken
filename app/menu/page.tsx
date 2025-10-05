@@ -12,7 +12,6 @@ import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
 import { Search, X, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import Fuse from 'fuse.js';
 
 function MenuBanner() {
@@ -38,11 +37,9 @@ function MenuBanner() {
           <Button 
             size="lg"
             className="bg-red-700 hover:bg-red-800 text-white text-xl font-bold px-8 sm:px-12 py-6 uppercase w-full sm:w-auto"
-            asChild
+            onClick={() => window.open('https://www.doordash.com/store/harold\'s-chicken-sports-bar-moline-35999947/80495166/', '_blank')}
           >
-            <Link href="/coming-soon">
-              Order Now
-            </Link>
+            Order Now
           </Button>
         </div>
       </div>
