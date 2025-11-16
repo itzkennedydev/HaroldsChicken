@@ -189,7 +189,7 @@ function MenuNotices() {
               <div>
                 <h4 className="text-lg font-semibold text-[#202124] mb-2">Service Charge</h4>
                 <p className="text-[#333536] leading-relaxed">
-                  18 percent gratuity will be added to all orders.
+                  18 percent gratuity will be added to large parties of six or more.
                 </p>
               </div>
             </div>
