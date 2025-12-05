@@ -1,0 +1,32 @@
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+
+const AWS_HOLD = true;
+
+export function middleware(req: NextRequest) {
+  if (!AWS_HOLD) return NextResponse.next();
+
+  const { pathname } = req.nextUrl;
+
+  // Allow the hold page and assets to load.
+  const passthrough =
+    pathname.startsWith("/aws") ||
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/favicon") ||
+    pathname.startsWith("/robots") ||
+    pathname.startsWith("/sitemap") ||
+    pathname.startsWith("/logos") ||
+    pathname.startsWith("/api") ||
+    pathname.startsWith("/images") ||
+    pathname.startsWith("/fonts");
+
+  if (passthrough) return NextResponse.next();
+
+  const url = req.nextUrl.clone();
+  url.pathname = "/aws";
+  return NextResponse.rewrite(url);
+}
+
+export const config = {
+  matcher: ["/:path*"],
+};
