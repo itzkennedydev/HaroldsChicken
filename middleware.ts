@@ -1,14 +1,14 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const AWS_HOLD = true;
+const MAINTENANCE_MODE = false;
 
 export function middleware(req: NextRequest) {
-  if (!AWS_HOLD) return NextResponse.next();
+  if (!MAINTENANCE_MODE) return NextResponse.next();
 
   const { pathname } = req.nextUrl;
 
-  // Allow the hold page and assets to load.
+  // Allow the maintenance page and assets to load.
   const passthrough =
     pathname.startsWith("/aws") ||
     pathname.startsWith("/_next") ||
