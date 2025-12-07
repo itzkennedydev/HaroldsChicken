@@ -9,13 +9,13 @@ import { ScrollingText } from "./components/ScrollingText";
 import { MeetOwner } from "./components/MeetOwner";
 import { Footer } from "./components/Footer";
 import { AnnouncementBar } from "./components/AnnouncementBar";
-import MaintenancePage from "./aws/page";
+import AWSHoldPage from "./aws/page";
 
-const MAINTENANCE_MODE = false;
+const AWS_HOLD = true;
 
 export default function Home() {
-  if (MAINTENANCE_MODE) {
-    return <MaintenancePage />;
+  if (AWS_HOLD) {
+    return <AWSHoldPage />;
   }
 
   return (
