@@ -73,16 +73,6 @@ export function Hero() {
       role="region"
       aria-roledescription="hero"
     >
-      {/* Grain overlay - covers entire hero */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-10">
-        <Image
-          src="/images/grain.jpg"
-          alt="grain texture overlay"
-          fill
-          className="object-cover object-center opacity-[0.03]"
-          priority={false}
-        />
-      </div>
 
       {/* Desktop Hero */}
       <div 

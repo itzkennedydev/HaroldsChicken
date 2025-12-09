@@ -28,7 +28,7 @@ export function Cravings() {
       name: "PARTY PLATTER",
       calories: "480-690",
       price: "8.99",
-      image: "/images/ValueProp/FullMenu.jpeg",
+      image: "/images/ValueProp/FullMenu.jpg",
       imageAlt: "Fish and fries combo meal",
       tag: "BEST SELLER",
       description: "A mix of our golden-fried fish, chicken tenders, and signature seasoned fries"
