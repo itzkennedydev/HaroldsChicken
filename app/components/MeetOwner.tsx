@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, memo, useMemo } from "react";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { Container } from "./ui/container";
 import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
 
-export function MeetOwner() {
+function MeetOwnerComponent() {
   const contentRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
@@ -18,6 +18,7 @@ export function MeetOwner() {
     delay: 100
   });
 
+  // Memoized keyboard handler
   const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (e.key === 'ArrowDown') {
       e.preventDefault();
@@ -29,15 +30,35 @@ export function MeetOwner() {
     }
   }, []);
 
+  // Memoized image load handler
+  const handleImageLoad = useCallback(() => {
+    setIsImageLoaded(true);
+  }, []);
+
+  // Memoized transition classes
+  const containerClasses = useMemo(() =>
+    `relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-16 transition-all duration-1000 transform ${
+      inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+    }`,
+    [inView]
+  );
+
+  const imageClasses = useMemo(() =>
+    `object-cover object-top rounded-lg transition-all duration-700 transform ${
+      isImageLoaded ? 'scale-100 blur-0' : 'scale-105 blur-sm'
+    } group-hover:scale-105`,
+    [isImageLoaded]
+  );
+
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="w-full relative py-16 md:py-24 overflow-hidden"
       aria-label="Meet the Owner Section"
       role="region"
     >
-      {/* Background Image */}
-      <div 
+      {/* Background Image - lazy loaded with reduced quality */}
+      <div
         className="absolute inset-0 z-0 bg-white"
         role="presentation"
         aria-hidden="true"
@@ -48,20 +69,19 @@ export function MeetOwner() {
           fill
           className="object-cover opacity-10"
           priority={false}
-          quality={50}
+          quality={30}
           sizes="100vw"
+          loading="lazy"
         />
       </div>
 
       <Container>
-        <div 
-          className={`relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-16 transition-all duration-1000 transform ${
-            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+        <div
+          className={containerClasses}
           onKeyDown={handleKeyDown}
         >
           {/* Image Container */}
-          <div 
+          <div
             className="w-full md:w-1/2 relative"
             role="img"
             aria-label="Portrait of Josiah Blanton"
@@ -72,12 +92,11 @@ export function MeetOwner() {
                 src="/images/Josiah.png"
                 alt="Portrait photograph of Josiah Blanton"
                 fill
-                className={`object-cover object-top rounded-lg transition-all duration-700 transform ${
-                  isImageLoaded ? 'scale-100 blur-0' : 'scale-105 blur-sm'
-                } group-hover:scale-105`}
+                className={imageClasses}
                 sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-                onLoadingComplete={() => setIsImageLoaded(true)}
+                priority={false}
+                loading="lazy"
+                onLoad={handleImageLoad}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
@@ -159,3 +178,6 @@ export function MeetOwner() {
     </section>
   );
 }
+
+// Export memoized component
+export const MeetOwner = memo(MeetOwnerComponent);

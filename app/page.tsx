@@ -3,12 +3,14 @@ import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { Cravings } from "./components/Cravings";
 import { ValueProp } from "./components/ValueProp";
-import { Map } from "./components/Map";
-import { ImageCarousel } from "./components/ImageCarousel";
-import { ScrollingText } from "./components/ScrollingText";
-import { MeetOwner } from "./components/MeetOwner";
 import { Footer } from "./components/Footer";
 import { AnnouncementBar } from "./components/AnnouncementBar";
+import {
+  DynamicMap,
+  DynamicImageCarousel,
+  DynamicScrollingText,
+  DynamicMeetOwner
+} from "./components/DynamicComponents";
 
 export default function Home() {
   return (
@@ -19,10 +21,10 @@ export default function Home() {
       <Featured />
       <Cravings />
       <ValueProp />
-      <Map />
-      <ImageCarousel />
-      <ScrollingText />
-      <MeetOwner />
+      <DynamicMap />
+      <DynamicImageCarousel />
+      <DynamicScrollingText />
+      <DynamicMeetOwner />
       <Footer />
     </main>
   );

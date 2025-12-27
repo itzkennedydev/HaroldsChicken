@@ -1,25 +1,27 @@
+import { memo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-export function Footer() {
-  const footerLinks = [
-    { href: "/menu", label: "MENU" },
-    { href: "/careers", label: "CAREERS" },
-    { 
-      href: "https://www.instagram.com/haroldschickensportsbar/", 
-      label: "INSTAGRAM", 
-      external: true 
-    },
-    { 
-      href: "https://www.facebook.com/p/Harolds-Chicken-Sports-Bar-61571084314548/", 
-      label: "FACEBOOK", 
-      external: true 
-    }
-  ];
+// Move static data outside component to prevent recreation
+const footerLinks = [
+  { href: "/menu", label: "MENU" },
+  { href: "/careers", label: "CAREERS" },
+  {
+    href: "https://www.instagram.com/haroldschickensportsbar/",
+    label: "INSTAGRAM",
+    external: true
+  },
+  {
+    href: "https://www.facebook.com/p/Harolds-Chicken-Sports-Bar-61571084314548/",
+    label: "FACEBOOK",
+    external: true
+  }
+];
 
+function FooterComponent() {
   return (
-    <footer 
-      className="w-full bg-white border-t-4 border-red-700" 
+    <footer
+      className="w-full bg-white border-t-4 border-red-700"
       role="contentinfo"
       aria-label="Footer"
     >
@@ -40,17 +42,17 @@ export function Footer() {
               >
                 {link.label}
                 {link.external && (
-                  <svg 
+                  <svg
                     className="w-4 h-4"
-                    fill="none" 
-                    stroke="currentColor" 
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
                   >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
                       d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                     />
                   </svg>
@@ -58,11 +60,11 @@ export function Footer() {
               </Link>
             ))}
           </div>
-          
-          <Link 
-            href="/" 
+
+          <Link
+            href="/"
             className="mb-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-700 rounded-lg"
-            aria-label="Harold&apos;s Chicken - Home"
+            aria-label="Harold's Chicken - Home"
           >
             <Image
               src="/logos/HaroldsMainLogo.svg"
@@ -71,6 +73,7 @@ export function Footer() {
               height={40}
               className="h-12 w-auto"
               aria-hidden="true"
+              loading="lazy"
             />
           </Link>
         </div>
@@ -79,9 +82,9 @@ export function Footer() {
         <div className="border-t border-gray-200 pt-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-sm text-[#667085] font-display uppercase font-medium">
-              <p>© {new Date().getFullYear()} HAROLD&apos;S CHICKEN. ALL RIGHTS RESERVED.</p>
+              <p>&copy; {new Date().getFullYear()} HAROLD&apos;S CHICKEN. ALL RIGHTS RESERVED.</p>
             </div>
-            
+
             <div className="text-sm font-display font-medium">
               <p className="text-[#475467]">
                 Website by{" "}
@@ -103,3 +106,6 @@ export function Footer() {
     </footer>
   );
 }
+
+// Export memoized Footer component
+export const Footer = memo(FooterComponent);
