@@ -86,7 +86,7 @@ export function Hero() {
         >
           <div className={`transform transition-transform duration-700 ${isImageLoaded ? 'scale-100' : 'scale-105'}`}>
             <Image
-              src="/images/HeroBG.png"
+              src="https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/HeroBG.png"
               alt="Restaurant ambiance showing Harold&apos;s Chicken interior"
               width={3000}
               height={3500}
@@ -98,7 +98,7 @@ export function Hero() {
             />
           </div>
           <Image
-            src="/images/ChickenBucket.png"
+            src="https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/ChickenBucket.png"
             alt="Signature Harold&apos;s Chicken bucket featuring fresh fried chicken"
             width={1900}
             height={1900}
@@ -174,7 +174,7 @@ export function Hero() {
           <div className={`transform transition-transform duration-700 absolute inset-0 pointer-events-none select-none ${isImageLoaded ? 'scale-100' : 'scale-105'}`}
             aria-hidden="true">
             <Image
-              src="/images/HeroBG.png"
+              src="https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/HeroBG.png"
               alt="Restaurant ambiance showing Harold&apos;s Chicken interior"
               fill
               className="object-cover object-center transition-opacity duration-500 opacity-20"
@@ -185,7 +185,7 @@ export function Hero() {
             />
           </div>
           <Image
-            src="/images/ChickenBucket.png"
+            src="https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/ChickenBucket.png"
             alt="Signature Harold&apos;s Chicken bucket featuring fresh fried chicken"
             width={600}
             height={600}

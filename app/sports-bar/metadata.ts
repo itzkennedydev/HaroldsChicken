@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: "The ultimate game day experience with 20+ HD TVs, premium drinks, and delicious food.",
     images: [
       {
-        url: "/images/sports-bar.jpg",
+        url: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/sports-bar.jpg",
         width: 1200,
         height: 630,
         alt: "Harold&apos;s Sports Bar interior"

@@ -11,15 +11,15 @@ export const menuItems: MenuItem[] = [
 ];
 
 export const carouselImages: CarouselImage[] = [
-  { src: "/images/Celebs/Chance.jpg", alt: "Chance the Rapper at Harold's Chicken" },
-  { src: "/images/Celebs/Kanye.png", alt: "Kanye West at Harold's Chicken" },
-  { src: "/images/Celebs/Mark.png", alt: "Mark Wahlberg at Harold's Chicken" },
-  { src: "/images/Celebs/Usher.png", alt: "Usher at Harold's Chicken" },
-  { src: "/images/Celebs/JB.jpg", alt: "Blanton at Harold's Chicken" },
-  { src: "/images/Celebs/Blanton.jpeg", alt: "Blanton at Harold's Chicken" },
-  { src: "/images/Bday.jpg", alt: "Mr.J" },
-  { src: "/images/Celebs/HaroldsCar.JPG", alt: "Harold's Car" },
-  { src: "/images/Celebs/Owner.jpg", alt: "Owner of Harold's Chicken" },
+  { src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/Celebs/Chance.jpg", alt: "Chance the Rapper at Harold's Chicken" },
+  { src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/Celebs/Kanye.png", alt: "Kanye West at Harold's Chicken" },
+  { src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/Celebs/Mark.png", alt: "Mark Wahlberg at Harold's Chicken" },
+  { src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/Celebs/Usher.png", alt: "Usher at Harold's Chicken" },
+  { src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/Celebs/JB.jpg", alt: "Blanton at Harold's Chicken" },
+  { src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/Celebs/Blanton.jpeg", alt: "Blanton at Harold's Chicken" },
+  { src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/Bday.jpg", alt: "Mr.J" },
+  { src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/Celebs/HaroldsCar.JPG", alt: "Harold's Car" },
+  { src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/Celebs/Owner.jpg", alt: "Owner of Harold's Chicken" },
 ];
 
 export const CAROUSEL_CONFIG = {

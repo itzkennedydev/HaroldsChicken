@@ -75,7 +75,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Restaurant",
               "name": "Harold&apos;s Chicken & Sports Bar",
-              "image": "https://haroldschicken.com/images/og-image.jpg",
+              "image": "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/og-image.jpg",
               "description": "Experience Chicago&apos;s iconic Harold&apos;s Chicken & Sports Bar. Known for our signature fried chicken, full-service sports bar, and welcoming atmosphere since 1950.",
               "@id": "https://haroldschicken.com",
               "url": "https://haroldschicken.com",

@@ -67,7 +67,7 @@ function FooterComponent() {
             aria-label="Harold's Chicken - Home"
           >
             <Image
-              src="/logos/HaroldsMainLogo.svg"
+              src="https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/logos/HaroldsMainLogo.svg"
               alt=""
               width={150}
               height={40}

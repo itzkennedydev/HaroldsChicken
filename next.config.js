@@ -10,7 +10,20 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   images: {
-    domains: ['images.unsplash.com', 'via.placeholder.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'd3kd1cq6xnp2l4.cloudfront.net',
+      },
+    ],
     // Enable modern image formats for better compression
     formats: ['image/avif', 'image/webp'],
     // Optimize device sizes for responsive images
@@ -43,4 +56,4 @@ const nextConfig = {
   generateEtags: true,
 }
 
-module.exports = nextConfig 
+module.exports = nextConfig

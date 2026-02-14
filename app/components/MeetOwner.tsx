@@ -64,7 +64,7 @@ function MeetOwnerComponent() {
         aria-hidden="true"
       >
         <Image
-          src="/images/CHI.png"
+          src="https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/CHI.png"
           alt=""
           fill
           className="object-cover opacity-10"
@@ -89,7 +89,7 @@ function MeetOwnerComponent() {
             <div className="relative aspect-[5/3] w-full rounded-lg overflow-hidden group">
               <div className="absolute inset-0 bg-red-700 mix-blend-multiply opacity-20 group-hover:opacity-0 transition-opacity duration-500" />
               <Image
-                src="/images/Josiah.png"
+                src="https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/Josiah.png"
                 alt="Portrait photograph of Josiah Blanton"
                 fill
                 className={imageClasses}

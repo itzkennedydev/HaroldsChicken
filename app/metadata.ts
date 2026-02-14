@@ -33,7 +33,7 @@ const defaultSEO: Metadata = {
     description: "Experience Chicago's iconic Harold's Chicken & Sports Bar. Known for our signature fried chicken, full-service sports bar, and welcoming atmosphere since 1950.",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Harold's Chicken & Sports Bar"
@@ -45,7 +45,7 @@ const defaultSEO: Metadata = {
     title: "Harold's Chicken & Sports Bar",
     description: "Chicago's iconic chicken restaurant and sports bar since 1950",
     creator: "@haroldschicken",
-    images: ["/images/twitter-image.jpg"]
+    images: ["https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/twitter-image.jpg"]
   },
   robots: {
     index: true,

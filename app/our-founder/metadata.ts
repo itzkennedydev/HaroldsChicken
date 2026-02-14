@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: "From humble beginnings to a Chicago institution - discover the story behind Harold&apos;s Chicken&apos;s commitment to quality, community, and tradition.",
     images: [
       {
-        url: "/images/Josiah.png",
+        url: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/Josiah.png",
         width: 1200,
         height: 630,
         alt: "Harold&apos;s Chicken founder"

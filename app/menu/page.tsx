@@ -18,7 +18,7 @@ function MenuBanner() {
   return (
     <section className="relative min-h-[600px] w-full">
       <Image
-        src="/images/CareersBG.png"
+        src="https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/CareersBG.png"
         alt="Harold's Chicken team members working together"
         fill
         className="object-cover"
@@ -34,7 +34,7 @@ function MenuBanner() {
           <p className="text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed uppercase font-medium">
             Explore our full selection of Harold's Chicken & Sport Bar favorites, from classic wings to signature sides and more.
           </p>
-          <Button 
+          <Button
             size="lg"
             className="bg-red-700 hover:bg-red-800 text-white text-xl font-bold px-8 sm:px-12 py-6 uppercase w-full sm:w-auto"
             onClick={() => window.open('https://www.doordash.com/store/harold\'s-chicken-sports-bar-moline-35999947/80495166/', '_blank')}
@@ -69,9 +69,9 @@ function MenuIncluded() {
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-red-700">ALL DINNERS & COMBOS INCLUDE</h2>
           <div className="flex flex-wrap justify-center items-center gap-8 text-lg md:text-xl font-medium">
             <span className="text-[#202124]">Fries</span>
-            <span className="text-red-700">•</span>
+            <span className="text-red-700">&bull;</span>
             <span className="text-[#202124]">Bread</span>
-            <span className="text-red-700">•</span>
+            <span className="text-red-700">&bull;</span>
             <span className="text-[#202124]">Cole Slaw*</span>
           </div>
         </div>
@@ -250,6 +250,10 @@ function MenuNotices() {
   );
 }
 
+function formatPrice(price: number) {
+  return Number.isInteger(price) ? `$${price}` : `$${price.toFixed(2)}`;
+}
+
 function MenuItem({ name, price, note, badge }: { name: string; price: number; note?: string; badge?: { text: string; className: string } }) {
   return (
     <li className="group relative hover:bg-[#F8F9FA]/50 transition-all duration-300 rounded-lg p-4 border-b border-gray-100 last:border-b-0">
@@ -262,7 +266,7 @@ function MenuItem({ name, price, note, badge }: { name: string; price: number; n
             )}
           </span>
           <span className="text-red-700 font-bold text-xl">
-            ${price}
+            {formatPrice(price)}
           </span>
         </div>
         {note && (
@@ -273,62 +277,37 @@ function MenuItem({ name, price, note, badge }: { name: string; price: number; n
   );
 }
 
-function Cocktail({ name, price, ingredients }: { name: string; price: number; ingredients: string[] }) {
-  return (
-    <li className="group relative hover:bg-[#F8F9FA]/50 transition-all duration-300 rounded-lg p-4 border-b border-gray-100 last:border-b-0">
-      <div className="flex flex-col gap-3">
-        <div className="flex justify-between items-center">
-          <span className="text-lg font-bold text-[#202124] group-hover:text-red-700 transition-colors duration-300">
-            {name}
-          </span>
-          <span className="text-red-700 font-bold text-xl">
-            ${price}
-          </span>
-        </div>
-        <ul className="ml-2 text-[#333536] list-disc list-inside space-y-1">
-          {ingredients.map((ing, i) => (
-            <li key={i}>{ing}</li>
-          ))}
-        </ul>
-      </div>
-    </li>
-  );
-}
-
-function SearchBar({ 
-  searchQuery, 
+function SearchBar({
+  searchQuery,
   setSearchQuery
-}: { 
-  searchQuery: string; 
-  setSearchQuery: (query: string) => void; 
+}: {
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
 }) {
   const [isSearching, setIsSearching] = useState(false);
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
 
-  // Sample popular searches and menu items for suggestions
   const popularSearches = [
     "Chicken Wings",
     "Catfish",
-    "Fried Chicken",
-    "Spicy",
-    "Party Pans",
-    "Buffalo Shrimp",
     "Tenders",
+    "Pizza Puff",
+    "Waffles",
+    "Combos",
+    "Lemonade",
     "Appetizers"
   ];
 
   const handleSearch = (value: string) => {
     setSearchQuery(value);
     setIsSearching(true);
-    
-    // Simulate search delay
+
     setTimeout(() => {
       if (value.trim() === "") {
         setSuggestions(popularSearches);
       } else {
-        // Filter suggestions based on input
         const filtered = popularSearches.filter(item =>
           item.toLowerCase().includes(value.toLowerCase())
         );
@@ -343,7 +322,6 @@ function SearchBar({
     setShowSuggestions(false);
   };
 
-  // Close suggestions when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
@@ -388,7 +366,6 @@ function SearchBar({
         )}
       </div>
 
-      {/* Search Suggestions Dropdown */}
       {showSuggestions && (searchQuery || suggestions.length > 0) && (
         <div className="absolute z-50 w-full mt-2 bg-white rounded-lg border-2 border-gray-200 max-h-60 overflow-y-auto">
           {suggestions.length > 0 ? (
@@ -419,42 +396,142 @@ function SearchBar({
   );
 }
 
-// Define MenuItemType for type safety
 interface MenuItemType {
   name: string;
   price: number;
   note?: string;
   category?: string;
   subCategory?: string;
-  ingredients?: string[];
   badge?: { text: string; className: string };
 }
 
-// Define friedAppetizers and sides arrays at the top
-const friedAppetizers: MenuItemType[] = [
-  { name: "Mozz Sticks (3)", price: 6 },
-  { name: "Mozz Sticks (5)", price: 8 },
-  { name: "Black Bean Firecrackers", price: 12 },
-  { name: "Mac + Cheese Bites", price: 11 },
-  { name: "Corn Nugget", price: 8 },
-  { name: "Spicy Curd", price: 13 },
-  { name: "Broccoli Bite", price: 12 },
-  { name: "Breaded Mushrooms", price: 8 }
-];
-const sides: MenuItemType[] = [
-  { name: "Small Okra", price: 5 },
-  { name: "Large Okra", price: 10 },
-  { name: "Coleslaw 2 oz", price: 1.6 },
-  { name: "Coleslaw 4 oz", price: 2.6 },
-  { name: "Small Fries", price: 4 },
-  { name: "Large Fries", price: 7 },
-  { name: "8inch Cheese Pizza", price: 13, note: "Comes with a free fountain drink" }
+// ============================================================
+// MENU DATA — Updated to match new physical menu
+// ============================================================
+
+// APPETIZERS
+const appetizers: MenuItemType[] = [
+  { name: "Honey Biscuits (5ct)", price: 10 },
+  { name: "Honey Biscuits (10ct)", price: 15 },
+  { name: "Fried Pickle Boat", price: 11 },
+  { name: "Spicy Cheese Curds", price: 12 },
+  { name: "Fried Okra Basket", price: 9 },
 ];
 
-// Helper type guard for badge
-// function hasBadge(item: { badge?: { text: string; className: string } }): item is { badge: { text: string; className: string } } {
-//   return !!item.badge && typeof item.badge.text === 'string' && typeof item.badge.className === 'string';
-// }
+// CATFISH DINNERS — Served with fries, bread, and coleslaw
+const catfishDinners: MenuItemType[] = [
+  { name: "Small Catfish (One Fillet)", price: 13 },
+  { name: "Large Catfish (Two Fillets)", price: 16 },
+  { name: "Small Catfish Nugget", price: 15 },
+  { name: "Large Catfish Nugget", price: 18 },
+];
+
+// CATFISH BUCKETS
+const catfishBuckets: MenuItemType[] = [
+  { name: "12 PC Bucket", price: 45 },
+  { name: "24 PC Bucket", price: 74 },
+];
+
+// CHICKEN PIECES — Served with fries, bread, and coleslaw
+const chickenPieces: MenuItemType[] = [
+  { name: "1/4 White", price: 11 },
+  { name: "1/4 Dark", price: 9 },
+  { name: "1/2 White", price: 21 },
+  { name: "1/2 Dark", price: 15 },
+  { name: "1/2 Mixed", price: 18 },
+];
+
+// COMBOS — Served with fries, bread, and coleslaw
+const combos: MenuItemType[] = [
+  { name: "3 Wings & 2 Catfish", price: 23 },
+  { name: "3 Wings & Gizzards", price: 17 },
+  { name: "3 Wings & 5 Shrimp", price: 20 },
+];
+
+// PIZZA
+const pizza: MenuItemType[] = [
+  { name: "1 Pizza Puff and Fries", price: 10 },
+  { name: "1 Pizza Puff", price: 7 },
+];
+
+// WING DINNERS — Served with fries, bread, and coleslaw
+const wingDinners: MenuItemType[] = [
+  { name: "4 Wings", price: 12 },
+  { name: "6 Wings", price: 15 },
+  { name: "8 Wings", price: 18 },
+  { name: "10 Wings", price: 22 },
+];
+
+// CHICKEN WING BUCKETS — Free Fries!
+const chickenWingBuckets: MenuItemType[] = [
+  { name: "12 PCS Wings", price: 33, note: "Free Fries!" },
+  { name: "18 PCS Wings", price: 43, note: "Free Fries!" },
+  { name: "24 PCS Wings", price: 53, note: "Free Fries!" },
+];
+
+// CHICKEN TENDERS — Served with fries, bread, and coleslaw
+const chickenTenders: MenuItemType[] = [
+  { name: "4 PCS Tenders", price: 14.50 },
+  { name: "6 PCS Tenders", price: 16.50 },
+  { name: "8 PCS Tenders", price: 19.50 },
+];
+
+// CHICKEN & WAFFLES — Includes 1 Free OJ
+const chickenWaffles: MenuItemType[] = [
+  { name: "Chicken & Waffles (5 Wings or Tenders)", price: 22.50, note: "Includes 1 Free OJ" },
+  { name: "1/2 Order Chicken & Waffles (3 Wings or Tenders)", price: 15, note: "Includes 1 Free OJ" },
+];
+
+// CHICKEN SANDWICH
+const chickenSandwich: MenuItemType[] = [
+  { name: "Chicken Sandwich", price: 19, note: "Fried chicken breast dipped in Harold's mild or hot sauce, choice of pepperjack cheese, pickles, on a sweet brioche bun. Served with fries, two honey biscuits and a pop." },
+];
+
+// HAROLD'S SPECIALTY SAUCES
+const signatureSauces: MenuItemType[] = [
+  { name: "Harold's Signature Mild Sauce Bottle", price: 19 },
+  { name: "Harold's Signature Hot Sauce Bottle", price: 15 },
+];
+
+// HAROLD'S SPECIALTY COCKTAILS
+const specialtyCocktails: MenuItemType[] = [
+  { name: "Mr. J", price: 15 },
+  { name: "Mayweather", price: 13.50 },
+  { name: "LaMello's Lemonade", price: 11 },
+  { name: "K. Sago", price: 10 },
+  { name: "Forbidden Green Apple", price: 12 },
+];
+
+// HAROLD'S FLAVORED LEMONADES — Non-Alcoholic
+const flavoredLemonades: MenuItemType[] = [
+  { name: "Honey Mango Lemonade", price: 4 },
+  { name: "Dragonfruit Lemonade", price: 4 },
+  { name: "Peach Lemonade", price: 4 },
+  { name: "Blueberry Lemonade", price: 4 },
+  { name: "Strawberry Lemonade", price: 4 },
+];
+
+// SIDES & EXTRAS
+const sidesExtras: MenuItemType[] = [
+  { name: "Mild Sauce", price: 7 },
+  { name: "Hot Sauce", price: 0.50 },
+  { name: "Hot Peppers (2)", price: 1 },
+  { name: "Coleslaw", price: 7 },
+  { name: "Basket of Fries (Small)", price: 5 },
+  { name: "Basket of Fries (Large)", price: 7 },
+  { name: "Extra Lemon Pepper", price: 1 },
+  { name: "Extra Breast", price: 6.50 },
+  { name: "Extra Wing", price: 2.50 },
+  { name: "Extra Tender", price: 3.50 },
+  { name: "Extra Catfish", price: 7 },
+];
+
+// SAUCE OPTIONS — informational list, no prices
+const sauceOptions = [
+  "Mild", "Hot", "BBQ", "Ranch", "Buffalo Ranch", "Ketchup",
+  "Signature Sauce", "Boss Sauce", "Sweet Revenge", "Honey Jerk BBQ",
+  "Danger", "Chipotle"
+];
 
 export default function MenuPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -463,33 +540,29 @@ export default function MenuPage() {
   const [activeTab, setActiveTab] = useState("all");
 
   const categories = [
-    { id: "CHICKEN WINGS", label: "Chicken Wings" },
-    { id: "CHICKEN PIECES & BUCKETS", label: "Chicken Pieces & Buckets" },
-    { id: "FISH & SEAFOOD", label: "Fish & Seafood" },
-    { id: "APPETIZERS & SIDES", label: "Appetizers & Sides" },
-    { id: "COCKTAILS", label: "Cocktails" },
-    { id: "PARTY PANS", label: "Party Pans" },
-    { id: "DESSERTS", label: "Desserts" },
-    { id: "SAUCES & EXTRAS", label: "Sauces & Extras" }
+    { id: "APPETIZERS", label: "Appetizers" },
+    { id: "CHICKEN", label: "Chicken" },
+    { id: "CATFISH", label: "Catfish" },
+    { id: "COMBOS & PIZZA", label: "Combos & Pizza" },
+    { id: "DRINKS", label: "Drinks" },
+    { id: "SIDES & EXTRAS", label: "Sides & Extras" },
   ];
 
   const toggleCategory = (category: string) => {
     const newCategories = selectedCategories.includes(category)
       ? selectedCategories.filter(c => c !== category)
       : [...selectedCategories, category];
-    
+
     setSelectedCategories(newCategories);
-    
-    // Update active tab based on selected categories
+
     if (newCategories.length === 0) {
       setActiveTab("all");
     } else if (newCategories.length === 1) {
       setActiveTab(newCategories[0]);
     } else {
-      setActiveTab("all"); // Multiple categories selected, show all
+      setActiveTab("all");
     }
   };
-
 
   const handleTabChange = (tabValue: string) => {
     setActiveTab(tabValue);
@@ -498,251 +571,37 @@ export default function MenuPage() {
     } else {
       setSelectedCategories([tabValue]);
     }
-    // Clear search when switching tabs for better UX
     setSearchQuery("");
   };
 
-  const filterMenuItems = (items: { name: string; price: number; note?: string }[]) => {
-    return items.filter(item => {
-      const matchesSearch = searchQuery === "" || 
-        item.name.toLowerCase().includes(searchQuery.toLowerCase());
-      
-      const matchesPrice = item.price >= priceRange[0] && item.price <= priceRange[1];
-      
-      return matchesSearch && matchesPrice;
-    });
-  };
-
-  const filterCocktails = (cocktails: { name: string; price: number; ingredients: string[] }[]) => {
-    return cocktails.filter(cocktail => {
-      const matchesSearch = searchQuery === "" || 
-        cocktail.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        cocktail.ingredients.some(ing => ing.toLowerCase().includes(searchQuery.toLowerCase()));
-      
-      const matchesPrice = cocktail.price >= priceRange[0] && cocktail.price <= priceRange[1];
-      
-      return matchesSearch && matchesPrice;
-    });
-  };
-
-  // Add before the return in MenuPage
-  const partyPanWings = [
-    { name: "Party Pan 50 Wings", price: 125 },
-    { name: "Party Pan 75 Wings", price: 160 },
-    { name: "Party Pan 100 Wings", price: 208 },
-    { name: "Party Pan 150 Wings", price: 249 },
-    { name: "Party Pan 200 Wings", price: 348 }
-  ];
-  const partyPanMixed = [
-    { name: "Party Pan 50 pcs Mixed", price: 97 },
-    { name: "Party Pan 100 pcs Mixed", price: 181 },
-    { name: "Party Pan 150 pcs Mixed", price: 243 },
-    { name: "Party Pan 200 pcs Mixed", price: 312 }
-  ];
-  const filteredPartyWings = filterMenuItems(partyPanWings);
-  const filteredPartyMixed = filterMenuItems(partyPanMixed);
-
-  // CHICKEN SECTION
-  const chickenItems = [
-    { name: "4 Wings w/ Fries", price: 12 },
-    { name: "6 Wings w/ Fries", price: 14 },
-    { name: "8 Wings w/ Fries", price: 18 },
-    { name: "10 Wings w/ Fries", price: 22 },
-    { name: "Extra Wing", price: 4 }
-  ];
-  const chickenTenders = [
-    { name: "4 pcs Tenders/Fries", price: 12 },
-    { name: "6 pcs Tenders/Fries", price: 15 },
-    { name: "8 pcs Tenders/Fries", price: 17 }
-  ];
-  const chickenPieces = [
-    { name: "1/4 White", price: 11 },
-    { name: "1/4 Dark", price: 9 },
-    { name: "1/2 White", price: 21 },
-    { name: "1/2 Dark", price: 15 },
-    { name: "1/2 Mixed", price: 18 },
-    { name: "2 Breasts", price: 10 },
-    { name: "Extra Leg or Thigh", price: 4 },
-    { name: "Extra Breast", price: 4 }
-  ];
-  const specialtyChicken = [
-    { name: "Chicken Sandwich", price: 19, note: "Comes with fries, cookie & drink" },
-    { name: "Chicken & Waffles", price: 15, note: "3 wings - Comes with free orange juice" }
-  ];
-  const chickenWingBuckets = [
-    { name: "12 Wing Bucket w/ Fries Large", price: 33 },
-    { name: "18 Wing Bucket w/ Large Fry", price: 43 },
-    { name: "24 Wing Bucket w/ 2 Large Fry", price: 53 }
-  ];
-  const mixedChickenBuckets = [
-    { name: "8 Piece (Mixed)", price: 20, note: "Does not include fries" },
-    { name: "16 Piece (Mixed)", price: 30, note: "Does not include fries" },
-    { name: "24 Piece (Mixed)", price: 45, note: "Does not include fries" }
-  ];
-  const filteredChickenItems = filterMenuItems(chickenItems);
-  const filteredChickenTenders = filterMenuItems(chickenTenders);
-  const filteredChickenPieces = filterMenuItems(chickenPieces);
-  const filteredSpecialtyChicken = filterMenuItems(specialtyChicken);
-  const filteredChickenWingBuckets = filterMenuItems(chickenWingBuckets);
-  const filteredMixedChickenBuckets = filterMenuItems(mixedChickenBuckets);
-  const showChickenWingsSection =
-    (selectedCategories.length === 0 || selectedCategories.includes("CHICKEN WINGS")) &&
-    (filteredChickenItems.length > 0 ||
-    filteredChickenTenders.length > 0 ||
-    filteredSpecialtyChicken.length > 0);
-  const showChickenPiecesBucketsSection =
-    (selectedCategories.length === 0 || selectedCategories.includes("CHICKEN PIECES & BUCKETS")) &&
-    (filteredChickenPieces.length > 0 ||
-    filteredChickenWingBuckets.length > 0 ||
-    filteredMixedChickenBuckets.length > 0);
-
-  // FISH & SEAFOOD SECTION
-  const fishCatfish = [
-    { name: "Small Catfish 1pc w/ Fries", price: 12 },
-    { name: "Large Catfish 2pc w/ Fries", price: 15 },
-    { name: "Catfish Nugget 6pc", price: 15 },
-    { name: "Catfish Nugget 9pc", price: 18 }
-  ];
-  const catfishBuckets = [
-    { name: "12 pc Catfish", price: 48, note: "Does not include fries" },
-    { name: "24 pc Catfish", price: 78, note: "Does not include fries" }
-  ];
-
-  const fishWhiting = [
-    { name: "Small Whiting", price: 15 },
-    { name: "Large Whiting", price: 21 }
-  ];
-  const fishShrimp = [
-    { name: "Buffalo Shrimp 8ct", price: 18 }
-  ];
-  const fishLobster = [
-    { name: "Lobster with Fries", price: 30 }
-  ];
-  const filteredFishCatfish = filterMenuItems(fishCatfish);
-  const filteredCatfishBuckets = filterMenuItems(catfishBuckets);
-  const filteredFishWhiting = filterMenuItems(fishWhiting);
-  const filteredFishShrimp = filterMenuItems(fishShrimp);
-  const filteredFishLobster = filterMenuItems(fishLobster);
-  const showFishSection = 
-    (selectedCategories.length === 0 || selectedCategories.includes("FISH & SEAFOOD")) &&
-    (filteredFishCatfish.length > 0 || filteredFishWhiting.length > 0 || filteredFishShrimp.length > 0 || filteredCatfishBuckets.length > 0 || filteredFishLobster.length > 0);
-
-  // SAUCES & EXTRAS SECTION
-  const sauces = [
-    { name: "Harold's Signature Mild Sauce Bottle", price: 19 },
-    { name: "Harold's Signature HOT Sauce Bottle", price: 15 },
-    { name: "Gallon of Sauce", price: 70 }
-  ];
-  const condiments = [
-    { name: "2oz Mild Sauce", price: 1 },
-    { name: "Hot Sauce", price: 2 },
-    { name: 'Hot Pepper "3"', price: 1 },
-    { name: "Cole Slaw (Half Pint)", price: 5 },
-    { name: "Cole Slaw (Pint)", price: 7 },
-    { name: "Extra lemon pepper", price: 0.75 },
-    { name: "Extra leg", price: 4 },
-    { name: "Extra thigh", price: 4 },
-    { name: "Extra breast", price: 4 },
-    { name: "Extra wing", price: 4 },
-    { name: "Extra tender", price: 5 },
-    { name: "Extra catfish", price: 4 },
-    { name: "Extra shrimp", price: 4 }
-  ];
-  const filteredSauces = filterMenuItems(sauces);
-  const filteredCondiments = filterMenuItems(condiments);
-  const showSaucesSection = 
-    (selectedCategories.length === 0 || selectedCategories.includes("SAUCES & EXTRAS")) &&
-    (filteredSauces.length > 0 || filteredCondiments.length > 0);
-
-  // BEVERAGES SECTION
-  const specialtyCocktails = [
-    { name: "K Sago Sunset", price: 10, ingredients: ["Don Julio Reposado","Orange Juice","Fresh Lime Juice","Splash Grenadine","Orange and Cherry"] },
-    { name: "Mayweather Margarita", price: 15, ingredients: ["Hennessy","Tequila","Triple Sec","Fresh Lime Juice","Splash of Orange Juice","Orange Slice"] },
-    { name: "Tasha's Tropical Twist", price: 8.5, ingredients: ["Malibu Rum","Curacao","Pineapple Juice","Fresh Lime Juice","Cherry"] },
-    { name: "Joni's Jumper", price: 8, ingredients: ["Vodka","Mix-berry Puree","Fresh Lemon Juice","Club Soda","Lime"] },
-    { name: "LaMello's LemonADE", price: 10, ingredients: ["Crown Royal Peach","Lemonade","Sprite","Grenadine","Peach"] },
-    { name: "A Shedeur Summer", price: 8.5, ingredients: ["Vodka","Peach Schnapps","Strawberry Puree","Orange Juice","Splash Sprite","Orange"] },
-    { name: "The MRJ", price: 15, ingredients: ["Patron Reposado","Triple Sec","Dragon Fruit","Pineapple Juice","Fresh Lime","Lime"] },
-    { name: "The Rosita", price: 12, ingredients: ["Vodka","Rum","Gin","Peach Schnapps","Strawberry","Sprite","Lemon"] }
-  ];
-  const nonAlcoholic = [
-    { name: "Bottled Water", price: 3 },
-    { name: "Soft Drinks", price: 3, note: "unlimited refills" },
-    { name: "Calypso", price: 5 },
-    { name: "Special Flavored Lemonades", price: 4, note: "no free refill" },
-    { name: "Lemonade Jug", price: 7 },
-    { name: "Can Soda", price: 3 }
-  ];
-  const filteredSpecialtyCocktails = filterCocktails(specialtyCocktails);
-  const filteredNonAlcoholic = filterMenuItems(nonAlcoholic);
-  const showCocktailsSection = 
-    (selectedCategories.length === 0 || selectedCategories.includes("COCKTAILS")) &&
-    filteredSpecialtyCocktails.length > 0;
-  const showNonAlcoholicSection = 
-    (selectedCategories.length === 0 || selectedCategories.includes("SAUCES & EXTRAS")) &&
-    filteredNonAlcoholic.length > 0;
-
-  // FISH COMBOS SECTION
-  const fishCombos = [
-    { name: "Catfish & 1/4 Chicken (White)", price: 27 },
-    { name: "2 Catfish & 3 Wings", price: 23 },
-    { name: "Liver & 3 Wings", price: 19 },
-    { name: "Gizzard & 3 Wings", price: 19 },
-    { name: "2 Catfish & 5 Shrimp", price: 25.25 },
-    { name: "5 Shrimp & 3 Wings", price: 25.25 },
-    { name: "5 Shrimp & 1/4 Chicken (White)", price: 28 },
-    { name: "5 Shrimp & 1/4 Chicken (Dark)", price: 23 }
-  ];
-  const filteredFishCombos = filterMenuItems(fishCombos);
-  const showFishCombosSection = 
-    (selectedCategories.length === 0 || selectedCategories.includes("APPETIZERS & SIDES")) &&
-    filteredFishCombos.length > 0;
-
-  // DESSERTS SECTION
-  const desserts = [
-    { name: "Cookies", price: 7 },
-    { name: "Honey Biscuits (5)", price: 10 },
-    { name: "Honey Biscuits (10)", price: 15 }
-  ];
-  const filteredDesserts = filterMenuItems(desserts);
-  const showDessertsSection = 
-    (selectedCategories.length === 0 || selectedCategories.includes("DESSERTS")) &&
-    filteredDesserts.length > 0;
-
-  // Build a flat array of all menu items with category and subCategory
-  const allMenuItems = [
-    // Chicken Wings
-    ...chickenItems.map(item => ({ ...item, category: 'CHICKEN WINGS', subCategory: 'Wing Dinners' })),
-    ...chickenTenders.map(item => ({ ...item, category: 'CHICKEN WINGS', subCategory: 'Chicken Tenders' })),
-    ...specialtyChicken.map(item => ({ ...item, category: 'CHICKEN WINGS', subCategory: 'Specialty Chicken Items' })),
-    // Chicken Pieces & Buckets
-    ...chickenPieces.map(item => ({ ...item, category: 'CHICKEN PIECES & BUCKETS', subCategory: 'Chicken Pieces' })),
-    ...chickenWingBuckets.map(item => ({ ...item, category: 'CHICKEN PIECES & BUCKETS', subCategory: 'Chicken Wing Buckets' })),
-    ...mixedChickenBuckets.map(item => ({ ...item, category: 'CHICKEN PIECES & BUCKETS', subCategory: 'Mixed Chicken Buckets' })),
-    // Fish & Seafood
-    ...fishCatfish.map(item => ({ ...item, category: 'FISH & SEAFOOD', subCategory: 'Catfish' })),
-    ...fishWhiting.map(item => ({ ...item, category: 'FISH & SEAFOOD', subCategory: 'Whiting' })),
-    ...fishShrimp.map(item => ({ ...item, category: 'FISH & SEAFOOD', subCategory: 'Shrimp' })),
-    // Sauces & Extras
-    ...sauces.map(item => ({ ...item, category: 'SAUCES & EXTRAS', subCategory: "Harold's Signature Sauces" })),
-    ...condiments.map(item => ({ ...item, category: 'SAUCES & EXTRAS', subCategory: 'Condiments & Extras' })),
-    ...nonAlcoholic.map(item => ({ ...item, category: 'SAUCES & EXTRAS', subCategory: 'Non-Alcoholic Beverages' })),
-    // Appetizers & Sides
-    ...friedAppetizers.map(item => ({ ...item, category: 'APPETIZERS & SIDES', subCategory: 'Fried Appetizers' })),
-    ...sides.map(item => ({ ...item, category: 'APPETIZERS & SIDES', subCategory: 'Sides' })),
-    ...fishCombos.map(item => ({ ...item, category: 'APPETIZERS & SIDES', subCategory: 'Fish Combos' })),
-    // Cocktails
-    ...specialtyCocktails.map(item => ({ ...item, category: 'COCKTAILS', subCategory: 'Specialty Cocktails' })),
-    // Party Pans
-    ...partyPanWings.map(item => ({ ...item, category: 'PARTY PANS', subCategory: 'Wing Party Pans' })),
-    ...partyPanMixed.map(item => ({ ...item, category: 'PARTY PANS', subCategory: 'Mixed Chicken Party Pans' })),
-    // Desserts
-    ...desserts.map(item => ({ ...item, category: 'DESSERTS', subCategory: 'Desserts' })),
+  // Build flat array of all menu items with category and subCategory for Fuse.js search
+  const allMenuItems: MenuItemType[] = [
+    // Appetizers
+    ...appetizers.map(item => ({ ...item, category: 'APPETIZERS', subCategory: 'Appetizers' })),
+    // Chicken
+    ...wingDinners.map(item => ({ ...item, category: 'CHICKEN', subCategory: 'Wing Dinners' })),
+    ...chickenTenders.map(item => ({ ...item, category: 'CHICKEN', subCategory: 'Chicken Tenders' })),
+    ...chickenPieces.map(item => ({ ...item, category: 'CHICKEN', subCategory: 'Chicken Pieces' })),
+    ...chickenWingBuckets.map(item => ({ ...item, category: 'CHICKEN', subCategory: 'Chicken Wing Buckets' })),
+    ...chickenWaffles.map(item => ({ ...item, category: 'CHICKEN', subCategory: 'Chicken & Waffles' })),
+    ...chickenSandwich.map(item => ({ ...item, category: 'CHICKEN', subCategory: 'Chicken Sandwich' })),
+    // Catfish
+    ...catfishDinners.map(item => ({ ...item, category: 'CATFISH', subCategory: 'Catfish Dinners' })),
+    ...catfishBuckets.map(item => ({ ...item, category: 'CATFISH', subCategory: 'Catfish Buckets' })),
+    // Combos & Pizza
+    ...combos.map(item => ({ ...item, category: 'COMBOS & PIZZA', subCategory: 'Combos' })),
+    ...pizza.map(item => ({ ...item, category: 'COMBOS & PIZZA', subCategory: 'Pizza' })),
+    // Drinks
+    ...specialtyCocktails.map(item => ({ ...item, category: 'DRINKS', subCategory: "Harold's Specialty Cocktails" })),
+    ...flavoredLemonades.map(item => ({ ...item, category: 'DRINKS', subCategory: "Harold's Flavored Lemonades" })),
+    // Sides & Extras
+    ...signatureSauces.map(item => ({ ...item, category: 'SIDES & EXTRAS', subCategory: "Harold's Signature Sauces" })),
+    ...sidesExtras.map(item => ({ ...item, category: 'SIDES & EXTRAS', subCategory: 'Sides & Extras' })),
   ];
 
   // Set up Fuse.js
   const fuse = new Fuse(allMenuItems, {
-    keys: ['name', 'note', 'ingredients'],
+    keys: ['name', 'note'],
     threshold: 0.3,
   });
 
@@ -758,13 +617,20 @@ export default function MenuPage() {
     return matchesCategory && matchesPrice;
   });
 
-  // Type groupedResults
+  // Group results by category > subCategory
   const groupedResults: Record<string, Record<string, MenuItemType[]>> = {};
   filteredResults.forEach((item: MenuItemType) => {
     if (!groupedResults[item.category!]) groupedResults[item.category!] = {};
     if (!groupedResults[item.category!][item.subCategory!]) groupedResults[item.category!][item.subCategory!] = [];
     groupedResults[item.category!][item.subCategory!].push(item);
   });
+
+  // Helper to check if a category has results
+  const hasCategory = (cat: string) => !!groupedResults[cat];
+
+  // Helper to get items for a sub-category
+  const getSubItems = (cat: string, sub: string): MenuItemType[] =>
+    groupedResults[cat]?.[sub] ?? [];
 
   return (
     <div className="bg-white min-h-screen pb-8 sm:pb-16">
@@ -776,14 +642,12 @@ export default function MenuPage() {
           <MenuIncluded />
         </div>
 
-        {/* Enhanced Search and Filter Section */}
+        {/* Search */}
         <div className="mb-8 space-y-4">
           <SearchBar
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
           />
-
-
         </div>
 
         {Object.entries(groupedResults).length === 0 && (
@@ -793,54 +657,48 @@ export default function MenuPage() {
         {/* MENU TABS */}
         <div className="mb-8">
           <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
-            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 h-auto p-2 bg-gray-100 rounded-xl">
-              <TabsTrigger 
-                value="all" 
+            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 h-auto p-2 bg-gray-100 rounded-xl">
+              <TabsTrigger
+                value="all"
                 className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
               >
                 All Items
               </TabsTrigger>
-              <TabsTrigger 
-                value="CHICKEN WINGS" 
+              <TabsTrigger
+                value="APPETIZERS"
                 className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
               >
-                Wings
+                Appetizers
               </TabsTrigger>
-              <TabsTrigger 
-                value="CHICKEN PIECES & BUCKETS" 
+              <TabsTrigger
+                value="CHICKEN"
                 className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
               >
-                Chicken Pieces & Buckets
+                Chicken
               </TabsTrigger>
-              <TabsTrigger 
-                value="FISH & SEAFOOD" 
+              <TabsTrigger
+                value="CATFISH"
                 className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
               >
-                Fish
+                Catfish
               </TabsTrigger>
-              <TabsTrigger 
-                value="APPETIZERS & SIDES" 
+              <TabsTrigger
+                value="COMBOS & PIZZA"
                 className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
               >
-                Sides
+                Combos & Pizza
               </TabsTrigger>
-              <TabsTrigger 
-                value="COCKTAILS" 
+              <TabsTrigger
+                value="DRINKS"
                 className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
               >
-                Cocktails
+                Drinks
               </TabsTrigger>
-              <TabsTrigger 
-                value="PARTY PANS" 
+              <TabsTrigger
+                value="SIDES & EXTRAS"
                 className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
               >
-                Party Pans
-              </TabsTrigger>
-              <TabsTrigger 
-                value="SAUCES & EXTRAS" 
-                className="text-sm sm:text-base font-medium px-2 sm:px-4 py-2 sm:py-3 data-[state=active]:bg-red-700 data-[state=active]:text-white rounded-lg transition-all"
-              >
-                Extras
+                Sides & Extras
               </TabsTrigger>
             </TabsList>
           </Tabs>
@@ -888,224 +746,53 @@ export default function MenuPage() {
 
         {/* MAIN MENU SECTIONS */}
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-12 md:gap-16">
-          {/* CHICKEN WINGS SECTION */}
-          {showChickenWingsSection && (
+
+          {/* APPETIZERS SECTION */}
+          {hasCategory('APPETIZERS') && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
               <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
-                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">CHICKEN WINGS</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">APPETIZERS</CardTitle>
               </CardHeader>
-              <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
-                {/* Wing Dinners */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Wing Dinners</span>
-                  </h3>
-                  <ul className="space-y-1">
-                    {filteredChickenItems.map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Chicken Tenders */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Chicken Tenders</span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {filteredChickenTenders.map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Specialty Chicken Items */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Specialty Chicken Items</span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {filteredSpecialtyChicken.map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
+              <CardContent className="p-4 sm:p-6 md:p-8 bg-white">
+                <ul className="space-y-1">
+                  {getSubItems('APPETIZERS', 'Appetizers').map((item, index) => (
+                    <MenuItem key={index} {...item} />
+                  ))}
+                </ul>
               </CardContent>
             </Card>
           )}
 
-          {/* CHICKEN PIECES & BUCKETS SECTION */}
-          {showChickenPiecesBucketsSection && (
+          {/* WING DINNERS & TENDERS SECTION */}
+          {hasCategory('CHICKEN') && (getSubItems('CHICKEN', 'Wing Dinners').length > 0 || getSubItems('CHICKEN', 'Chicken Tenders').length > 0) && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
               <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
-                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">CHICKEN PIECES & BUCKETS</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">WING DINNERS & TENDERS</CardTitle>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
-                {/* Chicken Pieces */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Chicken Pieces</span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {filteredChickenPieces.map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Chicken Wing Buckets */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Chicken Wing Buckets</span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {filteredChickenWingBuckets.map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Mixed Chicken Buckets */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Mixed Chicken Buckets</span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {filteredMixedChickenBuckets.map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-          )}
-
-          {/* FISH & SEAFOOD SECTION */}
-          {showFishSection && (
-            <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
-                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">FISH & SEAFOOD</CardTitle>
-              </CardHeader>
-              <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
-                {/* Catfish */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Catfish</span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {filteredFishCatfish.map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Catfish Buckets */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Catfish Buckets</span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {filteredCatfishBuckets.map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
-
-
-
-                {/* Whiting */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Whiting</span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {filteredFishWhiting.map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Shrimp */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Shrimp</span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {filteredFishShrimp.map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Lobster */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Lobster</span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {filteredFishLobster.map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-          )}
-
-          {/* SAUCES & EXTRAS SECTION */}
-          {showSaucesSection && (
-            <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
-                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">SAUCES & EXTRAS</CardTitle>
-              </CardHeader>
-              <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
-                {filteredSauces.length > 0 && (
+                {getSubItems('CHICKEN', 'Wing Dinners').length > 0 && (
                   <div>
                     <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                       <span className="w-1 h-6 bg-red-700"></span>
-                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Harold's Signature Sauces</span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Wing Dinners</span>
                     </h3>
-                    <ul className="space-y-2">
-                      {filteredSauces.map((item, index) => (
+                    <p className="text-sm text-[#333536] italic mb-3">Served with fries, bread, and coleslaw</p>
+                    <ul className="space-y-1">
+                      {getSubItems('CHICKEN', 'Wing Dinners').map((item, index) => (
                         <MenuItem key={index} {...item} />
                       ))}
                     </ul>
                   </div>
                 )}
-                {filteredCondiments.length > 0 && (
+                {getSubItems('CHICKEN', 'Chicken Tenders').length > 0 && (
                   <div>
                     <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                       <span className="w-1 h-6 bg-red-700"></span>
-                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Condiments & Extras</span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Chicken Tenders</span>
                     </h3>
-                    <ul className="space-y-2">
-                      {filteredCondiments.map((item, index) => (
-                        <MenuItem key={index} {...item} />
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Non-Alcoholic Beverages */}
-                {showNonAlcoholicSection && (
-                  <div>
-                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                      <span className="w-1 h-6 bg-red-700"></span>
-                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Non-Alcoholic Beverages</span>
-                    </h3>
-                    <ul className="space-y-2">
-                      {filteredNonAlcoholic.map((item, index) => (
+                    <p className="text-sm text-[#333536] italic mb-3">Served with fries, bread, and coleslaw</p>
+                    <ul className="space-y-1">
+                      {getSubItems('CHICKEN', 'Chicken Tenders').map((item, index) => (
                         <MenuItem key={index} {...item} />
                       ))}
                     </ul>
@@ -1115,48 +802,61 @@ export default function MenuPage() {
             </Card>
           )}
 
-          {/* APPETIZERS & SIDES SECTION */}
-          {(selectedCategories.length === 0 || selectedCategories.includes("APPETIZERS & SIDES")) && (
+          {/* CHICKEN PIECES, BUCKETS & SPECIALS SECTION */}
+          {hasCategory('CHICKEN') && (getSubItems('CHICKEN', 'Chicken Pieces').length > 0 || getSubItems('CHICKEN', 'Chicken Wing Buckets').length > 0 || getSubItems('CHICKEN', 'Chicken & Waffles').length > 0 || getSubItems('CHICKEN', 'Chicken Sandwich').length > 0) && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
               <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
-                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">APPETIZERS & SIDES</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">CHICKEN PIECES & SPECIALS</CardTitle>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
-                {/* Fried Appetizers */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Fried Appetizers</span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {friedAppetizers.map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Sides */}
-                <div>
-                  <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                    <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Sides</span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {sides.map((item, index) => (
-                      <MenuItem key={index} {...item} />
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Fish Combos */}
-                {showFishCombosSection && (
+                {getSubItems('CHICKEN', 'Chicken Pieces').length > 0 && (
                   <div>
                     <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                       <span className="w-1 h-6 bg-red-700"></span>
-                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Fish Combos</span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Chicken Pieces</span>
                     </h3>
-                    <ul className="space-y-2">
-                      {filteredFishCombos.map((item, index) => (
+                    <p className="text-sm text-[#333536] italic mb-3">Served with fries, bread, and coleslaw</p>
+                    <ul className="space-y-1">
+                      {getSubItems('CHICKEN', 'Chicken Pieces').map((item, index) => (
+                        <MenuItem key={index} {...item} />
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {getSubItems('CHICKEN', 'Chicken Wing Buckets').length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                      <span className="w-1 h-6 bg-red-700"></span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Chicken Wing Buckets</span>
+                    </h3>
+                    <ul className="space-y-1">
+                      {getSubItems('CHICKEN', 'Chicken Wing Buckets').map((item, index) => (
+                        <MenuItem key={index} {...item} />
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {getSubItems('CHICKEN', 'Chicken & Waffles').length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                      <span className="w-1 h-6 bg-red-700"></span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Chicken & Waffles</span>
+                    </h3>
+                    <ul className="space-y-1">
+                      {getSubItems('CHICKEN', 'Chicken & Waffles').map((item, index) => (
+                        <MenuItem key={index} {...item} />
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {getSubItems('CHICKEN', 'Chicken Sandwich').length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                      <span className="w-1 h-6 bg-red-700"></span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Chicken Sandwich</span>
+                    </h3>
+                    <ul className="space-y-1">
+                      {getSubItems('CHICKEN', 'Chicken Sandwich').map((item, index) => (
                         <MenuItem key={index} {...item} />
                       ))}
                     </ul>
@@ -1166,100 +866,174 @@ export default function MenuPage() {
             </Card>
           )}
 
-          {/* COCKTAILS SECTION */}
-          {showCocktailsSection && (
+          {/* CATFISH SECTION */}
+          {hasCategory('CATFISH') && (
             <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
               <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
-                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">COCKTAILS</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">CATFISH</CardTitle>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
-                {/* Specialty Cocktails */}
+                {getSubItems('CATFISH', 'Catfish Dinners').length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                      <span className="w-1 h-6 bg-red-700"></span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Catfish Dinners</span>
+                    </h3>
+                    <p className="text-sm text-[#333536] italic mb-3">Served with fries, bread, and coleslaw</p>
+                    <ul className="space-y-1">
+                      {getSubItems('CATFISH', 'Catfish Dinners').map((item, index) => (
+                        <MenuItem key={index} {...item} />
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {getSubItems('CATFISH', 'Catfish Buckets').length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                      <span className="w-1 h-6 bg-red-700"></span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Catfish Buckets</span>
+                    </h3>
+                    <ul className="space-y-1">
+                      {getSubItems('CATFISH', 'Catfish Buckets').map((item, index) => (
+                        <MenuItem key={index} {...item} />
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          )}
+
+          {/* COMBOS & PIZZA SECTION */}
+          {hasCategory('COMBOS & PIZZA') && (
+            <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
+              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
+                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">COMBOS & PIZZA</CardTitle>
+              </CardHeader>
+              <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
+                {getSubItems('COMBOS & PIZZA', 'Combos').length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                      <span className="w-1 h-6 bg-red-700"></span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Combos</span>
+                    </h3>
+                    <p className="text-sm text-[#333536] italic mb-3">Served with fries, bread, and coleslaw</p>
+                    <ul className="space-y-1">
+                      {getSubItems('COMBOS & PIZZA', 'Combos').map((item, index) => (
+                        <MenuItem key={index} {...item} />
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {getSubItems('COMBOS & PIZZA', 'Pizza').length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                      <span className="w-1 h-6 bg-red-700"></span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Pizza</span>
+                    </h3>
+                    <ul className="space-y-1">
+                      {getSubItems('COMBOS & PIZZA', 'Pizza').map((item, index) => (
+                        <MenuItem key={index} {...item} />
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          )}
+
+          {/* DRINKS SECTION */}
+          {hasCategory('DRINKS') && (
+            <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
+              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
+                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">DRINKS</CardTitle>
+              </CardHeader>
+              <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
+                {getSubItems('DRINKS', "Harold's Specialty Cocktails").length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                      <span className="w-1 h-6 bg-red-700"></span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Harold&apos;s Specialty Cocktails</span>
+                    </h3>
+                    <ul className="space-y-1">
+                      {getSubItems('DRINKS', "Harold's Specialty Cocktails").map((item, index) => (
+                        <MenuItem key={index} {...item} />
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {getSubItems('DRINKS', "Harold's Flavored Lemonades").length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                      <span className="w-1 h-6 bg-red-700"></span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Harold&apos;s Flavored Lemonades</span>
+                    </h3>
+                    <p className="text-sm text-[#333536] italic mb-3">Non-Alcoholic</p>
+                    <ul className="space-y-1">
+                      {getSubItems('DRINKS', "Harold's Flavored Lemonades").map((item, index) => (
+                        <MenuItem key={index} {...item} />
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          )}
+
+          {/* SIDES & EXTRAS SECTION */}
+          {hasCategory('SIDES & EXTRAS') && (
+            <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
+              <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
+                <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">SIDES & EXTRAS</CardTitle>
+              </CardHeader>
+              <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
+                {getSubItems('SIDES & EXTRAS', "Harold's Signature Sauces").length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                      <span className="w-1 h-6 bg-red-700"></span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Harold&apos;s Signature Sauces</span>
+                    </h3>
+                    <ul className="space-y-1">
+                      {getSubItems('SIDES & EXTRAS', "Harold's Signature Sauces").map((item, index) => (
+                        <MenuItem key={index} {...item} />
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {getSubItems('SIDES & EXTRAS', 'Sides & Extras').length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
+                      <span className="w-1 h-6 bg-red-700"></span>
+                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Sides & Extras</span>
+                    </h3>
+                    <ul className="space-y-1">
+                      {getSubItems('SIDES & EXTRAS', 'Sides & Extras').map((item, index) => (
+                        <MenuItem key={index} {...item} />
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {/* Sauce Options — informational grid */}
                 <div>
                   <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
                     <span className="w-1 h-6 bg-red-700"></span>
-                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Specialty Cocktails</span>
+                    <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Sauce Options</span>
                   </h3>
-                  <ul className="space-y-3">
-                    {filteredSpecialtyCocktails.map((cocktail, index) => (
-                      <Cocktail key={index} {...cocktail} />
+                  <div className="flex flex-wrap gap-2">
+                    {sauceOptions.map((sauce, index) => (
+                      <span
+                        key={index}
+                        className="px-4 py-2 bg-[#F8F9FA] border border-gray-200 rounded-full text-sm font-medium text-[#202124]"
+                      >
+                        {sauce}
+                      </span>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </CardContent>
             </Card>
           )}
 
-
-          {/* PARTY PANS AND DESSERTS CONTAINER */}
-          <div className="col-span-1 lg:col-span-2 xl:col-span-3 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-            {/* PARTY PANS SECTION */}
-            {(!selectedCategories.length || selectedCategories.includes("PARTY PANS")) && (
-              <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-                <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
-                  <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">PARTY PANS</CardTitle>
-                </CardHeader>
-                <CardContent className="p-4 sm:p-6 md:p-8 bg-white">
-                  <div className="grid grid-cols-1 gap-8">
-                    {/* Wing Party Pans */}
-                    <div>
-                      <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                        <span className="w-1 h-6 bg-red-700"></span>
-                        <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Wing Party Pans</span>
-                      </h3>
-                      <ul className="space-y-2">
-                        {filteredPartyWings.length === 0 ? (
-                          <li className="text-gray-500 italic">No items found for your search/filter.</li>
-                        ) : (
-                          filteredPartyWings.map((item, index) => (
-                            <MenuItem key={index} {...item} />
-                          ))
-                        )}
-                      </ul>
-                    </div>
-
-                    {/* Mixed Chicken Party Pans */}
-                    <div>
-                      <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                        <span className="w-1 h-6 bg-red-700"></span>
-                        <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Mixed Chicken Party Pans</span>
-                      </h3>
-                      <ul className="space-y-2">
-                        {filteredPartyMixed.length === 0 ? (
-                          <li className="text-gray-500 italic">No items found for your search/filter.</li>
-                        ) : (
-                          filteredPartyMixed.map((item, index) => (
-                            <MenuItem key={index} {...item} />
-                          ))
-                        )}
-                      </ul>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            )}
-
-            {/* DESSERTS SECTION */}
-            {showDessertsSection && (
-              <Card className="bg-white border-2 border-gray-200 h-full transition-all duration-300">
-                <CardHeader className="bg-[#1a1a1a] rounded-t-xl p-4 sm:p-6 md:p-8">
-                  <CardTitle className="text-xl sm:text-2xl text-white font-bold text-center uppercase">DESSERTS</CardTitle>
-                </CardHeader>
-                <CardContent className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-white">
-                  <div>
-                    <h3 className="text-xl font-bold text-[#202124] mb-4 flex items-center">
-                      <span className="w-1 h-6 bg-red-700"></span>
-                      <span className="bg-gray-200 px-6 py-1 h-6 flex items-center text-gray-800">Desserts</span>
-                    </h3>
-                    <ul className="space-y-2">
-                      {filteredDesserts.map((item, index) => (
-                        <MenuItem key={index} {...item} />
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
-            )}
-          </div>
         </div>
 
         {/* Restaurant Notices */}
@@ -1268,4 +1042,4 @@ export default function MenuPage() {
       <Footer />
     </div>
   );
-} 
+}

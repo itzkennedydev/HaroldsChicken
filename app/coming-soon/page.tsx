@@ -12,7 +12,7 @@ export default function ComingSoon() {
       <main className="min-h-screen flex flex-col">
         <section className="relative flex-grow w-full">
           <Image
-            src="/images/CareersBG.png"
+            src="https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/CareersBG.png"
             alt="Harold's Chicken background"
             fill
             className="object-cover"

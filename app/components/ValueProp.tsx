@@ -30,7 +30,7 @@ const VALUE_PROPS_DATA: ValuePropItem[] = [
       imagePosition: "bottom",
       imageAlt: "Best Seller placeholder",
       imagePlaceholder: false,
-      imageSrc: "/images/ValueProp/FreshChicken.jpeg"
+      imageSrc: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/ValueProp/FreshChicken.jpeg"
     },
     {
       id: 2,
@@ -41,7 +41,7 @@ const VALUE_PROPS_DATA: ValuePropItem[] = [
       imagePosition: "left",
       imageAlt: "New Item placeholder",
       imagePlaceholder: false,
-      imageSrc: "/images/ValueProp/FullMenu.jpg"
+      imageSrc: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/ValueProp/FullMenu.jpg"
     },
     {
       id: 3,
@@ -52,7 +52,7 @@ const VALUE_PROPS_DATA: ValuePropItem[] = [
       imagePosition: "right",
       imageAlt: "Value placeholder",
       imagePlaceholder: false,
-      imageSrc: "/images/ValueProp/Bar.jpeg"
+      imageSrc: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/ValueProp/Bar.jpeg"
     }
 ];
 

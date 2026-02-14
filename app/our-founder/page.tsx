@@ -9,7 +9,7 @@ function HeroSection() {
   return (
     <section className="relative min-h-[600px] w-full">
       <Image
-        src="/images/History.jpeg"
+        src="https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/History.jpeg"
         alt="Historic Harold's Chicken location"
         fill
         className="object-cover"
@@ -40,7 +40,7 @@ function FounderStory() {
           <div className="w-full md:w-1/3">
             <div className="relative aspect-[4/5] w-full">
               <Image
-                src="/images/Harold.jpg"
+                src="https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/Harold.jpg"
                 alt="Harold&apos;s Chicken founder in the original kitchen"
                 fill
                 className="object-cover rounded-lg"
@@ -80,7 +80,7 @@ function LegacySection() {
             <div className="grid grid-cols-2 gap-6">
               <div className="relative aspect-square w-full">
                 <Image
-                  src="/images/Legacy/HaroldsSB.jpeg"
+                  src="https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/Legacy/HaroldsSB.jpeg"
                   alt="Customers enjoying Harold's Chicken"
                   fill
                   className="rounded-lg object-cover"
@@ -90,7 +90,7 @@ function LegacySection() {
               </div>
               <div className="relative aspect-square w-full">
                 <Image
-                  src="/images/Legacy/NewBar.jpeg"
+                  src="https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/Legacy/NewBar.jpeg"
                   alt="Classic Harold's storefront"
                   fill
                   className="rounded-lg object-cover"

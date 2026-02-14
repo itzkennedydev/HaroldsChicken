@@ -8,7 +8,7 @@ function HeroSection() {
   return (
     <section className="relative min-h-[600px] w-full">
       <Image
-        src="/images/CareersBG.png"
+        src="https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/CareersBG.png"
         alt="Harold&apos;s Sports Bar atmosphere"
         fill
         className="object-cover"

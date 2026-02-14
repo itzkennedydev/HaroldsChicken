@@ -24,7 +24,7 @@ const MENU_ITEMS: MenuItem[] = [
     name: "PARTY PLATTER",
     calories: "480-690",
     price: "8.99",
-    image: "/images/ValueProp/FullMenu.jpg",
+    image: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/ValueProp/FullMenu.jpg",
     imageAlt: "Fish and fries combo meal",
     tag: "BEST SELLER",
     description: "A mix of our golden-fried fish, chicken tenders, and signature seasoned fries"
@@ -34,7 +34,7 @@ const MENU_ITEMS: MenuItem[] = [
     name: "HOT HEAVY HONEY GLAZE BISCUITS",
     calories: "320-450",
     price: "5.99",
-    image: "/images/HoneyBiscuits.png",
+    image: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/HoneyBiscuits.png",
     imageAlt: "Freshly baked honey glazed biscuits",
     tag: "NEW",
     description: "Warm, fluffy biscuits drizzled with our signature honey glaze"
@@ -44,7 +44,7 @@ const MENU_ITEMS: MenuItem[] = [
     name: "CRISPY CHICKEN BUCKET",
     calories: "840-1200",
     price: "19.99",
-    image: "/images/ValueBucket.jpg",
+    image: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/ValueBucket.jpg",
     imageAlt: "Family size chicken bucket",
     tag: "VALUE",
     description: "18 wings with your choice of sauces, perfect for sharing"

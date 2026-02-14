@@ -22,67 +22,67 @@ export default function Page() {
   const galleryImages = [
     {
       id: 1,
-      src: "/images/1B.jpeg",
+      src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/1B.jpeg",
       alt: "",
       caption: ""
     },
     {
       id: 2,
-      src: "/images/2B.jpg",
+      src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/2B.jpg",
       alt: "",
       caption: ""
     },
     {
       id: 3,
-      src: "/images/3B.jpg",
+      src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/3B.jpg",
       alt: "",
       caption: ""
     },
     {
       id: 4,
-      src: "/images/4B.jpg",
+      src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/4B.jpg",
       alt: "",
       caption: ""
     },
     {
       id: 5,
-      src: "/images/5B.jpg",
+      src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/5B.jpg",
       alt: "",
       caption: ""
     },
     {
       id: 6,
-      src: "/images/7B.png",
+      src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/7B.png",
       alt: "",
       caption: ""
     },
     {
       id: 7,
-      src: "/images/8B.png",
+      src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/8B.png",
       alt: "",
       caption: ""
     },
     {
       id: 8,
-      src: "/images/9B.jpeg",
+      src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/9B.jpeg",
       alt: "",
       caption: ""
     },
     {
       id: 9,
-      src: "/images/10B.JPG",
+      src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/10B.JPG",
       alt: "",
       caption: ""
     },
     {
       id: 10,
-      src: "/images/11B.png",
+      src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/11B.png",
       alt: "",
       caption: ""
     },
     {
       id: 11,
-      src: "/images/12B.png",
+      src: "https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/12B.png",
       alt: "",
       caption: ""
     }
@@ -126,7 +126,7 @@ export default function Page() {
                 <div className="sticky top-32 w-full relative">
                   <div className="relative aspect-[3/4] shadow-2xl rounded-3xl overflow-hidden">
                     <Image
-                      src="/images/Josiah.png"
+                      src="https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/Josiah.png"
                       alt="Josiah Blanton"
                       fill
                       className="object-cover"
@@ -136,7 +136,7 @@ export default function Page() {
                   {/* Birthday image overlay */}
                   <div className="absolute bottom-[-40px] right-[-20px] w-2/5 h-2/5 z-20 rounded-2xl overflow-hidden shadow-xl ring-4 ring-white">
                     <Image
-                      src="/images/Bday.jpg"
+                      src="https://d3kd1cq6xnp2l4.cloudfront.net/harolds_chicken/public/images/Bday.jpg"
                       alt="Birthday celebration"
                       fill
                       className="object-cover"
