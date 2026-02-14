@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import "./globals.css";
-import { PHProvider } from '@/app/providers/PostHogProvider'
+
 import defaultSEO from './metadata'
 import Script from 'next/script'
 
@@ -121,12 +121,10 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <PHProvider>
         <body className="antialiased">
           <div className="fixed inset-0 -z-10 bg-[#1a1a1a] w-screen h-screen pointer-events-none" aria-hidden="true" />
           {children}
         </body>
-      </PHProvider>
     </html>
   );
 }
